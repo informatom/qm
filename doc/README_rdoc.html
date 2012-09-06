@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./license - gplv3_rdoc.html">license - gplv3</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+    <li><a href="./Qm.html">Qm</a>
+  
+    <li><a href="./Qm/Application.html">Qm::Application</a>
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./BrowsingTest.html">BrowsingTest</a>
+  
+    <li><a href="./DeviseCreateUsers.html">DeviseCreateUsers</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserHelper.html">UserHelper</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h2 id="label-Welcome+to+QM">Welcome to QM</h2>
+
+<p>QM is an open source Ruby on Rails based qm solution / web application</p>
+
+<h2 id="label-License">License</h2>
+
+<p>QM is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.</p>
+
+<p>This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.</p>
+
+<p>You should have received a copy of the GNU General Public License in the
+subdirectory `doc` along with this program.  If not, see &lt;<a
+href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>&gt;.</p>
+
+<h2 id="label-License+in+German">License in German</h2>
+
+<p>QM Programm ist Freie Software: Sie können es unter den Bedingungen der GNU
+General Public License, wie von der Free Software Foundation, Version 3 der
+Lizenz oder (nach Ihrer Option) jeder späteren veröffentlichten Version,
+weiterverbreiten und/oder modifizieren.</p>
+
+<p>Dieses Programm wird in der Hoffnung, dass es nützlich sein wird, aber OHNE
+JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.</p>
+
+<p>Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm im Unterverzeichnis `doc` erhalten haben. Wenn nicht, siehe <a
+href="http://www.gnu.org/licenses/.">www.gnu.org/licenses/.</a></p>
+
+<h2 id="label-Contributors">Contributors</h2>
+<ul><li>
+<p>Stefan Haslinger: developer and application design</p>
+</li><li>
+<p>Walter Kalcher: business logic design and requirements management</p>
+</li><li>
+<p>Bundleing of all gems:</p>
+
+<pre>bundle install</pre>
+</li></ul>
+
+<p>No database has to be created manually, because SQLite is used as database
+engine.</p>
+
+<h2 id="label-Installation+of+Gems">Installation of Gems</h2>
+
+<p>Gems have been installed in the following way. (Need not be done for
+deployment!)</p>
+<ul><li>
+<p>Twitter Bootstrap</p>
+
+<pre>rails g bootstrap:install                      # Installation of Twitter Bootstrap
+rails g bootstrap:layout application fluid     # Generates fluid application.html.erb layout</pre>
+</li><li>
+<p>Cancan</p>
+
+<pre>rails g cancan:ability</pre>
+</li><li>
+<p>Devise</p>
+
+<pre>rails generate devise:install
+rails generate devise:views
+rails generate devise user
+rake db:migrate</pre>
+</li></ul>
+
+<p>You have to comment out</p>
+
+<pre># devise_for :users</pre>
+
+<p>in <code>config/routes.rb</code> to be able to successfully scaffold</p>
+
+<pre>rails g scaffold User --migration=false</pre>
+
+<h2 id="label-Generated+Models">Generated Models</h2>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
