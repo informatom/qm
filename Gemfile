@@ -6,13 +6,14 @@ gem 'sqlite3'                                        # filebased database
 gem 'devise'                                         # authentification
 gem 'cancan'                                         # access control
 gem 'ancestry'                                       # hierarchical comments
-gem "twitter-bootstrap-rails", :group => :assets     # Twitter Bootstrap for Rails 3.1 Asset Pipeline
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS
   gem 'coffee-rails', '~> 3.2.1'                     # enables Coffeescript in addition to Javascript
   gem 'therubyracer', :platforms => :ruby            # serverside Javascript engine
   gem 'uglifier', '>= 1.0.3'                         # Javascript compressor
+  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+                                                     # Twitter Bootstrap for Rails 3.1 Asset Pipeline
 end
 
 gem 'jquery-rails'                                   # Javascript framework
