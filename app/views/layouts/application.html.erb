@@ -47,9 +47,13 @@
           <a class="brand" href="#">Qm</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
+              <li><%= link_to t("activerecord.models.user.other"), users_path %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+            </ul>
+            <ul class="nav pull-right">
+              <li><%= link_to "DE", "/?locale=de" %></li>
+              <li><%= link_to "EN", "/?locale=en" %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
