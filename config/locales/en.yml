@@ -213,3 +213,10 @@ en:
   activerecord:
     errors:
       <<: *errors
+    models:
+      role:
+        one: Role
+        other: Roles
+      user:
+        one: User
+        other: Users

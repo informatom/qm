@@ -208,14 +208,21 @@ de:
   activemodel:
     errors:
       <<: *errors
+
   activerecord:
     errors:
       <<: *errors
     models:
+      role:
+        one: Rolle
+        other: Rollen
       user:
         one: Benutzer
         other: Benutzer
     attributes:
+      role:
+        created_at: erzeugt
+        updated_at: aktualisiert
       user:
         current_sign_in_at: angemeldet seit
         current_sign_in_ip: angemeldet von IP
@@ -225,7 +232,9 @@ de:
         last_sign_in_at: zuletzt angemeldet
         last_sign_in_ip: zuletzt von IP
         password_salt: Passwort Salt
+        remember_me: Passwort merken
         reset_password_token: Passwort Entschlüsseler
         reset_password_sent_at: Passwortreset zugestellt
         sign_in_count: Anzahl Anmeldungen
         updated_at: aktualisiert
+        user_roles: Rollen

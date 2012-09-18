@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'                                 # latest stable Rails versi
 
 gem 'sqlite3'                                        # filebased database
 gem 'devise'                                         # authentification
+gem 'devise-i18n-views'                              # translated views for devise
 gem 'cancan'                                         # access control
 gem 'ancestry'                                       # hierarchical comments
 

@@ -2,6 +2,7 @@ Qm::Application.routes.draw do
 
   devise_for :users
   resources :users
+  resources :roles
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

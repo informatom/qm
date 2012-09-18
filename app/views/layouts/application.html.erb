@@ -48,12 +48,12 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to t("activerecord.models.user.other"), users_path %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to "DE", "/?locale=de" %></li>
               <li><%= link_to "EN", "/?locale=en" %></li>
+              <li><%= link_to t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -62,13 +62,11 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
               <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
