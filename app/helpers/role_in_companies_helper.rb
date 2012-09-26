@@ -1,0 +1,2 @@
+module RoleInCompaniesHelper
+end

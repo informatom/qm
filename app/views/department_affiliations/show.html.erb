@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @department_affiliation.user_id %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @department_affiliation.department_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_affiliation_path(@department_affiliation) %> |
+<%= link_to 'Back', department_affiliations_path %>

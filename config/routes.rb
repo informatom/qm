@@ -1,5 +1,19 @@
 Qm::Application.routes.draw do
 
+  resources :department_affiliations
+
+  resources :employments
+
+  resources :role_in_companies
+
+  resources :departments
+
+  resources :functions
+
+  resources :companies
+
+  resources :substitutions
+
   devise_for :users
   resources :users
   resources :roles

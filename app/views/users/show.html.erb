@@ -6,6 +6,32 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @user.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:firstname) %>:</strong></dt>
+  <dd><%= @user.firstname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lastname) %>:</strong></dt>
+  <dd><%= @user.lastname %></dd>
+  <% if @user.parent %>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= "#@user.parent.firstname #@user.parent.lastname" %></dd>
+  <% end %>
+  <% for deputy in @user.deputies.all %>
+    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dd><%= "#deputy.firstname #deputy.lastname" %></dd>
+  <% end %>
+  <% for function in @user.functions.all %>
+    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dd><%= function.name %></dd>
+  <% end %>
+  <% for role_in_company in @user.roles_in_company.all %>
+    <dt><strong><%= model_class.human_attribute_name(:role_in_company) %>:</strong></dt>
+    <dd><%= role_in_company.name %></dd>
+  <% end %>
+  <% for company in @user.companies.all %>
+    <% for department in @user.departments.where( company: company ) %>
+      <dt><strong><%= model_class.human_attribute_name(:department) %>:</strong></dt>
+      <dd><%= "#department.name (#department.company.name )"%></dd>
+    <% end %>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:sign_in_count) %>:</strong></dt>
   <dd><%= @user.sign_in_count %></dd>
   <dt><strong><%= model_class.human_attribute_name(:current_sign_in_at) %>:</strong></dt>
@@ -17,9 +43,9 @@
   <dt><strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong></dt>
   <dd><%= @user.last_sign_in_ip %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_roles) %>:</strong></dt>
-    <% for role in @user.roles.all %>
-      <dd><%= role.name %></dd>
-    <% end %>
+  <% for role in @user.roles.all %>
+    <dd><%= role.name %></dd>
+  <% end %>
   <%= hidden_field_tag "user[role_ids][]", "" %>
   <dt><strong><%= model_class.human_attribute_name(:reset_password_sent_at) %>:</strong></dt>
   <dd><%= @user.reset_password_sent_at %></dd>

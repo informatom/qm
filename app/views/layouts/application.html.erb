@@ -47,7 +47,7 @@
           <a class="brand" href="#">Qm</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to t("activerecord.models.user.other"), users_path %></li>
+              <li><%= link_to t("admin"), "/" %></li>
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to "DE", "/?locale=de" %></li>
@@ -65,8 +65,16 @@
         <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
+              <li class="nav-header">Administration</li>
+              <li><%= link_to t("activerecord.models.company.other"), companies_path %></li>
+              <li><%= link_to t("activerecord.models.department.other"), departments_path %></li>
+              <li><%= link_to t("activerecord.models.user.other"), users_path %></li>
+              <li><%= link_to t("activerecord.models.role.other"), roles_path %></li>
+              <li><%= link_to t("activerecord.models.substitution.other"), substitutions_path %></li>
+              <li><%= link_to t("activerecord.models.employment.other"), employments_path %></li>
+              <li><%= link_to t("activerecord.models.department_affiliation.other"), department_affiliations_path %></li>
+              <li><%= link_to t("activerecord.models.function.other"), functions_path %></li>
+              <li><%= link_to t("activerecord.models.role_in_company.other"), role_in_companies_path %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

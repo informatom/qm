@@ -1,0 +1,25 @@
+<h1>Listing role_in_companies</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @role_in_companies.each do |role_in_company| %>
+  <tr>
+    <td><%= role_in_company.name %></td>
+    <td><%= role_in_company.company_id %></td>
+    <td><%= link_to 'Show', role_in_company %></td>
+    <td><%= link_to 'Edit', edit_role_in_company_path(role_in_company) %></td>
+    <td><%= link_to 'Destroy', role_in_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Role in company', new_role_in_company_path %>

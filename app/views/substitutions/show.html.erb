@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @substitution.user_id %>
+</p>
+
+<p>
+  <b>Deputy:</b>
+  <%= @substitution.deputy_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_substitution_path(@substitution) %> |
+<%= link_to 'Back', substitutions_path %>

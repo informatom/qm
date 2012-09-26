@@ -11,5 +11,6 @@ namespace :qm do
     @user.password_confirmation = "admin123"
     @user.assignments.build(:role => @admin)
     @user.save
+    @user.assignments.first.save
   end
 end

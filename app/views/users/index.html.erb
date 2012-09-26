@@ -7,11 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:sign_in_count) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= model_class.human_attribute_name(:updated_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,11 +17,6 @@
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.email %></td>
-        <td><%= user.sign_in_count %></td>
-        <td><%= user.current_sign_in_at %></td>
-        <td><%= user.current_sign_in_ip %></td>
-        <td><%= user.last_sign_in_at %></td>
-        <td><%= user.last_sign_in_ip %></td>
         <td><%=l user.created_at %></td>
         <td><%=l user.updated_at %></td>
         <td>
@@ -43,7 +33,7 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human(:count => 2)),
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_user_registration_path,
 #            new_user_path,
             :class => 'btn btn-primary' %>

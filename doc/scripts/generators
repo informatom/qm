@@ -1,0 +1,29 @@
+rails generate migration add_fields_to_user firstname:string lastname:string function_id:integer role_in_company_id:integer deputy_id:integer parent_id:integer department_id:integer company_id:integer
+
+rails generate scaffold Substitution user_id:integer deputy_id:integer
+
+rails generate scaffold Company name:integer
+
+rails generate scaffold Function name:string company_id:integer
+
+rails generate scaffold Department name:string company_id:integer
+
+rails generate scaffold RoleInCompany name:string company_id:integer
+
+# several changes for correct plural name:
+#   role_in_company.rb
+#     set_table_name "roles_in_company"
+#   config/initializers/infelctions.rb
+#     inflect.irregular 'RoleInCompany', 'RolesInCompany'
+#   user.rb
+#     has_and_belongs_to_many :roles_in_company, :join_table => "roles_in_company_users"
+
+rails generate migration create_functions_users
+# migration has to be written manually
+
+rails generate migration create_roles_in_company_users
+# migration has to be written manually
+
+rails generate scaffold Employment user_id:integer company_id:integer
+
+rails generate scaffold DepartmentAffiliation user_id:integer department_id:integer

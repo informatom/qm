@@ -1,0 +1,25 @@
+<h1>Listing department_affiliations</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Department</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @department_affiliations.each do |department_affiliation| %>
+  <tr>
+    <td><%= department_affiliation.user_id %></td>
+    <td><%= department_affiliation.department_id %></td>
+    <td><%= link_to 'Show', department_affiliation %></td>
+    <td><%= link_to 'Edit', edit_department_affiliation_path(department_affiliation) %></td>
+    <td><%= link_to 'Destroy', department_affiliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Department affiliation', new_department_affiliation_path %>

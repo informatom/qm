@@ -1,0 +1,7 @@
+class Department < ActiveRecord::Base
+  attr_accessible :company_id, :name
+
+  validates_presence_of :name
+  validates_uniqueness_of :name
+  belongs_to :company
+end

@@ -212,25 +212,80 @@ de:
   activerecord:
     errors:
       <<: *errors
+
+#### MODELS ###
     models:
+      assignment:
+        one: Zuordnung
+        other: Zuordnungen
+      company:
+        one: Firma
+        other: Firmen
+      department:
+        one: Abteilung
+        other: Abteilungen
+      department_affiliation:
+        one: Abteilungszugehörigkeit
+        other: Abteilungszugehörigkeiten
+      employment:
+        one: Anstellungsverhältnis
+        other: Anstellungsverhätnisse
+      function:
+        one: Funktion
+        other: Funktionen
       role:
+        one: Rolle in Anwendung
+        other: Rollen in Anwendung
+      role_in_company:
         one: Rolle
         other: Rollen
+      substitution:
+        one: Stellvertretung
+        other: Stellvertretungen
       user:
-        one: Benutzer
-        other: Benutzer
+        one: Person
+        other: Personen
+
+#### ATTRIBUTES #####
     attributes:
+      assigment:
+        user: Benutzer
+        role: Rolle in Anwendung
+      company:
+        name: Name
+      department:
+        company: Firma
+        name: Name
+      department_affiliation:
+        department: Abteilung
+        user: Person
+      employment:
+        company: Firma
+        user: Person
+      function:
+        company: Firma
+        name: Bezeichnung
       role:
         created_at: erzeugt
+        name: Name
         updated_at: aktualisiert
+      role_in_company:
+        company: Firma
+        name: Bezeichnung
+      substitution:
+        deputy: Stellvertreter
+        user: Person
       user:
         current_sign_in_at: angemeldet seit
         current_sign_in_ip: angemeldet von IP
         created_at: erzeugt
         encrypted_password: verschlüsseltes Passwort
         email: E-Mail
+        firstname: Vorname
+        lastname: Familienname
         last_sign_in_at: zuletzt angemeldet
         last_sign_in_ip: zuletzt von IP
+        parent: Vorgesetzter
         password_salt: Passwort Salt
         remember_me: Passwort merken
         reset_password_token: Passwort Entschlüsseler
