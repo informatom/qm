@@ -15,7 +15,9 @@ Qm::Application.routes.draw do
   resources :substitutions
 
   devise_for :users
-  resources :users
+  namespace :admin do
+    resources :users # Have the admin manage them here.
+  end
   resources :roles
 
   # Sample of regular route:
@@ -64,7 +66,7 @@ Qm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'users#index'
+  root :to => 'admin/users#index'
 
   # See how all your routes lay out with "rake routes"
 end

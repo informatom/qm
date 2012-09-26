@@ -1,25 +1,38 @@
-<h1>Listing substitutions</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Deputy</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @substitutions.each do |substitution| %>
-  <tr>
-    <td><%= substitution.user_id %></td>
-    <td><%= substitution.deputy_id %></td>
-    <td><%= link_to 'Show', substitution %></td>
-    <td><%= link_to 'Edit', edit_substitution_path(substitution) %></td>
-    <td><%= link_to 'Destroy', substitution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Substitution -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:deputy_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @substitutions.each do |substitution| %>
+      <tr>
+        <td><%= link_to substitution.id, substitution_path(substitution) %></td>
+        <td><%= substitution.user.name %></td>
+        <td><%= substitution.deputy.name %></td>
+        <td><%=l substitution.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_substitution_path(substitution), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      substitution_path(substitution),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Substitution', new_substitution_path %>
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_substitution_path,
+            :class => 'btn btn-primary' %>

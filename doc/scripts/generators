@@ -2,7 +2,7 @@ rails generate migration add_fields_to_user firstname:string lastname:string fun
 
 rails generate scaffold Substitution user_id:integer deputy_id:integer
 
-rails generate scaffold Company name:integer
+rails generate scaffold Company name:string
 
 rails generate scaffold Function name:string company_id:integer
 
@@ -27,3 +27,7 @@ rails generate migration create_roles_in_company_users
 rails generate scaffold Employment user_id:integer company_id:integer
 
 rails generate scaffold DepartmentAffiliation user_id:integer department_id:integer
+
+rails g migration add_ancestry_to_users ancestry:string
+# add index manually:
+# add_index users, :ancestry

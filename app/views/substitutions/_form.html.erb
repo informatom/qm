@@ -1,25 +1,12 @@
-<%= form_for(@substitution) do |f| %>
-  <% if @substitution.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@substitution.errors.count, "error") %> prohibited this substitution from being saved:</h2>
+<%- model_class = Substitution -%>
+<%= bootstrap_error(@substitution, model_class ) %>
 
-      <ul>
-      <% @substitution.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :deputy_id %><br />
-    <%= f.number_field :deputy_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @substitution, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :user %>
+  <%= f.association :deputy %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                substitutions_path, :class => 'btn' %>
   </div>
 <% end %>

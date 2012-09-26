@@ -1,4 +1,20 @@
 de:
+  attributes:
+    company: Firma
+    company_id: Firma
+    deputies: Stellvertreter
+    deputy: Stellvertreter
+    deputy_id: Stellvertreter
+    created_at: erzeugt
+    name: Name
+    parent: Vorgesetzter
+    password: Passwort
+    password_confirmation: Passwortwiederholung
+    role: Rollen
+    updated_at: aktualisiert
+    user: Person
+    user_id: Person
+
   date:
     abbr_day_names:
     - So
@@ -95,6 +111,7 @@ de:
       month: Monat
       second: Sekunden
       year: Jahr
+  error: Fehler
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
@@ -124,14 +141,17 @@ de:
       header:
         one: ! 'Konnte %{model} nicht speichern: ein Fehler.'
         other: ! 'Konnte %{model} nicht speichern: %{count} Fehler.'
+
+### TWITTER BOOTSTRAP HELPERS ###
   helpers:
     actions: Aktionen
+    error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
     links:
       back: Zurück
       cancel: Abbrechen
       destroy: Löschen
       edit: Bearbeiten
-      new: Erzeuge %{model}
+      new: Erstelle %{model}
     select:
       prompt: Bitte wählen
     submit:
@@ -140,7 +160,7 @@ de:
       update: ! '%{model} aktualisieren'
     titles:
       edit: Bearbeite %{model}
-      new: Erzeuge %{model}
+      new: Erstelle %{model}
   number:
     currency:
       format:
@@ -249,36 +269,14 @@ de:
 #### ATTRIBUTES #####
     attributes:
       assigment:
-        user: Benutzer
         role: Rolle in Anwendung
-      company:
-        name: Name
-      department:
-        company: Firma
-        name: Name
       department_affiliation:
         department: Abteilung
-        user: Person
-      employment:
-        company: Firma
-        user: Person
-      function:
-        company: Firma
-        name: Bezeichnung
-      role:
-        created_at: erzeugt
-        name: Name
-        updated_at: aktualisiert
-      role_in_company:
-        company: Firma
-        name: Bezeichnung
       substitution:
         deputy: Stellvertreter
-        user: Person
       user:
         current_sign_in_at: angemeldet seit
         current_sign_in_ip: angemeldet von IP
-        created_at: erzeugt
         encrypted_password: verschlüsseltes Passwort
         email: E-Mail
         firstname: Vorname
@@ -291,5 +289,4 @@ de:
         reset_password_token: Passwort Entschlüsseler
         reset_password_sent_at: Passwortreset zugestellt
         sign_in_count: Anzahl Anmeldungen
-        updated_at: aktualisiert
         user_roles: Rollen

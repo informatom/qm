@@ -1,15 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Substitution -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @substitution.user_id %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @substitution.user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:deputy_id) %>:</strong></dt>
+  <dd><%= @substitution.deputy.name %></dd>
+</dl>
 
-<p>
-  <b>Deputy:</b>
-  <%= @substitution.deputy_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_substitution_path(@substitution) %> |
-<%= link_to 'Back', substitutions_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              substitutions_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_substitution_path(@substitution), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              substitution_path(@substitution),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

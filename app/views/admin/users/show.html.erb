@@ -15,11 +15,11 @@
   <dd><%= "#@user.parent.firstname #@user.parent.lastname" %></dd>
   <% end %>
   <% for deputy in @user.deputies.all %>
-    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-    <dd><%= "#deputy.firstname #deputy.lastname" %></dd>
+    <dt><strong><%= model_class.human_attribute_name(:deputy) %>:</strong></dt>
+    <dd><%= deputy.name %></dd>
   <% end %>
   <% for function in @user.functions.all %>
-    <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+    <dt><strong><%= model_class.human_attribute_name(:function) %>:</strong></dt>
     <dd><%= function.name %></dd>
   <% end %>
   <% for role_in_company in @user.roles_in_company.all %>
@@ -54,11 +54,11 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              users_path, :class => 'btn'  %>
+              admin_users_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_path(@user), :class => 'btn' %>
+              edit_admin_user_path(@user), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              user_path(@user),
+              admin_user_path(@user),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

@@ -52,5 +52,5 @@ in +config/routes.rb+ to be able to successfully scaffold
 
   rails g bootstrap:themed Users
 
-
-== Generated Models
+* Simpleform
+   rails generate simple_form:install --bootstrap

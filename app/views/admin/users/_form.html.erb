@@ -1,0 +1,17 @@
+<%= simple_form_for [:admin, @user], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :firstname %>
+  <%= f.input :lastname %>
+  <%= f.input :parent_id, :collection => User.all, :label => t("attributes.parent") %>
+  <%= f.association :deputies, :as => :check_boxes %>
+  <%= f.association :roles, :as => :check_boxes %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_users_path, :class => 'btn' %>
+  </div>
+
+<% end %>
