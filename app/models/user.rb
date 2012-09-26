@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   has_many :substitutions
   has_many :deputies, :through => :substitutions
   has_many :employments
+  has_many :department_affiliations
+  has_many :departments, :through => :department_affiliations
   has_many :companies, :through => :employments
   has_and_belongs_to_many :functions
   has_and_belongs_to_many :roles_in_company, :join_table => "roles_in_company_users"

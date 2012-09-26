@@ -27,10 +27,16 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    # keep old password if neither password nor password_confirmation are provided
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     @user = User.find(params[:id])
 
     if @user.update_attributes(params[:user])
-      redirect_to @admin_user, notice: 'User was successfully updated.'
+      redirect_to admin_user_path(@user), notice: 'User was successfully updated.'
     else
       render action: "edit"
     end

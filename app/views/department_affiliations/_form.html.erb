@@ -1,25 +1,12 @@
-<%= form_for(@department_affiliation) do |f| %>
-  <% if @department_affiliation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@department_affiliation.errors.count, "error") %> prohibited this department_affiliation from being saved:</h2>
+<%- model_class = DepartmentAffiliation -%>
+<%= bootstrap_error(@department_affiliation, model_class ) %>
 
-      <ul>
-      <% @department_affiliation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :department_id %><br />
-    <%= f.number_field :department_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @department_affiliation, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :user %>
+  <%= f.association :department %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                department_affiliations_path, :class => 'btn' %>
   </div>
 <% end %>

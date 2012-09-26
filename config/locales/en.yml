@@ -147,6 +147,8 @@ en:
     titles:
       edit: Edit %{model}
       new: Create %{model}
+  hints:
+    leave_empty: Leave empty, if you dont't want to change password.
   number:
     currency:
       format:
@@ -214,9 +216,30 @@ en:
     errors:
       <<: *errors
     models:
+      company:
+        one: Company
+        other: Companies
+      department:
+        one: Department
+        other: Departments
+      department_affiliation:
+        one: Department Affiliation
+        other: Department Affiliations
+      employment:
+        one: Employment
+        other: Employments
+      function:
+        one: Function
+        other: Functions
       role:
+        one: Role in Application
+        other: Roles in Application
+      role_in_company:
         one: Role
-        other: Roles
+        other: Rroles
+      substitution:
+        one: Substitution
+        other: Substitutions
       user:
-        one: User
-        other: Users
+        one: Person
+        other: People

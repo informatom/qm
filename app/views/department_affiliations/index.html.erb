@@ -1,25 +1,38 @@
-<h1>Listing department_affiliations</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Department</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @department_affiliations.each do |department_affiliation| %>
-  <tr>
-    <td><%= department_affiliation.user_id %></td>
-    <td><%= department_affiliation.department_id %></td>
-    <td><%= link_to 'Show', department_affiliation %></td>
-    <td><%= link_to 'Edit', edit_department_affiliation_path(department_affiliation) %></td>
-    <td><%= link_to 'Destroy', department_affiliation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = DepartmentAffiliation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:department_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @department_affiliations.each do |department_affiliation| %>
+      <tr>
+        <td><%= link_to department_affiliation.id, department_affiliation_path(department_affiliation) %></td>
+        <td><%= department_affiliation.user.name %></td>
+        <td><%= department_affiliation.department.name %></td>
+        <td><%=l department_affiliation.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_department_affiliation_path(department_affiliation), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      department_affiliation_path(department_affiliation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Department affiliation', new_department_affiliation_path %>
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_department_affiliation_path,
+            :class => 'btn btn-primary' %>

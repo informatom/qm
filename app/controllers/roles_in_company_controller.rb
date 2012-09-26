@@ -1,4 +1,4 @@
-class RoleInCompaniesController < ApplicationController
+class RolesInCompanyController < ApplicationController
   # GET /role_in_companies
   # GET /role_in_companies.json
   def index

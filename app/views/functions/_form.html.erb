@@ -1,25 +1,12 @@
-<%= form_for(@function) do |f| %>
-  <% if @function.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@function.errors.count, "error") %> prohibited this function from being saved:</h2>
+<%- model_class = Function -%>
+<%= bootstrap_error(@function, model_class ) %>
 
-      <ul>
-      <% @function.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :company_id %><br />
-    <%= f.text_field :company_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @function, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.association :company %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                functions_path, :class => 'btn' %>
   </div>
 <% end %>

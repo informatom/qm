@@ -2,15 +2,20 @@ de:
   attributes:
     company: Firma
     company_id: Firma
+    created_at: erzeugt
+    department: Abteilung
+    department_id: Abteilung
     deputies: Stellvertreter
     deputy: Stellvertreter
     deputy_id: Stellvertreter
-    created_at: erzeugt
+    function: Funktion
     name: Name
     parent: Vorgesetzter
     password: Passwort
     password_confirmation: Passwortwiederholung
-    role: Rollen
+    role: Rollen in der Anwendung
+    role_in_company: Rolle
+    roles_in_company: Rollen
     updated_at: aktualisiert
     user: Person
     user_id: Person
@@ -161,6 +166,8 @@ de:
     titles:
       edit: Bearbeite %{model}
       new: Erstelle %{model}
+  hints:
+    leave_empty: Lassen Sie das Feld leer, um das Passwort unverändert zu lassen.
   number:
     currency:
       format:
@@ -253,6 +260,8 @@ de:
       function:
         one: Funktion
         other: Funktionen
+        created: Die Funktion wurde erfolgreich angelegt.
+        updated: Die Funktion wurde erfolgreich aktualisiert.
       role:
         one: Rolle in Anwendung
         other: Rollen in Anwendung

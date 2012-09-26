@@ -1,25 +1,12 @@
-<%= form_for(@employment) do |f| %>
-  <% if @employment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employment.errors.count, "error") %> prohibited this employment from being saved:</h2>
+<%- model_class = Employment -%>
+<%= bootstrap_error(@employment, model_class ) %>
 
-      <ul>
-      <% @employment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :company_id %><br />
-    <%= f.number_field :company_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+<%= simple_form_for @employment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :user %>
+  <%= f.association :company %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                employments_path, :class => 'btn' %>
   </div>
 <% end %>

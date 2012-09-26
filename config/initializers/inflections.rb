@@ -6,6 +6,7 @@
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
    inflect.irregular 'RoleInCompany', 'RolesInCompany'
+   inflect.irregular 'role_in_company', 'roles_in_company'
 #   inflect.uncountable %w( fish sheep )
  end
 #

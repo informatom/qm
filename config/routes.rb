@@ -4,7 +4,7 @@ Qm::Application.routes.draw do
 
   resources :employments
 
-  resources :role_in_companies
+  resources :roles_in_company
 
   resources :departments
 

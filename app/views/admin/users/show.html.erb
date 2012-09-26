@@ -11,8 +11,8 @@
   <dt><strong><%= model_class.human_attribute_name(:lastname) %>:</strong></dt>
   <dd><%= @user.lastname %></dd>
   <% if @user.parent %>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= "#@user.parent.firstname #@user.parent.lastname" %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:parent) %>:</strong></dt>
+  <dd><%= @user.parent.name %></dd>
   <% end %>
   <% for deputy in @user.deputies.all %>
     <dt><strong><%= model_class.human_attribute_name(:deputy) %>:</strong></dt>
