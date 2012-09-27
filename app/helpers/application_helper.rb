@@ -34,4 +34,17 @@ module ApplicationHelper
   def textile(text)
     raw(RedCloth.new(strip_tags(text)).to_html)
   end
+
+  def icon(value)
+    raw("<i class='icon-#{value} icon-large'></i> &nbsp; ")
+  end
+
+  def icons(values)
+    output = []
+    values.each do |value|
+      output << "<i class='icon-#{value} icon-large'></i>"
+    end
+    output << " &nbsp; "
+    raw(output.join)
+  end
 end

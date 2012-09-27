@@ -47,12 +47,13 @@
           <a class="brand" href="#">QM.mittenin.at</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to t("admin"), "/" %></li>
+              <li><%= link_to t("Administration"), "/?menu=admin" %></li>
+              <li><%= link_to t("Prozesse"), "/?menu=processes" %></li>
             </ul>
             <ul class="nav pull-right">
               <li><%= link_to "DE", "/?locale=de" %></li>
               <li><%= link_to "EN", "/?locale=en" %></li>
-              <li><%= link_to t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+              <li><%= link_to icon("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
 
             </ul>
           </div><!--/.nav-collapse -->
@@ -64,27 +65,7 @@
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Administration</li>
-              <li><%= link_to t("activerecord.models.company.other"), companies_path %>
-                <ul class="nav nav-list">
-                  <li><%= link_to t("activerecord.models.department.other"), departments_path %></li>
-                  <li><%= link_to t("activerecord.models.function.other"), functions_path %></li>
-                  <li><%= link_to t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
-                </ul>
-              </li>
-              <li><%= link_to t("activerecord.models.user.other"), admin_users_path %>
-                <ul class="nav nav-list">
-                  <li><%= link_to t("activerecord.models.role.other"), roles_path %></li>
-                  <li><%= link_to t("activerecord.models.substitution.other"), substitutions_path %></li>
-                  <li><%= link_to t("activerecord.models.employment.other"), employments_path %></li>
-                  <li><%= link_to t("activerecord.models.department_affiliation.other"), department_affiliations_path %></li>
-                  <li><%= link_to t("activerecord.models.user_function_assignment.other"), user_function_assignments_path %></li>
-                  <li><%= link_to t("activerecord.models.user_role_in_company_assignment.other"), user_role_in_company_assignments_path %></li>
-                </ul>
-              </li>
-
-            </ul>
+            <%= render "sidebars/" + session[:menu] %>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">

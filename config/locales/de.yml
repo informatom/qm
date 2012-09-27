@@ -262,7 +262,7 @@ de:
         other: Abteilungszugehörigkeiten
       employment:
         one: Anstellungsverhältnis
-        other: Anstellungsverhätnisse
+        other: Anstellungsverhältnisse
       function:
         one: Funktion
         other: Funktionen
@@ -281,11 +281,11 @@ de:
         one: Person
         other: Personen
       user_function_assignment:
-        one: Zuordnung Person <-> Funktion
-        other: Zuordnungen Personen <-> Funktionen
+        one: Funktion einer Person
+        other: Funktionen der Personen
       user_role_in_company_assignment:
-        one: Zurodnung Person <-> Rolle
-        other: Zurdnungen Personen <-> Rollen
+        one: Rolle der Person
+        other: Rollen der Personen
 
 #### ATTRIBUTES #####
     attributes:
