@@ -7,7 +7,11 @@ gem 'devise'                                         # authentification
 gem 'devise-i18n-views'                              # translated views for devise
 gem 'cancan'                                         # access control
 gem 'ancestry'                                       # hierarchical comments
-gem 'simple_form'                                     # simple forms
+gem 'simple_form'                                    # simple forms
+
+gem 'textile_editor_helper', :git => 'git://github.com/bridgeutopia/textile_editor_helper.git'     # Helper for buttons on textarea
+gem 'RedCloth'                                       # textile library
+gem 'htmlentities'                                   # requirement of textile_editor_helper, e.g. &auml;
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

@@ -4,10 +4,14 @@
 <%= simple_form_for @role_in_company, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
   <%= f.association :company %>
-  <%= f.input :description, input_html: {class: :broad} %>
+  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 roles_in_company_path, :class => 'btn' %>
   </div>
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>
 <% end %>

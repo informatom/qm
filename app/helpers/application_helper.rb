@@ -14,4 +14,20 @@ module ApplicationHelper
       content_tag(:div, link_to("x", "#", :class => "close", "data-dismiss" => "alert") + complete_message, :class => "alert alert-block fade in alert-error") if flash_messages
     end
   end
+
+  def textile_editor_initialize(*dom_ids)
+    output = []
+    unless request.xhr?
+      output << '<script type="text/javascript">'
+      output << %{$(document).ready(function() \{}
+      output << '/* <![CDATA[ */'
+      output << %{$.each($('textarea.textile_editor'),function(i,el){
+                      TextileEditor.initialize($(el).attr('id'));
+                       });}
+                       output << '/* ]]> */'
+                       output << '});'
+                       output << '</script>'
+    end
+    output.join("\n").html_safe
+  end
 end
