@@ -4,16 +4,20 @@ de:
     company_id: Firma
     created_at: erzeugt
     department: Abteilung
+    departments: Abteilungen
     department_id: Abteilung
     deputies: Stellvertreter
     deputy: Stellvertreter
     deputy_id: Stellvertreter
+    description: Beschreibung
     function: Funktion
+    functions: Funktionen
     name: Name
     parent: Vorgesetzter
     password: Passwort
     password_confirmation: Passwortwiederholung
-    role: Rollen in der Anwendung
+    role: Rolle in der Anwendung
+    roles: Rollen in der Anwendung
     role_in_company: Rolle
     roles_in_company: Rollen
     updated_at: aktualisiert

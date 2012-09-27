@@ -3,8 +3,6 @@ class CreateFunctionsUsers < ActiveRecord::Migration
     create_table :functions_users do |t|
       t.integer :function_id
       t.integer :user_id
-
-      t.timestamps
     end
   end
 end

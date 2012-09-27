@@ -10,6 +10,9 @@
   <%= f.input :parent_id, :collection => User.all, :label => t("attributes.parent") %>
   <%= f.association :deputies, :as => :check_boxes %>
   <%= f.association :roles, :as => :check_boxes %>
+  <%= f.association :functions, :as => :check_boxes %>
+  <%= f.association :departments, :as => :check_boxes %>
+  <%= f.association :roles_in_company, :as => :check_boxes %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

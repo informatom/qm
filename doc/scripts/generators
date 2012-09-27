@@ -31,3 +31,7 @@ rails generate scaffold DepartmentAffiliation user_id:integer department_id:inte
 rails g migration add_ancestry_to_users ancestry:string
 # add index manually:
 # add_index users, :ancestry
+
+rails generate migration add_description_to_role_in_company description:text
+
+rails generate migration add_description_to_function description:text
