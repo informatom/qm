@@ -1,5 +1,9 @@
 Qm::Application.routes.draw do
 
+  resources :user_function_assignments
+
+  resources :user_role_in_company_assignments
+
   resources :department_affiliations
 
   resources :employments

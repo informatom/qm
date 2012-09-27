@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927064529) do
+ActiveRecord::Schema.define(:version => 20120927122813) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -55,11 +55,6 @@ ActiveRecord::Schema.define(:version => 20120927064529) do
     t.text     "description"
   end
 
-  create_table "functions_users", :force => true do |t|
-    t.integer "function_id"
-    t.integer "user_id"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -74,16 +69,25 @@ ActiveRecord::Schema.define(:version => 20120927064529) do
     t.text     "description"
   end
 
-  create_table "roles_in_company_users", :force => true do |t|
-    t.integer "role_in_company_id"
-    t.integer "user_id"
-  end
-
   create_table "substitutions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "deputy_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_function_assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "function_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "user_role_in_company_assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_in_company_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|

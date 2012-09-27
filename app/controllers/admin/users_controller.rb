@@ -43,9 +43,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    redirect_to users_url
+    begin
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:success] = "user successfully destroyed."
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @user.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to admin_users_url
+    end
   end
 end

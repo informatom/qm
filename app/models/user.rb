@@ -17,16 +17,24 @@ class User < ActiveRecord::Base
   validates_presence_of :lastname
 
   ROLES = %w[admin qm_user]
-  has_many :assignments
-  has_many :roles, :through => :assignments
-  has_many :substitutions
-  has_many :deputies, :through => :substitutions
-  has_many :employments
-  has_many :department_affiliations
-  has_many :departments, :through => :department_affiliations
-  has_many :companies, :through => :employments
-  has_and_belongs_to_many :functions
-  has_and_belongs_to_many :roles_in_company, :join_table => "roles_in_company_users"
+  has_many :assignments, :dependent => :restrict
+  has_many :roles, :through => :assignments, :dependent => :restrict
+
+  has_many :substitutions, :dependent => :restrict
+  has_many :deputies, :through => :substitutions, :dependent => :restrict
+
+  has_many :employments, :dependent => :restrict
+  has_many :companies, :through => :employments, :dependent => :restrict
+
+  has_many :department_affiliations, :dependent => :restrict
+  has_many :departments, :through => :department_affiliations, :dependent => :restrict
+
+
+  has_many :user_function_assignments
+  has_many :functions, :through => :user_function_assignments, :dependent => :restrict
+
+  has_many :user_role_in_company_assignments, :dependent => :restrict
+  has_many :roles_in_company, :through => :user_role_in_company_assignments, :dependent => :restrict
 
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }

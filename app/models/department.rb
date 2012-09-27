@@ -4,6 +4,6 @@ class Department < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
   belongs_to :company
-  has_many :department_affiliations
-  has_many :users, :through => :department_affiliations
+  has_many :department_affiliations, :dependent => :restrict
+  has_many :users, :through => :department_affiliations, :dependent => :restrict
 end

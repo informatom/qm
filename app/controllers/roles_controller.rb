@@ -38,9 +38,15 @@ class RolesController < ApplicationController
   end
 
   def destroy
-    @role = Role.find(params[:id])
-    @role.destroy
-
-    redirect_to roles_url
+    begin
+      @role = Role.find(params[:id])
+      @role.destroy
+      flash[:success] = "role successfully destroyed."
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @role.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to roles_url
+    end
   end
 end

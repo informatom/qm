@@ -1,0 +1,38 @@
+<%- model_class = UserRoleInCompanyAssignment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:role_in_company_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_role_in_company_assignments.each do |user_role_in_company_assignment| %>
+      <tr>
+        <td><%= link_to user_role_in_company_assignment.id, user_role_in_company_assignment_path(user_role_in_company_assignment) %></td>
+        <td><%= user_role_in_company_assignment.user.name %></td>
+        <td><%= user_role_in_company_assignment.role_in_company.name %></td>
+        <td><%=l user_role_in_company_assignment.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_role_in_company_assignment_path(user_role_in_company_assignment), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_role_in_company_assignment_path(user_role_in_company_assignment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_user_role_in_company_assignment_path,
+            :class => 'btn btn-primary' %>

@@ -35,3 +35,9 @@ rails g migration add_ancestry_to_users ancestry:string
 rails generate migration add_description_to_role_in_company description:text
 
 rails generate migration add_description_to_function description:text
+
+rails generate scaffold UserRoleInCompanyAssignment user_id:integer role_in_company_id:integer
+
+rails generate scaffold UserFunctionAssignment user_id:integer function_id:integer
+
+rails generate migration DropOldRelationTables

@@ -1,0 +1,12 @@
+<%- model_class = UserRoleInCompanyAssignment -%>
+<%= bootstrap_error(@user_role_in_company_assignment, model_class ) %>
+
+<%= simple_form_for @user_role_in_company_assignment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :user %>
+  <%= f.association :role_in_company %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_role_in_company_assignments_path, :class => 'btn' %>
+  </div>
+<% end %>
