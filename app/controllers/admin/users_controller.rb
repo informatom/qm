@@ -19,8 +19,9 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    debugger
     if @user.save
-      redirect_to @admin_user, notice: 'User was successfully created.'
+      redirect_to admin_user_path(@user), notice: 'User was successfully created.'
     else
       render action: "new"
     end
