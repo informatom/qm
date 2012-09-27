@@ -8,9 +8,9 @@
   <dd><%= @role_in_company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
   <dd><%= @role_in_company.company.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= raw(RedCloth.new(sanitize(@role_in_company.description)).to_html) %></dd>
 </dl>
+  <div class="description"><<%= raw(RedCloth.new(sanitize(@role_in_company.description)).to_html) %></div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
