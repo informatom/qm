@@ -30,4 +30,8 @@ module ApplicationHelper
     end
     output.join("\n").html_safe
   end
+
+  def textile(text)
+    raw(RedCloth.new(strip_tags(text)).to_html)
+  end
 end

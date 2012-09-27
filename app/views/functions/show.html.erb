@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
   <dd><%= @function.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @function.description %></dd>
+  <dd><%= textile(@function.description) %></dd>
 </dl>
 
 <div class="form-actions">
