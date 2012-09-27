@@ -27,7 +27,7 @@
     <dd><%= role_in_company.name %></dd>
   <% end %>
   <% for company in @user.companies.all %>
-    <% for department in @user.departments.where( company: company ) %>
+    <% for department in @user.departments %>
       <dt><strong><%= model_class.human_attribute_name(:department) %>:</strong></dt>
       <dd><%= "#department.name (#department.company.name )"%></dd>
     <% end %>

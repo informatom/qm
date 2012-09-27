@@ -15,9 +15,11 @@ Qm::Application.routes.draw do
   resources :substitutions
 
   devise_for :users
+
   namespace :admin do
     resources :users # Have the admin manage them here.
   end
+
   resources :roles
 
   # Sample of regular route:

@@ -2,6 +2,26 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  company: Company
+  company_id: Company
+  created_at: created_at
+  department: Department
+  department_id: Department
+  deputies: Deputies
+  deputy: Deputy
+  deputy_id: Deputy
+  function: Function
+  name: Name
+  parent: Line Manager
+  password: Password
+  password_confirmation: Password Confirmation
+  role: Roles in Application
+  role_in_company: Role
+  roles_in_company: Roles
+  updated_at: updated_at
+  user: Person
+  user_id: Person
+
   date:
     abbr_day_names:
     - Sun
