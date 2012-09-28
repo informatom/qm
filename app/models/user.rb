@@ -43,4 +43,18 @@ class User < ActiveRecord::Base
   def name
     self.firstname.to_s + " " + self.lastname.to_s + " (" + email + ")"
   end
+
+  def current_company_id=(id)
+    @current_company_id = id
+  end
+
+  def current_company_id
+    @current_company_id
+  end
+
+  def in_current_company?
+    self.employments.any? {|emp| emp.company_id == self.current_company_id}
+    debugger
+  end
+
 end

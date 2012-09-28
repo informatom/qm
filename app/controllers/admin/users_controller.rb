@@ -1,24 +1,7 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def create
-    @user = User.new(params[:user])
     if @user.save
       redirect_to admin_user_path(@user), notice: 'User was successfully created.'
     else
@@ -33,7 +16,7 @@ class Admin::UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
 
-    @user = User.find(params[:id])
+    @user = User.accessible_by(current_ability).find(params[:id])
 
     if @user.update_attributes(params[:user])
       redirect_to admin_user_path(@user), notice: 'User was successfully updated.'
@@ -44,7 +27,6 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     begin
-      @user = User.find(params[:id])
       @user.destroy
       flash[:success] = "user successfully destroyed."
     rescue ActiveRecord::DeleteRestrictionError => e

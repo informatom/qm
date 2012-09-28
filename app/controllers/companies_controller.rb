@@ -1,23 +1,7 @@
 class CompaniesController < ApplicationController
-  def index
-    @companies = Company.all
-  end
-
-  def show
-    @company = Company.find(params[:id])
-  end
-
-  def new
-    @company = Company.new
-  end
-
-  def edit
-    @company = Company.find(params[:id])
-  end
+  load_and_authorize_resource
 
   def create
-    @company = Company.new(params[:company])
-
     if @company.save
       redirect_to @company, notice: 'Company was successfully created.'
     else
@@ -26,8 +10,6 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
-
     if @company.update_attributes(params[:company])
       redirect_to @company, notice: 'Company was successfully updated.'
     else
@@ -37,7 +19,6 @@ class CompaniesController < ApplicationController
 
   def destroy
     begin
-      @company = Company.find(params[:id])
       @company.destroy
       flash[:success] = "company successfully destroyed."
     rescue ActiveRecord::DeleteRestrictionError => e

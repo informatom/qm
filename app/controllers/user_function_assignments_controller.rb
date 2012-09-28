@@ -1,4 +1,6 @@
 class UserFunctionAssignmentsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user_function_assignments = UserFunctionAssignment.all
   end

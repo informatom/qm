@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @role_in_companies.each do |role_in_company| %>
+    <% @roles_in_company.each do |role_in_company| %>
       <tr>
         <td><%= link_to role_in_company.id, role_in_company_path(role_in_company) %></td>
         <td><%= role_in_company.name %></td>

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  check_authorization :unless => :devise_controller?
+
   protect_from_forgery
 
 #  rescue_from CanCan::AccessDenied do |exception|
@@ -10,6 +12,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :set_menu
+  before_filter :set_company
+
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -17,6 +21,20 @@ class ApplicationController < ActionController::Base
 
   def set_menu
     session[:menu] = params[:menu] || session[:menu] || "admin"
+  end
+
+  def assigned_to_company?(company_id)
+    current_user.companies.any? { |c| c.id == company_id.to_i } if current_user
+  end
+
+  def set_company
+    if params[:set_company] && assigned_to_company?(params[:set_company])
+      session[:company] = params[:set_company]
+    end
+    if current_user
+      session[:company] = current_user.companies.first.id unless session[:company]
+      current_user.current_company_id = session[:company]
+    end
   end
 
   def default_url_options(options={})

@@ -1,4 +1,6 @@
 class EmploymentsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @employments = Employment.all
   end

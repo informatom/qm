@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'                         # Javascript compressor
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
                                                      # Twitter Bootstrap for Rails 3.1 Asset Pipeline
+  gem 'jquery-ui-rails'                              # JQuery-UI assets
 end
 
 gem 'jquery-rails'                                   # Javascript framework

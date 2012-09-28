@@ -15,22 +15,6 @@ module ApplicationHelper
     end
   end
 
-  def textile_editor_initialize(*dom_ids)
-    output = []
-    unless request.xhr?
-      output << '<script type="text/javascript">'
-      output << %{$(document).ready(function() \{}
-      output << '/* <![CDATA[ */'
-      output << %{$.each($('textarea.textile_editor'),function(i,el){
-                      TextileEditor.initialize($(el).attr('id'));
-                       });}
-                       output << '/* ]]> */'
-                       output << '});'
-                       output << '</script>'
-    end
-    output.join("\n").html_safe
-  end
-
   def textile(text)
     raw(RedCloth.new(strip_tags(text)).to_html)
   end
@@ -47,4 +31,17 @@ module ApplicationHelper
     output << " &nbsp; "
     raw(output.join)
   end
+
+  def current_company
+    Company.find_by_id(session[:company])
+  end
+
+  def logged_in_as
+    if current_user
+      current_user.firstname + " " + current_user.lastname
+    else
+      "anonymous"
+    end
+  end
+
 end

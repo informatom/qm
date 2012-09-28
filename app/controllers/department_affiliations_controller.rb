@@ -1,4 +1,6 @@
 class DepartmentAffiliationsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @department_affiliations = DepartmentAffiliation.all
   end

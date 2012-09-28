@@ -5,8 +5,22 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
-    elsif user.has_role? :qm_user
-      #
+    elsif user.has_role? :qm
+      can :manage, Function, :company_id => user.current_company_id
+      can :manage, RoleInCompany, :company_id => user.current_company_id
+      can :manage, Department, :company_id => user.current_company_id
+      can :manage, Company, :id => user.current_company_id
+      can :manage, User, :companies => { :id => user.current_company_id }
+      can :manage, User do |the_user|
+        the_user.in_current_company?
+      end
+
+#      can :manage, Substitution do |subst|
+#        @user = User.find_by_id(subst.user_id)
+#        @deputy = User.find_by_id(subst.deputy_id)
+#        can?(:manage, @user) && can?(:manage, @deputy )
+#        debugger
+#      end
     end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

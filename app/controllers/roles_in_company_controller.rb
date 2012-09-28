@@ -1,23 +1,7 @@
 class RolesInCompanyController < ApplicationController
-  def index
-    @role_in_companies = RoleInCompany.all
-  end
-
-  def show
-    @role_in_company = RoleInCompany.find(params[:id])
-  end
-
-  def new
-    @role_in_company = RoleInCompany.new
-  end
-
-  def edit
-    @role_in_company = RoleInCompany.find(params[:id])
-  end
+  load_and_authorize_resource
 
   def create
-    @role_in_company = RoleInCompany.new(params[:role_in_company])
-
     if @role_in_company.save
       redirect_to @role_in_company, notice: 'Role in company was successfully created.'
     else
@@ -26,8 +10,6 @@ class RolesInCompanyController < ApplicationController
   end
 
   def update
-    @role_in_company = RoleInCompany.find(params[:id])
-
     if @role_in_company.update_attributes(params[:role_in_company])
       redirect_to @role_in_company, notice: 'Role in company was successfully updated.'
     else
@@ -37,7 +19,6 @@ class RolesInCompanyController < ApplicationController
 
   def destroy
     begin
-      @role_in_company = RoleInCompany.find(params[:id])
       @role_in_company.destroy
       flash[:success] = "role_in_company successfully destroyed."
     rescue ActiveRecord::DeleteRestrictionError => e

@@ -163,6 +163,8 @@ de:
       destroy: Löschen
       edit: Bearbeiten
       new: Erstelle %{model}
+    company: Firma
+    no_company: keiner Firma
     select:
       prompt: Bitte wählen
     submit:

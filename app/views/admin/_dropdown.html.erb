@@ -1,0 +1,13 @@
+<li class="dropdown">
+  <a class="dropdown-toggle" if="comp" data-toggle="dropdown" href="#">
+    <span class="muted"><%= logged_in_as  %> </span> <%= "(" + current_company.name + ")" if current_company %></a>
+  <% if current_user  %>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="comp">
+      <% current_user.companies.each do |company| %>
+        <% unless company == current_company %>
+          <li class="nav"><a href="/?set_company=<%= company.id %>" ><%= company.name %></a></li>
+        <% end %>
+      <% end %>
+  </ul>
+  <% end %>
+</li>

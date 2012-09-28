@@ -1,4 +1,6 @@
 class UserRoleInCompanyAssignmentsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user_role_in_company_assignments = UserRoleInCompanyAssignment.all
   end
