@@ -2,6 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :show, :new, :edit, :update, :destroy, :create, :to => :most
+
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
@@ -10,31 +12,19 @@ class Ability
       can :manage, RoleInCompany, :company_id => user.current_company_id
       can :manage, Department, :company_id => user.current_company_id
       can :manage, Company, :id => user.current_company_id
-      can :manage, User, :companies => { :id => user.current_company_id }
-      can :manage, User do |the_user|
-        the_user.in_current_company?
+
+      can :index, User, :companies => { :id => user.current_company_id }
+      can :most, User do |the_user|
+        the_user.in_company?(user.current_company_id)
       end
 
-#      can :manage, Substitution do |subst|
-#        @user = User.find_by_id(subst.user_id)
-#        @deputy = User.find_by_id(subst.deputy_id)
-#        can?(:manage, @user) && can?(:manage, @deputy )
-#        debugger
-#      end
+      can :index, Substitution
+      can :most, Substitution do |subst|
+        @user = User.find_by_id(subst.user_id)
+        @deputy = User.find_by_id(subst.deputy_id)
+        can?(:most, @user) && can?(:most, @deputy )
+      end
+
     end
-    #
-    # The first argument to `can` is the action you are giving the user permission to do.
-    # If you pass :manage it will apply to every action. Other common actions here are
-    # :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on. If you pass
-    # :all it will apply to every resource. Otherwise pass a Ruby class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
   end
 end

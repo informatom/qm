@@ -1,6 +1,16 @@
 class SubstitutionsController < ApplicationController
   load_and_authorize_resource :substitution
 
+  def index
+    if current_user.has_role? :qm
+      @userarray = Company.find_by_id(current_user.current_company_id).users.map {|user| user.id}
+      @substitutions = Substitution.where(:user_id => @userarray, :deputy_id => @userarray)
+    end
+    if current_user.has_not_role? :admin
+      @substitutions = []
+    end
+  end
+
   def create
     if @substitution.save
       redirect_to @substitution, notice: 'Substitution was successfully created.'

@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
+  def has_not_role? (role_sym)
+    !has_role?(role_sym)
+  end
+
   def name
     self.firstname.to_s + " " + self.lastname.to_s + " (" + email + ")"
   end
@@ -52,9 +56,7 @@ class User < ActiveRecord::Base
     @current_company_id
   end
 
-  def in_current_company?
-    self.employments.any? {|emp| emp.company_id == self.current_company_id}
-    debugger
+  def in_company?(id)
+    self.employments.any? {|emp| emp.company_id == id.to_i}
   end
-
 end
