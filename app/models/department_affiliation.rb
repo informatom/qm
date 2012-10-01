@@ -1,5 +1,5 @@
 class DepartmentAffiliation < ActiveRecord::Base
-  attr_accessible :department_id, :user_id
+  attr_accessible :department_id, :user_id, :company_id
 
   validates_presence_of :department_id
   validates_presence_of :user_id
@@ -7,4 +7,5 @@ class DepartmentAffiliation < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :department
+  belongs_to :company
 end

@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:department_id) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,6 +19,7 @@
         <td><%= link_to department_affiliation.id, department_affiliation_path(department_affiliation) %></td>
         <td><%= department_affiliation.user.name %></td>
         <td><%= department_affiliation.department.name %></td>
+        <td><%= department_affiliation.company.name if department_affiliation.company %></td>
         <td><%=l department_affiliation.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

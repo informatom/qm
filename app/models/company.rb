@@ -6,4 +6,13 @@ class Company < ActiveRecord::Base
 
   has_many :employments
   has_many :users, :through => :employments, :dependent => :restrict
+
+  has_many :substitutions
+
+  has_many :departments
+  has_many :department_affiliations
+
+  has_many :functions
+
+  has_many :roles_in_company
 end

@@ -32,10 +32,6 @@ module ApplicationHelper
     raw(output.join)
   end
 
-  def current_company
-    Company.find_by_id(session[:company])
-  end
-
   def logged_in_as
     if current_user
       current_user.firstname + " " + current_user.lastname

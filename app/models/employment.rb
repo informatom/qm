@@ -6,5 +6,9 @@ class Employment < ActiveRecord::Base
   validates_uniqueness_of :company_id, :scope => :user_id
 
   belongs_to :user
+  accepts_nested_attributes_for :user
+
   belongs_to :company
+
+  scope :in_company, lambda { |company_id| where(:company_id => company_id) }
 end

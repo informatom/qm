@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
   has_many :user_role_in_company_assignments, :dependent => :restrict
   has_many :roles_in_company, :through => :user_role_in_company_assignments, :dependent => :restrict
 
+  scope :in_company, lambda { |company_id| (includes(:employments).merge(Employment.in_company(company_id))) }
+
+
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
@@ -46,14 +49,6 @@ class User < ActiveRecord::Base
 
   def name
     self.firstname.to_s + " " + self.lastname.to_s + " (" + email + ")"
-  end
-
-  def current_company_id=(id)
-    @current_company_id = id
-  end
-
-  def current_company_id
-    @current_company_id
   end
 
   def in_company?(id)

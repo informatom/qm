@@ -41,3 +41,7 @@ rails generate scaffold UserRoleInCompanyAssignment user_id:integer role_in_comp
 rails generate scaffold UserFunctionAssignment user_id:integer function_id:integer
 
 rails generate migration DropOldRelationTables
+
+rails generate migration add_company_id_to_substitution company_id:integer
+
+rails generate migration add_company_id_to_department_affiliation company_id:integer

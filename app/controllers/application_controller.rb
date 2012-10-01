@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_menu
   before_filter :set_company
 
-
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -33,7 +32,6 @@ class ApplicationController < ActionController::Base
     end
     if current_user
       session[:company] = current_user.companies.first.id unless session[:company]
-      current_user.current_company_id = session[:company]
     end
   end
 
@@ -41,4 +39,17 @@ class ApplicationController < ActionController::Base
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
   end
+
+private
+
+  helper_method :current_company
+  def current_company
+    Company.find_by_id(session[:company])
+  end
+
+# Hands over current_company to Ability model
+  def current_ability
+    @current_ability ||= Ability.new(current_user, current_company)
+  end
+
 end
