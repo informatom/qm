@@ -18,10 +18,36 @@
     </div>
   </div>
 
-  <%#= f.association :roles, :as => :check_boxes if admin? %>
-  <%#= f.association :functions, :as => :check_boxes, :collection => Function.where(:company_id => current_company.id) %>
-  <%#= f.association :departments, :as => :check_boxes, :collection => Department.where(:company_id => current_company.id) %>
-  <%#= f.association :roles_in_company, :as => :check_boxes, :collection => RoleInCompany.where(:company_id => current_company.id) %>
+  <%= f.association :roles, :as => :check_boxes if admin? %>
+
+  <div id="user_function_assignments">
+    <%= f.simple_fields_for :user_function_assignments do |ufa| %>
+      <% render 'user_function_assignment_fields', :f => ufa %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t("helpers.add_user_function_assignment"), f, :user_function_assignments,
+          :render_options => {:wrapper => "bootstrap"} %>
+    </div>
+  </div>
+
+  <div id="department_affiliations">
+    <%= f.simple_fields_for :department_affiliations do |da| %>
+      <% render 'department_affiliation_fields', :f => da %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t("helpers.add_department_affiliation"), f, :department_affiliations, :render_options => {:wrapper => "bootstrap"} %>
+    </div>
+  </div>
+
+  <div id="user_role_in_company_assignments">
+    <%= f.simple_fields_for :user_role_in_company_assignments do |urica| %>
+      <% render 'user_role_in_company_assignment_fields', :f => urica %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t("helpers.add_user_role_in_company_assignment"), f, :user_role_in_company_assignments,
+          :render_options => {:wrapper => "bootstrap"} %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

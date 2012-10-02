@@ -156,7 +156,11 @@ de:
 ### TWITTER BOOTSTRAP HELPERS ###
   helpers:
     actions: Aktionen
+    add_department_affiliation: Abteilungszugehörigkeit hinzufügen
     add_deputy: Stellvertreter hinzufügen
+    add_user_function_assignment: Funktion einer Person hinzufügen
+    add_user_role_in_company_assignment: Rolle der Person hinzufügen
+    company: Firma
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
     links:
       back: Zurück
@@ -164,9 +168,11 @@ de:
       destroy: Löschen
       edit: Bearbeiten
       new: Erstelle %{model}
-    company: Firma
     no_company: keiner Firma
+    remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
+    remove_user_function_assignment: Funktion einer Person löschen
+    remove_user_role_in_company_assignment: Rolle der Person löschen
     select:
       prompt: Bitte wählen
     submit:

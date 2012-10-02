@@ -1,0 +1,5 @@
+<div class="nested-fields">
+  <%= f.input :function_id, :collection => Function.where(:company_id => current_company.id), :required => false %>
+  <%= link_to_remove_association t("helpers.remove_user_function_assignment"), f, :render_options => {:wrapper => 'bootstrap'} %>
+  <%= f.hidden_field :company_id, value: current_company.id %>
+</div>

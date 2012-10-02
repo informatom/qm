@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to department.id, department_path(department) %></td>
         <td><%= department.name %></td>
-        <td><%= department.company.name %></td>
+        <td><%= department.company.name if department.company %></td>
         <td><%=l department.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
