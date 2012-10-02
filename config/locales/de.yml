@@ -14,18 +14,26 @@ de:
     functions: Funktionen
     function_id: Funktion
     internal: intern
+    metering_point: Messpunkt
     name: Name
+    nominal_value: Sollwert
+    operator: Ausführender
     parent: Vorgesetzter
     password: Passwort
     password_confirmation: Passwortwiederholung
+    process_class: Prozessklasse
+    process_class_id: Prozessklasse
+    purpose: Zweck
     role: Rolle in der Anwendung
     roles: Rollen in der Anwendung
     role_in_company: Rolle
     roles_in_company: Rollen
     role_in_company_id: Rolle
     updated_at: aktualisiert
+    unit: Einheit
     user: Person
     user_id: Person
+    value: Wert
 
   date:
     abbr_day_names:
@@ -262,6 +270,9 @@ de:
       assignment:
         one: Zuordnung
         other: Zuordnungen
+      business_process:
+        one: Geschäftsprozess
+        other: Geschäftsprozesse
       company:
         one: Firma
         other: Firmen
@@ -288,6 +299,9 @@ de:
       process_class:
         one: Prozessklasse
         other: Prozessklassen
+      process_indicator:
+        one: Prozesskennzahl
+        other: Prozesskennzahlen
       role:
         one: Rolle in Anwendung
         other: Rollen in Anwendung
@@ -311,6 +325,12 @@ de:
     attributes:
       assigment:
         role: Rolle in Anwendung
+      business_process:
+        aims: Prozessziel(e)
+        number: Prozessnummer
+        owner: Prozesseigner
+        owner_id: Prozesseigner
+        parent_id: Vaterprozess
       department_affiliation:
         department: Abteilung
       substitution:

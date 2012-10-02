@@ -42,6 +42,8 @@ class User < ActiveRecord::Base
   has_many :roles_in_company, :through => :user_role_in_company_assignments, :dependent => :restrict
   accepts_nested_attributes_for :user_role_in_company_assignments, :allow_destroy => true
 
+  has_many :business_processes, :dependent => :restrict, :foreign_key => "owner_id"
+
   scope :in_company, lambda { |company_id| (includes(:employments).merge(Employment.in_company(company_id))) }
 
 

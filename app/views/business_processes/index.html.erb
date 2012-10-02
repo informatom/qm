@@ -1,0 +1,46 @@
+<%- model_class = BusinessProcess -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
+      <th><%= model_class.human_attribute_name(:parent_id) %></th>
+      <th><%= model_class.human_attribute_name(:number) %></th>
+      <th><%= model_class.human_attribute_name(:owner_id) %></th>
+      <th><%= model_class.human_attribute_name(:process_class_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @business_processes.each do |business_process| %>
+      <tr>
+        <td><%= link_to business_process.id, business_process_path(business_process) %></td>
+        <td><%= business_process.name %></td>
+        <td><%= business_process.company.name %></td>
+        <td><%= business_process.parent.name if business_process.parent %></td>
+        <td><%= business_process.number %></td>
+        <td><%= business_process.owner.name if business_process.owner %></td>
+        <td><%= business_process.process_class.name if business_process.process_class %></td>
+        <td><%=l business_process.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_business_process_path(business_process), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      business_process_path(business_process),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_business_process_path,
+            :class => 'btn btn-primary' %>

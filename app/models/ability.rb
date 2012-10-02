@@ -21,6 +21,8 @@ class Ability
       can :manage, ProcessClass, :company_id => current_company.id
       can :manage, Note, :company_id => current_company.id
       can :manage, Document, :company_id => current_company.id
+      can :manage, ProcessIndicator, :company_id => current_company.id
+      can :manage, BusinessProcess, :company_id => current_company.id
     end
   end
 end

@@ -1,0 +1,30 @@
+<%- model_class = BusinessProcess -%>
+<%= bootstrap_error(@business_process, model_class ) %>
+
+<%= simple_form_for @business_process, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+
+  <% if @business_process.company_id %>
+    <%= f.association :company, :disabled => true %>
+  <% else %>
+    <%= f.association :company, :disabled => true, :selected => current_company.id %>
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+  <% end %>
+
+  <%= f.input :parent_id, :collection => BusinessProcess.where(:company_id => current_company.id), :label => t("attributes.parent")  %>
+  <%= f.input :purpose %>
+  <%= f.input :number %>
+  <%= f.association :owner, :collection => User.in_company(current_company.id) %>
+  <%= f.input :aims %>
+  <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
+  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                business_processes_path, :class => 'btn' %>
+  </div>
+
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>
+<% end %>

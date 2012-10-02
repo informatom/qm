@@ -1,0 +1,2 @@
+module ProcessIndicatorsHelper
+end

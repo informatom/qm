@@ -54,3 +54,5 @@ rails generate migration add_company_id_to_user_role_in_company_assignment compa
 rails generate scaffold ProcessClass name:string company_id:integer description:text
 rails generate scaffold Note name:string company_id:integer description:text
 rails generate scaffold Document name:string company_id:integer description:text internal:boolean
+rails generate scaffold ProcessIndicator name:string company_id:integer metering_point:string value:string unit:string nominal_value:string operator:string description:text
+rails generate scaffold BusinessProcess name:string company_id:integer parent_id:integer ancestry:string purpose:string number:string owner_id:integer aims:string process_class_id:integer description:text

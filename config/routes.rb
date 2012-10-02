@@ -1,5 +1,9 @@
 Qm::Application.routes.draw do
 
+  resources :business_processes
+
+  resources :process_indicators
+
   resources :documents
 
   resources :notes

@@ -21,4 +21,6 @@ class Company < ActiveRecord::Base
   has_many :processclasses
   has_many :notes
   has_many :documents
+  has_many :process_indicators
+  has_many :business_processes
 end

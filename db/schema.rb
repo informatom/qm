@@ -11,13 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002122327) do
+ActiveRecord::Schema.define(:version => 20121002133813) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "business_processes", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.integer  "parent_id"
+    t.string   "ancestry"
+    t.string   "purpose"
+    t.string   "number"
+    t.integer  "owner_id"
+    t.string   "aims"
+    t.integer  "process_class_id"
+    t.text     "description"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "companies", :force => true do |t|
@@ -79,6 +94,19 @@ ActiveRecord::Schema.define(:version => 20121002122327) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "process_indicators", :force => true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.string   "metering_point"
+    t.string   "value"
+    t.string   "unit"
+    t.string   "nominal_value"
+    t.string   "operator"
+    t.text     "description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "roles", :force => true do |t|
