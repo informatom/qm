@@ -1,5 +1,11 @@
 <div class="nested-fields">
-  <%= f.input :department_id, :collection => Department.where(:company_id => current_company.id), :required => false %>
-  <%= link_to_remove_association t("helpers.remove_department_affiliation"), f, :render_options => {:wrapper => 'bootstrap'} %>
+  <div class="row-fluid">
+    <div class="span4">
+      <%= f.input :department_id, :collection => Department.where(:company_id => current_company.id), :required => false %>
+    </div>
+    <div class="span8">
+      <%= link_to_remove_association t("helpers.remove_department_affiliation"), f, :class => "controls btn btn-small btn-danger" %>
+    </div>
+  </div>
   <%= f.hidden_field :company_id, value: current_company.id %>
 </div>

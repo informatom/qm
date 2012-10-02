@@ -158,7 +158,7 @@ de:
     actions: Aktionen
     add_department_affiliation: Abteilungszugehörigkeit hinzufügen
     add_deputy: Stellvertreter hinzufügen
-    add_user_function_assignment: Funktion einer Person hinzufügen
+    add_user_function_assignment: Funktion der Person hinzufügen
     add_user_role_in_company_assignment: Rolle der Person hinzufügen
     company: Firma
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
@@ -171,7 +171,7 @@ de:
     no_company: keiner Firma
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
-    remove_user_function_assignment: Funktion einer Person löschen
+    remove_user_function_assignment: Funktion der Person löschen
     remove_user_role_in_company_assignment: Rolle der Person löschen
     select:
       prompt: Bitte wählen
@@ -291,7 +291,7 @@ de:
         one: Person
         other: Personen
       user_function_assignment:
-        one: Funktion einer Person
+        one: Funktion der Person
         other: Funktionen der Personen
       user_role_in_company_assignment:
         one: Rolle der Person

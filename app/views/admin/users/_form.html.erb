@@ -14,9 +14,11 @@
       <% render 'substitution_fields', :f => s %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association t("helpers.add_deputy"), f, :substitutions, :render_options => {:wrapper => "bootstrap"} %>
+      <%= link_to_add_association t("helpers.add_deputy"), f, :substitutions,
+          :class => "controls btn btn-small btn-inverse" %>
     </div>
   </div>
+  <br/>
 
   <%= f.association :roles, :as => :check_boxes if admin? %>
 
@@ -26,7 +28,8 @@
     <% end %>
     <div class="links">
       <%= link_to_add_association t("helpers.add_user_function_assignment"), f, :user_function_assignments,
-          :render_options => {:wrapper => "bootstrap"} %>
+          :class => "controls btn btn-small btn-info" %>
+      <br /> <br />
     </div>
   </div>
 
@@ -35,7 +38,9 @@
       <% render 'department_affiliation_fields', :f => da %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association t("helpers.add_department_affiliation"), f, :department_affiliations, :render_options => {:wrapper => "bootstrap"} %>
+      <%= link_to_add_association t("helpers.add_department_affiliation"), f, :department_affiliations,
+          :class => "controls btn btn-small btn-success" %>
+      <br /> <br />
     </div>
   </div>
 
@@ -45,7 +50,7 @@
     <% end %>
     <div class="links">
       <%= link_to_add_association t("helpers.add_user_role_in_company_assignment"), f, :user_role_in_company_assignments,
-          :render_options => {:wrapper => "bootstrap"} %>
+          :class => "controls btn btn-small btn-warning" %>
     </div>
   </div>
 

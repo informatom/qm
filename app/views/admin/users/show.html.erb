@@ -19,13 +19,13 @@
   <dt><strong><%= model_class.human_attribute_name(:deputy) %>:</strong></dt>
   <dd>
     <% for deputy in @user.deputies.all %>
-      <span class="label label-info"><%= deputy.name %></span>
+      <span class="label"><%= deputy.name %></span>
     <% end %> &nbsp;
   </dd>
   <dt><strong><%= model_class.human_attribute_name(:functions) %>:</strong></dt>
   <dd>
     <% for function in @user.functions.all %>
-      <span class="label"><a href="#" rel="tooltip" data-placement="top" data-original-title="<%= function.description %>"><%= function.name%></a></span>
+      <span class="label label-info"><a href="#" rel="tooltip" data-placement="top" data-original-title="<%= function.description %>"><%= function.name%></a></span>
     <% end %> &nbsp;
   </dd>
 
