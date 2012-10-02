@@ -1,5 +1,9 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
+#  load_resource :substitution, :though => :user
+#  load_resource :department_affiliation, :though => :user
+#  load_resource :user_function_assignment, :though => :user
+#  load_resource :user_role_in_company_assignment, :though => :user
 
   def create
     if @user.save
@@ -16,7 +20,6 @@ class Admin::UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
 
-    @user = User.accessible_by(current_ability).find(params[:id])
     if @user.update_attributes(params[:user])
       redirect_to admin_user_path(@user), notice: 'User was successfully updated.'
     else
