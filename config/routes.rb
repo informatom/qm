@@ -1,5 +1,11 @@
 Qm::Application.routes.draw do
 
+  resources :documents
+
+  resources :notes
+
+  resources :process_classes
+
   resources :user_function_assignments
 
   resources :user_role_in_company_assignments

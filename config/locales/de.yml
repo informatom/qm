@@ -13,6 +13,7 @@ de:
     function: Funktion
     functions: Funktionen
     function_id: Funktion
+    internal: intern
     name: Name
     parent: Vorgesetzter
     password: Passwort
@@ -270,6 +271,9 @@ de:
       department_affiliation:
         one: Abteilungszugehörigkeit
         other: Abteilungszugehörigkeiten
+      document:
+        one: Dokument
+        other: Dokumente
       employment:
         one: Anstellungsverhältnis
         other: Anstellungsverhältnisse
@@ -278,6 +282,12 @@ de:
         other: Funktionen
         created: Die Funktion wurde erfolgreich angelegt.
         updated: Die Funktion wurde erfolgreich aktualisiert.
+      note:
+        one: Aufzeichnung
+        other: Aufzeichnungen
+      process_class:
+        one: Prozessklasse
+        other: Prozessklassen
       role:
         one: Rolle in Anwendung
         other: Rollen in Anwendung

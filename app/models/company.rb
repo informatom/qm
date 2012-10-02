@@ -17,4 +17,8 @@ class Company < ActiveRecord::Base
 
   has_many :roles_in_company
   has_many :user_role_in_company_assignments
+
+  has_many :processclasses
+  has_many :notes
+  has_many :documents
 end

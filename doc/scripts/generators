@@ -1,13 +1,22 @@
+# 1 - Scaffold
+# 2 - Migration: rake db:migrate
+# 3 - Bootstrap: rails g bootstrap:themed Resources
+# 4 - Abilty: models/abilty.rb
+# 5 - Translation: de.yml
+# 6 - Menu: sidebars/process.html.erb
+# 7 - Controller
+# 8 - Model (company)
+# 9 - Form (textile, company)
+#10 - Show
+#11 - Index
+####################################################
+
 rails generate migration add_fields_to_user firstname:string lastname:string function_id:integer role_in_company_id:integer deputy_id:integer parent_id:integer department_id:integer company_id:integer
 
 rails generate scaffold Substitution user_id:integer deputy_id:integer
-
 rails generate scaffold Company name:string
-
 rails generate scaffold Function name:string company_id:integer
-
 rails generate scaffold Department name:string company_id:integer
-
 rails generate scaffold RoleInCompany name:string company_id:integer
 
 # several changes for correct plural name:
@@ -25,7 +34,6 @@ rails generate migration create_roles_in_company_users
 # migration has to be written manually
 
 rails generate scaffold Employment user_id:integer company_id:integer
-
 rails generate scaffold DepartmentAffiliation user_id:integer department_id:integer
 
 rails g migration add_ancestry_to_users ancestry:string
@@ -33,19 +41,16 @@ rails g migration add_ancestry_to_users ancestry:string
 # add_index users, :ancestry
 
 rails generate migration add_description_to_role_in_company description:text
-
 rails generate migration add_description_to_function description:text
-
 rails generate scaffold UserRoleInCompanyAssignment user_id:integer role_in_company_id:integer
-
 rails generate scaffold UserFunctionAssignment user_id:integer function_id:integer
-
 rails generate migration DropOldRelationTables
-
 rails generate migration add_company_id_to_substitution company_id:integer
-
 rails generate migration add_company_id_to_department_affiliation company_id:integer
-
 rails generate migration add_company_id_to_user_function_assignment company_id:integer
-
 rails generate migration add_company_id_to_user_role_in_company_assignment company_id:integer
+
+# Processes ....
+rails generate scaffold ProcessClass name:string company_id:integer description:text
+rails generate scaffold Note name:string company_id:integer description:text
+rails generate scaffold Document name:string company_id:integer description:text internal:boolean

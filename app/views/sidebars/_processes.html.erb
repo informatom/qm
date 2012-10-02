@@ -1,4 +1,6 @@
 <ul class="nav nav-list">
   <li class="nav-header">Prozesse</li>
-  <li><%#= link_to icon("home") + t("activerecord.models.company.other"), companies_path %></li>
+  <li><%= link_to icon("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
+  <li><%= link_to icon("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
+  <li><%= link_to icon("envelope") + t("activerecord.models.document.other"), documents_path %></li>
 </ul>

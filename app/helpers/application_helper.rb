@@ -44,4 +44,8 @@ module ApplicationHelper
     current_user && current_user.has_role?(:admin)
   end
 
+  def checkbox(value)
+    check_box_tag("", "", value, :disabled => true)
+  end
+
 end

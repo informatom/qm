@@ -1,0 +1,2 @@
+module ProcessClassesHelper
+end

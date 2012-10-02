@@ -17,6 +17,10 @@ class Ability
       can :manage, DepartmentAffiliation, :company_id => current_company.id
       can :manage, UserFunctionAssignment, :company_id => current_company.id
       can :manage, UserRoleInCompanyAssignment, :company_id => current_company.id
+
+      can :manage, ProcessClasses, :company_id => current_company.id
+      can :manage, Notes, :company_id => current_company.id
+      can :manage, Documents, :company_id => current_company.id
     end
   end
 end
