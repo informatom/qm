@@ -6,11 +6,13 @@
   <li><%= link_to icon("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
 
   <li><%= link_to icon("user") + t("activerecord.models.user.other"), admin_users_path, class: "text-success" %></li>
-  <% if current_user && current_user.has_role?(:admin) %>
-    <li><%= link_to icon("cogs") + t("activerecord.models.role.other"), roles_path %></li>
-  <% end %>
+
+  <li><%= link_to(icon("cogs") + t("activerecord.models.role.other"), roles_path) if admin? %></li>
+
   <li><%= link_to icons(["user", "resize-horizontal", "user"]) + t("activerecord.models.substitution.other"), substitutions_path %></li>
-  <li><%= link_to icons(["user", "resize-horizontal", "home"]) + t("activerecord.models.employment.other"), employments_path %></li>
+
+  <li><%= link_to(icons(["user", "resize-horizontal", "home"]) + t("activerecord.models.employment.other"), employments_path) if admin? %></li>
+
   <li><%= link_to icons(["user", "resize-horizontal", "group"]) + t("activerecord.models.department_affiliation.other"),
                   department_affiliations_path %></li>
   <li><%= link_to icons(["user", "resize-horizontal", "bullhorn"]) + t("activerecord.models.user_function_assignment.other"),

@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user, current_company)
-    alias_action :show, :new, :edit, :update, :destroy, :create, :to => :most
+    alias_action :show, :new, :edit, :update, :destroy, :to => :most
 
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
@@ -14,12 +14,14 @@ class Ability
       can :manage, Company, :id => current_company.id
 
       can :index, User, :companies => { :id => current_company.id }
+      can :create, User
       can :most, User do |the_user|
         the_user.in_company?(current_company.id)
       end
       can :manage, Substitution, :company_id => current_company.id
-      can :manage, Employment, :company_id => current_company.id
       can :manage, DepartmentAffiliation, :company_id => current_company.id
+      can :manage, UserFunctionAssignment, :company_id => current_company.id
+      can :manage, UserRoleInCompanyAssignment, :company_id => current_company.id
     end
   end
 end

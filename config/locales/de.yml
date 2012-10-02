@@ -156,6 +156,7 @@ de:
 ### TWITTER BOOTSTRAP HELPERS ###
   helpers:
     actions: Aktionen
+    add_deputy: Stellvertreter hinzufügen
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
     links:
       back: Zurück
@@ -165,6 +166,7 @@ de:
       new: Erstelle %{model}
     company: Firma
     no_company: keiner Firma
+    remove_deputy: Stellvertreter löschen
     select:
       prompt: Bitte wählen
     submit:

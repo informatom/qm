@@ -2,8 +2,17 @@
 <%= bootstrap_error(@user_function_assignment, model_class ) %>
 
 <%= simple_form_for @user_function_assignment, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.association :user %>
-  <%= f.association :function %>
+  <%= f.association :user, :collection => User.in_company(current_company.id) %>
+  <%= f.association :function, :collection => Function.where(:company_id => current_company.id) %>
+
+  <% if @user_function_assignment.company_id %>
+    <%= f.association :company, :disabled => true %>
+  <% else %>
+    <%= f.association :company, :disabled => true, :selected => current_company.id %>
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+  <% end %>
+
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

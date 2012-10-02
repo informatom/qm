@@ -1,5 +1,5 @@
 class UserRoleInCompanyAssignment < ActiveRecord::Base
-  attr_accessible :role_in_company_id, :user_id
+  attr_accessible :role_in_company_id, :user_id, :company_id
 
   validates_presence_of :role_in_company_id
   validates_presence_of :user_id
@@ -7,4 +7,5 @@ class UserRoleInCompanyAssignment < ActiveRecord::Base
 
   belongs_to :role_in_company
   belongs_to :user
+  belongs_to :company
 end

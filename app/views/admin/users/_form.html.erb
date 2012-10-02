@@ -7,12 +7,21 @@
   <%= f.input :password_confirmation %>
   <%= f.input :firstname %>
   <%= f.input :lastname %>
-  <%= f.input :parent_id, :collection => User.all, :label => t("attributes.parent") %>
-  <%= f.association :deputies, :as => :check_boxes %>
-  <%= f.association :roles, :as => :check_boxes %>
-  <%= f.association :functions, :as => :check_boxes %>
-  <%= f.association :departments, :as => :check_boxes %>
-  <%= f.association :roles_in_company, :as => :check_boxes %>
+  <%= f.input :parent_id, :collection => User.in_company(current_company.id), :label => t("attributes.parent") %>
+
+  <div id="substitutions">
+    <%= f.simple_fields_for :substitutions do |s| %>
+      <% render 'substitution_fields', :f => s %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t("helpers.add_deputy"), f, :substitutions, :render_options => {:wrapper => "bootstrap"} %>
+    </div>
+  </div>
+
+  <%#= f.association :roles, :as => :check_boxes if admin? %>
+  <%#= f.association :functions, :as => :check_boxes, :collection => Function.where(:company_id => current_company.id) %>
+  <%#= f.association :departments, :as => :check_boxes, :collection => Department.where(:company_id => current_company.id) %>
+  <%#= f.association :roles_in_company, :as => :check_boxes, :collection => RoleInCompany.where(:company_id => current_company.id) %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

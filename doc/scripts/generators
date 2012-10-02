@@ -45,3 +45,7 @@ rails generate migration DropOldRelationTables
 rails generate migration add_company_id_to_substitution company_id:integer
 
 rails generate migration add_company_id_to_department_affiliation company_id:integer
+
+rails generate migration add_company_id_to_user_function_assignment company_id:integer
+
+rails generate migration add_company_id_to_user_role_in_company_assignment company_id:integer

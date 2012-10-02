@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:function_id) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,6 +19,7 @@
         <td><%= link_to user_function_assignment.id, user_function_assignment_path(user_function_assignment) %></td>
         <td><%= user_function_assignment.user.name %></td>
         <td><%= user_function_assignment.function.name %></td>
+        <td><%= user_function_assignment.company.name if user_function_assignment.company %></td>
         <td><%=l user_function_assignment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

@@ -13,6 +13,8 @@ class Company < ActiveRecord::Base
   has_many :department_affiliations
 
   has_many :functions
+  has_many :user_function_assignments
 
   has_many :roles_in_company
+  has_many :user_role_in_company_assignments
 end

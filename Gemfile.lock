@@ -5,6 +5,12 @@ GIT
     textile_editor_helper (0.0.30)
 
 GIT
+  remote: git://github.com/nathanvda/cocoon.git
+  revision: 7e830eea2ef3c597b8d35c9c8c0d0be78884f1ca
+  specs:
+    cocoon (1.0.22)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: ac20f06d565099325abe38fa147a6aa2047248f4
   specs:
@@ -222,6 +228,7 @@ DEPENDENCIES
   ancestry
   cancan
   capybara
+  cocoon!
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner

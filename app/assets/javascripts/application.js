@@ -17,3 +17,4 @@
 //= require textile-editor
 //= require textile-editor-config
 //= require_tree .
+//= require cocoon

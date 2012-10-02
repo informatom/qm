@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:role_in_company_id) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,6 +19,7 @@
         <td><%= link_to user_role_in_company_assignment.id, user_role_in_company_assignment_path(user_role_in_company_assignment) %></td>
         <td><%= user_role_in_company_assignment.user.name %></td>
         <td><%= user_role_in_company_assignment.role_in_company.name %></td>
+        <td><%= user_role_in_company_assignment.company.name if user_role_in_company_assignment.company_id %></td>
         <td><%=l user_role_in_company_assignment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
