@@ -14,6 +14,7 @@ de:
     description: Beschreibung
     document: Dokument
     document_id: Dokument
+    documents: Dokumente
     function: Funktion
     functions: Funktionen
     function_id: Funktion
@@ -23,6 +24,7 @@ de:
     nominal_value: Sollwert
     note: Aufzeichnung
     note_id: Aufzeichnung
+    notes: Aufzeichnungen
     operator: Ausführender
     parent: Vorgesetzter
     password: Passwort
@@ -31,6 +33,7 @@ de:
     process_class_id: Prozessklasse
     process_indicator: Prozesskennzahl
     process_indicator_id: Prozesskennzahl
+    process_indicators: Prozesskennzahlen
     purpose: Zweck
     role: Rolle in der Anwendung
     roles: Rollen in der Anwendung

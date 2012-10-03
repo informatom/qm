@@ -21,7 +21,157 @@
   <dt><strong><%= model_class.human_attribute_name(:process_class_id) %>:</strong></dt>
   <dd><%= @business_process.process_class.name if @business_process.process_class %></dd>
 </dl>
-<div class="description"><%= textile(@business_process.description) %></div>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
+  <li><a href="#notes" data-toggle="tab"><%= model_class.human_attribute_name(:notes) %></a></li>
+  <li><a href="#documents" data-toggle="tab"><%= model_class.human_attribute_name(:documents) %></a></li>
+  <li><a href="#process_indicators" data-toggle="tab"><%= model_class.human_attribute_name(:process_indicators) %></a></li>
+  <li><a href="#departments" data-toggle="tab"><%= model_class.human_attribute_name(:departments) %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="description">
+    <div class="well"><%= textile(@business_process.description) %></div>
+  </div>
+
+  <div class="tab-pane" id="notes">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @business_process.notes.each do |note| %>
+          <tr>
+            <td><%= link_to note.id, note_path(note) %></td>
+            <td><%= note.name %></td>
+            <td><%= note.company.name %></td>
+            <td><%=l note.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_note_path(note), :class => 'btn btn-mini' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          note_path(note),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane" id="documents">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:internal) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @business_process.documents.each do |document| %>
+          <tr>
+            <td><%= link_to document.id, document_path(document) %></td>
+            <td><%= document.name %></td>
+            <td><%= document.company_id %></td>
+            <td><%= checkbox(document.internal) %></td>
+            <td><%=l document.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_document_path(document), :class => 'btn btn-mini' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          document_path(document),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane" id="process_indicators">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @business_process.process_indicators.each do |process_indicator| %>
+          <tr>
+            <td><%= link_to process_indicator.id, process_indicator_path(process_indicator) %></td>
+            <td><%= process_indicator.name %></td>
+            <td><%= process_indicator.company.name %></td>
+            <td><%=l process_indicator.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          process_indicator_path(process_indicator),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane" id="departments">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @business_process.departments.each do |department| %>
+          <tr>
+            <td><%= link_to department.id, department_path(department) %></td>
+            <td><%= department.name %></td>
+            <td><%= department.company.name if department.company %></td>
+            <td><%=l department.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_department_path(department), :class => 'btn btn-mini' %>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          department_path(department),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
