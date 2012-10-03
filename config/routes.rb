@@ -1,5 +1,13 @@
 Qm::Application.routes.draw do
 
+  resources :business_process_department_assignments
+
+  resources :business_process_process_indicator_assignments
+
+  resources :business_process_document_assignments
+
+  resources :business_process_note_assignments
+
   resources :business_processes
 
   resources :process_indicators

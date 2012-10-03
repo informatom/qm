@@ -1,5 +1,7 @@
 de:
   attributes:
+    business_process: Geschäftsprozess
+    business_process_id: Geschäftsprozess
     company: Firma
     company_id: Firma
     created_at: erzeugt
@@ -10,6 +12,8 @@ de:
     deputy: Stellvertreter
     deputy_id: Stellvertreter
     description: Beschreibung
+    document: Dokument
+    document_id: Dokument
     function: Funktion
     functions: Funktionen
     function_id: Funktion
@@ -17,12 +21,16 @@ de:
     metering_point: Messpunkt
     name: Name
     nominal_value: Sollwert
+    note: Aufzeichnung
+    note_id: Aufzeichnung
     operator: Ausführender
     parent: Vorgesetzter
     password: Passwort
     password_confirmation: Passwortwiederholung
     process_class: Prozessklasse
     process_class_id: Prozessklasse
+    process_indicator: Prozesskennzahl
+    process_indicator_id: Prozesskennzahl
     purpose: Zweck
     role: Rolle in der Anwendung
     roles: Rollen in der Anwendung
@@ -273,6 +281,18 @@ de:
       business_process:
         one: Geschäftsprozess
         other: Geschäftsprozesse
+      business_process_department_assignment:
+        one: Abteilung zum Geschäftsprozess
+        other: Abteilungen zu Geschäftsprozessen
+      business_process_document_assignment:
+        one: Dokument zum Geschäftsprozess
+        other: Dokumente zu Geschäftsprozessen
+      business_process_note_assignment:
+        one: Aufzeichnung zum Geschäftsprozess
+        other: Aufzeichnungen zu Geschäftsprozessen
+      business_process_process_indicator_assignment:
+        one: Prozesskennzahl zum Geschäftsprozess
+        other: Prozesskennzahlen zu Geschäftsprozessen
       company:
         one: Firma
         other: Firmen

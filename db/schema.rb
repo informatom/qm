@@ -11,13 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002133813) do
+ActiveRecord::Schema.define(:version => 20121003065626) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "business_process_department_assignments", :force => true do |t|
+    t.integer  "business_process_id"
+    t.integer  "department_id"
+    t.integer  "company_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "business_process_document_assignments", :force => true do |t|
+    t.integer  "business_process_id"
+    t.integer  "document_id"
+    t.integer  "company_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "business_process_note_assignments", :force => true do |t|
+    t.integer  "business_process_id"
+    t.integer  "note_id"
+    t.integer  "company_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "business_process_process_indicator_assignments", :force => true do |t|
+    t.integer  "business_process_id"
+    t.integer  "process_indicator_id"
+    t.integer  "company_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "business_processes", :force => true do |t|

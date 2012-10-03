@@ -1,0 +1,2 @@
+module BusinessProcessDepartmentAssignmentsHelper
+end

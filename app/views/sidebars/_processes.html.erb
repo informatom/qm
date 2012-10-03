@@ -5,4 +5,16 @@
   <li><%= link_to icon("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %></li>
   <li><%= link_to icon("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
   <li><%= link_to icon("envelope") + t("activerecord.models.document.other"), documents_path %></li>
+  <li><%= link_to icons(["road", "resize-horizontal", "envelope-alt"]) +
+                        t("activerecord.models.business_process_note_assignment.other"),
+                        business_process_note_assignments_path %></li>
+  <li><%= link_to icons(["road", "resize-horizontal", "envelope"]) +
+                        t("activerecord.models.business_process_document_assignment.other"),
+                        business_process_document_assignments_path %></li>
+  <li><%= link_to icons(["road", "resize-horizontal", "dashboard"]) +
+                        t("activerecord.models.business_process_process_indicator_assignment.other"),
+                        business_process_process_indicator_assignments_path %></li>
+  <li><%= link_to icons(["road", "resize-horizontal", "group"]) +
+                        t("activerecord.models.business_process_department_assignment.other"),
+                        business_process_department_assignments_path %></li>
 </ul>

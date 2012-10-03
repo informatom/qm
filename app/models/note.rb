@@ -5,4 +5,7 @@ class Note < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :company_id
 
   belongs_to :company
+
+  has_many :business_process_note_assignments, :dependent => :restrict
+  has_many :business_processes, :through => :business_process_note_assignments, :dependent => :restrict
 end

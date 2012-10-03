@@ -9,4 +9,16 @@ class BusinessProcess < ActiveRecord::Base
   belongs_to :company
   belongs_to :process_class
   belongs_to :owner, :class_name => "User"
+
+  has_many :business_process_note_assignments, :dependent => :restrict
+  has_many :notes, :through => :business_process_note_assignments, :dependent => :restrict
+
+  has_many :business_process_document_assignments, :dependent => :restrict
+  has_many :documents, :through => :business_process_document_assignments, :dependent => :restrict
+
+  has_many :business_process_process_indicator_assignments, :dependent => :restrict
+  has_many :process_indicators, :through => :business_process_process_indicator_assignments, :dependent => :restrict
+
+  has_many :business_process_department_assignments, :dependent => :restrict
+  has_many :departments, :through => :business_process_department_assignments, :dependent => :restrict
 end

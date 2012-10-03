@@ -56,3 +56,8 @@ rails generate scaffold Note name:string company_id:integer description:text
 rails generate scaffold Document name:string company_id:integer description:text internal:boolean
 rails generate scaffold ProcessIndicator name:string company_id:integer metering_point:string value:string unit:string nominal_value:string operator:string description:text
 rails generate scaffold BusinessProcess name:string company_id:integer parent_id:integer ancestry:string purpose:string number:string owner_id:integer aims:string process_class_id:integer description:text
+
+rails generate scaffold BusinessProcessNoteAssignment business_process_id:integer note_id:integer company_id:integer
+rails generate scaffold BusinessProcessDocumentAssignment business_process_id:integer document_id:integer company_id:integer
+rails generate scaffold BusinessProcessProcessIndicatorAssignment business_process_id:integer process_indicator_id:integer company_id:integer
+rails generate scaffold BusinessProcessDepartmentAssignment business_process_id:integer department_id:integer company_id:integer
