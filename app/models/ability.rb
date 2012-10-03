@@ -34,6 +34,8 @@ class Ability
 
       can :manage, ProcessIndicator, :company_id => current_company.id
       can :manage, BusinessProcessProcessIndicatorAssignment, :company_id => current_company.id
+    elsif
+      can :read, :all, :company_id => current_company.id
     end
   end
 end
