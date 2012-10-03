@@ -8,7 +8,13 @@ Qm::Application.routes.draw do
 
   resources :business_process_note_assignments
 
-  resources :business_processes
+  resources :business_processes do
+    member do
+      get 'diagram'
+      post 'diagram'
+      get 'reset'
+    end
+  end
 
   resources :process_indicators
 

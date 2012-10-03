@@ -61,3 +61,6 @@ rails generate scaffold BusinessProcessNoteAssignment business_process_id:intege
 rails generate scaffold BusinessProcessDocumentAssignment business_process_id:integer document_id:integer company_id:integer
 rails generate scaffold BusinessProcessProcessIndicatorAssignment business_process_id:integer process_indicator_id:integer company_id:integer
 rails generate scaffold BusinessProcessDepartmentAssignment business_process_id:integer department_id:integer company_id:integer
+
+rails generate migration add_coordinates_to_business_process x:integer y:integer
+rails generate migration add_color_to_process_class color:string

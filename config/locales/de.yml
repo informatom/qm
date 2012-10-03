@@ -2,6 +2,7 @@ de:
   attributes:
     business_process: Geschäftsprozess
     business_process_id: Geschäftsprozess
+    color: Farbe
     company: Firma
     company_id: Firma
     created_at: erzeugt
@@ -189,6 +190,7 @@ de:
       edit: Bearbeiten
       new: Erstelle %{model}
     no_company: keiner Firma
+    process_modell: Prozessmodell
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
     remove_user_function_assignment: Funktion der Person löschen

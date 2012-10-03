@@ -3,6 +3,7 @@
 
 <%= simple_form_for @process_class, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
+  <%= f.input :color, :collection => [:weiss, :blau, :hellblau, :gruen, :gelb, :rot, :schwarz] %>
 
   <% if @process_class.company_id %>
     <%= f.association :company, :disabled => true %>

@@ -13,6 +13,7 @@
       <th><%= model_class.human_attribute_name(:owner_id) %></th>
       <th><%= model_class.human_attribute_name(:process_class_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:coordinates) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         <td><%= business_process.owner.name if business_process.owner %></td>
         <td><%= business_process.process_class.name if business_process.process_class %></td>
         <td><%=l business_process.created_at %></td>
+        <td><%= business_process.x %> <%= business_process.y %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_business_process_path(business_process), :class => 'btn btn-mini' %>
