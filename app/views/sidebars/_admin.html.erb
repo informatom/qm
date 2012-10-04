@@ -1,13 +1,13 @@
 <ul class="nav nav-list">
   <li class="nav-header">Administration</li>
-  <li><%= link_to icon("home") + t("activerecord.models.company.other"), companies_path %></li>
-  <li><%= link_to icon("group") + t("activerecord.models.department.other"), departments_path %></li>
-  <li><%= link_to icon("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
-  <li><%= link_to icon("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
+  <li><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path %></li>
+  <li><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
+  <li><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
+  <li><%= link_to icon_("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
 
-  <li><%= link_to icon("user") + t("activerecord.models.user.other"), admin_users_path, class: "text-success" %></li>
+  <li><%= link_to icon_("user") + t("activerecord.models.user.other"), admin_users_path, class: "text-success" %></li>
 
-  <li><%= link_to(icon("cogs") + t("activerecord.models.role.other"), roles_path) if admin? %></li>
+  <li><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) if admin? %></li>
 
   <li><%= link_to icons(["user", "resize-horizontal", "user"]) + t("activerecord.models.substitution.other"), substitutions_path %></li>
 

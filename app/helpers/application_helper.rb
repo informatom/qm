@@ -19,8 +19,12 @@ module ApplicationHelper
     raw(RedCloth.new(strip_tags(text)).to_html)
   end
 
-  def icon(value)
+  def icon_(value)
     raw("<i class='icon-#{value} icon-large'></i> &nbsp; ")
+  end
+
+  def icon(value)
+    raw("<i class='icon-#{value} icon-large'></i>")
   end
 
   def icons(values)

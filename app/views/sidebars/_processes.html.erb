@@ -4,11 +4,11 @@
     <li><%= link_to icon("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
   <% end %>
 
-  <li><%= link_to icon("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
-  <li><%= link_to icon("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
-  <li><%= link_to icon("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %></li>
-  <li><%= link_to icon("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
-  <li><%= link_to icon("envelope") + t("activerecord.models.document.other"), documents_path %></li>
+  <li><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
+  <li><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
+  <li><%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %></li>
+  <li><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
+  <li><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>
   <li><%= link_to icons(["road", "resize-horizontal", "envelope-alt"]) +
                         t("activerecord.models.business_process_note_assignment.other"),
                         business_process_note_assignments_path %></li>
