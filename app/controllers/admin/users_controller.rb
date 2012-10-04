@@ -6,6 +6,7 @@ class Admin::UsersController < ApplicationController
 #  load_resource :user_role_in_company_assignment, :though => :user
 
   def create
+    @user.employments.new(company_id: current_company.id)
     if @user.save
       redirect_to admin_user_path(@user), notice: 'User was successfully created.'
     else

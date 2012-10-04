@@ -11,6 +11,7 @@ class Ability
       can :manage, Company, :id => current_company.id
 
       can :manage, User, :companies => { :id => current_company.id }
+      can :create, User
       can :manage, Substitution, :company_id => current_company.id
 
       can :manage, Function, :company_id => current_company.id

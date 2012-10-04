@@ -23,22 +23,22 @@ class User < ActiveRecord::Base
   has_many :assignments, :dependent => :restrict
   has_many :roles, :through => :assignments, :dependent => :restrict
 
-  has_many :substitutions, :dependent => :restrict
+  has_many :substitutions, :inverse_of => :user, :dependent => :restrict
   has_many :deputies, :through => :substitutions, :dependent => :restrict
   accepts_nested_attributes_for :substitutions, :allow_destroy => true
 
-  has_many :employments, :dependent => :restrict
+  has_many :employments, :dependent => :restrict, :inverse_of => :user
   has_many :companies, :through => :employments, :dependent => :restrict
 
-  has_many :department_affiliations, :dependent => :restrict
+  has_many :department_affiliations, :dependent => :restrict, :inverse_of => :user
   has_many :departments, :through => :department_affiliations, :dependent => :restrict
   accepts_nested_attributes_for :department_affiliations, :allow_destroy => true
 
-  has_many :user_function_assignments
+  has_many :user_function_assignments, :inverse_of => :user
   has_many :functions, :through => :user_function_assignments, :dependent => :restrict
   accepts_nested_attributes_for :user_function_assignments, :allow_destroy => true
 
-  has_many :user_role_in_company_assignments, :dependent => :restrict
+  has_many :user_role_in_company_assignments, :inverse_of => :user, :dependent => :restrict
   has_many :roles_in_company, :through => :user_role_in_company_assignments, :dependent => :restrict
   accepts_nested_attributes_for :user_role_in_company_assignments, :allow_destroy => true
 
