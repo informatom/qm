@@ -5,6 +5,6 @@ require File.expand_path('../application', __FILE__)
 Qm::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-    :domain => "informatom.com",
+    :domain => "qm.mittenin.at",
     :enable_starttls_auto => false
 }
