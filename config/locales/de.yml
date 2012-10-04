@@ -191,9 +191,10 @@ de:
       list: Liste
       new: Erstelle %{model}
       process_diagram: Diagramm
+      process_modell: Prozessmodell
       process_edit: Prozess bearbeiten
     no_company: keiner Firma
-    process_modell: Diagramm
+    process_modell: Prozessmodell
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
     remove_user_function_assignment: Funktion der Person löschen
