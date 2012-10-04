@@ -12,10 +12,10 @@
   <% end %>
 
   <%= f.input :parent_id, :collection => BusinessProcess.where(:company_id => current_company.id), :label => t("attributes.parent")  %>
-  <%= f.input :purpose %>
+  <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
   <%= f.input :number %>
   <%= f.association :owner, :collection => User.in_company(current_company.id) %>
-  <%= f.input :aims %>
+  <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
   <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <div class="form-actions">

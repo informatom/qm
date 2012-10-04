@@ -9,8 +9,60 @@
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
   <dd><%= @function.company.name %></dd>
 </dl>
-<div class="description"><%= textile(@function.description) %></div>
 
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
+  <li><a href="#tasks" data-toggle="tab"><%= model_class.human_attribute_name(:tasks) %></a></li>
+  <li><a href="#responsibilities" data-toggle="tab"><%= model_class.human_attribute_name(:responsibilities) %></a></li>
+  <li><a href="#skills" data-toggle="tab"><%= model_class.human_attribute_name(:skills) %></a></li>
+  <li><a href="#goals" data-toggle="tab"><%= model_class.human_attribute_name(:goals) %></a></li>
+  <li><a href="#authorities" data-toggle="tab"><%= model_class.human_attribute_name(:authorities) %></a></li>
+  <li><a href="#comments" data-toggle="tab"><%= model_class.human_attribute_name(:comments) %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="description">
+    <div class="well">
+      <%= textile(@function.description) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tasks">
+    <div class="well">
+      <%= textile(@function.tasks) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="responsibilities">
+    <div class="well">
+      <%= textile(@function.responsibilities) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="skills">
+    <div class="well">
+      <%= textile(@function.skills) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="goals">
+    <div class="well">
+      <%= textile(@function.goals) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="authorities">
+    <div class="well">
+      <%= textile(@function.authorities) %>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="comments">
+    <div class="well">
+      <%= textile(@function.comments) %>
+    </div>
+  </div>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

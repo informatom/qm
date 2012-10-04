@@ -11,6 +11,11 @@
     <%= f.hidden_field :company_id, :value => current_company.id %>
   <% end %>
 
+  <%= f.input :duration %>
+  <%= f.input :location, input_html: {class: "input-xxlarge"}%>
+  <%= f.input :medium %>
+  <%= f.input :archiving, input_html: {class: "input-xxlarge"} %>
+
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

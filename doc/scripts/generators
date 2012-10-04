@@ -64,3 +64,7 @@ rails generate scaffold BusinessProcessDepartmentAssignment business_process_id:
 
 rails generate migration add_coordinates_to_business_process x:integer y:integer
 rails generate migration add_color_to_process_class color:string
+
+rails generate migration add_fields_to_note duration:string location:string medium:string archiving:string
+rails generate migration add_fields_to_function tasks:text responsibilities:text skills:text goals:text authorities:text
+rails generate migration add_comments_to_function comments:text

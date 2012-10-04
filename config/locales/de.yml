@@ -1,8 +1,11 @@
 de:
   attributes:
+    archiving: Archivierung
+    authorities: Befugnisse
     business_process: Geschäftsprozess
     business_process_id: Geschäftsprozess
     color: Farbe
+    comments: Bemerkungen
     company: Firma
     company_id: Firma
     created_at: erzeugt
@@ -16,10 +19,14 @@ de:
     document: Dokument
     document_id: Dokument
     documents: Dokumente
+    duration: Dauer
     function: Funktion
     functions: Funktionen
     function_id: Funktion
     internal: intern
+    location: Ort der Ablage
+    goals: Ziele
+    medium: Medium
     metering_point: Messpunkt
     name: Name
     nominal_value: Sollwert
@@ -27,7 +34,7 @@ de:
     note_id: Aufzeichnung
     notes: Aufzeichnungen
     operator: Ausführender
-    parent: Vorgesetzter
+    parent: übergeordnet
     password: Passwort
     password_confirmation: Passwortwiederholung
     process_class: Prozessklasse
@@ -36,11 +43,14 @@ de:
     process_indicator_id: Prozesskennzahl
     process_indicators: Prozesskennzahlen
     purpose: Zweck
+    responsibilities: Verantwortungen
     role: Rolle in der Anwendung
     roles: Rollen in der Anwendung
     role_in_company: Rolle
     roles_in_company: Rollen
     role_in_company_id: Rolle
+    skills: Fähigkeiten - Qualifikation
+    tasks: Aufgaben
     updated_at: aktualisiert
     unit: Einheit
     user: Person
@@ -359,6 +369,7 @@ de:
         number: Prozessnummer
         owner: Prozesseigner
         owner_id: Prozesseigner
+        parent: Vaterprozess
         parent_id: Vaterprozess
       department_affiliation:
         department: Abteilung

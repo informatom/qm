@@ -11,7 +11,60 @@
     <%= f.hidden_field :company_id, :value => current_company.id %>
   <% end %>
 
-  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
+    <li><a href="#tasks" data-toggle="tab"><%= model_class.human_attribute_name(:tasks) %></a></li>
+    <li><a href="#responsibilities" data-toggle="tab"><%= model_class.human_attribute_name(:responsibilities) %></a></li>
+    <li><a href="#skills" data-toggle="tab"><%= model_class.human_attribute_name(:skills) %></a></li>
+    <li><a href="#goals" data-toggle="tab"><%= model_class.human_attribute_name(:goals) %></a></li>
+    <li><a href="#authorities" data-toggle="tab"><%= model_class.human_attribute_name(:authorities) %></a></li>
+    <li><a href="#comments" data-toggle="tab"><%= model_class.human_attribute_name(:comments) %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="description">
+      <div class="well">
+        <%= f.input_field :description, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tasks">
+      <div class="well">
+        <%= f.input_field :tasks, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="responsibilities">
+      <div class="well">
+        <%= f.input_field :responsibilities, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="skills">
+      <div class="well">
+        <%= f.input_field :skills, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="goals">
+      <div class="well">
+        <%= f.input_field :goals, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="authorities">
+      <div class="well">
+        <%= f.input_field :authorities, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="comments">
+      <div class="well">
+        <%= f.input_field :comments, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

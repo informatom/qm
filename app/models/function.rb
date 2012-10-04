@@ -1,5 +1,5 @@
 class Function < ActiveRecord::Base
-  attr_accessible :company_id, :name, :description
+  attr_accessible :company_id, :name, :description, :comments, :tasks, :responsibilities, :skills, :goals, :authorities
 
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :company_id

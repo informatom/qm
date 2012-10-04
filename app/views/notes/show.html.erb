@@ -8,6 +8,14 @@
   <dd><%= @note.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
   <dd><%= @note.company.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:duration) %>:</strong></dt>
+  <dd><%= @note.duration %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:location) %>:</strong></dt>
+  <dd><%= @note.location %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:medium) %>:</strong></dt>
+  <dd><%= @note.medium %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:archiving) %>:</strong></dt>
+  <dd><%= @note.archiving %></dd>
 </dl>
 <div class="description"><%= textile(@note.description) %></div>
 
