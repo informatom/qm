@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require jquery.ui.all
+ *= require dataTables/jquery.dataTables.bootstrap
  *= require_tree .
- */
+*/

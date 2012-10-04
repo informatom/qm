@@ -12,6 +12,7 @@ gem "cocoon", :git => 'git://github.com/nathanvda/cocoon.git'                   
 gem 'textile_editor_helper', :git => 'git://github.com/bridgeutopia/textile_editor_helper.git'     # Helper for buttons on textarea
 gem 'RedCloth'                                       # textile library
 gem 'htmlentities'                                   # requirement of textile_editor_helper, e.g. &auml;
+gem 'jquery-datatables-rails'                        # Tables
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

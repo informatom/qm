@@ -27,7 +27,7 @@ class BusinessProcessesController < ApplicationController
       @business_process = BusinessProcess.find_by_id(params["coords"]["id"])
       x = params["coords"]["x"].to_i
       y = params["coords"]["y"].to_i
-      puts x,y
+      puts x,y # print coordinates on console
       @business_process.update_attributes(x: x ,y: y)
     end
 
