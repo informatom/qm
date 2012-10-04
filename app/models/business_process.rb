@@ -6,6 +6,7 @@ class BusinessProcess < ActiveRecord::Base
 
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :company_id
+  validates_presence_of :process_class_id
 
   belongs_to :company
   belongs_to :process_class
