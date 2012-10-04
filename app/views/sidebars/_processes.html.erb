@@ -1,7 +1,7 @@
 <ul class="nav nav-list">
   <li class="nav-header">Prozesse</li>
   <% if process_modell %>
-    <li><%= link_to icon("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
+    <li><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
   <% end %>
 
   <li><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
