@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,8 +14,7 @@
   <tbody>
     <% @functions.each do |function| %>
       <tr>
-        <td><%= link_to function.id, function_path(function) %></td>
-        <td><%= function.name %></td>
+        <td><%= link_to function.name, function_path(function) %></td>
         <td><%= function.company.name %></td>
         <td><%=l function.created_at %></td>
         <td>

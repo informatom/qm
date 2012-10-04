@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @employments.each do |employment| %>
       <tr>
-        <td><%= link_to employment.id, employment_path(employment) %></td>
         <td><%= employment.user.name %></td>
         <td><%= employment.company.name %></td>
         <td><%=l employment.created_at %></td>

@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:internal) %></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= link_to document.id, document_path(document) %></td>
-        <td><%= document.name %></td>
+        <td><%= link_to document.name, document_path(document) %></td>
         <td><%= document.company_id %></td>
         <td><%= checkbox(document.internal) %></td>
         <td><%=l document.created_at %></td>

@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:business_process_id) %></th>
       <th><%= model_class.human_attribute_name(:process_indicator_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @business_process_process_indicator_assignments.each do |business_process_process_indicator_assignment| %>
       <tr>
-        <td><%= link_to business_process_process_indicator_assignment.id, business_process_process_indicator_assignment_path(business_process_process_indicator_assignment) %></td>
         <td><%= business_process_process_indicator_assignment.business_process.name %></td>
         <td><%= business_process_process_indicator_assignment.process_indicator.name %></td>
         <td><%= business_process_process_indicator_assignment.company.name %></td>

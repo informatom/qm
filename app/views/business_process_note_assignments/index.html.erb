@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:business_process_id) %></th>
       <th><%= model_class.human_attribute_name(:note_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @business_process_note_assignments.each do |business_process_note_assignment| %>
       <tr>
-        <td><%= link_to business_process_note_assignment.id, business_process_note_assignment_path(business_process_note_assignment) %></td>
         <td><%= business_process_note_assignment.business_process.name %></td>
         <td><%= business_process_note_assignment.note.name %></td>
         <td><%= business_process_note_assignment.company.name %></td>

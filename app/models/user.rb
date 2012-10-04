@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
     self.firstname.to_s + " " + self.lastname.to_s + " (" + email + ")"
   end
 
+  def shortname
+    self.firstname.to_s + " " + self.lastname.to_s
+  end
+
   def in_company?(id)
     self.employments.any? {|emp| emp.company_id == id.to_i}
   end

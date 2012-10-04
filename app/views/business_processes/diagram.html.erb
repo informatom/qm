@@ -1,19 +1,24 @@
 <%- model_class = BusinessProcess -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t("helpers.process_modell") %></h1>
+  <h1><%=t '.title', :default => t("helpers.process_modell") + " " + @business_process.name %></h1>
 </div>
 
 <div class="hero-unit" style="height: 400px;">
   <% @business_process.children.each do |bp| %>
-  <%= link_to bp.name, business_process_path(bp),
-      class: "btn btn #{btnclass(bp.process_class.color)} process" , id: bp.id %>
+  <div class="btn btn <%= btnclass(bp.process_class.color) %> process" , id="<%= bp.id %>">
+      <%= link_to icon("sitemap"), diagram_business_process_path(bp) %>
+      <%= link_to icon("reorder"), business_process_path(bp) %>
+      <%= bp.name %>
+  </div>
   <% end %>
 </div>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              business_processes_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <% if @business_process.parent %>
+    <%= link_to t('.back', :default => (icon("arrow-up") + t("helpers.links.process_diagram"))),
+                diagram_business_process_path(@business_process.parent), :class => 'btn' %>
+  <% end %>
+  <%= link_to t('.edit', :default => t("helpers.links.process_edit")),
               edit_business_process_path(@business_process), :class => 'btn' %>
   <%= link_to t('.edit', :default => t("helpers.links.reset")),
               reset_business_process_path(@business_process), :class => 'btn' %>

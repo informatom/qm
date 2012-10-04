@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:deputy_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @substitutions.each do |substitution| %>
       <tr>
-        <td><%= link_to substitution.id, substitution_path(substitution) %></td>
         <td><%= substitution.user.name %></td>
         <td><%= substitution.deputy.name %></td>
         <td><%= substitution.company.name if substitution.company %></td>

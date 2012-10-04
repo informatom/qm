@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:color) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @process_classes.each do |process_class| %>
       <tr>
-        <td><%= link_to process_class.id, process_class_path(process_class) %></td>
-        <td><%= process_class.name %></td>
+        <td><%= link_to process_class.name, process_class_path(process_class) %></td>
         <td><%= process_class.color %></td>
         <td><%= process_class.company.name %></td>
         <td><%=l process_class.created_at %></td>

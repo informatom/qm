@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:function_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @user_function_assignments.each do |user_function_assignment| %>
       <tr>
-        <td><%= link_to user_function_assignment.id, user_function_assignment_path(user_function_assignment) %></td>
         <td><%= user_function_assignment.user.name %></td>
         <td><%= user_function_assignment.function.name %></td>
         <td><%= user_function_assignment.company.name if user_function_assignment.company %></td>

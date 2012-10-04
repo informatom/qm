@@ -170,12 +170,17 @@
   </div>
 </div>
 
-
-
-
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to t('.back', :default => t("helpers.links.list")),
               business_processes_path, :class => 'btn'  %>
+
+  <% if @business_process.parent %>
+    <%= link_to t('.back', :default => (icon("arrow-up") + t("helpers.links.process_diagram"))),
+                diagram_business_process_path(@business_process.parent), :class => 'btn'  %>
+  <% end %>
+
+  <%= link_to t('.back', :default => (icon("arrow-left") + t("helpers.links.process_diagram"))),
+              diagram_business_process_path(@business_process), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_business_process_path(@business_process), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

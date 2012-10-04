@@ -188,9 +188,12 @@ de:
       cancel: Abbrechen
       destroy: Löschen
       edit: Bearbeiten
+      list: Liste
       new: Erstelle %{model}
+      process_diagram: Diagramm
+      process_edit: Prozess bearbeiten
     no_company: keiner Firma
-    process_modell: Prozessmodell
+    process_modell: Diagramm
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
     remove_user_function_assignment: Funktion der Person löschen
