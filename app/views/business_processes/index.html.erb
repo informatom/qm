@@ -18,7 +18,7 @@
     <% @business_processes.each do |business_process| %>
       <tr>
         <td><%= link_to business_process.name, business_process_path(business_process) %></td>
-        <td><%= business_process.company.name %></td>
+        <td><%= truncate(business_process.company.name, length: 20) %></td>
         <td><%= business_process.parent.name if business_process.parent %></td>
         <td><%= business_process.number %></td>
         <td><%= business_process.owner.shortname if business_process.owner %></td>

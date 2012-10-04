@@ -54,7 +54,7 @@
               <%= render "admin/dropdown" %>
               <li><%= link_to "DE", "/?locale=de" %></li>
               <li><%= link_to "EN", "/?locale=en" %></li>
-              <li><%= link_to icon("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+              <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
