@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :substitutions, :allow_destroy => true
 
   has_many :employments, :dependent => :destroy, :inverse_of => :user
-  has_many :companies, :through => :employments, :dependent => :restrict
+  has_many :companies, :through => :employments
 
   has_many :department_affiliations, :dependent => :restrict, :inverse_of => :user
   has_many :departments, :through => :department_affiliations, :dependent => :restrict
