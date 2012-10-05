@@ -35,7 +35,7 @@
 		  $( ".process" ).draggable({ grid: [ 25,25 ] });
 		  $( ".process" ).bind( "dragstop", function(event, ui) {
         $.ajax({
-          url: "/business_processes/<%= bp.id %>/diagram.js",
+          url: "/business_processes/<%= @business_process.id %>/diagram.js",
           type: "POST",
           data: {coords: {
             id: this.id,
