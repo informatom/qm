@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">QM.mittenin.at</a>
+          <a class="brand" href="/">QM.mittenin.at</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to t("Administration"), "/?menu=admin" %></li>
@@ -67,6 +67,11 @@
           <div class="well sidebar-nav">
             <%= render "sidebars/" + session[:menu] %>
           </div><!--/.well -->
+          <% unless request.domain == "qm.mittenin.at" %>
+            <div class="alert alert-block fade in alert-info">
+              Domain: <%= link_to request.domain, "#" %>
+            </div>
+          <% end %>
         </div><!--/span-->
         <div class="span9">
           <%= bootstrap_flash %>
