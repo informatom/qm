@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'                                 # latest stable Rails version on 09/06/11
 
-gem 'sqlite3'                                        # filebased database
+gem 'mysql2'                                       # filebased database
 gem 'devise'                                         # authentification
 gem 'devise-i18n-views'                              # translated views for devise
 gem 'cancan'                                         # access control
@@ -13,6 +13,8 @@ gem 'textile_editor_helper', :git => 'git://github.com/bridgeutopia/textile_edit
 gem 'RedCloth'                                       # textile library
 gem 'htmlentities'                                   # requirement of textile_editor_helper, e.g. &auml;
 gem 'jquery-datatables-rails'                        # Tables
+
+gem 'yaml_db'                                        # for porting database to mysql
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

@@ -1,9 +1,5 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
-#  load_resource :substitution, :though => :user
-#  load_resource :department_affiliation, :though => :user
-#  load_resource :user_function_assignment, :though => :user
-#  load_resource :user_role_in_company_assignment, :though => :user
 
   def create
     @user.employments.new(company_id: current_company.id)
