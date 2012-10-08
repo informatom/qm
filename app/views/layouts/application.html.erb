@@ -67,9 +67,9 @@
           <div class="well sidebar-nav">
             <%= render "sidebars/" + session[:menu] %>
           </div><!--/.well -->
-          <% unless request.domain == "qm.mittenin.at" %>
+          <% unless request.domain == "qm" %>
             <div class="alert alert-block fade in alert-info">
-              Domain: <%= link_to request.domain, "#" %>
+              Domain: http://<%= link_to request.subdomain + request.domain %>
             </div>
           <% end %>
         </div><!--/span-->
