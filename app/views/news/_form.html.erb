@@ -1,0 +1,17 @@
+<%- model_class = News -%>
+<%= bootstrap_error(@news, model_class ) %>
+
+<%= simple_form_for @news, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input_field :description, :as => :textile_editor, class: :broad %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                news_index_path, :class => 'btn' %>
+  </div>
+
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>
+<% end %>

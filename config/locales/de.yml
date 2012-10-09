@@ -9,6 +9,7 @@ de:
     company: Firma
     company_id: Firma
     created_at: erzeugt
+    created_by: erzeugt von
     department: Abteilung
     departments: Abteilungen
     department_id: Abteilung
@@ -52,6 +53,7 @@ de:
     skills: Fähigkeiten - Qualifikation
     tasks: Aufgaben
     updated_at: aktualisiert
+    updated_by: aktualisiert von
     unit: Einheit
     user: Person
     user_id: Person
@@ -203,6 +205,10 @@ de:
       process_diagram: Diagramm
       process_modell: Prozessmodell
       process_edit: Prozess bearbeiten
+    news:
+      all: alle Newseinträge
+      general: News
+      your: Ihre Newseinträge
     no_company: keiner Firma
     process_modell: Prozessmodell
     remove_department_affiliation: Abteilungszugehörigkeit löschen
@@ -332,6 +338,9 @@ de:
         other: Funktionen
         created: Die Funktion wurde erfolgreich angelegt.
         updated: Die Funktion wurde erfolgreich aktualisiert.
+      news:
+        one: Newseintrag
+        other: News
       note:
         one: Aufzeichnung
         other: Aufzeichnungen

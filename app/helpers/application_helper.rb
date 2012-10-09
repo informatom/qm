@@ -57,4 +57,10 @@ module ApplicationHelper
       @any_process.root
     end
   end
+
+  def username(id)
+    if user = User.find_by_id(id)
+      user.shortname
+    end
+  end
 end

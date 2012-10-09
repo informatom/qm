@@ -1,0 +1,16 @@
+<%- model_class = News -%>
+<div class="page-header">
+  <h1><%=t("helpers.news.general") %></h1>
+</div>
+
+<% @news.each do |news| %>
+  <div class="alert alert-info">
+    <div class="pull-right muted">
+      <%= username(news.updated_by)%>, <%= distance_of_time_in_words_to_now(news.updated_at)%> alt
+    </div>
+    <h3><%= news.name %></h3>
+    <%= textile(news.description) %>
+  </div>
+<% end %>
+
+<%= link_to t("helpers.news.your"), latest_news_index_path, :class => 'btn btn-primary'  %>

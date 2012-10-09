@@ -1,5 +1,12 @@
 Qm::Application.routes.draw do
 
+  resources :news do
+    collection do
+      get 'latest'
+      get 'display'
+    end
+  end
+
   resources :business_process_department_assignments
 
   resources :business_process_process_indicator_assignments
@@ -96,7 +103,7 @@ Qm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'admin/users#index'
+  root :to => 'news#latest'
 
   # See how all your routes lay out with "rake routes"
 end
