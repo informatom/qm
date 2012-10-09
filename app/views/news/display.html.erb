@@ -6,12 +6,7 @@
 <% @news.each do |news| %>
   <div class="alert alert-info">
     <div class="pull-right muted">
-      <% if news.updated_by %>
-        <%= username(news.updated_by) %>
-      <% else %>
-        <%= username(news.created_by) %>
-      <% end %>
-      , <%= distance_of_time_in_words_to_now(news.updated_at)%> alt
+      <%= username(news.updated_by) || username(news.created_by) %>, <%= distance_of_time_in_words_to_now(news.updated_at)%> alt
     </div>
     <h3><%= news.name %></h3>
     <%= textile(news.description) %>
