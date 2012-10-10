@@ -1,24 +1,26 @@
 <ul class="nav nav-list">
   <li class="nav-header">Prozesse</li>
   <% if process_modell %>
-    <li><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
+    <li <%= active("business_processes", "diagram") %>><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
   <% end %>
 
-  <li><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
-  <li><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
-  <li><%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %></li>
-  <li><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
-  <li><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>
-  <li><%= link_to icons(["road", "resize-horizontal", "envelope-alt"]) +
+  <li <%= active("process_classes") %>><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
+  <li <%= active("business_processes", "diagram", true) %>><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
+  <li <%= active("process_indicators") %>>
+    <%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %>
+  </li>
+  <li <%= active("notes") %>><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
+  <li <%= active("documents") %>><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>
+  <li <%= active("business_process_note_assignments") %>><%= link_to icons(["road", "resize-horizontal", "envelope-alt"]) +
                         t("activerecord.models.business_process_note_assignment.other"),
                         business_process_note_assignments_path %></li>
-  <li><%= link_to icons(["road", "resize-horizontal", "envelope"]) +
+  <li <%= active("business_process_document_assignments") %>><%= link_to icons(["road", "resize-horizontal", "envelope"]) +
                         t("activerecord.models.business_process_document_assignment.other"),
                         business_process_document_assignments_path %></li>
-  <li><%= link_to icons(["road", "resize-horizontal", "dashboard"]) +
+  <li <%= active("business_process_process_indicator_assignments") %>><%= link_to icons(["road", "resize-horizontal", "dashboard"]) +
                         t("activerecord.models.business_process_process_indicator_assignment.other"),
                         business_process_process_indicator_assignments_path %></li>
-  <li><%= link_to icons(["road", "resize-horizontal", "group"]) +
+  <li <%= active("business_process_department_assignments") %>><%= link_to icons(["road", "resize-horizontal", "group"]) +
                         t("activerecord.models.business_process_department_assignment.other"),
                         business_process_department_assignments_path %></li>
 </ul>

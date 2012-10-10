@@ -16,21 +16,23 @@ module ApplicationHelper
   end
 
   def textile(text)
-    raw(RedCloth.new(strip_tags(text)).to_html)
+    if text
+      raw(RedCloth.new(strip_tags(text)).to_html)
+    end
   end
 
   def icon_(value)
-    raw("<i class='icon-#{value} icon-large'></i> &nbsp; ")
+    raw("<i class='icon-#{value}'></i> &nbsp;")
   end
 
   def icon(value)
-    raw("<i class='icon-#{value} icon-large'></i>")
+    raw("<i class='icon-#{value}'></i>")
   end
 
   def icons(values)
     output = []
     values.each do |value|
-      output << "<i class='icon-#{value} icon-large'></i>"
+      output << "<i class='icon-#{value}'></i>"
     end
     output << " &nbsp; "
     raw(output.join)
@@ -61,6 +63,24 @@ module ApplicationHelper
   def username(id)
     if user = User.find_by_id(id)
       user.shortname
+    end
+  end
+
+  def active(cont, action="none", inverse = false)
+    if inverse == true
+      if cont == controller.controller_name && action != controller.action_name
+        "class=active"
+      end
+    else
+      if action == "none"
+        if cont == controller.controller_name
+          "class=active"
+        end
+      else
+        if cont == controller.controller_name && action == controller.action_name
+          "class=active"
+        end
+      end
     end
   end
 end
