@@ -21,6 +21,12 @@ module ApplicationHelper
     end
   end
 
+  def differtextile(text)
+    if text
+      raw(RedCloth.new(text).to_html)
+    end
+  end
+
   def icon_(value)
     raw("<i class='icon-#{value}'></i> &nbsp;")
   end
@@ -83,4 +89,38 @@ module ApplicationHelper
       end
     end
   end
+
+  def domain_helper
+    unless request.subdomain == "qm"
+      if !request.subdomain.empty?
+        content_tag :div, "Domain: http://#{request.subdomain}.#{request.domain}", class: "alert alert-block fade in alert-info"
+      elsif request.domain
+        content_tag :div, "Domain: http://#{request.domain}", class: "alert alert-block fade in alert-info"
+      else
+        content_tag :div, "Domain: http://#{request.ip}", class: "alert alert-block fade in alert-info"
+      end
+    end
+  end
+
+  def created(object)
+    output = ""
+    output << username(object.created_by) if object.created_by
+    output << " " if object.created_by
+    output << l( object.created_at, :format => :timestamp )
+  end
+
+  def updated(object)
+    output = ""
+    output << username(object.updated_by) if object.updated_by
+    output << " " if object.updated_by
+    output << l( object.updated_at , :format => :timestamp )
+  end
+
+  def header(version)
+    output = ""
+    output << username(version.whodunnit)
+    output << " "
+    output << l( version.created_at, :format => :timestamp )
+  end
+
 end

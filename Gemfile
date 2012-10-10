@@ -16,6 +16,7 @@ gem 'jquery-datatables-rails'                        # Tables
 
 gem 'yaml_db'                                        # for porting database to mysql
 gem 'paper_trail', '~> 2'                            # Versioning
+gem 'differ'                                         # View diffs
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

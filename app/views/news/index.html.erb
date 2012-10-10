@@ -15,8 +15,8 @@
     <% @news.each do |news| %>
       <tr>
         <td><%= link_to news.name, news_path(news) %></td>
-        <td><%= username(news.created_by)%>, <%=l news.created_at %></td>
-        <td><%= username(news.updated_by)%>, <%=l news.updated_at %></td>
+        <td><%= created(news) %></td>
+        <td><%= updated(news) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_news_path(news), :class => 'btn btn-mini' %>

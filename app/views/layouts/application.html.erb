@@ -69,11 +69,7 @@
           <div class="well sidebar-nav">
             <%= render "sidebars/" + session[:menu] %>
           </div><!--/.well -->
-          <% unless request.subdomain == "qm" %>
-            <div class="alert alert-block fade in alert-info">
-              Domain: http://<%= request.subdomain + "." + request.domain %>
-            </div>
-          <% end %>
+          <%= domain_helper %>
         </div><!--/span-->
         <div class="span9">
           <%= bootstrap_flash %>

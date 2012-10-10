@@ -14,6 +14,7 @@
   <%= f.input :parent_id, :collection => BusinessProcess.where(:company_id => current_company.id), :label => t("attributes.parent")  %>
   <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
   <%= f.input :number %>
+  <%= f.input :area %>
   <%= f.association :owner, :collection => User.in_company(current_company.id) %>
   <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
   <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>

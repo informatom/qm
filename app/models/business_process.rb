@@ -1,8 +1,9 @@
 class BusinessProcess < ActiveRecord::Base
   has_ancestry
+  has_paper_trail
 
   attr_accessible :aims, :ancestry, :company_id, :description, :name, :number, :owner_id, :parent_id, :process_class_id, :purpose,
-                  :x, :y
+                  :x, :y, :area
 
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :company_id

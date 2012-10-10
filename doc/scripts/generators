@@ -72,3 +72,5 @@ rails generate migration add_comments_to_function comments:text
 rails generate migration add_object_changes_to_versions object_changes:text
 
 rails generate scaffold News name:string description:text
+
+rails generate migration add_author_and_area_to_business_processes created_by:integer updated_by:integer area:string

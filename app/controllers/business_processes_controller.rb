@@ -2,6 +2,8 @@ class BusinessProcessesController < ApplicationController
   load_and_authorize_resource
 
   def create
+    @business_process.created_by = current_user.id
+    @business_process.updated_by = current_user.id
     if @business_process.save
       redirect_to @business_process, notice: 'Business process was successfully created.'
     else
@@ -10,6 +12,7 @@ class BusinessProcessesController < ApplicationController
   end
 
   def update
+    @business_process.updated_by = current_user.id
     if @business_process.update_attributes(params[:business_process])
       redirect_to @business_process, notice: 'Business process was successfully updated.'
     else

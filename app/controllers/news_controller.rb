@@ -3,6 +3,7 @@ class NewsController < ApplicationController
 
   def create
     @news.created_by = current_user.id
+    @news.updated_by = current_user.id
     if @news.save
       redirect_to @news, notice: 'News was successfully created.'
     else

@@ -14,12 +14,18 @@
   <dd><%= @business_process.purpose %> &nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
   <dd><%= @business_process.number %> &nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:area) %>:</strong></dt>
+  <dd><%= @business_process.area %> &nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:owner_id) %>:</strong></dt>
   <dd><%= @business_process.owner.name if @business_process.owner%> &nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:aims) %>:</strong></dt>
   <dd><%= @business_process.aims %> &nbsp;</dd>
   <dt><strong><%= model_class.human_attribute_name(:process_class_id) %>:</strong></dt>
   <dd><%= @business_process.process_class.name if @business_process.process_class %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+  <dd><%= created(@business_process) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
+  <dd><%= updated(@business_process) %></dd>
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">
@@ -28,6 +34,7 @@
   <li><a href="#documents" data-toggle="tab"><%= model_class.human_attribute_name(:documents) %></a></li>
   <li><a href="#process_indicators" data-toggle="tab"><%= model_class.human_attribute_name(:process_indicators) %></a></li>
   <li><a href="#departments" data-toggle="tab"><%= model_class.human_attribute_name(:departments) %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -39,7 +46,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -49,8 +55,7 @@
       <tbody>
         <% @business_process.notes.each do |note| %>
           <tr>
-            <td><%= link_to note.id, note_path(note) %></td>
-            <td><%= note.name %></td>
+            <td><%= link_to note.name, note_path(note) %></td>
             <td><%= note.company.name %></td>
             <td><%=l note.created_at %></td>
             <td>
@@ -72,7 +77,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:internal) %></th>
@@ -83,8 +87,7 @@
       <tbody>
         <% @business_process.documents.each do |document| %>
           <tr>
-            <td><%= link_to document.id, document_path(document) %></td>
-            <td><%= document.name %></td>
+            <td><%= link_to document.name, document_path(document) %></td>
             <td><%= document.company_id %></td>
             <td><%= checkbox(document.internal) %></td>
             <td><%=l document.created_at %></td>
@@ -107,7 +110,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -117,8 +119,7 @@
       <tbody>
         <% @business_process.process_indicators.each do |process_indicator| %>
           <tr>
-            <td><%= link_to process_indicator.id, process_indicator_path(process_indicator) %></td>
-            <td><%= process_indicator.name %></td>
+            <td><%= link_to process_indicator.name, process_indicator_path(process_indicator) %></td>
             <td><%= process_indicator.company.name %></td>
             <td><%=l process_indicator.created_at %></td>
             <td>
@@ -140,7 +141,6 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th><%= model_class.human_attribute_name(:id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -150,8 +150,7 @@
       <tbody>
         <% @business_process.departments.each do |department| %>
           <tr>
-            <td><%= link_to department.id, department_path(department) %></td>
-            <td><%= department.name %></td>
+            <td><%= link_to department.name, department_path(department) %></td>
             <td><%= department.company.name if department.company %></td>
             <td><%=l department.created_at %></td>
             <td>
@@ -168,6 +167,30 @@
       </tbody>
     </table>
   </div>
+
+  <div class="tab-pane" id="versions">
+    <ul>
+      <% @business_process.versions.each do |version| %>
+        <% unless version.changeset.empty? %>
+          <li>
+          <%= header(version) %>
+          <ul>
+            <% version.changeset.each do |changeset| %>
+              <li>
+                <%= model_class.human_attribute_name(changeset[0]) %>
+                <div class="well">
+                  <% @diff = Differ.diff_by_char(changeset[1][1], changeset[1][0]) %>
+                  <%= differtextile(@diff.to_s) %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
 </div>
 
 <div class="form-actions">
@@ -175,11 +198,11 @@
               business_processes_path, :class => 'btn'  %>
 
   <% if @business_process.parent %>
-    <%= link_to t('.back', :default => (icon("arrow-up") + t("helpers.links.process_diagram"))),
+    <%= link_to t('.back', :default => (icon_("arrow-up") + t("helpers.links.process_diagram"))),
                 diagram_business_process_path(@business_process.parent), :class => 'btn'  %>
   <% end %>
 
-  <%= link_to t('.back', :default => (icon("arrow-left") + t("helpers.links.process_diagram"))),
+  <%= link_to t('.back', :default => (icon_("arrow-left") + t("helpers.links.process_diagram"))),
               diagram_business_process_path(@business_process), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_business_process_path(@business_process), :class => 'btn' %>

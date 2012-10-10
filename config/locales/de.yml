@@ -1,6 +1,7 @@
 de:
   attributes:
     archiving: Archivierung
+    area: Bereich
     authorities: Befugnisse
     business_process: Geschäftsprozess
     business_process_id: Geschäftsprozess
@@ -9,7 +10,7 @@ de:
     company: Firma
     company_id: Firma
     created_at: erzeugt
-    created_by: erzeugt von
+    created_by: erzeugt
     department: Abteilung
     departments: Abteilungen
     department_id: Abteilung
@@ -53,7 +54,7 @@ de:
     skills: Fähigkeiten - Qualifikation
     tasks: Aufgaben
     updated_at: aktualisiert
-    updated_by: aktualisiert von
+    updated_by: aktualisiert
     unit: Einheit
     user: Person
     user_id: Person
@@ -224,6 +225,8 @@ de:
     titles:
       edit: Bearbeite %{model}
       new: Erstelle %{model}
+    versions: Versionen
+
   hints:
     leave_empty: Lassen Sie das Feld leer, um das Passwort unverändert zu lassen.
   number:
@@ -288,6 +291,7 @@ de:
       default: ! '%A, %d. %B %Y, %H:%M Uhr'
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
       short: ! '%d. %B, %H:%M Uhr'
+      timestamp: '(%d.%m.%y - %H:%M Uhr)'
     pm: nachmittags
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
