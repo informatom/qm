@@ -201,6 +201,7 @@ de:
       cancel: Abbrechen
       destroy: Löschen
       edit: Bearbeiten
+      expand: Ausklappen
       list: Liste
       new: Erstelle %{model}
       process_diagram: Diagramm
@@ -291,7 +292,8 @@ de:
       default: ! '%A, %d. %B %Y, %H:%M Uhr'
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
       short: ! '%d. %B, %H:%M Uhr'
-      timestamp: '(%d.%m.%y - %H:%M Uhr)'
+      timestamp: '%d.%m.%y - %H:%M Uhr'
+      id: '%d%m%y%H%M%S'
     pm: nachmittags
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

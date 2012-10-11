@@ -117,10 +117,14 @@ module ApplicationHelper
   end
 
   def header(version)
-    output = ""
-    output << username(version.whodunnit)
-    output << " "
-    output << l( version.created_at, :format => :timestamp )
+    output = "<dt>"
+    output << content_tag("h3", username(version.whodunnit))
+    output << "</dt><dd>"
+    output << content_tag("h3", l( version.created_at, :format => :timestamp ))
+    output << "</dd>"
   end
 
+  def versioning_helper(object)
+    render partial: "shared/versioning_helper", locals: { :object => object }
+  end
 end

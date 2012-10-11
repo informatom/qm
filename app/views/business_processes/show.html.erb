@@ -167,30 +167,7 @@
       </tbody>
     </table>
   </div>
-
-  <div class="tab-pane" id="versions">
-    <ul>
-      <% @business_process.versions.each do |version| %>
-        <% unless version.changeset.empty? %>
-          <li>
-          <%= header(version) %>
-          <ul>
-            <% version.changeset.each do |changeset| %>
-              <li>
-                <%= model_class.human_attribute_name(changeset[0]) %>
-                <div class="well">
-                  <% @diff = Differ.diff_by_char(changeset[1][1], changeset[1][0]) %>
-                  <%= differtextile(@diff.to_s) %>
-                </div>
-              </li>
-            <% end %>
-          </ul>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-
+  <%= versioning_helper(@business_process) %>
 </div>
 
 <div class="form-actions">

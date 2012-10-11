@@ -1,0 +1,44 @@
+<div class="tab-pane tabbable tabs-left" id="versions">
+  <ul class="nav nav-tabs " id="navTab">
+    <% object.versions.reverse.each_with_index do |version, i| %>
+      <li <%= "class=active" if i==0 %>>
+        <a href="#<%= l( version.created_at, :format => :id) %>" data-toggle="tab"><%= l( version.created_at, :format => :timestamp ) %></a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <% object.versions.reverse.each_with_index do |version, i| %>
+      <% unless version.changeset.empty? %>
+        <div class="tab-pane <%= 'active' if i==0 %>" id="<%= l( version.created_at, :format => :id) %>">
+          <dl class="dl-horizontal">
+            <%= raw(header(version)) %>
+            <% version.changeset.each do |changeset| %>
+                <% attribute = object.class.human_attribute_name(changeset[0]) %>
+                <% if changeset[0].include?("_id") %>
+                  <% new_name = object.send(changeset[0].gsub(/_id/,"")).class.find_by_id(changeset[1][1]).name if changeset[1][1] %>
+                  <% old_name = object.send(changeset[0].gsub(/_id/,"")).class.find_by_id(changeset[1][0]).name if changeset[1][0] %>
+                  <% diff = Differ.diff_by_line(new_name.to_s || "", old_name.to_s || "") %>
+                <% else %>
+                  <% diff = Differ.diff_by_char(changeset[1][1].to_s || "", changeset[1][0].to_s || "") %>
+                <% end %>
+                <% if object.column_for_attribute(changeset[0]).type == :text %>
+                  <dt><%= attribute %></dt>
+                  </dl>
+                    <div class="well">
+                      <%= differtextile(diff.to_s) %>
+                    </div>
+                  <dl>
+                <% else %>
+                  <% unless changeset[0] == "ancestry" %>
+                    <dt><%= attribute %></dt>
+                    <dd><%= raw(diff.to_s) %></dd>
+                  <% end %>
+                <% end %>
+            <% end %>
+          </dl>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
