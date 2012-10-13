@@ -1,0 +1,46 @@
+have_header: checking for vm_core.h... -------------------- no
+
+"gcc -o conftest -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/i686-linux -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I. -I/home/stefan/.rvm/usr/include  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC conftest.c  -L. -L/home/stefan/.rvm/rubies/ruby-1.9.2-p320/lib -Wl,-R/home/stefan/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/stefan/.rvm/usr/lib -Wl,-R/home/stefan/.rvm/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -Wl,-R -Wl,/home/stefan/.rvm/rubies/ruby-1.9.2-p320/lib -L/home/stefan/.rvm/rubies/ruby-1.9.2-p320/lib -lruby-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"gcc -E -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/i686-linux -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I. -I/home/stefan/.rvm/usr/include  -D_FILE_OFFSET_BITS=64   -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC  conftest.c -o conftest.i"
+conftest.c:3:21: schwerwiegender Fehler: vm_core.h: Datei oder Verzeichnis nicht gefunden
+Kompilierung beendet.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for vm_core.h... -------------------- yes
+
+"gcc -E -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/i686-linux -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I. -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby-1.9.2-p320  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for version.h... -------------------- yes
+
+"gcc -E -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/i686-linux -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby/backward -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1 -I. -I/home/stefan/.rvm/rubies/ruby-1.9.2-p320/include/ruby-1.9.1/ruby-1.9.2-p320  -O3 -ggdb -Wextra -Wno-unused-parameter -Wno-parentheses -Wpointer-arith -Wwrite-strings -Wno-missing-field-initializers -Wno-long-long  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <version.h>
+/* end */
+
+--------------------
+
