@@ -1,0 +1,72 @@
+<%- model_class = Instruction -%>
+<%= bootstrap_error(@instruction, model_class ) %>
+
+<%= simple_form_for @instruction, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title %>
+  <% if @instruction.company_id %>
+    <%= f.association :company, :disabled => true %>
+  <% else %>
+    <%= f.association :company, :disabled => true, :selected => current_company.id %>
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+  <% end %>
+  <%= f.input :number %>
+  <%= f.input :created_by, disabled: true %>
+  <%= f.input :updated_by, disabled: true %>
+  <%= f.association :in_charge, :collection => User.in_company(current_company.id)%>
+  <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
+  <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
+  <%= f.association :scope, :collection => Department.where(:company_id => current_company.id) %>
+  <%= f.input :revision_date %>
+
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#tasks" data-toggle="tab">*<%= model_class.human_attribute_name(:tasks) %></a></li>
+    <li><a href="#ressources" data-toggle="tab"><%= model_class.human_attribute_name(:ressources) %></a></li>
+    <li><a href="#necessary_information" data-toggle="tab"><%= model_class.human_attribute_name(:necessary_information) %></a></li>
+    <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
+    <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
+    <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>  
+  </ul>
+  
+  <div class="tab-content">
+    <div class="tab-pane active" id="tasks">
+      <div class="well">
+        <%= f.input_field :tasks, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="ressources">
+      <div class="well">
+        <%= f.input_field :ressources, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="necessary_information">
+      <div class="well">
+        <%= f.input_field :necessary_information, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="security">
+      <div class="well">
+        <%= f.input_field :security, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="ecology">
+      <div class="well">
+        <%= f.input_field :ecology, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="on_deviation">
+      <div class="well">
+        <%= f.input_field :on_deviation, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                instructions_path, :class => 'btn' %>
+  </div>
+
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>
+<% end %>

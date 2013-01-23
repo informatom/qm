@@ -4,7 +4,7 @@
 2. Migration: <tt>rake db:migrate</tt>
 3. Bootstrap: <tt>rails g bootstrap:themed Resources</tt>
 4. Abilty: <tt>models/abilty.rb</tt>
-5. Translation: <tt>confilg/locales/en.yml</tt>
+5. Translation: <tt>confilg/locales/de.yml</tt>
 6. Menu: <tt>sidebars/administration.html.erb</tt>
 7. Controller
 8. Model <tt>app/models/company.rb</tt> Versions?
@@ -14,16 +14,15 @@
 
 == Generators
 
+  rails generate scaffold Instruction title:string company_id:integer number:string created_by:integer updated_by:integer in_charge:integer controlled_by:integer released_by:integer scope:integer revision_date:date tasks:text ressources:text necessary_information:text security:text ecology:text on_deviation:text
+
   rails generate migration add_fields_to_user firstname:string lastname:string function_id:integer role_in_company_id:integer deputy_id:integer parent_id:integer department_id:integer company_id:integer
-  rails generate scaffold Company name:string
-  rails generate scaffold Employment user_id:integer company_id:integer
   rails g migration add_ancestry_to_users ancestry:string
+
 add index manually:
   add_index :users, :ancestry
-  rails generate migration add_object_changes_to_versions object_changes:text
 
 ////////////////////////////
-
 
 
 ///////////////////////////

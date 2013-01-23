@@ -1,0 +1,85 @@
+<%- model_class = Instruction -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @instruction.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
+  <dd><%= @instruction.company.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
+  <dd><%= @instruction.number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.creator.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.updator.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:in_charge) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.in_charge.name %></span> </dd>
+  <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.controlled_by.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.released_by.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:scope) %>:</strong></dt>
+  <dd><span class="label label-success"><%= @instruction.scope.name if @instruction.scope %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:revision_date) %>:</strong></dt>
+  <dd><%= @instruction.revision_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tasks) %>:</strong></dt>
+</dl>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#tasks" data-toggle="tab">*<%= model_class.human_attribute_name(:tasks) %></a></li>
+  <li><a href="#ressources" data-toggle="tab"><%= model_class.human_attribute_name(:ressources) %></a></li>
+  <li><a href="#necessary_information" data-toggle="tab"><%= model_class.human_attribute_name(:necessary_information) %></a></li>
+  <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
+  <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
+  <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>  
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="tasks">
+    <div class="well">
+      <%= textile(@instruction.tasks) %>
+    </div>
+  </div>
+  <div class="tab-pane" id="ressources">
+    <div class="well">
+      <%= textile(@instruction.ressources) %>
+    </div>
+  </div>
+  <div class="tab-pane" id="necessary_information">
+    <div class="well">
+      <%= textile(@instruction.necessary_information) %>
+    </div>
+  </div>
+  <div class="tab-pane" id="security">
+    <div class="well">
+      <%= textile(@instruction.security) %>
+    </div>
+  </div>
+  <div class="tab-pane" id="ecology">
+    <div class="well">
+      <%= textile(@instruction.ecology) %>
+    </div>
+  </div>
+  <div class="tab-pane" id="on_deviation">
+    <div class="well">
+      <%= textile(@instruction.on_deviation) %>
+    </div>
+  </div>
+  <%= versioning_helper(@instruction) %>
+</div>
+
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              instructions_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_instruction_path(@instruction), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              instruction_path(@instruction),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

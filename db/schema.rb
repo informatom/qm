@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010073516) do
+ActiveRecord::Schema.define(:version => 20130123143957) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -121,6 +121,27 @@ ActiveRecord::Schema.define(:version => 20121010073516) do
     t.text     "goals"
     t.text     "authorities"
     t.text     "comments"
+  end
+
+  create_table "instructions", :force => true do |t|
+    t.string   "title"
+    t.integer  "company_id"
+    t.string   "number"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "in_charge_id"
+    t.integer  "controlled_by_id"
+    t.integer  "released_by_id"
+    t.integer  "scope_id"
+    t.date     "revision_date"
+    t.text     "tasks"
+    t.text     "ressources"
+    t.text     "necessary_information"
+    t.text     "security"
+    t.text     "ecology"
+    t.text     "on_deviation"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "news", :force => true do |t|

@@ -9,6 +9,7 @@ de:
     comments: Bemerkungen
     company: Firma
     company_id: Firma
+    controlled_by: Prüfer
     created_at: erzeugt
     created_by: erzeugt
     department: Abteilung
@@ -22,19 +23,24 @@ de:
     document_id: Dokument
     documents: Dokumente
     duration: Dauer
+    ecology: Umweltschutz
     function: Funktion
     functions: Funktionen
     function_id: Funktion
     internal: intern
     location: Ort der Ablage
     goals: Ziele
+    in_charge: Verantwortlicher
     medium: Medium
     metering_point: Messpunkt
     name: Name
+    necessary_information: nötige Informationen
     nominal_value: Sollwert
     note: Aufzeichnung
     note_id: Aufzeichnung
     notes: Aufzeichnungen
+    number: Nummer
+    on_deviation: Bei Abweichung
     operator: Ausführender
     parent: übergeordnet
     password: Passwort
@@ -45,14 +51,20 @@ de:
     process_indicator_id: Prozesskennzahl
     process_indicators: Prozesskennzahlen
     purpose: Zweck
+    released_by: Freigeber
     responsibilities: Verantwortungen
+    ressources: Ressourcen
+    revision_date: nächste Revision
     role: Rolle in der Anwendung
     roles: Rollen in der Anwendung
     role_in_company: Rolle
     roles_in_company: Rollen
     role_in_company_id: Rolle
+    scope: Geltungsbereich
+    security: Arbeitssicherheit
     skills: Fähigkeiten - Qualifikation
     tasks: Aufgaben
+    title: Titel
     updated_at: aktualisiert
     updated_by: aktualisiert
     unit: Einheit
@@ -344,6 +356,9 @@ de:
         other: Funktionen
         created: Die Funktion wurde erfolgreich angelegt.
         updated: Die Funktion wurde erfolgreich aktualisiert.
+      instruction:
+        one: Arbeitsanweisung
+        other: Arbeitsanweisungen
       news:
         one: Newseintrag
         other: News

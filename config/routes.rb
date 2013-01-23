@@ -1,5 +1,8 @@
 Qm::Application.routes.draw do
 
+  resources :instructions
+
+
   resources :news do
     collection do
       get 'latest'
