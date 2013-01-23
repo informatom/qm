@@ -1,0 +1,73 @@
+== Standard Procedure for the Creation of a Resource
+
+1. Scaffold
+2. Migration: <tt>rake db:migrate</tt>
+3. Bootstrap: <tt>rails g bootstrap:themed Resources</tt>
+4. Abilty: <tt>models/abilty.rb</tt>
+5. Translation: <tt>confilg/locales/en.yml</tt>
+6. Menu: <tt>sidebars/administration.html.erb</tt>
+7. Controller
+8. Model <tt>app/models/company.rb</tt> Versions?
+9. Form (description => textile, company => not editable)
+10. Show
+11. Index
+
+== Generators
+
+  rails generate migration add_fields_to_user firstname:string lastname:string function_id:integer role_in_company_id:integer deputy_id:integer parent_id:integer department_id:integer company_id:integer
+  rails generate scaffold Company name:string
+  rails generate scaffold Employment user_id:integer company_id:integer
+  rails g migration add_ancestry_to_users ancestry:string
+add index manually:
+  add_index :users, :ancestry
+  rails generate migration add_object_changes_to_versions object_changes:text
+
+////////////////////////////
+
+
+
+///////////////////////////
+
+=== Pluralization
+Several Changes are necessary for the correct pluralalization of a model with a name like RoleInCompany:
+<tt>nano role_in_company.rb</tt>
+  set_table_name "roles_in_company"
+<tt>nano config/initializers/infelctions.rb</tt>
+  inflect.irregular 'RoleInCompany', 'RolesInCompany'
+  inflect.irregular 'role_in_company', 'roles_in_company'
+<tt>nano user.rb</tt>
+  has_and_belongs_to_many :roles_in_company, :join_table => "roles_in_company_users"
+
+== Gem Installation
+
+Gems have been installed in the following way. (Need not be done for deployment!)
+
+* Twitter Bootstrap
+   rails g bootstrap:install                      # Installation of Twitter Bootstrap
+   rails g bootstrap:layout application fluid     # Generates fluid application.html.erb layout
+
+* Cancan
+   rails g cancan:ability
+
+* Devise
+   rails generate devise:install
+   rails generate devise:views
+   rails generate devise user
+   rake db:migrate
+
+You have to comment out
+  # devise_for :users
+in +config/routes.rb+ to be able to successfully scaffold
+  rails g scaffold User --migration=false
+
+  rails g bootstrap:themed Users
+
+* Simpleform
+   rails generate simple_form:install --bootstrap
+
+* Textile Editor Helper
+  rails g textile_editor_helper:install
+
+* Paper Trail:
+  bundle exec rails generate paper_trail:install
+  rails generate migration add_object_changes_to_versions object_changes:text
