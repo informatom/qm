@@ -66,5 +66,5 @@ Qm::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   ### Stefan: 05.04.12 - 14:20 ###: für Devise nötig
-  # config.action_mailer.default_url_options = { :host => 'qm.mittenin.at' }
+  config.action_mailer.default_url_options = { :host => 'qm.mittenin.at' }
 end
