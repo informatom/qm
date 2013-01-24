@@ -5,6 +5,8 @@ gem 'rails', '3.2.11'                                 # latest stable Rails vers
 gem 'mysql2'                                       # filebased database
 gem 'devise'                                         # authentification
 gem 'devise-i18n-views'                              # translated views for devise
+gem 'nokogiri'                                       # Needed by devise-helper
+
 gem 'cancan'                                         # access control
 gem 'ancestry'                                       # hierarchical comments
 gem 'simple_form'                                    # simple forms

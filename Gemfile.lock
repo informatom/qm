@@ -260,6 +260,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   mysql2
+  nokogiri
   paper_trail (~> 2)
   rails (= 3.2.11)
   rspec-rails
