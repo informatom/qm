@@ -66,6 +66,8 @@ de:
     skills: Fähigkeiten - Qualifikation
     tasks: Aufgaben
     title: Titel
+    type: Typ
+    type_id: Typ
     updated_at: aktualisiert
     updated_by: aktualisiert
     unit: Einheit
@@ -372,6 +374,9 @@ de:
       process_indicator:
         one: Prozesskennzahl
         other: Prozesskennzahlen
+      process_step:
+        one: Prozessschritt
+        other: Prozessschritte
       role:
         one: Rolle in Anwendung
         other: Rollen in Anwendung

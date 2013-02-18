@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'                                 # latest stable Rails version on 09/06/11
-
-gem 'mysql2'                                       # filebased database
+gem 'mysql2'                                         #  database
 gem 'devise'                                         # authentification
 gem 'devise-i18n-views'                              # translated views for devise
 gem 'nokogiri'                                       # Needed by devise-helper
@@ -16,11 +15,11 @@ gem 'RedCloth'                                       # textile library
 gem 'htmlentities'                                   # requirement of textile_editor_helper, e.g. &auml;
 gem 'jquery-datatables-rails'                        # Tables
 
-gem 'yaml_db'                                        # for porting database to mysql
+# gem 'yaml_db'                                        # for porting database to mysql
 gem 'paper_trail', '~> 2'                            # Versioning
 gem 'differ'                                         # View diffs
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-                                                   # Twitter Bootstrap for Rails 3.1 Asset Pipeline
+                                                     # Twitter Bootstrap for Rails 3.1 Asset Pipeline
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
 group :assets do

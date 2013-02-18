@@ -1,5 +1,8 @@
 Qm::Application.routes.draw do
 
+  resources :process_steps
+
+
   resources :instructions
 
 

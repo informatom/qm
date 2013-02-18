@@ -22,6 +22,8 @@
 add index manually:
   add_index :users, :ancestry
 
+  rails generate scaffold ProcessStep title:string company_id:integer description:text type_id:integer process_id:integer created_by:integer updated_by:integer
+
 ////////////////////////////
 
 

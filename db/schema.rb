@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123143957) do
+ActiveRecord::Schema.define(:version => 20130218191958) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -185,6 +185,18 @@ ActiveRecord::Schema.define(:version => 20130123143957) do
     t.text     "description"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "process_steps", :force => true do |t|
+    t.string   "title"
+    t.integer  "company_id"
+    t.text     "description"
+    t.integer  "type_id"
+    t.integer  "business_process_id"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "roles", :force => true do |t|
