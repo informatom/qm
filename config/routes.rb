@@ -1,5 +1,8 @@
 Qm::Application.routes.draw do
 
+  resources :flow_objects
+
+
   resources :process_steps
 
 

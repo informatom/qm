@@ -1,0 +1,13 @@
+<%- model_class = FlowObject -%>
+<%= bootstrap_error(@flow_object, model_class ) %>
+
+<%= simple_form_for @flow_object, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :flow_object_class %>
+  <%= f.input :image_file_name %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                flow_objects_path, :class => 'btn' %>
+  </div>
+<% end %>

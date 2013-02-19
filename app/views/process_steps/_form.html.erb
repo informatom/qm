@@ -5,7 +5,7 @@
   <%= f.input :title %>
   <%= company_field(@process_step, f) %>
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
-  <%= f.input :type_id %>
+  <%= f.input :flow_object_id,  :collection => FlowObject.all %>
   <%= f.input :business_process_id, :collection => BusinessProcess.where(:company_id => current_company.id) %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

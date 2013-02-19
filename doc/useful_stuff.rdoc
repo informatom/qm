@@ -1,8 +1,8 @@
 == Standard Procedure for the Creation of a Resource
 
-1. Scaffold
+1. Scaffold (don't override scaffold.css.scss !)
 2. Migration: <tt>rake db:migrate</tt>
-3. Bootstrap: <tt>rails g bootstrap:themed Resources</tt>
+3. Bootstrap: <tt>rails g bootstrap:themed Resources</tt> (override views!)
 4. Abilty: <tt>models/abilty.rb</tt>
 5. Translation: <tt>confilg/locales/de.yml</tt>
 6. Menu: <tt>sidebars/administration.html.erb</tt>
@@ -23,6 +23,7 @@ add index manually:
   add_index :users, :ancestry
 
   rails generate scaffold ProcessStep title:string company_id:integer description:text type_id:integer process_id:integer created_by:integer updated_by:integer
+  rails generate scaffold FlowObject name:string class:string image_file_name:string
 
 ////////////////////////////
 

@@ -1,0 +1,25 @@
+<%- model_class = FlowObject -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @flow_object.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:flow_object_class) %>:</strong></dt>
+  <dd><%= @flow_object.flow_object_class %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= image_tag( "/assets/flow-objects/" + @flow_object.image_file_name) %> <%= @flow_object.image_file_name %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              flow_objects_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_flow_object_path(@flow_object), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              flow_object_path(@flow_object),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

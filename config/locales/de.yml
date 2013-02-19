@@ -5,7 +5,7 @@ de:
     area: Bereich
     authorities: Befugnisse
     business_process: Geschäftsprozess
-    business_process_id: Geschäftsprozess
+    business_process_id: Geschäftsprozess    
     color: Farbe
     comments: Bemerkungen
     company: Firma
@@ -25,10 +25,14 @@ de:
     documents: Dokumente
     duration: Dauer
     ecology: Umweltschutz
+    flow_object: Flow Objekt
+    flow_object_class: Flow Objektklasse
     function: Funktion
     functions: Funktionen
     function_id: Funktion
     internal: intern
+    image: Bild
+    image_file_name: Dateiname des Bildes
     location: Ort der Ablage
     goals: Ziele
     in_charge: Verantwortlicher
@@ -354,6 +358,9 @@ de:
       employment:
         one: Anstellungsverhältnis
         other: Anstellungsverhältnisse
+      flow_object:
+       one: BPMN Flow Objekt
+       other: BPMN Flow Objekte
       function:
         one: Funktion
         other: Funktionen
