@@ -3,15 +3,22 @@
 
 <%= simple_form_for @process_step, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
-  <%= f.input :company_id %>
-  <%= f.input :description %>
+  <% if @process_step.company_id %>
+    <%= f.association :company, :disabled => true %>
+  <% else %>
+    <%= f.association :company, :disabled => true, :selected => current_company.id %>
+    <%= f.hidden_field :company_id, :value => current_company.id %>
+  <% end %>
+  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <%= f.input :type_id %>
-  <%= f.input :business_process_id %>
-  <%= f.input :created_by %>
-  <%= f.input :updated_by %>
+  <%= f.input :business_process_id, :collection => BusinessProcess.where(:company_id => current_company.id) %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 process_steps_path, :class => 'btn' %>
   </div>
+
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>  
 <% end %>
