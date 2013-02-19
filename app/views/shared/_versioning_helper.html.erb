@@ -15,7 +15,7 @@
             <%= raw(header(version)) %>
             <% version.changeset.each do |changeset| %>
                 <% attribute = object.class.human_attribute_name(changeset[0]) %>
-                <% if changeset[0].include?("_id") %>
+                <% if changeset[0].include?("_id") && object.send(changeset[0].gsub(/_id/,"")) %>
                   <% new_name = object.send(changeset[0].gsub(/_id/,"")).class.find_by_id(changeset[1][1]).name if changeset[1][1] %>
                   <% old_name = object.send(changeset[0].gsub(/_id/,"")).class.find_by_id(changeset[1][0]).name if changeset[1][0] %>
                   <% diff = Differ.diff_by_line(new_name.to_s || "", old_name.to_s || "") %>

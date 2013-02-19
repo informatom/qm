@@ -6,6 +6,7 @@
 
   <% if @note.company_id %>
     <%= f.association :company, :disabled => true %>
+    <%= f.hidden_field :company_id %>
   <% else %>
     <%= f.association :company, :disabled => true, :selected => current_company.id %>
     <%= f.hidden_field :company_id, :value => current_company.id %>

@@ -3,7 +3,7 @@ class ProcessStepsController < ApplicationController
 
   def create
       @process_step.created_by = current_user.id
-      @process_step.updated_by = current_user.id
+      @process_step.updated_by = current_user.id            
       if @process_step.save
         redirect_to @process_step, notice: 'Process step was successfully created.'
       else
