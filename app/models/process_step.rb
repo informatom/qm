@@ -10,4 +10,7 @@ class ProcessStep < ActiveRecord::Base
   validates_presence_of :type_id
 
   belongs_to :company
+  belongs_to :business_process
+  belongs_to :creator, :class_name => "User", foreign_key: "created_by"
+  belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
 end

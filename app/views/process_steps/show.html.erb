@@ -7,18 +7,18 @@
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @process_step.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @process_step.company_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @process_step.description %></dd>
+  <dd><%= @process_step.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:type_id) %>:</strong></dt>
   <dd><%= @process_step.type_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:business_process_id) %>:</strong></dt>
-  <dd><%= @process_step.business_process_id %></dd>
+  <dd><%= @process_step.business_process.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
-  <dd><%= @process_step.created_by %></dd>
+  <dd><%= created(@process_step) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
-  <dd><%= @process_step.updated_by %></dd>
+  <dd><%= updated(@process_step) %></dd>
 </dl>
+<div class="description"><%= textile(@process_step.description) %></div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
