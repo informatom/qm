@@ -3,13 +3,7 @@
 
 <%= simple_form_for @instruction, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
-  <% if @instruction.company_id %>
-    <%= f.association :company, :disabled => true %>
-    <%= f.hidden_field :company_id %>
-  <% else %>
-    <%= f.association :company, :disabled => true, :selected => current_company.id %>
-    <%= f.hidden_field :company_id, :value => current_company.id %>
-  <% end %>
+  <%= company_field(@instruction, f) %>
   <%= f.input :number %>
   <%= f.input :created_by, disabled: true %>
   <%= f.input :updated_by, disabled: true %>

@@ -127,4 +127,12 @@ module ApplicationHelper
   def versioning_helper(object)
     render partial: "shared/versioning_helper", locals: { :object => object }
   end
+
+  def company_field instance_object, form
+    if instance_object.company_id
+      (form.association :company, :disabled => true) + (form.hidden_field :company_id)
+    else
+      (form.association :company, :disabled => true, :selected => current_company.id) + (form.hidden_field :company_id, :value => current_company.id)
+    end
+  end
 end

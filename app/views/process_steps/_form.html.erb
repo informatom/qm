@@ -3,13 +3,7 @@
 
 <%= simple_form_for @process_step, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
-  <% if @process_step.company_id %>
-    <%= f.association :company, :disabled => true %>
-    <%= f.hidden_field :company_id %>
-  <% else %>
-    <%= f.association :company, :disabled => true, :selected => current_company.id %>
-    <%= f.hidden_field :company_id, :value => current_company.id %>
-  <% end %>
+  <%= company_field(@process_step, f) %>
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <%= f.input :type_id %>
   <%= f.input :business_process_id, :collection => BusinessProcess.where(:company_id => current_company.id) %>

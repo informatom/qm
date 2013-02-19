@@ -4,14 +4,7 @@
 <%= simple_form_for @business_process_note_assignment, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.association :business_process, :collection => BusinessProcess.where(:company_id => current_company.id) %>
   <%= f.association :note, :collection => Note.where(:company_id => current_company.id) %>
-
-  <% if @business_process_note_assignment.company_id %>
-    <%= f.association :company, :disabled => true %>
-    <%= f.hidden_field :company_id %>
-  <% else %>
-    <%= f.association :company, :disabled => true, :selected => current_company.id %>
-    <%= f.hidden_field :company_id, :value => current_company.id %>
-  <% end %>
+  <%= company_field(@business_process_note_assignment, f) %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

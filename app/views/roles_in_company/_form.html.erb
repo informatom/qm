@@ -3,15 +3,7 @@
 
 <%= simple_form_for @role_in_company, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name %>
-
-  <% if @role_in_company.company_id %>
-    <%= f.association :company, :disabled => true %>
-    <%= f.hidden_field :company_id %>
-  <% else %>
-    <%= f.association :company, :disabled => true, :selected => current_company.id %>
-    <%= f.hidden_field :company_id, :value => current_company.id %>
-  <% end %>
-
+  <%= company_field(@role_in_company, f) %>
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
 
   <div class="form-actions">
