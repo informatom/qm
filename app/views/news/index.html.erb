@@ -34,3 +34,5 @@
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_news_path,
             :class => 'btn btn-primary' %>
+<%= link_to t("helpers.news.all"), display_news_index_path, :class => 'btn btn-inverse'  %>
+<%= link_to t("helpers.news.your"), latest_news_index_path, :class => 'btn'  %>
