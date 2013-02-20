@@ -39,6 +39,7 @@ class Ability
       can :manage, Instruction, :company_id => current_company.id
 
       can :manage, ProcessStep, :company_id => current_company.id
+      can :manage, SequenceFlow, :company_id => current_company.id
 
       can [:read, :latest, :display], News
 

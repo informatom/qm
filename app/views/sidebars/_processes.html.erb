@@ -6,7 +6,8 @@
 
   <li <%= active("process_classes") %>><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
   <li <%= active("business_processes", "diagram", true) %>><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
-  <li <%= active("process_steps") %>><%= link_to icon_("circle-arrow-right") + t("activerecord.models.process_step.other"), process_steps_path %></li>
+  <li <%= active("process_steps") %>><%= link_to icon_("check-empty") + t("activerecord.models.process_step.other"), process_steps_path %></li>
+  <li <%= active("sequence_flows") %>><%= link_to icon_("arrow-right") + t("activerecord.models.sequence_flow.other"), sequence_flows_path %></li>
   <li <%= active("process_indicators") %>>
     <%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %>
   </li>

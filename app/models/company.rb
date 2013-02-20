@@ -22,6 +22,7 @@ class Company < ActiveRecord::Base
   has_many :business_processes, :dependent => :restrict
 
   has_many :process_steps, :dependent => :restrict
+  has_many :sequence_flows, :dependent => :restrict
 
   has_many :notes, :dependent => :restrict
   has_many :business_process_note_assignments, :dependent => :restrict

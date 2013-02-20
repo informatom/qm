@@ -14,4 +14,7 @@ class ProcessStep < ActiveRecord::Base
   belongs_to :creator, :class_name => "User", foreign_key: "created_by"
   belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
   belongs_to :flow_object
+
+  has_many :successors, :class_name => "SequenceFlow", :dependent => :restrict, :foreign_key => "source_id"
+  has_many :predecessors, :class_name => "SequenceFlow", :dependent => :restrict, :foreign_key => "target_id"
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219132936) do
+ActiveRecord::Schema.define(:version => 20130220092000) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -219,6 +219,16 @@ ActiveRecord::Schema.define(:version => 20130219132936) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.text     "description"
+  end
+
+  create_table "sequence_flows", :force => true do |t|
+    t.string   "name"
+    t.integer  "source_id"
+    t.integer  "target_id"
+    t.integer  "flow_object_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "company_id"
   end
 
   create_table "substitutions", :force => true do |t|

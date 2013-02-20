@@ -8,4 +8,5 @@ class FlowObject < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :process_steps
+  has_many :sequence_flows
 end

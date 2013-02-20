@@ -68,6 +68,10 @@ de:
     scope: Geltungsbereich
     security: Arbeitssicherheit
     skills: Fähigkeiten - Qualifikation
+    source: Quelle
+    source_id: Quelle
+    target: Ziel
+    target_id: Ziel
     tasks: Aufgaben
     title: Titel
     type: Typ
@@ -308,9 +312,9 @@ de:
   time:
     am: vormittags
     formats:
-      default: ! '%A, %d. %B %Y, %H:%M Uhr'
+      default: ! "%d.%m.%Y, %H:%M"
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
-      short: ! '%d. %B, %H:%M Uhr'
+      short: ! '%d.%m.%Y, %H:%M'
       timestamp: '%d.%m.%y - %H:%M Uhr'
       id: '%d%m%y%H%M%S'
     pm: nachmittags
@@ -390,6 +394,9 @@ de:
       role_in_company:
         one: Rolle
         other: Rollen
+      sequence_flow:
+        one: BPMN Sequenzfluss
+        other: BPMN Sequenzflüsse
       substitution:
         one: Stellvertretung
         other: Stellvertretungen
