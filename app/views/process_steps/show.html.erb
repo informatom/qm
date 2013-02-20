@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
   <dd><%= @process_step.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:flow_object) %>:</strong></dt>
-  <dd><%= image(@process_step) %> <%= @process_step.flow_object.name %></dd>
+  <dd><%= symbol(@process_step) %> <%= @process_step.flow_object.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:business_process_id) %>:</strong></dt>
   <dd><%= @process_step.business_process.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
