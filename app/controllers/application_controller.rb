@@ -3,11 +3,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-#  rescue_from CanCan::AccessDenied do |exception|
-#    redirect_to root_url, :alert => exception.message, :locale => I18n.locale
-#  end
-
-  # HAS: 20120416: Ausnahmen werden in den einzelnen Controllern spezifiziert
   before_filter :authenticate_user!
 
   before_filter :set_locale
