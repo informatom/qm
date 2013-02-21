@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped datatable">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
@@ -20,9 +20,9 @@
         <td><%= department_affiliation.company.name if department_affiliation.company %></td>
         <td><%=l department_affiliation.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to t('.edit', :default => icon("edit")),
                       edit_department_affiliation_path(department_affiliation), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          <%= link_to t('.destroy', :default => icon("trash")),
                       department_affiliation_path(department_affiliation),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -36,3 +36,4 @@
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_department_affiliation_path,
             :class => 'btn btn-primary' %>
+<%= render "shared/datatables_helper" %>
