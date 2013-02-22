@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def create
-    @user.employments.new(company_id: current_company.id)
+    @user.employments.build(company_id: current_company.id)
     if @user.save
       redirect_to admin_user_path(@user), notice: t('notice.user.created')
     else

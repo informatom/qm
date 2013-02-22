@@ -14,8 +14,8 @@
   <tbody>
     <% @employments.each do |employment| %>
       <tr>
-        <td><%= employment.user.name %></td>
-        <td><%= employment.company.name %></td>
+        <td><%= employment.user.name if employment.user %></td>
+        <td><%= employment.company.name if employment.company %></td>
         <td><%=l employment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

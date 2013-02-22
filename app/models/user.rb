@@ -12,16 +12,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :role, :firstname, :lastname, :parent_id, :deputy_ids,
                   :function_ids, :role_in_company_ids, :department_ids,
                   :substitutions_attributes, :user_function_assignments_attributes, :user_role_in_company_assignments_attributes,
-                  :department_affiliations_attributes
-
+                  :department_affiliations_attributes, :assignment_attributes
 
   validates_uniqueness_of :email
-  validates_presence_of :firstname
-  validates_presence_of :email
-  validates_presence_of :lastname
+  validates :firstname, :email, :lastname, :presence => true
 
   ROLES = %w[admin qm_user]
-  has_many :assignments, :dependent => :restrict
+  has_many :assignments, :dependent => :restrict, :inverse_of => :user
   has_many :roles, :through => :assignments, :dependent => :restrict
 
   has_many :substitutions, :inverse_of => :user, :dependent => :restrict
@@ -45,9 +42,9 @@ class User < ActiveRecord::Base
 
   has_many :business_processes, :dependent => :restrict, :foreign_key => "owner_id"
 
-  has_many :charged_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "in_charge"
-  has_many :controlled_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "controlled_by"
-  has_many :released_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "released_by"
+  has_many :charged_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "in_charge_id"
+  has_many :controlled_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "controlled_by_id"
+  has_many :released_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "released_by_id"
 
   scope :in_company, lambda { |company_id| (includes(:employments).merge(Employment.in_company(company_id))) }
 

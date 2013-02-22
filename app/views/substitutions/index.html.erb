@@ -15,8 +15,8 @@
   <tbody>
     <% @substitutions.each do |substitution| %>
       <tr>
-        <td><%= substitution.user.name %></td>
-        <td><%= substitution.deputy.name %></td>
+        <td><%= substitution.user.name if substitution.user %></td>
+        <td><%= substitution.deputy.name if substitution.deputy %></td>
         <td><%= substitution.company.name if substitution.company %></td>
         <td><%=l substitution.created_at %></td>
         <td>
