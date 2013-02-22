@@ -3,7 +3,7 @@ class EmploymentsController < ApplicationController
 
   def create
     if @employment.save
-      redirect_to @employment, notice: 'Employment was successfully created.'
+      redirect_to @employment, notice: t('notice.employment.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class EmploymentsController < ApplicationController
 
   def update
     if @employment.update_attributes(params[:employment])
-      redirect_to @employment, notice: 'Employment was successfully updated.'
+      redirect_to @employment, notice: t('notice.employment.updated')
     else
       render action: "edit"
     end

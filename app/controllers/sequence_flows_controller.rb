@@ -5,7 +5,7 @@ class SequenceFlowsController < ApplicationController
     @sequence_flow = SequenceFlow.new(params[:sequence_flow])
 
     if @sequence_flow.save
-      redirect_to @sequence_flow, notice: 'Sequence flow was successfully created.'
+      redirect_to @sequence_flow, notice: t('notice.sequence_flow.created')
     else
       render action: "new"
     end
@@ -13,8 +13,7 @@ class SequenceFlowsController < ApplicationController
 
   def update
     if @sequence_flow.update_attributes(params[:sequence_flow])
-      redirect_to @sequence_flow, notice: 'Sequence flow was successfully updated.'
-    else
+      redirect_to @sequence_flow, notice: t('notice.sequence_flow.created')
       render action: "edit"
     end
   end

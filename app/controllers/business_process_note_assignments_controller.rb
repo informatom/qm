@@ -3,7 +3,7 @@ class BusinessProcessNoteAssignmentsController < ApplicationController
 
   def create
     if @business_process_note_assignment.save
-      redirect_to @business_process_note_assignment, notice: 'Business process note assignment was successfully created.'
+      redirect_to @business_process_note_assignment, notice: t('notice.business_process_note_assignment.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class BusinessProcessNoteAssignmentsController < ApplicationController
 
   def update
     if @business_process_note_assignment.update_attributes(params[:business_process_note_assignment])
-      redirect_to @business_process_note_assignment, notice: 'Business process note assignment was successfully updated.'
+      redirect_to @business_process_note_assignment, notice: t('notice.business_process_note_assignment.updated')
     else
       render action: "edit"
     end

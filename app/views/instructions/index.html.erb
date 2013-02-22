@@ -21,8 +21,8 @@
         <td><%= instruction.company.name %></td>
         <td><%= instruction.number %></td>
         <td><%= instruction.creator.name %></td>
-        <td><%= instruction.in_charge.name %></td>
-        <td><%= instruction.scope.name %></td>
+        <td><%= instruction.in_charge.name if instruction.in_charge %></td>
+        <td><%= instruction.scope.name if instruction.scope %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_instruction_path(instruction), :class => 'btn btn-mini' %>

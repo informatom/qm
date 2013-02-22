@@ -21,7 +21,7 @@ class RolesController < ApplicationController
     @role = Role.new(params[:role])
 
     if @role.save
-      redirect_to @role, notice: 'Role was successfully created.'
+      redirect_to @role, notice: t('notice.role.created')
     else
       render action: "new"
     end
@@ -31,7 +31,7 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
 
     if @role.update_attributes(params[:role])
-      redirect_to @role, notice: 'Role was successfully updated.'
+      redirect_to @role, notice: t('notice.role.updated')
     else
       render action: "edit"
     end
@@ -41,10 +41,10 @@ class RolesController < ApplicationController
     begin
       @role = Role.find(params[:id])
       @role.destroy
-      flash[:success] = "role successfully destroyed."
+      flash[:success] = t('notice.role.destroyed')
     rescue ActiveRecord::DeleteRestrictionError => e
       @role.errors.add(:base, e)
-      flash[:error] = "#{e}"
+      flash[:error] = t('exception.' + "#{e}")
     ensure
       redirect_to roles_url
     end

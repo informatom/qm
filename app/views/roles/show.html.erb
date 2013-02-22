@@ -9,12 +9,12 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to icon("backward") + t('.back', :default => t("helpers.links.back")),
+  <%= link_to icon_("backward") + t('.back', :default => t("helpers.links.back")),
               roles_path, :class => 'btn'  %>
-  <%= link_to icon("edit") + t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to icon_("edit") + t('.edit', :default => t("helpers.links.edit")),
               edit_role_path(@role), :class => 'btn' %>
 
-  <%= link_to icon("trash") + t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to icon_("trash") + t('.destroy', :default => t("helpers.links.destroy")),
               role_path(@role),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

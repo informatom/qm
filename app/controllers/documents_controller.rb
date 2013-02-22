@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
 
   def create
     if @document.save
-      redirect_to @document, notice: 'Document was successfully created.'
+      redirect_to @document, notice: t('notice.document.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class DocumentsController < ApplicationController
 
   def update
     if @document.update_attributes(params[:document])
-      redirect_to @document, notice: 'Document was successfully updated.'
+      redirect_to @document, notice: t('notice.document.updated')
     else
       render action: "edit"
     end

@@ -6,6 +6,6 @@ class Document < ActiveRecord::Base
 
   belongs_to :company
 
-  has_many :business_process_documents_assignments, :dependent => :restrict
-  has_many :business_processes, :through => :business_process_documents_assignments, :dependent => :restrict
+  has_many :business_process_document_assignments, :dependent => :restrict
+  has_many :business_processes, :through => :business_process_document_assignments, :dependent => :restrict
 end

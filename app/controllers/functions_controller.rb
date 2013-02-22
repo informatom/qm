@@ -3,7 +3,7 @@ class FunctionsController < ApplicationController
 
   def create
     if @function.save
-      redirect_to @function, notice: t('activerecord.models.function.created')
+      redirect_to @function, notice: t('notice.function.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class FunctionsController < ApplicationController
 
   def update
     if @function.update_attributes(params[:function])
-      redirect_to @function, notice: t('activerecord.models.function.updated')
+      redirect_to @function, notice: t('notice.function.updated')
     else
       render action: "edit"
     end

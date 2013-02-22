@@ -3,7 +3,7 @@ class RolesInCompanyController < ApplicationController
 
   def create
     if @role_in_company.save
-      redirect_to @role_in_company, notice: 'Role in company was successfully created.'
+      redirect_to @role_in_company, notice: t('notice.role_in_company.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class RolesInCompanyController < ApplicationController
 
   def update
     if @role_in_company.update_attributes(params[:role_in_company])
-      redirect_to @role_in_company, notice: 'Role in company was successfully updated.'
+      redirect_to @role_in_company, notice: t('notice.role_in_company.updated')
     else
       render action: "edit"
     end
@@ -20,10 +20,10 @@ class RolesInCompanyController < ApplicationController
   def destroy
     begin
       @role_in_company.destroy
-      flash[:success] = "role_in_company successfully destroyed."
+      flash[:success] = t('notice.role_in_company.destroyed')
     rescue ActiveRecord::DeleteRestrictionError => e
       @role_in_company.errors.add(:base, e)
-      flash[:error] = "#{e}"
+      flash[:error] = t('exception.' + "#{e}")
     ensure
       redirect_to roles_in_company_url
     end

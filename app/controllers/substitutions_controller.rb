@@ -3,7 +3,7 @@ class SubstitutionsController < ApplicationController
 
   def create
     if @substitution.save
-      redirect_to @substitution, notice: 'Substitution was successfully created.'
+      redirect_to @substitution, notice: t('notice.substitution.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class SubstitutionsController < ApplicationController
 
   def update
     if @substitution.update_attributes(params[:substitution])
-      redirect_to @substitution, notice: 'Substitution was successfully updated.'
+      redirect_to @substitution, notice: t('notice.substitution.updated')
     else
       render action: "edit"
     end

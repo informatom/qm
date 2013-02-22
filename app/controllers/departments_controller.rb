@@ -3,7 +3,7 @@ class DepartmentsController < ApplicationController
 
   def create
     if @department.save
-      redirect_to @department, notice: 'Department was successfully created.'
+      redirect_to @department, notice: t('notice.department.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class DepartmentsController < ApplicationController
 
   def update
     if @department.update_attributes(params[:department])
-      redirect_to @department, notice: 'Department was successfully updated.'
+      redirect_to @department, notice: t('notice.department.updated')
     else
       ender action: "edit"
     end

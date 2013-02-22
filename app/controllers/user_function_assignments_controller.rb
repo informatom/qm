@@ -3,7 +3,7 @@ class UserFunctionAssignmentsController < ApplicationController
 
   def create
     if @user_function_assignment.save
-      redirect_to @user_function_assignment, notice: 'User function assignment was successfully created.'
+      redirect_to @user_function_assignment, notice: t('notice.user_function_assignment.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class UserFunctionAssignmentsController < ApplicationController
 
   def update
     if @user_function_assignment.update_attributes(params[:user_function_assignment])
-      redirect_to @user_function_assignment, notice: 'User function assignment was successfully updated.'
+      redirect_to @user_function_assignment, notice: t('notice.user_function_assignment.updated')
     else
       render action: "edit"
     end
@@ -19,7 +19,6 @@ class UserFunctionAssignmentsController < ApplicationController
 
   def destroy
     @user_function_assignment.destroy
-
     redirect_to user_function_assignments_url
   end
 end

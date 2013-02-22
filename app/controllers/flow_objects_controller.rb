@@ -3,7 +3,7 @@ class FlowObjectsController < ApplicationController
 
   def create
     if @flow_object.save
-      redirect_to @flow_object, notice: 'Flow object was successfully created.'
+      redirect_to @flow_object, notice: t('notice.flow_object.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class FlowObjectsController < ApplicationController
 
   def update
     if @flow_object.update_attributes(params[:flow_object])
-      redirect_to @flow_object, notice: 'Flow object was successfully updated.'
+      redirect_to @flow_object, notice: t('notice.flow_object.updated')
     else
       render action: "edit"
     end

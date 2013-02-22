@@ -5,7 +5,7 @@ class BusinessProcessesController < ApplicationController
     @business_process.created_by = current_user.id
     @business_process.updated_by = current_user.id
     if @business_process.save
-      redirect_to @business_process, notice: 'Business process was successfully created.'
+      redirect_to @business_process, notice: t('notice.business_process.created')
     else
       render action: "new"
     end
@@ -14,7 +14,7 @@ class BusinessProcessesController < ApplicationController
   def update
     @business_process.updated_by = current_user.id
     if @business_process.update_attributes(params[:business_process])
-      redirect_to @business_process, notice: 'Business process was successfully updated.'
+      redirect_to @business_process, notice: t('notice.business_process.updated')
     else
       render action: "edit"
     end

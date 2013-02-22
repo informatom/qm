@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
 
   def create
     if @company.save
-      redirect_to @company, notice: 'Company was successfully created.'
+      redirect_to @company, notice: t('notice.company.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update_attributes(params[:company])
-      redirect_to @company, notice: 'Company was successfully updated.'
+      redirect_to @company, notice: t('notice.company.updated')
     else
       render action: "edit"
     end

@@ -5,7 +5,7 @@ class NewsController < ApplicationController
     @news.created_by = current_user.id
     @news.updated_by = current_user.id
     if @news.save
-      redirect_to @news, notice: 'News was successfully created.'
+      redirect_to @news, notice: t('notice.news.created')
     else
       render action: "new"
     end
@@ -14,7 +14,7 @@ class NewsController < ApplicationController
   def update
     @news.updated_by = current_user.id
     if @news.update_attributes(params[:news])
-      redirect_to @news, notice: 'News was successfully updated.'
+      redirect_to @news, notice: t('notice.news.created')
     else
       render action: "edit"
     end

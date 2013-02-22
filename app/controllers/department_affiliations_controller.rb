@@ -3,7 +3,7 @@ class DepartmentAffiliationsController < ApplicationController
 
   def create
     if @department_affiliation.save
-      redirect_to @department_affiliation, notice: 'Department affiliation was successfully created.'
+      redirect_to @department_affiliation, notice: t('notice.department_affiliation.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class DepartmentAffiliationsController < ApplicationController
 
   def update
     if @department_affiliation.update_attributes(params[:department_affiliation])
-      redirect_to @department_affiliation, notice: 'Department affiliation was successfully updated.'
+      redirect_to @department_affiliation, notice: t('notice.department_affiliation.updated')
     else
       render action: "edit"
     end

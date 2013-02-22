@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   def create
     if @note.save
-      redirect_to @note, notice: 'Note was successfully created.'
+      redirect_to @note, notice: t('notice.note.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class NotesController < ApplicationController
 
   def update
     if @note.update_attributes(params[:note])
-      redirect_to @note, notice: 'Note was successfully updated.'
+      redirect_to @note, notice: t('notice.note.updated')
     else
       render action: "edit"
     end
@@ -19,7 +19,6 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-
     redirect_to notes_url
   end
 end

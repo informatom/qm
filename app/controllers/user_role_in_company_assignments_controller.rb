@@ -3,7 +3,7 @@ class UserRoleInCompanyAssignmentsController < ApplicationController
 
   def create
     if @user_role_in_company_assignment.save
-      redirect_to @user_role_in_company_assignment, notice: 'User role in company assignment was successfully created.'
+      redirect_to @user_role_in_company_assignment, notice: t('notice.user_role_in_company_assignment.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class UserRoleInCompanyAssignmentsController < ApplicationController
 
   def update
     if @user_role_in_company_assignment.update_attributes(params[:user_role_in_company_assignment])
-      redirect_to @user_role_in_company_assignment, notice: 'User role in company assignment was successfully updated.'
+      redirect_to @user_role_in_company_assignment, notice: t('notice.user_role_in_company_assignment.created')
     else
       render action: "edit"
     end
@@ -19,7 +19,6 @@ class UserRoleInCompanyAssignmentsController < ApplicationController
 
   def destroy
     @user_role_in_company_assignment.destroy
-
     redirect_to user_role_in_company_assignments_url
   end
 end

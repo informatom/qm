@@ -11,5 +11,5 @@ class Department < ActiveRecord::Base
   has_many :business_process_department_assignments, :dependent => :restrict
   has_many :business_processes, :through => :business_process_department_assignments, :dependent => :restrict
 
-  has_many :instructions, :dependent => :restrict, :foreign_key => "scope"
+  has_many :instructions, :dependent => :restrict, :foreign_key => "scope_id"
 end

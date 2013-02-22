@@ -203,7 +203,7 @@ de:
       taken: ist bereits vergeben
       too_long: ist zu lang (nicht mehr als %{count} Zeichen)
       too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
-      wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben)
+      wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben)      
     template:
       body: ! 'Bitte überprüfen Sie die folgenden Felder:'
       header:
@@ -213,15 +213,16 @@ de:
 ### TWITTER BOOTSTRAP HELPERS ###
   helpers:
     actions: Aktionen
-    add_department_affiliation: Abteilungszugehörigkeit hinzufügen
-    add_deputy: Stellvertreter hinzufügen
-    add_user_function_assignment: Funktion der Person hinzufügen
-    add_user_role_in_company_assignment: Rolle der Person hinzufügen
+    add_department_affiliation: Die Person einer Abteilgung zuordnen
+    add_deputy: Einen Stellvertreter hinzufügen
+    add_user_function_assignment: Eine Funktion der Person zuordnen
+    add_user_role_in_company_assignment: Eine Rolle der Person zuordnen
     company: Firma
     error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
     links:
       back: Zurück
       cancel: Abbrechen
+      confirm: Sind Sie sicher?
       destroy: Löschen
       edit: Bearbeiten
       expand: Ausklappen
@@ -336,17 +337,17 @@ de:
         one: Geschäftsprozess
         other: Geschäftsprozesse
       business_process_department_assignment:
-        one: Abteilung zum Geschäftsprozess
-        other: Abteilungen zu Geschäftsprozessen
+        one: Zuordnung einer Abteilung zu einem Geschäftsprozess
+        other: ZuordnungenAbteilungen zu Geschäftsprozessen
       business_process_document_assignment:
-        one: Dokument zum Geschäftsprozess
-        other: Dokumente zu Geschäftsprozessen
+        one: Zuordnung eines Dokuments zu einem Geschäftsprozess
+        other: Zuordnung Dokumente zu Geschäftsprozessen
       business_process_note_assignment:
-        one: Aufzeichnung zum Geschäftsprozess
-        other: Aufzeichnungen zu Geschäftsprozessen
+        one: Zuordnung einer Aufzeichnung zu einem Geschäftsprozess
+        other: Zuodnungen Aufzeichnungen zu Geschäftsprozessen
       business_process_process_indicator_assignment:
-        one: Prozesskennzahl zum Geschäftsprozess
-        other: Prozesskennzahlen zu Geschäftsprozessen
+        one: Zuordnung einer Prozesskennzahl zu einem Geschäftsprozess
+        other: Zuordnungen Prozesskennzahlen zu Geschäftsprozessen
       company:
         one: Firma
         other: Firmen
@@ -368,8 +369,6 @@ de:
       function:
         one: Funktion
         other: Funktionen
-        created: Die Funktion wurde erfolgreich angelegt.
-        updated: Die Funktion wurde erfolgreich aktualisiert.
       instruction:
         one: Arbeitsanweisung
         other: Arbeitsanweisungen
@@ -441,3 +440,81 @@ de:
         reset_password_sent_at: Passwortreset zugestellt
         sign_in_count: Anzahl Anmeldungen
         user_roles: Rollen
+
+  notice:
+    note:
+      created: Die Nachricht wurde erfolgreich erstellt.
+      updated: Die Nachricht wurde erfolgreich aktualisiert.
+    business_process: 
+      created: Der Geschäftsprozess wurde erfolgreich erstellt.
+      updated: Der Geschäftsprozess wurde erfolgreich aktualisiert.
+    business_process_department_assignment:
+      created: Der Geschäftsprozess wurde erfolgreich einer Abteilgung zugeordnet.
+      updated: Die Zuordnung des Geschäftsprozess zu einer Abteilung wurde aktualisiert.
+    business_process_document_assignment:
+      created: Das Dokument wurde erfolgreich einem Geschäftsprozess zugeordnet.
+      updated: Die Zuordnung des Dokuments zu einem Geschäftsprozess wurde aktualisiert.
+    business_process_note_assignment:
+      created: Die Aufzeichnung wurde erfolgreich einem Gescäftsprozess zugeordnet.
+      updated: Die Zuordnung der Aufzeichnung zu einem Geschäftsprozess wurde aktualisiert.
+    business_process_process_indicator_assignment:
+      created: Die Prozesskennzahl wurde erfolgreich einem Geschäftsprozess zugeordnet.
+      updated: Die Zuordnung der Prozesskennzahl zu einem  Geschäftsprozess wurde erfolgreich aktualisiert.
+    company:
+      created: Die Firma wurde erfolgreich erstellt.
+      updated: Die Firma wurde erfolgreich aktualisiert.
+    department:
+      created: Die Abteilung wurde erfolgreich erstellt.
+      updated: Die Abteilgung wurde erfolgreich aktualisiert.
+    department_affiliation:
+      created: Die Person wurde erfolgreich einer Abteilgung zugeordnet.
+      updated: Die Zuordnung der Person zu einer Abteilgung wurde erfolgreich aktualisiert.
+    document:
+      created: Das Dokument wurde erfolgreich erstellt.
+      updated: Das Dokument wurde erfolgreich aktualisiert.
+    employment:
+      created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
+      updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
+    flow_object: 
+      created: Das Flow Objekt wurde erfolgreich erzeugt.
+      updated: Das Flow Objekt wurde erfolgreich aktualisiert.
+    function:
+      created: Die Funktion wurde erfolgreich erstellt.
+      updated: Die Funktion wurde erfolgreich aktualisiert.
+    instruction:
+      created: Die Arbeitsanweisung wurde erfolgreich erstellt.
+      updated: Die Arbeitsanweisung wurde erfolgreich aktualisiert.
+    news: 
+     created: Der Newseintrag wurde erfolgreich erstellt.
+     updated: Der Newseintrag wurde erfolgreich aktualisiert.
+    process_indicator:
+      created: Die Prozesskennzahl wurde erfolgreich erstellt.
+      updated: Die Prozesskennzahl wurde erfolgreich aktualisiert.
+    process_step:
+      created: Der Prozessschritt wurde erfolgreich erstellt.
+      updated: Der Prozessschritt wurde erfolgreich aktualisiert.
+    role:
+      created: Die Rolle in der Anwendung wurde erfolgreich erstellt.
+      destroyed: Die Rolle in der Anwendung wurde erfolgreich gelöscht.
+      updated: Die Rolle in der Anwendung wurde erfolgreich aktualisiert.
+    role_in_company:
+      created: Die Rolle wurde erfolgreich erstellt.
+      destroyed: Die Rolle wurde erfolgreich gelöscht.
+      updated: Die Rolle wurde erfolgreich aktualisiert.
+    sequence_flow:
+      created: Der BPMN Sequenzfluss wurde erfolgreich erstellt.
+      updated: Der BPMN Sequenzfluss wurde erfolgreich aktualisiert.
+    substitution:
+      created: Die Stellvertretzung wurde erfolgreich erstellt.
+      updated: Die Stellvertretung wurde erfolgreich aktualisiert.
+    user_function_assignment:
+      created: Die Funktion wurde der Person erfolgreich zugeordnet.
+      updated: Die Zuordnung der Funktion zu einer Persion wurde erfolgreich aktualisiert.
+    user_role_in_company_assignment:
+      created: Die Rolle wurde der Person erfolgreich zugeordnet.
+      updated: Die Zurdnung der Rolle zu einer Person wurde erfolgreich aktualisiert.
+
+  exception:
+    Cannot delete record because of dependent assignments: Datensatz wird noch referenziert und kann daher nicht gelöscht werden.
+  views:
+    are_you_sure: Sind Sie sicher?

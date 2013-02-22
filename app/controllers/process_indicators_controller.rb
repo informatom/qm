@@ -3,7 +3,7 @@ class ProcessIndicatorsController < ApplicationController
 
   def create
     if @process_indicator.save
-      redirect_to @process_indicator, notice: 'Process indicator was successfully created.'
+      redirect_to @process_indicator, notice: t('notice.process_indicator.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class ProcessIndicatorsController < ApplicationController
 
   def update
     if @process_indicator.update_attributes(params[:process_indicator])
-      redirect_to @process_indicator, notice: 'Process indicator was successfully updated.'
+      redirect_to @process_indicator, notice: t('notice.process_indicator.updated')
     else
       render action: "edit"
     end
