@@ -20,10 +20,10 @@ class CompaniesController < ApplicationController
   def destroy
     begin
       @company.destroy
-      flash[:success] = "company successfully destroyed."
+      flash[:success] = t('notice.company.destroyed')
     rescue ActiveRecord::DeleteRestrictionError => e
       @company.errors.add(:base, e)
-      flash[:error] = "#{e}"
+      flash[:error] = t('exception.' + "#{e}")
     ensure
       redirect_to companies_url
     end

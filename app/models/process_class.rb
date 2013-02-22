@@ -6,4 +6,5 @@ class ProcessClass < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :company_id
 
   belongs_to :company
+  has_many :business_processes, :dependent => :restrict
 end

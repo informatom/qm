@@ -441,12 +441,10 @@ de:
         sign_in_count: Anzahl Anmeldungen
         user_roles: Rollen
 
-  notice:
-    note:
-      created: Die Nachricht wurde erfolgreich erstellt.
-      updated: Die Nachricht wurde erfolgreich aktualisiert.
+  notice:    
     business_process: 
       created: Der Geschäftsprozess wurde erfolgreich erstellt.
+      destroyed: Der Geschäftsprozess wurde erfolgreich gelöscht.
       updated: Der Geschäftsprozess wurde erfolgreich aktualisiert.
     business_process_department_assignment:
       created: Der Geschäftsprozess wurde erfolgreich einer Abteilgung zugeordnet.
@@ -462,36 +460,51 @@ de:
       updated: Die Zuordnung der Prozesskennzahl zu einem  Geschäftsprozess wurde erfolgreich aktualisiert.
     company:
       created: Die Firma wurde erfolgreich erstellt.
+      destroyed: Die Firma wurde erfolgreich gelöscht.
       updated: Die Firma wurde erfolgreich aktualisiert.
     department:
       created: Die Abteilung wurde erfolgreich erstellt.
+      destroyed: Die Abteilgung wurde erfolgreich gelöscht.
       updated: Die Abteilgung wurde erfolgreich aktualisiert.
     department_affiliation:
       created: Die Person wurde erfolgreich einer Abteilgung zugeordnet.
       updated: Die Zuordnung der Person zu einer Abteilgung wurde erfolgreich aktualisiert.
     document:
       created: Das Dokument wurde erfolgreich erstellt.
+      destroyed: Das Dokument wurde erfolgreich gelöscht.
       updated: Das Dokument wurde erfolgreich aktualisiert.
     employment:
       created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
       updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
     flow_object: 
       created: Das Flow Objekt wurde erfolgreich erzeugt.
+      destroyed: Das Flow Objekt wurde erfolgreich gelöscht.
       updated: Das Flow Objekt wurde erfolgreich aktualisiert.
     function:
       created: Die Funktion wurde erfolgreich erstellt.
+      destroyed: Die Funktion wurde erfolgreich gelöscht.
       updated: Die Funktion wurde erfolgreich aktualisiert.
     instruction:
       created: Die Arbeitsanweisung wurde erfolgreich erstellt.
       updated: Die Arbeitsanweisung wurde erfolgreich aktualisiert.
     news: 
-     created: Der Newseintrag wurde erfolgreich erstellt.
-     updated: Der Newseintrag wurde erfolgreich aktualisiert.
+      created: Der Newseintrag wurde erfolgreich erstellt.
+      updated: Der Newseintrag wurde erfolgreich aktualisiert.
+    note:
+      created: Die Nachricht wurde erfolgreich erstellt.
+      destroyed: Die Nachricht wurde erfolgreich gelöscht.
+      updated: Die Nachricht wurde erfolgreich aktualisiert.      
+    process_class:
+      created: Die Prozessklasse wurde erfolgreich erzeugt.
+      destroyed: Die Prozessklasse wurde erfolgreich gelöscht.
+      updated: Die Prozessklasse wurde erfolgreich aktualisiert.
     process_indicator:
       created: Die Prozesskennzahl wurde erfolgreich erstellt.
+      destroyed: Die Prozesskennzahl wurde erfolgreich gelöscht.
       updated: Die Prozesskennzahl wurde erfolgreich aktualisiert.
     process_step:
       created: Der Prozessschritt wurde erfolgreich erstellt.
+      destroyed: Der Prozessschritt wurde erfolgreich gelöscht.
       updated: Der Prozessschritt wurde erfolgreich aktualisiert.
     role:
       created: Die Rolle in der Anwendung wurde erfolgreich erstellt.
@@ -507,6 +520,10 @@ de:
     substitution:
       created: Die Stellvertretzung wurde erfolgreich erstellt.
       updated: Die Stellvertretung wurde erfolgreich aktualisiert.
+    user:
+      created: Die Person wurde erfolgreich erstellt. Sie kann sich nun anmelden.
+      destroyed: Die Person wurde erfolgreich gelöscht.
+      updated: Die Person wurde erfolgreich aktualisiert.
     user_function_assignment:
       created: Die Funktion wurde der Person erfolgreich zugeordnet.
       updated: Die Zuordnung der Funktion zu einer Persion wurde erfolgreich aktualisiert.
@@ -515,6 +532,16 @@ de:
       updated: Die Zurdnung der Rolle zu einer Person wurde erfolgreich aktualisiert.
 
   exception:
-    Cannot delete record because of dependent assignments: Datensatz wird noch referenziert und kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent business_processes: Es gibt noch abhängige Geschäftsprozesse. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_document_assignments: Das Dokument ist noch dem Geschäftsprozess zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent charged_instructions: Die Person ist noch für eine Arbeitsanweisung verantwortlich. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent controlled_instructions: Die Person ist noch für eine Arbeitsanweisung Prüfer. Sie kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent department_affiliations: Die Person ist noch einer Abteilung zugeordnet. Sie kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent deputies: Es gibt noch eine Stellvertretung. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent released_instructions: Die Person ist noch für eine Arbeitsanweisung Freigeber. Sie kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent substitutions: Der User ist noch in einer Stellvertretungsfunktion. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent user_function_assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent user_role_in_company_assignments: Die Rolle ist noch der Firma zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
   views:
     are_you_sure: Sind Sie sicher?

@@ -21,8 +21,15 @@ class BusinessProcessesController < ApplicationController
   end
 
   def destroy
-    @business_process.destroy
-    redirect_to business_processes_url
+    begin      
+      @business_process.destroy
+      flash[:success] = t('notice.business_process.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @business_process.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to business_processes_url
+    end
   end
 
   def diagram

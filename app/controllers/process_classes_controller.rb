@@ -3,7 +3,7 @@ class ProcessClassesController < ApplicationController
 
   def create
     if @process_class.save
-      redirect_to @process_class, notice: 'Process class was successfully created.'
+      redirect_to @process_class, notice: t('notice.process_class.created')
     else
       render action: "new"
     end
@@ -11,7 +11,7 @@ class ProcessClassesController < ApplicationController
 
   def update
     if @process_class.update_attributes(params[:process_class])
-      redirect_to @process_class, notice: 'Process class was successfully updated.'
+      redirect_to @process_class, notice: t('notice.process_class.updated')
     else
       render action: "edit"
     end

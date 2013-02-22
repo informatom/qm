@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user.employments.new(company_id: current_company.id)
     if @user.save
-      redirect_to admin_user_path(@user), notice: 'User was successfully created.'
+      redirect_to admin_user_path(@user), notice: t('notice.user.created')
     else
       render action: "new"
     end
@@ -18,7 +18,7 @@ class Admin::UsersController < ApplicationController
     end
 
     if @user.update_attributes(params[:user])
-      redirect_to admin_user_path(@user), notice: 'User was successfully updated.'
+      redirect_to admin_user_path(@user), notice: t('notice.user.updated')
     else
       render action: "edit"
     end
@@ -27,10 +27,10 @@ class Admin::UsersController < ApplicationController
   def destroy
     begin
       @user.destroy
-      flash[:success] = "user successfully destroyed."
+      flash[:success] = t('notice.user.destroyed')
     rescue ActiveRecord::DeleteRestrictionError => e
       @user.errors.add(:base, e)
-      flash[:error] = "#{e}"
+      flash[:error] = t('exception.' + "#{e}")
     ensure
       redirect_to admin_users_url
     end
