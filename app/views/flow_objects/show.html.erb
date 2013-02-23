@@ -16,10 +16,10 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               flow_objects_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_flow_object_path(@flow_object), :class => 'btn' %>
+              edit_flow_object_path(@flow_object), :class => 'btn' if can? :edit, @flow_object %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               flow_object_path(@flow_object),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' if can? :delete, @flow_object %>
 </div>

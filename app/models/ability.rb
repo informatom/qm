@@ -9,7 +9,8 @@ class Ability
       can :manage, :all
       
     elsif user.has_role? :qm
-      can :manage, Company, :id => current_company.id
+      can [:edit, :update], Company, :id => current_company.id
+      can :index, Company, :users => { :id => user.id}
 
       can :manage, User, :companies => { :id => current_company.id }
       can :create, User
@@ -43,11 +44,12 @@ class Ability
       can :manage, SequenceFlow, :company_id => current_company.id
 
       can :read, FlowObject
+      can :read, Employment, :company_id => current_company.id
 
       can [:read, :latest, :display], News
 
     else
-      can :read, Company, :id => current_company.id
+      can :read, Company, :users => {:id => user.id}
 
       can :read, User, :companies => { :id => current_company.id }
       can :read, Substitution, :company_id => current_company.id
