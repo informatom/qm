@@ -19,12 +19,12 @@
         <td><%=l user.updated_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_admin_user_path(user), :class => 'btn btn-mini' %>
+                      edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_user_path(user),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, user %>
         </td>
       </tr>
     <% end %>
@@ -32,6 +32,4 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
-#            new_user_registration_path,
-            new_admin_user_path,
-            :class => 'btn btn-primary' %>
+            new_admin_user_path, :class => 'btn btn-primary' if can? :create, User %>

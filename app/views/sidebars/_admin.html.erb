@@ -1,6 +1,6 @@
 <ul class="nav nav-list">
   <li class="nav-header">Administration</li>
-  <li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path %></li>
+  <li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :index, Company %></li>
   <li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
   <li <%= active("functions") %>><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
   <li <%= active("roles_in_company") %>><%= link_to icon_("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
@@ -33,5 +33,5 @@
   </li>
 
   <li <%= active("news") %>><%= link_to icon_("gift") + t("activerecord.models.news.other"), news_index_path %></li>
-  <li <%= active("flow_objects") %>><%= link_to icon_("picture") + t("activerecord.models.flow_object.other"), flow_objects_path %></li>
+  <li <%= active("flow_objects") %>><%= link_to icon_("picture") + t("activerecord.models.flow_object.other"), flow_objects_path if can? :index, FlowObject %></li>
 </ul>

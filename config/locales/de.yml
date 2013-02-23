@@ -324,6 +324,11 @@ de:
     errors:
       <<: *errors
 
+#### CANCAN ####
+  unauthorized:
+    manage:
+      all: "Sie sind nicht berechtigt, die Aktion %{action} für das Objekt %{subject} auszuführen!"
+
   activerecord:
     errors:
       <<: *errors
@@ -338,7 +343,7 @@ de:
         other: Geschäftsprozesse
       business_process_department_assignment:
         one: Zuordnung einer Abteilung zu einem Geschäftsprozess
-        other: ZuordnungenAbteilungen zu Geschäftsprozessen
+        other: Zuordnungen Abteilungen zu Geschäftsprozessen
       business_process_document_assignment:
         one: Zuordnung eines Dokuments zu einem Geschäftsprozess
         other: Zuordnung Dokumente zu Geschäftsprozessen

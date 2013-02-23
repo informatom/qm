@@ -7,6 +7,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+      
     elsif user.has_role? :qm
       can :manage, Company, :id => current_company.id
 
@@ -41,10 +42,45 @@ class Ability
       can :manage, ProcessStep, :company_id => current_company.id
       can :manage, SequenceFlow, :company_id => current_company.id
 
+      can :read, FlowObject
+
       can [:read, :latest, :display], News
 
-    elsif
-      can :read, :all, :company_id => current_company.id
+    else
+      can :read, Company, :id => current_company.id
+
+      can :read, User, :companies => { :id => current_company.id }
+      can :read, Substitution, :company_id => current_company.id
+
+      can :read, Function, :company_id => current_company.id
+      can :read, UserFunctionAssignment, :company_id => current_company.id
+
+      can :read, Department, :company_id => current_company.id
+      can :read, DepartmentAffiliation, :company_id => current_company.id
+
+      can :read, RoleInCompany, :company_id => current_company.id
+      can :read, UserRoleInCompanyAssignment, :company_id => current_company.id
+
+      can :read, ProcessClass, :company_id => current_company.id
+      can :read, BusinessProcess, :company_id => current_company.id
+      can :read, BusinessProcessDepartmentAssignment, :company_id => current_company.id
+
+      can :read, Note, :company_id => current_company.id
+      can :read, BusinessProcessNoteAssignment, :company_id => current_company.id
+
+      can :read, Document, :company_id => current_company.id
+      can :read, BusinessProcessDocumentAssignment, :company_id => current_company.id
+
+      can :read, ProcessIndicator, :company_id => current_company.id
+      can :read, BusinessProcessProcessIndicatorAssignment, :company_id => current_company.id
+
+      can :read, Instruction, :company_id => current_company.id
+
+      can :read, ProcessStep, :company_id => current_company.id
+      can :read, SequenceFlow, :company_id => current_company.id
+      
+      can :read, FlowObject
+
       can [:read, :latest], News
     end
   end

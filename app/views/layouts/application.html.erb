@@ -65,18 +65,20 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <%= render "sidebars/" + session[:menu] %>
-          </div><!--/.well -->
-          <%= domain_helper %>
-        </div><!--/span-->
+        <% if current_user %>
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <%= render "sidebars/" + session[:menu] %>
+            </div><!--/.well -->
+            <%= domain_helper %>
+          </div><!--/span-->
+        <% end %>
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
-
+      
       <footer>
         <p>&copy; mittenin.at 2012</p>
       </footer>
