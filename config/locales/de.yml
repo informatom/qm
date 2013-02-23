@@ -491,9 +491,9 @@ de:
       created: Der Newseintrag wurde erfolgreich erstellt.
       updated: Der Newseintrag wurde erfolgreich aktualisiert.
     note:
-      created: Die Nachricht wurde erfolgreich erstellt.
-      destroyed: Die Nachricht wurde erfolgreich gelöscht.
-      updated: Die Nachricht wurde erfolgreich aktualisiert.      
+      created: Die Aufzeichnung wurde erfolgreich erstellt.
+      destroyed: Die Aufzeichnung wurde erfolgreich gelöscht.
+      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.      
     process_class:
       created: Die Prozessklasse wurde erfolgreich erzeugt.
       destroyed: Die Prozessklasse wurde erfolgreich gelöscht.
@@ -532,16 +532,35 @@ de:
       updated: Die Zurdnung der Rolle zu einer Person wurde erfolgreich aktualisiert.
 
   exception:
-    Cannot delete record because of dependent assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent business_processes: Es gibt noch abhängige Geschäftsprozesse. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent business_process_document_assignments: Das Dokument ist noch dem Geschäftsprozess zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent charged_instructions: Die Person ist noch für eine Arbeitsanweisung verantwortlich. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent controlled_instructions: Die Person ist noch für eine Arbeitsanweisung Prüfer. Sie kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent department_affiliations: Die Person ist noch einer Abteilung zugeordnet. Sie kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent deputies: Es gibt noch eine Stellvertretung. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent released_instructions: Die Person ist noch für eine Arbeitsanweisung Freigeber. Sie kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent substitutions: Der User ist noch in einer Stellvertretungsfunktion. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent assignments: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
+    Cannot delete record because of dependent business_processes: Der Datensatz kan wegen einem von ihm abhängigen Geschäftsprozess nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_department_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_note_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Aufzeichnung nicht gelöscht werden.    
+    Cannot delete record because of dependent business_process_process_indicator_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Kennzahl nicht gelöscht werden.    
+    Cannot delete record because of dependent charged_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Verantwortlicher einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent controlled_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Prüfer einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent department: Der Datensatz kan wegen einer von ihm abhängigen Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent department_affiliations: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Person zu einer Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent deputies: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
+    Cannot delete record because of dependent documents: Der Datensatz kan wegen eines von ihm abhängigen Dokuments nicht gelöscht werden.
+    Cannot delete record because of dependent employments: Der Datensatz kan wegen einer von ihm abhängigen Anstellung nicht gelöscht werden.
+    Cannot delete record because of dependent functions: Der Datensatz kan wegen einer von ihm abhängigen Funktion nicht gelöscht werden.
+    Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Handlungsanweisung nicht gelöscht werden.
+    Cannot delete record because of dependent notes: Der Datensatz kan wegen einer von ihm abhängigen Aufzeichnung nicht gelöscht werden.
+    Cannot delete record because of dependent predecessors: Der Datensatz kan wegen einer von ihm abhängigen Vorgängers nicht gelöscht werden.
+    Cannot delete record because of dependent process_classes: Der Datensatz kan wegen einer von ihm abhängigen Prozessklasse nicht gelöscht werden.
+    Cannot delete record because of dependent process_indicators: Der Datensatz kan wegen einer von ihm abhängigen Kennzahl nicht gelöscht werden.
+    Cannot delete record because of dependent process_steps: Der Datensatz kan wegen eines von ihm abhängigen Prozessschrittes nicht gelöscht werden.
+    Cannot delete record because of dependent released_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Freigeber einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent roles_in_company: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
+    Cannot delete record because of dependent roles: Der Datensatz kan wegen einer von ihm abhängigen Rolle in der Anwendung nicht gelöscht werden.
+    Cannot delete record because of dependent sequence_flows: Der Datensatz kan wegen eines von ihm abhängigen Sequenzflusses nicht gelöscht werden.
+    Cannot delete record because of dependent substitutions: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
+    Cannot delete record because of dependent successors: Der Datensatz kan wegen einer von ihm abhängigen Nachfolgers nicht gelöscht werden.
+    Cannot delete record because of dependent users: Der Datensatz kan wegen einer von ihm abhängigen Person nicht gelöscht werden.
     Cannot delete record because of dependent user_function_assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent user_role_in_company_assignments: Die Rolle ist noch der Firma zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent user_role_in_company_assignments: Der Datensatz kan wegen einer von ihm Zuordnung einer Rolle zu einer Person nicht gelöscht werden.
   views:
     are_you_sure: Sind Sie sicher?

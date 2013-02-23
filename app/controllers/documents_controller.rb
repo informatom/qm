@@ -18,7 +18,14 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document.destroy
-    redirect_to documents_url
+    begin
+      @document.destroy
+      flash[:success] = t('notice.document.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @document.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to documents_url
+    end
   end
 end

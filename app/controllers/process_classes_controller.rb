@@ -18,8 +18,14 @@ class ProcessClassesController < ApplicationController
   end
 
   def destroy
-    @process_class.destroy
-
-    redirect_to process_classes_url
+    begin
+      @process_class.destroy
+      flash[:success] = t('notice.process_class.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @process_class.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to process_classes_url
+    end
   end
 end

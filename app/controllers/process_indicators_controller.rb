@@ -18,7 +18,14 @@ class ProcessIndicatorsController < ApplicationController
   end
 
   def destroy
-    @process_indicator.destroy
-    redirect_to process_indicators_url
+    begin
+      @process_indicator.destroy
+      flash[:success] = t('notice.process_indicator.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @process_indicator.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to process_indicators_url
+    end
   end
 end

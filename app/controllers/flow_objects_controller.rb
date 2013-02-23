@@ -18,8 +18,14 @@ class FlowObjectsController < ApplicationController
   end
 
   def destroy
-    @flow_object.destroy
-
-    redirect_to flow_objects_url
+    begin
+      @flow_object.destroy
+      flash[:success] = t('notice.flow_object.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @flow_object.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to flow_objects_url
+    end
   end
 end

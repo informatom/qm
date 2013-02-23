@@ -23,7 +23,7 @@ class DepartmentsController < ApplicationController
       flash[:success] = "department successfully destroyed."
     rescue ActiveRecord::DeleteRestrictionError => e
       @department.errors.add(:base, e)
-      flash[:error] = "#{e}"
+      flash[:error] = t('exception.' + "#{e}")
     ensure
       redirect_to departments_url
     end

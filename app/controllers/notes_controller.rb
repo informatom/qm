@@ -18,7 +18,14 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note.destroy
-    redirect_to notes_url
+    begin
+      @note.destroy
+      flash[:success] = t('notice.note.destroyed')
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @note.errors.add(:base, e)
+      flash[:error] = t('exception.' + "#{e}")
+    ensure
+      redirect_to notes_url
+    end
   end
 end
