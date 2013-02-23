@@ -60,12 +60,12 @@
             <td><%=l note.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_note_path(note), :class => 'btn btn-mini' %>
+                          edit_note_path(note), :class => 'btn btn-mini' if can? :edit, note %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           note_path(note),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' %>
+                          :class => 'btn btn-mini btn-danger' if can? :delete, note %>
             </td>
           </tr>
         <% end %>
@@ -93,12 +93,12 @@
             <td><%=l document.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_document_path(document), :class => 'btn btn-mini' %>
+                          edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           document_path(document),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' %>
+                          :class => 'btn btn-mini btn-danger' if can? :delete, document %>
             </td>
           </tr>
         <% end %>
@@ -124,12 +124,12 @@
             <td><%=l process_indicator.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' %>
+                          edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' if can? :edit, process_indicator%>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           process_indicator_path(process_indicator),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' %>
+                          :class => 'btn btn-mini btn-danger' if can? :delete, process_indicator %>
             </td>
           </tr>
         <% end %>
@@ -155,12 +155,12 @@
             <td><%=l department.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_department_path(department), :class => 'btn btn-mini' %>
+                          edit_department_path(department), :class => 'btn btn-mini' if can? :edit, department %>
               <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                           department_path(department),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' %>
+                          :class => 'btn btn-mini btn-danger' if can? :delete, department %>
             </td>
           </tr>
         <% end %>
@@ -172,20 +172,20 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.list")),
-              business_processes_path, :class => 'btn'  %>
+              business_processes_path, :class => 'btn' if can? :index, BusinessProcess %>
 
   <% if @business_process.parent %>
     <%= link_to t('.back', :default => (icon_("arrow-up") + t("helpers.links.process_diagram"))),
-                diagram_business_process_path(@business_process.parent), :class => 'btn'  %>
+                diagram_business_process_path(@business_process.parent), :class => 'btn' if can? :diagram, @business_process.parent %>
   <% end %>
 
   <%= link_to t('.back', :default => (icon_("arrow-left") + t("helpers.links.process_diagram"))),
-              diagram_business_process_path(@business_process), :class => 'btn'  %>
+              diagram_business_process_path(@business_process), :class => 'btn' if can? :diagram, @business_process %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_business_process_path(@business_process), :class => 'btn' %>
+              edit_business_process_path(@business_process), :class => 'btn' if can? :edit, @business_process %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               business_process_path(@business_process),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' if can? :delete, @business_process %>
 </div>
