@@ -1,0 +1,15 @@
+<%- model_class = BusinessProcess -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => "Prozessschrittdiagramm " + model_class.model_name.human(:count => 2) %></h1>
+</div>
+
+<table class="table">
+  <% @process_steps.each do |process_step| %>
+    <tr>
+      <td style="text-align: center"><%= image(process_step) %></td><td><%= process_step.title %></td>
+    </tr>
+  <% end %>
+</table>
+<%# link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_business_process_path,
+            :class => 'btn btn-primary' if can? :new, BusinessProcess %>

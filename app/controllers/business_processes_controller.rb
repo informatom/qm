@@ -53,4 +53,21 @@ class BusinessProcessesController < ApplicationController
     end
     redirect_to diagram_business_process_path(@business_process)
   end
+
+  def step_diagram
+    @process_steps = Array.new()
+    heap = Array.new()
+
+    start_object = FlowObject.where(:name => "Start").first
+    @process_steps << @business_process.process_steps.where(:flow_object_id => start_object.id).first    
+
+    while (successors = @process_steps.last.successors) && (heap.any? || successors.any? )
+      if successors.any?        
+        @process_steps.include?(successors.first) ? successors.shift : @process_steps << successors.shift
+        heap.concat(successors)
+      else 
+        @process_steps << heap.shift
+      end
+    end
+  end
 end

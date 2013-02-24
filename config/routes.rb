@@ -22,6 +22,7 @@ Qm::Application.routes.draw do
       get 'diagram'
       post 'diagram'
       get 'reset'
+      get 'step_diagram'
     end
   end
 

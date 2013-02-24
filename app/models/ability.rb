@@ -66,7 +66,7 @@ class Ability
       can :read, UserRoleInCompanyAssignment, :company_id => current_company.id
 
       can :read, ProcessClass, :company_id => current_company.id
-      can [:read, :diagram], BusinessProcess, :company_id => current_company.id
+      can [:read, :diagram, :step_diagram], BusinessProcess, :company_id => current_company.id
       can :read, BusinessProcessDepartmentAssignment, :company_id => current_company.id
 
       can :read, Note, :company_id => current_company.id

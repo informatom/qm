@@ -24,4 +24,6 @@ class BusinessProcess < ActiveRecord::Base
 
   has_many :business_process_department_assignments, :dependent => :restrict
   has_many :departments, :through => :business_process_department_assignments, :dependent => :restrict
+
+  has_many :process_steps
 end
