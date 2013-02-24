@@ -19,7 +19,11 @@
   </div>
   <br/>
 
-  <%= f.association :roles, :as => :check_boxes if admin? %>
+  <% if admin? %>
+    <%= f.association :roles, :as => :check_boxes  %>    
+  <% elsif qm? %>
+    <%= f.association :roles, :as => :check_boxes, :collection => Role.where(Role.arel_table[:name].not_eq(:admin)) %>
+  <% end %>
 
   <div id="user_function_assignments">
     <%= f.simple_fields_for :user_function_assignments do |ufa| %>
