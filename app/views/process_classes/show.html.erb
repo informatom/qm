@@ -15,12 +15,12 @@
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              process_classes_path, :class => 'btn'  %>
+              process_classes_path, :class => 'btn' %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_process_class_path(@process_class), :class => 'btn' %>
+              edit_process_class_path(@process_class), :class => 'btn' if can? :edit, @process_class %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               process_class_path(@process_class),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' if can? :delete, @process_class %>
 </div>

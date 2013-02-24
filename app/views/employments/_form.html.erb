@@ -4,7 +4,11 @@
 <%= simple_form_for @employment, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.association :user %>
 
-  <%= f.association :company %>
+  <% if admin? %>
+    <%= f.association :company %>
+  <% else %>
+    <%= company_field(@employment, f) %>
+  <% end %>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

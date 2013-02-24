@@ -23,12 +23,12 @@
         <td><%=l sequence_flow.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
-                      edit_sequence_flow_path(sequence_flow), :class => 'btn btn-mini' %>
+                      edit_sequence_flow_path(sequence_flow), :class => 'btn btn-mini' if can? :edit, sequence_flow %>
           <%= link_to t('.destroy', :default => icon("trash")),
                       sequence_flow_path(sequence_flow),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, sequence_flow %>
         </td>
       </tr>
     <% end %>
@@ -37,6 +37,6 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_sequence_flow_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary' if can? :new, SequenceFlow %>
 
 <%= render "shared/datatables_helper" %>

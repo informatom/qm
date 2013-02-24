@@ -19,12 +19,12 @@
         <td><%= updated(news) %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
-                      edit_news_path(news), :class => 'btn btn-mini' %>
+                      edit_news_path(news), :class => 'btn btn-mini' if can? :edit, news %>
           <%= link_to t('.destroy', :default => icon("trash")),
                       news_path(news),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, news %>
         </td>
       </tr>
     <% end %>
@@ -32,8 +32,7 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
-            new_news_path,
-            :class => 'btn btn-primary' %>
-<%= link_to t("helpers.news.all"), display_news_index_path, :class => 'btn btn-inverse'  %>
-<%= link_to t("helpers.news.your"), latest_news_index_path, :class => 'btn'  %>
+              new_news_path, :class => 'btn btn-primary' if can? :new, News %>
+<%= link_to t("helpers.news.all"), display_news_index_path, :class => 'btn btn-inverse' if can? :display, News  %>
+<%= link_to t("helpers.news.your"), latest_news_index_path, :class => 'btn' if can? :latest, News %>
 <%= render "shared/datatables_helper" %>

@@ -45,8 +45,10 @@ class Ability
 
       can :read, FlowObject
       can :read, Employment, :company_id => current_company.id
+      can [:new, :create], Employment
 
       can [:read, :latest, :display], News
+      can :read, Role
 
     else
       can :read, Company, :users => {:id => user.id}
@@ -83,7 +85,9 @@ class Ability
       
       can :read, FlowObject
 
-      can [:read, :latest], News
+      can :read, Employment, :company_id => current_company.id
+      can [:read, :latest, :display], News
+      can :read, Role
     end
   end
 end

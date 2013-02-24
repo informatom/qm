@@ -19,12 +19,12 @@
         <td><%=l role_in_company.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
-                      edit_role_in_company_path(role_in_company), :class => 'btn btn-mini' %>
+                      edit_role_in_company_path(role_in_company), :class => 'btn btn-mini' if can? :edit, role_in_company %>
           <%= link_to t('.destroy', :default => icon("edit")),
                       role_in_company_path(role_in_company),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, role_in_company %>
         </td>
       </tr>
     <% end %>
@@ -33,5 +33,5 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_role_in_company_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary' if can? :new, RoleInCompany %>
 <%= render "shared/datatables_helper" %>

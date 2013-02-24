@@ -76,10 +76,10 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               instructions_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_instruction_path(@instruction), :class => 'btn' %>
+              edit_instruction_path(@instruction), :class => 'btn' if can? :edit, @instruction %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               instruction_path(@instruction),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' if can? :delete,  @instructon%>
 </div>

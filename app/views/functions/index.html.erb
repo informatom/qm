@@ -19,12 +19,12 @@
         <td><%=l function.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
-                      edit_function_path(function), :class => 'btn btn-mini' %>
+                      edit_function_path(function), :class => 'btn btn-mini' if can? :edit, function %>
           <%= link_to t('.destroy', :default => icon("trash")),
                       function_path(function),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, function %>
         </td>
       </tr>
     <% end %>
@@ -33,5 +33,5 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_function_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary' if can? :new, Function %>
 <%= render "shared/datatables_helper" %>

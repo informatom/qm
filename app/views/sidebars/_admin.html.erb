@@ -7,7 +7,7 @@
 
   <li <%= active("users") %>><%= link_to icon_("user") + t("activerecord.models.user.other"), admin_users_path %></li>
 
-  <li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) if admin? %></li>
+  <li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) %></li>
 
   <li <%= active("substitutions") %>>
     <%= link_to icons(["user", "resize-horizontal", "user"]) + t("activerecord.models.substitution.other"), substitutions_path %>

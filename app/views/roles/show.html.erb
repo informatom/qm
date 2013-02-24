@@ -12,11 +12,11 @@
   <%= link_to icon_("backward") + t('.back', :default => t("helpers.links.back")),
               roles_path, :class => 'btn'  %>
   <%= link_to icon_("edit") + t('.edit', :default => t("helpers.links.edit")),
-              edit_role_path(@role), :class => 'btn' %>
+              edit_role_path(@role), :class => 'btn' if can? :edit, @role %>
 
   <%= link_to icon_("trash") + t('.destroy', :default => t("helpers.links.destroy")),
               role_path(@role),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              :class => 'btn btn-danger' if can? :delete, @role %>
 </div>

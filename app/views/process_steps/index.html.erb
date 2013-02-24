@@ -23,12 +23,12 @@
         <td><%= process_step.updator.shortname %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
-                      edit_process_step_path(process_step), :class => 'btn btn-mini' %>
+                      edit_process_step_path(process_step), :class => 'btn btn-mini' if can? :edit, process_step %>
           <%= link_to t('.destroy', :default => icon("trash")),
                       process_step_path(process_step),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      :class => 'btn btn-mini btn-danger' if can? :delete, process_step %>
         </td>
       </tr>
     <% end %>
@@ -37,6 +37,6 @@
 
 <%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
             new_process_step_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary' if can? :new, ProcessStep %>
 
 <%= render "shared/datatables_helper" %>
