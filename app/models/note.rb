@@ -8,4 +8,7 @@ class Note < ActiveRecord::Base
 
   has_many :business_process_note_assignments, :dependent => :restrict
   has_many :business_processes, :through => :business_process_note_assignments, :dependent => :restrict
+
+  has_many :note_process_step_assignments, :dependent => :restrict
+  has_many :process_steps, :through => :note_process_step_assignments, :dependent => :restrict
 end

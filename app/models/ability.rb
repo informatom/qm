@@ -31,6 +31,7 @@ class Ability
 
       can :manage, Note, :company_id => current_company.id
       can :manage, BusinessProcessNoteAssignment, :company_id => current_company.id
+      can :manage, NoteProcessStepAssignment, :company_id => current_company.id
 
       can :manage, Document, :company_id => current_company.id
       can :manage, BusinessProcessDocumentAssignment, :company_id => current_company.id
@@ -72,6 +73,7 @@ class Ability
 
       can :read, Note, :company_id => current_company.id
       can :read, BusinessProcessNoteAssignment, :company_id => current_company.id
+      can :read, NoteProcessStepAssignment, :company_id => current_company.id
 
       can :read, Document, :company_id => current_company.id
       can :read, BusinessProcessDocumentAssignment, :company_id => current_company.id

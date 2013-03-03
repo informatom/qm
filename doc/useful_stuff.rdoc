@@ -6,11 +6,11 @@
 4. Abilty: <tt>models/abilty.rb</tt>
 5. Translation: <tt>confilg/locales/de.yml</tt>
 6. Menu: <tt>sidebars/administration.html.erb</tt>
-7. Controller
+7. Controller: reduce actions, messages
 8. Model <tt>app/models/company.rb</tt> Versions?
 9. Form (description => textile, company => not editable)
-10. Show
-11. Index
+10. Show: icons
+11. Index: cancan, icons, datatables
 
 == Generators
 
@@ -25,6 +25,7 @@ add index manually:
   rails generate scaffold ProcessStep title:string company_id:integer description:text type_id:integer process_id:integer created_by:integer updated_by:integer
   rails generate scaffold FlowObject name:string class:string image_file_name:string
   rails generate scaffold InstructionProcessStepAssignment instruction_id:integer process_step_id:integer company_id:integer
+  rails generate scaffold NoteProcessStepAssignment note_id:integer process_step_id:integer company_id:integer
 
 ////////////////////////////
 

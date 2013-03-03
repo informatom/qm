@@ -12,6 +12,7 @@
     <%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %>
   </li>
   <li <%= active("notes") %>><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
+  <li <%= active("note_process_step_assignments") %>><%= link_to icons(["envelope-alt","resize-horizontal","check-empty"]) + t("activerecord.models.note_process_step_assignment.other"), note_process_step_assignments_path %></li>  
   <li <%= active("documents") %>><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>
   <li <%= active("instructions") %>><%= link_to icon_("legal") + t("activerecord.models.instruction.other"), instructions_path %></li> 
   <li <%= active("instruction_process_step_assignments") %>><%= link_to icons(["legal","resize-horizontal","check-empty"]) + t("activerecord.models.instruction_process_step_assignment.other"), instruction_process_step_assignments_path %></li> 

@@ -26,6 +26,7 @@ class Company < ActiveRecord::Base
 
   has_many :notes, :dependent => :restrict
   has_many :business_process_note_assignments, :dependent => :restrict
+  has_many :note_process_step_assignments, :dependent => :restrict
 
   has_many :documents, :dependent => :restrict
   has_many :business_process_document_assignments, :dependent => :restrict

@@ -141,6 +141,9 @@ de:
       note:
         one: Aufzeichnung
         other: Aufzeichnungen
+      note_process_step_assignment:
+        one: Zuordnung einer Aufzeichnung zu einem Prozessschritt
+        other: Zuordnungen Aufzeichnungen zu Prozessschritten
       process_class:
         one: Prozessklasse
         other: Prozessklassen
@@ -258,7 +261,10 @@ de:
     note:
       created: Die Aufzeichnung wurde erfolgreich erstellt.
       destroyed: Die Aufzeichnung wurde erfolgreich gelöscht.
-      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.      
+      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.    
+    note_process_step_assignment:
+      created: Die Aufzeichnung wurde erfolgreich einem Prozessschritt zuogeordnet.
+      updated: Die Zuordnung der Aufzeichnung zu einem Prozessschritt wurde erfolgreich aktualisiert.
     process_class:
       created: Die Prozessklasse wurde erfolgreich erzeugt.
       destroyed: Die Prozessklasse wurde erfolgreich gelöscht.
@@ -314,6 +320,7 @@ de:
     Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Arbeitsanweisung nicht gelöscht werden.
     Cannot delete record because of dependent instruction_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Arbeitsanweisung zu einem Prozessschritt nicht gelöscht werden.
     Cannot delete record because of dependent notes: Der Datensatz kan wegen einer von ihm abhängigen Aufzeichnung nicht gelöscht werden.
+    Cannot delete record because of dependent note_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Aufzeichnung zu einem Prozessschritt nicht gelöscht werden.
     Cannot delete record because of dependent predecessors: Der Datensatz kan wegen einer von ihm abhängigen Vorgängers nicht gelöscht werden.
     Cannot delete record because of dependent process_classes: Der Datensatz kan wegen einer von ihm abhängigen Prozessklasse nicht gelöscht werden.
     Cannot delete record because of dependent process_indicators: Der Datensatz kan wegen einer von ihm abhängigen Kennzahl nicht gelöscht werden.
