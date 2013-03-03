@@ -33,6 +33,8 @@ de:
     internal: intern
     image: Bild
     image_file_name: Dateiname des Bildes
+    instruction: Arbeitsanweisung
+    instruction_id: Arbeitsanweisung
     location: Ort der Ablage
     goals: Ziele
     in_charge: Verantwortlicher
@@ -55,6 +57,8 @@ de:
     process_indicator: Prozesskennzahl
     process_indicator_id: Prozesskennzahl
     process_indicators: Prozesskennzahlen
+    process_step: Prozessschritt
+    process_step_id: Prozessschritt
     purpose: Zweck
     released_by: Freigeber
     responsibilities: Verantwortungen
@@ -83,6 +87,250 @@ de:
     user_id: Person
     value: Wert
 
+#### MODELS ###
+  activerecord:  
+    models:
+      assignment:
+        one: Zuordnung
+        other: Zuordnungen
+      business_process:
+        one: Geschäftsprozess
+        other: Geschäftsprozesse
+      business_process_department_assignment:
+        one: Zuordnung einer Abteilung zu einem Geschäftsprozess
+        other: Zuordnungen Abteilungen zu Geschäftsprozessen
+      business_process_document_assignment:
+        one: Zuordnung eines Dokuments zu einem Geschäftsprozess
+        other: Zuordnung Dokumente zu Geschäftsprozessen
+      business_process_note_assignment:
+        one: Zuordnung einer Aufzeichnung zu einem Geschäftsprozess
+        other: Zuodnungen Aufzeichnungen zu Geschäftsprozessen
+      business_process_process_indicator_assignment:
+        one: Zuordnung einer Prozesskennzahl zu einem Geschäftsprozess
+        other: Zuordnungen Prozesskennzahlen zu Geschäftsprozessen
+      company:
+        one: Firma
+        other: Firmen
+      department:
+        one: Abteilung
+        other: Abteilungen
+      department_affiliation:
+        one: Abteilungszugehörigkeit
+        other: Abteilungszugehörigkeiten
+      document:
+        one: Dokument
+        other: Dokumente
+      employment:
+        one: Anstellungsverhältnis
+        other: Anstellungsverhältnisse
+      flow_object:
+       one: BPMN Flow Objekt
+       other: BPMN Flow Objekte
+      function:
+        one: Funktion
+        other: Funktionen
+      instruction:
+        one: Arbeitsanweisung
+        other: Arbeitsanweisungen
+      instruction_process_step_assignment:
+        one: Zuordnung einer Arbeitsanweisung zu einem Prozessschritt
+        other: Zuordnungen Arbeitsanweisungen zu Prozessschritten
+      news:
+        one: Newseintrag
+        other: News
+      note:
+        one: Aufzeichnung
+        other: Aufzeichnungen
+      process_class:
+        one: Prozessklasse
+        other: Prozessklassen
+      process_indicator:
+        one: Prozesskennzahl
+        other: Prozesskennzahlen
+      process_step:
+        one: Prozessschritt
+        other: Prozessschritte
+      role:
+        one: Rolle in Anwendung
+        other: Rollen in Anwendung
+      role_in_company:
+        one: Rolle
+        other: Rollen
+      sequence_flow:
+        one: BPMN Sequenzfluss
+        other: BPMN Sequenzflüsse
+      substitution:
+        one: Stellvertretung
+        other: Stellvertretungen
+      user:
+        one: Person
+        other: Personen
+      user_function_assignment:
+        one: Funktion der Person
+        other: Funktionen der Personen
+      user_role_in_company_assignment:
+        one: Rolle der Person
+        other: Rollen der Personen
+
+#### ATTRIBUTES #####
+    attributes:
+      assigment:
+        role: Rolle in Anwendung
+      business_process:
+        aims: Prozessziel(e)
+        number: Prozessnummer
+        owner: Prozesseigner
+        owner_id: Prozesseigner
+        parent: Vaterprozess
+        parent_id: Vaterprozess
+      department_affiliation:
+        department: Abteilung
+      substitution:
+        deputy: Stellvertreter
+      user:
+        current_sign_in_at: angemeldet seit
+        current_sign_in_ip: angemeldet von IP
+        encrypted_password: verschlüsseltes Passwort
+        email: E-Mail
+        firstname: Vorname
+        lastname: Familienname
+        last_sign_in_at: zuletzt angemeldet
+        last_sign_in_ip: zuletzt von IP
+        parent: Vorgesetzter
+        password_salt: Passwort Salt
+        remember_me: Passwort merken
+        reset_password_token: Passwort Entschlüsseler
+        reset_password_sent_at: Passwortreset zugestellt
+        sign_in_count: Anzahl Anmeldungen
+        user_roles: Rollen
+  notice:    
+    business_process: 
+      created: Der Geschäftsprozess wurde erfolgreich erstellt.
+      destroyed: Der Geschäftsprozess wurde erfolgreich gelöscht.
+      updated: Der Geschäftsprozess wurde erfolgreich aktualisiert.
+    business_process_department_assignment:
+      created: Der Geschäftsprozess wurde erfolgreich einer Abteilgung zugeordnet.
+      updated: Die Zuordnung des Geschäftsprozess zu einer Abteilung wurde aktualisiert.
+    business_process_document_assignment:
+      created: Das Dokument wurde erfolgreich einem Geschäftsprozess zugeordnet.
+      updated: Die Zuordnung des Dokuments zu einem Geschäftsprozess wurde aktualisiert.
+    business_process_note_assignment:
+      created: Die Aufzeichnung wurde erfolgreich einem Gescäftsprozess zugeordnet.
+      updated: Die Zuordnung der Aufzeichnung zu einem Geschäftsprozess wurde aktualisiert.
+    business_process_process_indicator_assignment:
+      created: Die Prozesskennzahl wurde erfolgreich einem Geschäftsprozess zugeordnet.
+      updated: Die Zuordnung der Prozesskennzahl zu einem  Geschäftsprozess wurde erfolgreich aktualisiert.
+    company:
+      created: Die Firma wurde erfolgreich erstellt.
+      destroyed: Die Firma wurde erfolgreich gelöscht.
+      updated: Die Firma wurde erfolgreich aktualisiert.
+    department:
+      created: Die Abteilung wurde erfolgreich erstellt.
+      destroyed: Die Abteilgung wurde erfolgreich gelöscht.
+      updated: Die Abteilgung wurde erfolgreich aktualisiert.
+    department_affiliation:
+      created: Die Person wurde erfolgreich einer Abteilgung zugeordnet.
+      updated: Die Zuordnung der Person zu einer Abteilgung wurde erfolgreich aktualisiert.
+    document:
+      created: Das Dokument wurde erfolgreich erstellt.
+      destroyed: Das Dokument wurde erfolgreich gelöscht.
+      updated: Das Dokument wurde erfolgreich aktualisiert.
+    employment:
+      created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
+      updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
+    flow_object: 
+      created: Das Flow Objekt wurde erfolgreich erzeugt.
+      destroyed: Das Flow Objekt wurde erfolgreich gelöscht.
+      updated: Das Flow Objekt wurde erfolgreich aktualisiert.
+    function:
+      created: Die Funktion wurde erfolgreich erstellt.
+      destroyed: Die Funktion wurde erfolgreich gelöscht.
+      updated: Die Funktion wurde erfolgreich aktualisiert.
+    instruction:
+      created: Die Arbeitsanweisung wurde erfolgreich erstellt.
+      updated: Die Arbeitsanweisung wurde erfolgreich aktualisiert.
+    instruction_process_step_assignment:
+      created: Die Arbeitsanweisung wurde erfolgreich einem Prozessschritt zuogeordnet.
+      updated: Die Zuordnung der Arbeitsanweisung zu einem Prozessschritt wurde erfolgreich aktualisiert.
+    news: 
+      created: Der Newseintrag wurde erfolgreich erstellt.
+      updated: Der Newseintrag wurde erfolgreich aktualisiert.
+    note:
+      created: Die Aufzeichnung wurde erfolgreich erstellt.
+      destroyed: Die Aufzeichnung wurde erfolgreich gelöscht.
+      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.      
+    process_class:
+      created: Die Prozessklasse wurde erfolgreich erzeugt.
+      destroyed: Die Prozessklasse wurde erfolgreich gelöscht.
+      updated: Die Prozessklasse wurde erfolgreich aktualisiert.
+    process_indicator:
+      created: Die Prozesskennzahl wurde erfolgreich erstellt.
+      destroyed: Die Prozesskennzahl wurde erfolgreich gelöscht.
+      updated: Die Prozesskennzahl wurde erfolgreich aktualisiert.
+    process_step:
+      created: Der Prozessschritt wurde erfolgreich erstellt.
+      destroyed: Der Prozessschritt wurde erfolgreich gelöscht.
+      updated: Der Prozessschritt wurde erfolgreich aktualisiert.
+    role:
+      created: Die Rolle in der Anwendung wurde erfolgreich erstellt.
+      destroyed: Die Rolle in der Anwendung wurde erfolgreich gelöscht.
+      updated: Die Rolle in der Anwendung wurde erfolgreich aktualisiert.
+    role_in_company:
+      created: Die Rolle wurde erfolgreich erstellt.
+      destroyed: Die Rolle wurde erfolgreich gelöscht.
+      updated: Die Rolle wurde erfolgreich aktualisiert.
+    sequence_flow:
+      created: Der BPMN Sequenzfluss wurde erfolgreich erstellt.
+      updated: Der BPMN Sequenzfluss wurde erfolgreich aktualisiert.
+    substitution:
+      created: Die Stellvertretzung wurde erfolgreich erstellt.
+      updated: Die Stellvertretung wurde erfolgreich aktualisiert.
+    user:
+      created: Die Person wurde erfolgreich erstellt. Sie kann sich nun anmelden.
+      destroyed: Die Person wurde erfolgreich gelöscht.
+      updated: Die Person wurde erfolgreich aktualisiert.
+    user_function_assignment:
+      created: Die Funktion wurde der Person erfolgreich zugeordnet.
+      updated: Die Zuordnung der Funktion zu einer Persion wurde erfolgreich aktualisiert.
+    user_role_in_company_assignment:
+      created: Die Rolle wurde der Person erfolgreich zugeordnet.
+      updated: Die Zurdnung der Rolle zu einer Person wurde erfolgreich aktualisiert.
+  exception:
+    Cannot delete record because of dependent assignments: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
+    Cannot delete record because of dependent business_processes: Der Datensatz kan wegen einem von ihm abhängigen Geschäftsprozess nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_department_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_note_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Aufzeichnung nicht gelöscht werden.
+    Cannot delete record because of dependent business_process_process_indicator_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Kennzahl nicht gelöscht werden.
+    Cannot delete record because of dependent charged_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Verantwortlicher einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent controlled_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Prüfer einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent department: Der Datensatz kan wegen einer von ihm abhängigen Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent department_affiliations: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Person zu einer Abteilung nicht gelöscht werden.
+    Cannot delete record because of dependent deputies: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
+    Cannot delete record because of dependent documents: Der Datensatz kan wegen eines von ihm abhängigen Dokuments nicht gelöscht werden.
+    Cannot delete record because of dependent employments: Der Datensatz kan wegen einer von ihm abhängigen Anstellung nicht gelöscht werden.
+    Cannot delete record because of dependent functions: Der Datensatz kan wegen einer von ihm abhängigen Funktion nicht gelöscht werden.
+    Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Arbeitsanweisung nicht gelöscht werden.
+    Cannot delete record because of dependent instruction_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Arbeitsanweisung zu einem Prozessschritt nicht gelöscht werden.
+    Cannot delete record because of dependent notes: Der Datensatz kan wegen einer von ihm abhängigen Aufzeichnung nicht gelöscht werden.
+    Cannot delete record because of dependent predecessors: Der Datensatz kan wegen einer von ihm abhängigen Vorgängers nicht gelöscht werden.
+    Cannot delete record because of dependent process_classes: Der Datensatz kan wegen einer von ihm abhängigen Prozessklasse nicht gelöscht werden.
+    Cannot delete record because of dependent process_indicators: Der Datensatz kan wegen einer von ihm abhängigen Kennzahl nicht gelöscht werden.
+    Cannot delete record because of dependent process_steps: Der Datensatz kan wegen eines von ihm abhängigen Prozessschrittes nicht gelöscht werden.
+    Cannot delete record because of dependent released_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Freigeber einer Arbeitsanweisungnicht gelöscht werden.
+    Cannot delete record because of dependent roles_in_company: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
+    Cannot delete record because of dependent roles: Der Datensatz kan wegen einer von ihm abhängigen Rolle in der Anwendung nicht gelöscht werden.
+    Cannot delete record because of dependent sequence_flows: Der Datensatz kan wegen eines von ihm abhängigen Sequenzflusses nicht gelöscht werden.
+    Cannot delete record because of dependent substitutions: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
+    Cannot delete record because of dependent successors: Der Datensatz kan wegen einer von ihm abhängigen Nachfolgers nicht gelöscht werden.
+    Cannot delete record because of dependent users: Der Datensatz kan wegen einer von ihm abhängigen Person nicht gelöscht werden.
+    Cannot delete record because of dependent user_function_assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
+    Cannot delete record because of dependent user_role_in_company_assignments: Der Datensatz kan wegen einer von ihm Zuordnung einer Rolle zu einer Person nicht gelöscht werden.
+  views:
+    are_you_sure: Sind Sie sicher?
+
+# Standard Formats
   date:
     abbr_day_names:
     - So
@@ -163,15 +411,19 @@ de:
       x_days:
         one: ein Tag
         other: ! '%{count} Tage'
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       x_minutes:
         one: eine Minute
         other: ! '%{count} Minuten'
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       x_months:
         one: ein Monat
         other: ! '%{count} Monate'
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       x_seconds:
         one: eine Sekunde
         other: ! '%{count} Sekunden'
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
     prompts:
       day: Tag
       hour: Stunden
@@ -182,6 +434,7 @@ de:
   error: Fehler
   errors: &errors
     format: ! '%{attribute} %{message}'
+    #HAS 20130228: ' Just for syntax Highlighting in  Sublime
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
@@ -200,6 +453,7 @@ de:
       not_an_integer: muss ganzzahlig sein
       odd: muss ungerade sein
       record_invalid: ! 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
+      #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       taken: ist bereits vergeben
       too_long: ist zu lang (nicht mehr als %{count} Zeichen)
       too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
@@ -208,52 +462,9 @@ de:
       body: ! 'Bitte überprüfen Sie die folgenden Felder:'
       header:
         one: ! 'Konnte %{model} nicht speichern: ein Fehler.'
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
         other: ! 'Konnte %{model} nicht speichern: %{count} Fehler.'
-
-### TWITTER BOOTSTRAP HELPERS ###
-  helpers:
-    actions: Aktionen
-    add_department_affiliation: Die Person einer Abteilgung zuordnen
-    add_deputy: Einen Stellvertreter hinzufügen
-    add_user_function_assignment: Eine Funktion der Person zuordnen
-    add_user_role_in_company_assignment: Eine Rolle der Person zuordnen
-    company: Firma
-    error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
-    links:
-      back: Zurück
-      cancel: Abbrechen
-      confirm: Sind Sie sicher?
-      destroy: Löschen
-      edit: Bearbeiten
-      expand: Ausklappen
-      list: Liste
-      new: Erstelle %{model}
-      process_diagram: Diagramm
-      process_modell: Prozessmodell
-      process_edit: Prozess bearbeiten
-    news:
-      all: alle Newseinträge
-      general: News
-      your: Ihre Newseinträge
-    no_company: keiner Firma
-    process_modell: Prozessmodell
-    remove_department_affiliation: Abteilungszugehörigkeit löschen
-    remove_deputy: Stellvertreter löschen
-    remove_user_function_assignment: Funktion der Person löschen
-    remove_user_role_in_company_assignment: Rolle der Person löschen
-    select:
-      prompt: Bitte wählen
-    submit:
-      create: ! '%{model} erstellen'
-      submit: ! '%{model} speichern'
-      update: ! '%{model} aktualisieren'
-    titles:
-      edit: Bearbeite %{model}
-      new: Erstelle %{model}
-    versions: Versionen
-
-  hints:
-    leave_empty: Lassen Sie das Feld leer, um das Passwort unverändert zu lassen.
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
   number:
     currency:
       format:
@@ -261,6 +472,7 @@ de:
         format: ! '%u %n'
         precision: 2
         separator: ! ','
+        #HAS 20130228: ' Just for syntax Highlighting in  Sublime
         significant: false
         strip_insignificant_zeros: false
         unit: €
@@ -268,6 +480,7 @@ de:
       delimiter: .
       precision: 2
       separator: ! ','
+      #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       significant: false
       strip_insignificant_zeros: false
     human:
@@ -310,262 +523,64 @@ de:
       last_word_connector: ! ' und '
       two_words_connector: ! ' und '
       words_connector: ! ', '
+      #HAS 20130228: ' Just for syntax Highlighting in  Sublime
   time:
     am: vormittags
     formats:
       default: ! "%d.%m.%Y, %H:%M"
       long: ! '%A, %d. %B %Y, %H:%M Uhr'
+      #HAS 20130228: ' Just for syntax Highlighting in  Sublime
       short: ! '%d.%m.%Y, %H:%M'
       timestamp: '%d.%m.%y - %H:%M Uhr'
       id: '%d%m%y%H%M%S'
     pm: nachmittags
-  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
-  activemodel:
-    errors:
-      <<: *errors
 
 #### CANCAN ####
   unauthorized:
     manage:
       all: "Sie sind nicht berechtigt, die Aktion %{action} für das Objekt %{subject} auszuführen!"
 
-  activerecord:
-    errors:
-      <<: *errors
-
-#### MODELS ###
-    models:
-      assignment:
-        one: Zuordnung
-        other: Zuordnungen
-      business_process:
-        one: Geschäftsprozess
-        other: Geschäftsprozesse
-      business_process_department_assignment:
-        one: Zuordnung einer Abteilung zu einem Geschäftsprozess
-        other: Zuordnungen Abteilungen zu Geschäftsprozessen
-      business_process_document_assignment:
-        one: Zuordnung eines Dokuments zu einem Geschäftsprozess
-        other: Zuordnung Dokumente zu Geschäftsprozessen
-      business_process_note_assignment:
-        one: Zuordnung einer Aufzeichnung zu einem Geschäftsprozess
-        other: Zuodnungen Aufzeichnungen zu Geschäftsprozessen
-      business_process_process_indicator_assignment:
-        one: Zuordnung einer Prozesskennzahl zu einem Geschäftsprozess
-        other: Zuordnungen Prozesskennzahlen zu Geschäftsprozessen
-      company:
-        one: Firma
-        other: Firmen
-      department:
-        one: Abteilung
-        other: Abteilungen
-      department_affiliation:
-        one: Abteilungszugehörigkeit
-        other: Abteilungszugehörigkeiten
-      document:
-        one: Dokument
-        other: Dokumente
-      employment:
-        one: Anstellungsverhältnis
-        other: Anstellungsverhältnisse
-      flow_object:
-       one: BPMN Flow Objekt
-       other: BPMN Flow Objekte
-      function:
-        one: Funktion
-        other: Funktionen
-      instruction:
-        one: Arbeitsanweisung
-        other: Arbeitsanweisungen
-      news:
-        one: Newseintrag
-        other: News
-      note:
-        one: Aufzeichnung
-        other: Aufzeichnungen
-      process_class:
-        one: Prozessklasse
-        other: Prozessklassen
-      process_indicator:
-        one: Prozesskennzahl
-        other: Prozesskennzahlen
-      process_step:
-        one: Prozessschritt
-        other: Prozessschritte
-      role:
-        one: Rolle in Anwendung
-        other: Rollen in Anwendung
-      role_in_company:
-        one: Rolle
-        other: Rollen
-      sequence_flow:
-        one: BPMN Sequenzfluss
-        other: BPMN Sequenzflüsse
-      substitution:
-        one: Stellvertretung
-        other: Stellvertretungen
-      user:
-        one: Person
-        other: Personen
-      user_function_assignment:
-        one: Funktion der Person
-        other: Funktionen der Personen
-      user_role_in_company_assignment:
-        one: Rolle der Person
-        other: Rollen der Personen
-
-#### ATTRIBUTES #####
-    attributes:
-      assigment:
-        role: Rolle in Anwendung
-      business_process:
-        aims: Prozessziel(e)
-        number: Prozessnummer
-        owner: Prozesseigner
-        owner_id: Prozesseigner
-        parent: Vaterprozess
-        parent_id: Vaterprozess
-      department_affiliation:
-        department: Abteilung
-      substitution:
-        deputy: Stellvertreter
-      user:
-        current_sign_in_at: angemeldet seit
-        current_sign_in_ip: angemeldet von IP
-        encrypted_password: verschlüsseltes Passwort
-        email: E-Mail
-        firstname: Vorname
-        lastname: Familienname
-        last_sign_in_at: zuletzt angemeldet
-        last_sign_in_ip: zuletzt von IP
-        parent: Vorgesetzter
-        password_salt: Passwort Salt
-        remember_me: Passwort merken
-        reset_password_token: Passwort Entschlüsseler
-        reset_password_sent_at: Passwortreset zugestellt
-        sign_in_count: Anzahl Anmeldungen
-        user_roles: Rollen
-
-  notice:    
-    business_process: 
-      created: Der Geschäftsprozess wurde erfolgreich erstellt.
-      destroyed: Der Geschäftsprozess wurde erfolgreich gelöscht.
-      updated: Der Geschäftsprozess wurde erfolgreich aktualisiert.
-    business_process_department_assignment:
-      created: Der Geschäftsprozess wurde erfolgreich einer Abteilgung zugeordnet.
-      updated: Die Zuordnung des Geschäftsprozess zu einer Abteilung wurde aktualisiert.
-    business_process_document_assignment:
-      created: Das Dokument wurde erfolgreich einem Geschäftsprozess zugeordnet.
-      updated: Die Zuordnung des Dokuments zu einem Geschäftsprozess wurde aktualisiert.
-    business_process_note_assignment:
-      created: Die Aufzeichnung wurde erfolgreich einem Gescäftsprozess zugeordnet.
-      updated: Die Zuordnung der Aufzeichnung zu einem Geschäftsprozess wurde aktualisiert.
-    business_process_process_indicator_assignment:
-      created: Die Prozesskennzahl wurde erfolgreich einem Geschäftsprozess zugeordnet.
-      updated: Die Zuordnung der Prozesskennzahl zu einem  Geschäftsprozess wurde erfolgreich aktualisiert.
-    company:
-      created: Die Firma wurde erfolgreich erstellt.
-      destroyed: Die Firma wurde erfolgreich gelöscht.
-      updated: Die Firma wurde erfolgreich aktualisiert.
-    department:
-      created: Die Abteilung wurde erfolgreich erstellt.
-      destroyed: Die Abteilgung wurde erfolgreich gelöscht.
-      updated: Die Abteilgung wurde erfolgreich aktualisiert.
-    department_affiliation:
-      created: Die Person wurde erfolgreich einer Abteilgung zugeordnet.
-      updated: Die Zuordnung der Person zu einer Abteilgung wurde erfolgreich aktualisiert.
-    document:
-      created: Das Dokument wurde erfolgreich erstellt.
-      destroyed: Das Dokument wurde erfolgreich gelöscht.
-      updated: Das Dokument wurde erfolgreich aktualisiert.
-    employment:
-      created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
-      updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
-    flow_object: 
-      created: Das Flow Objekt wurde erfolgreich erzeugt.
-      destroyed: Das Flow Objekt wurde erfolgreich gelöscht.
-      updated: Das Flow Objekt wurde erfolgreich aktualisiert.
-    function:
-      created: Die Funktion wurde erfolgreich erstellt.
-      destroyed: Die Funktion wurde erfolgreich gelöscht.
-      updated: Die Funktion wurde erfolgreich aktualisiert.
-    instruction:
-      created: Die Arbeitsanweisung wurde erfolgreich erstellt.
-      updated: Die Arbeitsanweisung wurde erfolgreich aktualisiert.
-    news: 
-      created: Der Newseintrag wurde erfolgreich erstellt.
-      updated: Der Newseintrag wurde erfolgreich aktualisiert.
-    note:
-      created: Die Aufzeichnung wurde erfolgreich erstellt.
-      destroyed: Die Aufzeichnung wurde erfolgreich gelöscht.
-      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.      
-    process_class:
-      created: Die Prozessklasse wurde erfolgreich erzeugt.
-      destroyed: Die Prozessklasse wurde erfolgreich gelöscht.
-      updated: Die Prozessklasse wurde erfolgreich aktualisiert.
-    process_indicator:
-      created: Die Prozesskennzahl wurde erfolgreich erstellt.
-      destroyed: Die Prozesskennzahl wurde erfolgreich gelöscht.
-      updated: Die Prozesskennzahl wurde erfolgreich aktualisiert.
-    process_step:
-      created: Der Prozessschritt wurde erfolgreich erstellt.
-      destroyed: Der Prozessschritt wurde erfolgreich gelöscht.
-      updated: Der Prozessschritt wurde erfolgreich aktualisiert.
-    role:
-      created: Die Rolle in der Anwendung wurde erfolgreich erstellt.
-      destroyed: Die Rolle in der Anwendung wurde erfolgreich gelöscht.
-      updated: Die Rolle in der Anwendung wurde erfolgreich aktualisiert.
-    role_in_company:
-      created: Die Rolle wurde erfolgreich erstellt.
-      destroyed: Die Rolle wurde erfolgreich gelöscht.
-      updated: Die Rolle wurde erfolgreich aktualisiert.
-    sequence_flow:
-      created: Der BPMN Sequenzfluss wurde erfolgreich erstellt.
-      updated: Der BPMN Sequenzfluss wurde erfolgreich aktualisiert.
-    substitution:
-      created: Die Stellvertretzung wurde erfolgreich erstellt.
-      updated: Die Stellvertretung wurde erfolgreich aktualisiert.
-    user:
-      created: Die Person wurde erfolgreich erstellt. Sie kann sich nun anmelden.
-      destroyed: Die Person wurde erfolgreich gelöscht.
-      updated: Die Person wurde erfolgreich aktualisiert.
-    user_function_assignment:
-      created: Die Funktion wurde der Person erfolgreich zugeordnet.
-      updated: Die Zuordnung der Funktion zu einer Persion wurde erfolgreich aktualisiert.
-    user_role_in_company_assignment:
-      created: Die Rolle wurde der Person erfolgreich zugeordnet.
-      updated: Die Zurdnung der Rolle zu einer Person wurde erfolgreich aktualisiert.
-
-  exception:
-    Cannot delete record because of dependent assignments: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
-    Cannot delete record because of dependent business_processes: Der Datensatz kan wegen einem von ihm abhängigen Geschäftsprozess nicht gelöscht werden.
-    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
-    Cannot delete record because of dependent business_process_department_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Abteilung nicht gelöscht werden.
-    Cannot delete record because of dependent business_process_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einem Dokument nicht gelöscht werden.
-    Cannot delete record because of dependent business_process_note_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Aufzeichnung nicht gelöscht werden.    
-    Cannot delete record because of dependent business_process_process_indicator_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Geschäftsprozesses zu einer Kennzahl nicht gelöscht werden.    
-    Cannot delete record because of dependent charged_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Verantwortlicher einer Arbeitsanweisungnicht gelöscht werden.
-    Cannot delete record because of dependent controlled_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Prüfer einer Arbeitsanweisungnicht gelöscht werden.
-    Cannot delete record because of dependent department: Der Datensatz kan wegen einer von ihm abhängigen Abteilung nicht gelöscht werden.
-    Cannot delete record because of dependent department_affiliations: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Person zu einer Abteilung nicht gelöscht werden.
-    Cannot delete record because of dependent deputies: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
-    Cannot delete record because of dependent documents: Der Datensatz kan wegen eines von ihm abhängigen Dokuments nicht gelöscht werden.
-    Cannot delete record because of dependent employments: Der Datensatz kan wegen einer von ihm abhängigen Anstellung nicht gelöscht werden.
-    Cannot delete record because of dependent functions: Der Datensatz kan wegen einer von ihm abhängigen Funktion nicht gelöscht werden.
-    Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Handlungsanweisung nicht gelöscht werden.
-    Cannot delete record because of dependent notes: Der Datensatz kan wegen einer von ihm abhängigen Aufzeichnung nicht gelöscht werden.
-    Cannot delete record because of dependent predecessors: Der Datensatz kan wegen einer von ihm abhängigen Vorgängers nicht gelöscht werden.
-    Cannot delete record because of dependent process_classes: Der Datensatz kan wegen einer von ihm abhängigen Prozessklasse nicht gelöscht werden.
-    Cannot delete record because of dependent process_indicators: Der Datensatz kan wegen einer von ihm abhängigen Kennzahl nicht gelöscht werden.
-    Cannot delete record because of dependent process_steps: Der Datensatz kan wegen eines von ihm abhängigen Prozessschrittes nicht gelöscht werden.
-    Cannot delete record because of dependent released_instructions: Der Datensatz kan wegen einer von ihm Zuordnung einer Person als Freigeber einer Arbeitsanweisungnicht gelöscht werden.
-    Cannot delete record because of dependent roles_in_company: Der Datensatz kan wegen einer von ihm abhängigen Rolle nicht gelöscht werden.
-    Cannot delete record because of dependent roles: Der Datensatz kan wegen einer von ihm abhängigen Rolle in der Anwendung nicht gelöscht werden.
-    Cannot delete record because of dependent sequence_flows: Der Datensatz kan wegen eines von ihm abhängigen Sequenzflusses nicht gelöscht werden.
-    Cannot delete record because of dependent substitutions: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
-    Cannot delete record because of dependent successors: Der Datensatz kan wegen einer von ihm abhängigen Nachfolgers nicht gelöscht werden.
-    Cannot delete record because of dependent users: Der Datensatz kan wegen einer von ihm abhängigen Person nicht gelöscht werden.
-    Cannot delete record because of dependent user_function_assignments: Die Rolle ist noch der Person zugeordnet. Der Datensatz kann daher nicht gelöscht werden.
-    Cannot delete record because of dependent user_role_in_company_assignments: Der Datensatz kan wegen einer von ihm Zuordnung einer Rolle zu einer Person nicht gelöscht werden.
-  views:
-    are_you_sure: Sind Sie sicher?
+### TWITTER BOOTSTRAP HELPERS ###
+  helpers:
+    actions: Aktionen
+    add_department_affiliation: Die Person einer Abteilgung zuordnen
+    add_deputy: Einen Stellvertreter hinzufügen
+    add_user_function_assignment: Eine Funktion der Person zuordnen
+    add_user_role_in_company_assignment: Eine Rolle der Person zuordnen
+    company: Firma
+    error_message: ' verhinderte(n), dass diese(r/s) %{model} gespeichert wurde'
+    links:
+      back: Zurück
+      cancel: Abbrechen
+      confirm: Sind Sie sicher?
+      destroy: Löschen
+      edit: Bearbeiten
+      expand: Ausklappen
+      list: Liste
+      new: Erstelle %{model}
+      process_diagram: Diagramm
+      process_modell: Prozessmodell
+      process_edit: Prozess bearbeiten
+    news:
+      all: alle Newseinträge
+      general: News
+      your: Ihre Newseinträge
+    no_company: keiner Firma
+    process_modell: Prozessmodell
+    remove_department_affiliation: Abteilungszugehörigkeit löschen
+    remove_deputy: Stellvertreter löschen
+    remove_user_function_assignment: Funktion der Person löschen
+    remove_user_role_in_company_assignment: Rolle der Person löschen
+    select:
+      prompt: Bitte wählen
+    submit:
+      create: ! '%{model} erstellen'      
+      submit: ! '%{model} speichern'
+      update: ! '%{model} aktualisieren'
+      #HAS 20130228: ' Just for syntax Highlighting in  Sublime
+    titles:
+      edit: Bearbeite %{model}
+      new: Erstelle %{model}
+    versions: Versionen
+  hints:
+    leave_empty: Lassen Sie das Feld leer, um das Passwort unverändert zu lassen.

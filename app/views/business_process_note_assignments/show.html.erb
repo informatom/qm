@@ -16,7 +16,8 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               business_process_note_assignments_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_business_process_note_assignment_path(@business_process_note_assignment), :class => 'btn' if can? :edit, @business_process_note_assignment %>
+              edit_business_process_note_assignment_path(@business_process_note_assignment), 
+              :class => 'btn' if can? :edit, @business_process_note_assignment %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               business_process_note_assignment_path(@business_process_note_assignment),
               :method => 'delete',

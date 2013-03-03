@@ -1,0 +1,14 @@
+<%- model_class = InstructionProcessStepAssignment -%>
+<%= bootstrap_error(@instruction_process_step_assignment, model_class ) %>
+
+<%= simple_form_for @instruction_process_step_assignment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :instruction_id, :collection => Instruction.where(:company_id => current_company.id) %>
+  <%= f.input :process_step_id, :collection => ProcessStep.where(:company_id => current_company.id)  %>
+  <%= company_field(@instruction_process_step_assignment, f) %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                instruction_process_step_assignments_path, :class => 'btn' %>
+  </div>
+<% end %>

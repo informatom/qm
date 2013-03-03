@@ -1,0 +1,40 @@
+<%- model_class = InstructionProcessStepAssignment -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(:count => 2) %></h1>
+</div>
+<table class="table table-striped datatable">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:instruction_id) %></th>
+      <th><%= model_class.human_attribute_name(:process_step_id) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @instruction_process_step_assignments.each do |instruction_process_step_assignment| %>
+      <tr>
+        <td><%= instruction_process_step_assignment.instruction.title %></td>
+        <td><%= instruction_process_step_assignment.process_step.title %></td>
+        <td><%= instruction_process_step_assignment.company.name %></td>
+        <td><%=l instruction_process_step_assignment.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => icon("edit")),
+                      edit_instruction_process_step_assignment_path(instruction_process_step_assignment), 
+                      :class => 'btn btn-mini' if can? :edit, instruction_process_step_assignment%>
+          <%= link_to t('.destroy', :default => icon("trash")),
+                      instruction_process_step_assignment_path(instruction_process_step_assignment),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' if can? :delete, instruction_process_step_assignment %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
+            new_instruction_process_step_assignment_path,
+            :class => 'btn btn-primary' if can? :new, InstructionProcessStepAssignment %>
+<%= render "shared/datatables_helper" %>

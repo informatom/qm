@@ -20,4 +20,7 @@ class ProcessStep < ActiveRecord::Base
 
   has_many :predecessors, :through => :incoming_sequence_flows, :dependent => :restrict, :source => :source
   has_many :incoming_sequence_flows, :class_name => "SequenceFlow", :dependent => :restrict, :foreign_key => "target_id", :dependent => :restrict
+
+  has_many :instruction_process_step_assignments, :dependent => :restrict
+  has_many :instructions, :through => :instruction_process_step_assignments, :dependent => :restrict
 end

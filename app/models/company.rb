@@ -34,4 +34,5 @@ class Company < ActiveRecord::Base
   has_many :business_process_process_indicator_assignments, :dependent => :restrict
 
   has_many :instructions, :dependent => :restrict
+  has_many :instruction_process_step_assignments, :dependent => :restrict
 end

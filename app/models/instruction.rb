@@ -20,4 +20,7 @@ class Instruction < ActiveRecord::Base
   belongs_to :scope, :class_name => "Department"
   belongs_to :creator, :class_name => "User", foreign_key: "created_by"
   belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
+
+  has_many :instruction_process_step_assignments, :dependent => :restrict
+  has_many :process_steps, :through => :instruction_process_step_assignments, :dependent => :restrict
 end
