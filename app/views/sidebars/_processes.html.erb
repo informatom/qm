@@ -16,6 +16,7 @@
   <li <%= active("documents") %>><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>
   <li <%= active("instructions") %>><%= link_to icon_("legal") + t("activerecord.models.instruction.other"), instructions_path %></li> 
   <li <%= active("instruction_process_step_assignments") %>><%= link_to icons(["legal","resize-horizontal","check-empty"]) + t("activerecord.models.instruction_process_step_assignment.other"), instruction_process_step_assignments_path %></li> 
+  <li <%= active("instruction_document_assignments") %>><%= link_to icons(["legal","resize-horizontal","envelope"]) + t("activerecord.models.instruction_document_assignment.other"), instruction_document_assignments_path %></li> 
   <li <%= active("business_process_note_assignments") %>><%= link_to icons(["road", "resize-horizontal", "envelope-alt"]) +
                         t("activerecord.models.business_process_note_assignment.other"),
                         business_process_note_assignments_path %></li>

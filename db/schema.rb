@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303150143) do
+ActiveRecord::Schema.define(:version => 20130309071603) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -131,6 +131,14 @@ ActiveRecord::Schema.define(:version => 20130303150143) do
     t.text     "goals"
     t.text     "authorities"
     t.text     "comments"
+  end
+
+  create_table "instruction_document_assignments", :force => true do |t|
+    t.integer  "instruction_id"
+    t.integer  "document_id"
+    t.integer  "company_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "instruction_process_step_assignments", :force => true do |t|

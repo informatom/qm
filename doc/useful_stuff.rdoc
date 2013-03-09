@@ -26,6 +26,7 @@ add index manually:
   rails generate scaffold FlowObject name:string class:string image_file_name:string
   rails generate scaffold InstructionProcessStepAssignment instruction_id:integer process_step_id:integer company_id:integer
   rails generate scaffold NoteProcessStepAssignment note_id:integer process_step_id:integer company_id:integer
+  rails generate scaffold InstructionDocumentAssignment instruction_id:integer document_id:integer company_id:integer
 
 ////////////////////////////
 

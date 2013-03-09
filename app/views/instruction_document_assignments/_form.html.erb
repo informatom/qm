@@ -1,0 +1,14 @@
+<%- model_class = InstructionDocumentAssignment -%>
+<%= bootstrap_error(@instruction_document_assignment, model_class ) %>
+
+<%= simple_form_for @instruction_document_assignment, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :instruction_id, :collection => Instruction.where(:company_id => current_company.id) %>
+  <%= f.input :document_id, :collection => Document.where(:company_id => current_company.id) %>
+  <%= company_field(@instruction_document_assignment, f) %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                instruction_document_assignments_path, :class => 'btn' %>
+  </div>
+<% end %>

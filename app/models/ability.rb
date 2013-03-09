@@ -41,6 +41,7 @@ class Ability
 
       can :manage, Instruction, :company_id => current_company.id
       can :manage, InstructionProcessStepAssignment, :company_id => current_company.id
+      can :manage, InstructionDocumentAssignment, :company_id => current_company.id
 
       can :manage, ProcessStep, :company_id => current_company.id
       can :manage, SequenceFlow, :company_id => current_company.id
@@ -83,6 +84,7 @@ class Ability
 
       can :read, Instruction, :company_id => current_company.id
       can :read, InstructionProcessStepAssignment, :company_id => current_company.id
+      can :read, InstructionDocumentAssignment, :company_id => current_company.id
 
       can :read, ProcessStep, :company_id => current_company.id
       can :read, SequenceFlow, :company_id => current_company.id

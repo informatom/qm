@@ -132,6 +132,9 @@ de:
       instruction:
         one: Arbeitsanweisung
         other: Arbeitsanweisungen
+      instruction_document_assignment:
+        one: Zuordnung einer Arbeitsanweisung zu einem Dokument
+        other: Zuordnungen Arbeitsanweisungen zu Dokumenten
       instruction_process_step_assignment:
         one: Zuordnung einer Arbeitsanweisung zu einem Prozessschritt
         other: Zuordnungen Arbeitsanweisungen zu Prozessschritten
@@ -252,6 +255,9 @@ de:
     instruction:
       created: Die Arbeitsanweisung wurde erfolgreich erstellt.
       updated: Die Arbeitsanweisung wurde erfolgreich aktualisiert.
+    instruction_document_assignment:
+      created: Die Arbeitsanweisung wurde erfolgreich einem Dokument zuogeordnet.
+      updated: Die Zuordnung der Arbeitsanweisung zu einem Dokument wurde erfolgreich aktualisiert.
     instruction_process_step_assignment:
       created: Die Arbeitsanweisung wurde erfolgreich einem Prozessschritt zuogeordnet.
       updated: Die Zuordnung der Arbeitsanweisung zu einem Prozessschritt wurde erfolgreich aktualisiert.
@@ -318,6 +324,7 @@ de:
     Cannot delete record because of dependent employments: Der Datensatz kan wegen einer von ihm abhängigen Anstellung nicht gelöscht werden.
     Cannot delete record because of dependent functions: Der Datensatz kan wegen einer von ihm abhängigen Funktion nicht gelöscht werden.
     Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Arbeitsanweisung nicht gelöscht werden.
+    Cannot delete record because of dependent instruction_document_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Arbeitsanweisung zu einem Dokument nicht gelöscht werden.
     Cannot delete record because of dependent instruction_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Arbeitsanweisung zu einem Prozessschritt nicht gelöscht werden.
     Cannot delete record because of dependent notes: Der Datensatz kan wegen einer von ihm abhängigen Aufzeichnung nicht gelöscht werden.
     Cannot delete record because of dependent note_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Aufzeichnung zu einem Prozessschritt nicht gelöscht werden.

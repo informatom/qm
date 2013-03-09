@@ -23,4 +23,7 @@ class Instruction < ActiveRecord::Base
 
   has_many :instruction_process_step_assignments, :dependent => :restrict
   has_many :process_steps, :through => :instruction_process_step_assignments, :dependent => :restrict
+
+  has_many :instruction_document_assignments, :dependent => :restrict
+  has_many :documents, :through => :instruction_document_assignments, :dependent => :restrict
 end
