@@ -120,6 +120,9 @@ de:
       document:
         one: Dokument
         other: Dokumente
+      document_process_step_assignment:
+        one: Zuordnung eines Dokuments zu einem Prozessschritt
+        other: Zuordnungen Dokumente zu Prozessschritten        
       employment:
         one: Anstellungsverhältnis
         other: Anstellungsverhältnisse
@@ -241,6 +244,9 @@ de:
       created: Das Dokument wurde erfolgreich erstellt.
       destroyed: Das Dokument wurde erfolgreich gelöscht.
       updated: Das Dokument wurde erfolgreich aktualisiert.
+    document_process_step_assignment:
+      created: Das Dokument wurde erfolgreich einem Prozessschritt zuogeordnet.
+      updated: Die Zuordnung des Dokuments zu einem Prozessschritt wurde erfolgreich aktualisiert.      
     employment:
       created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
       updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
@@ -321,6 +327,7 @@ de:
     Cannot delete record because of dependent department_affiliations: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung einer Person zu einer Abteilung nicht gelöscht werden.
     Cannot delete record because of dependent deputies: Der Datensatz kan wegen einer von ihm abhängigen Stellvertretung nicht gelöscht werden.
     Cannot delete record because of dependent documents: Der Datensatz kan wegen eines von ihm abhängigen Dokuments nicht gelöscht werden.
+    Cannot delete record because of dependent document_process_step_assignments: Der Datensatz kan wegen einer von ihm abhängigen Zuordnung eines Dokuments zu einem Prozessschritt nicht gelöscht werden.
     Cannot delete record because of dependent employments: Der Datensatz kan wegen einer von ihm abhängigen Anstellung nicht gelöscht werden.
     Cannot delete record because of dependent functions: Der Datensatz kan wegen einer von ihm abhängigen Funktion nicht gelöscht werden.
     Cannot delete record because of dependent instructions: Der Datensatz kan wegen einer von ihm abhängigen Arbeitsanweisung nicht gelöscht werden.

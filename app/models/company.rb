@@ -30,6 +30,7 @@ class Company < ActiveRecord::Base
 
   has_many :documents, :dependent => :restrict
   has_many :business_process_document_assignments, :dependent => :restrict
+  has_many :document_process_step_assignments, :dependent => :restrict
 
   has_many :process_indicators, :dependent => :restrict
   has_many :business_process_process_indicator_assignments, :dependent => :restrict
