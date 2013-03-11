@@ -11,4 +11,7 @@ class Document < ActiveRecord::Base
 
   has_many :instruction_document_assignments, :dependent => :restrict
   has_many :instructions, :through => :instruction_document_assignments, :dependent => :restrict
+
+  has_many :document_process_step_assignments, :dependent => :restrict
+  has_many :documents, :through => :document_process_step_assignments, :dependent => :restrict
 end

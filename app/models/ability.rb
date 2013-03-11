@@ -35,6 +35,7 @@ class Ability
 
       can :manage, Document, :company_id => current_company.id
       can :manage, BusinessProcessDocumentAssignment, :company_id => current_company.id
+      can :manage, DocumentProcessStepAssignment, :company_id => current_company.id
 
       can :manage, ProcessIndicator, :company_id => current_company.id
       can :manage, BusinessProcessProcessIndicatorAssignment, :company_id => current_company.id
@@ -78,6 +79,7 @@ class Ability
 
       can :read, Document, :company_id => current_company.id
       can :read, BusinessProcessDocumentAssignment, :company_id => current_company.id
+      can :read, DocumentProcessStepAssignment, :company_id => current_company.id      
 
       can :read, ProcessIndicator, :company_id => current_company.id
       can :read, BusinessProcessProcessIndicatorAssignment, :company_id => current_company.id

@@ -26,4 +26,7 @@ class ProcessStep < ActiveRecord::Base
 
   has_many :note_process_step_assignments, :dependent => :restrict
   has_many :notes, :through => :note_process_step_assignments, :dependent => :restrict
+
+  has_many :document_process_step_assignments, :dependent => :restrict
+  has_many :documents, :through => :document_process_step_assignments, :dependent => :restrict
 end
