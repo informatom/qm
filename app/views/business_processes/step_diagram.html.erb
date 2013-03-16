@@ -1,15 +1,22 @@
 <%- model_class = BusinessProcess -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => "Prozessschrittdiagramm " + model_class.model_name.human(:count => 2) %></h1>
+  <h1><%=t '.title', :default => "Prozessschrittdiagramm " + @business_process.name %></h1>
 </div>
 
-<table class="table">
+<div id="diagram" style="margin-left:100px; ">
   <% @process_steps.each do |process_step| %>
-    <tr>
-      <td style="text-align: center"><%= image(process_step) %></td><td><%= process_step.title %></td>
-    </tr>
+    <div class="row-fluid" style="margin-bottom:50px; line-height:6em;">
+      <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; min-height:80px; text-align:center;">
+        <%= image(process_step) %> 
+      </div>
+      <div class="span4 offset1">
+        <%= process_step.title %>
+      </div>
+    </div>
   <% end %>
-</table>
-<%# link_to t('.new', :default => t("helpers.links.new"), :model => model_class.model_name.human),
-            new_business_process_path,
-            :class => 'btn btn-primary' if can? :new, BusinessProcess %>
+</div>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag "jsplumb" %>
+  <%= javascript_include_tag step_diagram_business_process_url(@business_process, format: :js) %>
+<% end %>

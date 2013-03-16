@@ -1,0 +1,43 @@
+jsPlumb.ready(function() {			
+  jsPlumb.setRenderMode(jsPlumb.CANVAS);	
+	jsPlumb.importDefaults({
+		ConnectionOverlays : [[ "Arrow", { location:1 } ],],
+		ConnectorZIndex:5
+	});			
+
+	var connectorPaintStyle = {
+		lineWidth:3,
+		strokeStyle:"#0a0",
+		joinstyle:"round",
+		outlineColor:"white",
+		outlineWidth:3
+	},
+
+	Endpoint = {
+		endpoint:"Dot",
+		paintStyle:{ fillStyle:"#fff",radius:1 },
+		connector:[ "Flowchart", { stub: 30, gap: 3 } ],								
+		connectorStyle:connectorPaintStyle,
+	},
+
+	init = function(connection) {
+		connection.getOverlay("label").setLabel(connection.sourceId.substring(6) + "-" + connection.targetId.substring(6));
+	};			
+
+	var allEndpoints = [];
+	_addEndpoints = function(toId, Anchors) {
+		for (var i = 0; i < Anchors.length; i++) {
+			var UUID = toId + Anchors[i];
+			allEndpoints.push(jsPlumb.addEndpoint(toId, Endpoint, { anchor:Anchors[i], uuid:UUID }));						
+		}
+	};
+
+  <% @process_steps.each do |process_step| %>
+	  _addEndpoints("step<%= process_step.id %>", ["BottomCenter", "RightMiddle", "LeftMiddle", "TopCenter"]);			
+  <% end %>
+				
+	jsPlumb.connect({uuids:["step6BottomCenter", "step7TopCenter"]});
+	jsPlumb.connect({uuids:["step7BottomCenter", "step9TopCenter"]});
+	jsPlumb.connect({uuids:["step7LeftMiddle", "step8LeftMiddle"]});
+	jsPlumb.connect({uuids:["step8RightMiddle", "step9RightMiddle"]});
+});

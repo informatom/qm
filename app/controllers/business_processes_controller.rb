@@ -42,7 +42,7 @@ class BusinessProcessesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # diagram.html.erb
       format.js
     end
   end
@@ -68,6 +68,12 @@ class BusinessProcessesController < ApplicationController
       else 
         @process_steps << heap.shift
       end
+    end
+
+    respond_to do |format|
+      format.html
+      # format.html { render :layout => "test" }
+      format.js
     end
   end
 end
