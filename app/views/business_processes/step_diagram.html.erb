@@ -5,9 +5,9 @@
 
 <div id="diagram" style="margin-left:100px; ">
   <% @process_steps.each do |process_step| %>
-    <div class="row-fluid" style="margin-bottom:50px; line-height:6em;">
-      <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; min-height:80px; text-align:center;">
-        <%= image(process_step) %> 
+    <div class="row-fluid" style="margin-bottom:50px; line-height:7em;">
+      <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; line-height:7em; text-align:center;">
+        <%= image(process_step) %>
       </div>
       <div class="span4 offset1">
         <%= process_step.title %>

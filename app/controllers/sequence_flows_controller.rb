@@ -14,6 +14,7 @@ class SequenceFlowsController < ApplicationController
   def update
     if @sequence_flow.update_attributes(params[:sequence_flow])
       redirect_to @sequence_flow, notice: t('notice.sequence_flow.created')
+    else
       render action: "edit"
     end
   end

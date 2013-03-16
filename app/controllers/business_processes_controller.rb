@@ -21,7 +21,7 @@ class BusinessProcessesController < ApplicationController
   end
 
   def destroy
-    begin      
+    begin
       @business_process.destroy
       flash[:success] = t('notice.business_process.destroyed')
     rescue ActiveRecord::DeleteRestrictionError => e
@@ -56,16 +56,40 @@ class BusinessProcessesController < ApplicationController
 
   def step_diagram
     @process_steps = Array.new()
+    @connectors = Array.new
     heap = Array.new()
+    left_stub = 30
+    right_stub = 30
 
     start_flow_object = FlowObject.where(:name => "Start").first
-    @process_steps << @business_process.process_steps.where(:flow_object_id => start_flow_object.id).first    
+    @process_steps << @business_process.process_steps.where(:flow_object_id => start_flow_object.id).first
 
     while (successors = @process_steps.last.successors) && (heap.any? || successors.any? )
-      if successors.any?        
-        @process_steps.include?(successors.first) ? successors.shift : @process_steps << successors.shift
+      current_step = @process_steps.last
+      if successors.any?
+        if @process_steps.include?(successors.first)
+          label = SequenceFlow.where(source_id: current_step.id, target_id: successors.first.id).first.name
+          @connectors << Connector.new(source: current_step.id, target: successors.first.id,
+                                       source_pos: "RightMiddle", target_pos: "RightMiddle",
+                                       stub: right_stub, label: label, gap: 3)
+          right_stub += 10
+          successors.shift
+        else
+          label = SequenceFlow.where(source_id: current_step.id, target_id: successors.first.id).first.name
+          @connectors << Connector.new(source: current_step.id, target: successors.first.id,
+                                       source_pos: "BottomCenter", target_pos: "TopCenter",
+                                       stub: 0, label: label, gap: 0 )
+          @process_steps << successors.shift
+        end
+        successors.each do |successor|
+          label = SequenceFlow.where(source_id: current_step.id, target_id: successor.id).first.name
+          @connectors << Connector.new(source: current_step.id, target: successor.id,
+                                       source_pos: "LeftMiddle", target_pos: "LeftMiddle",
+                                       stub: left_stub, label: label, gap: 3 )
+          left_stub += 10
+        end
         heap.concat(successors)
-      else 
+      else
         @process_steps << heap.shift
       end
     end
