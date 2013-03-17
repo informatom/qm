@@ -6,8 +6,9 @@
 <div class="hero-unit" style="height: 400px;">
   <% @business_process.children.each do |bp| %>
   <div class="btn btn <%= btnclass(bp.process_class.color) %> process" , id="<%= bp.id %>">
-      <%= link_to icon("sitemap"), diagram_business_process_path(bp) %>
-      <%= link_to icon("reorder"), business_process_path(bp) %>
+      <%= link_to icon("sitemap"), diagram_business_process_path(bp) if bp.children.any? %>
+      <%= link_to icon("th-list"), step_diagram_business_process_path(bp) if bp.process_steps.any? %>
+      <%= link_to icon("search"), business_process_path(bp) %>
       <%= bp.name %>
   </div>
   <% end %>

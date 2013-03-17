@@ -1,16 +1,44 @@
 <%- model_class = BusinessProcess -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => "Prozessschrittdiagramm " + @business_process.name %></h1>
+  <h1><%= raw(t( '.title', :default => "Prozessschrittdiagramm ") + link_to( @business_process.name, business_process_path)) %></h1>
 </div>
 
 <div id="diagram" style="margin-left:100px; ">
+    <div class="row-fluid">
+      <div class="span1" style="min-width:100px;">
+        &nbsp;
+      </div>
+      <div class="span4 offset1" >
+        <h3>Titel und Beschreibung</h3>
+      </div>
+      <div class="span5">
+        <h3> Zuordnungen </h3>
+        <span class="label label-success">Arbeitsanweisungen</span>
+        <span class="label label-warning">Dokumente</span>
+        <span class="label label-important">Aufzeichnungen</span>
+      </div>
+    </div>
   <% @process_steps.each do |process_step| %>
-    <div class="row-fluid" style="margin-bottom:50px; line-height:7em;">
+    <div class="row-fluid" style="margin-bottom:50px;">
       <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; line-height:7em; text-align:center;">
         <%= image(process_step) %>
       </div>
       <div class="span4 offset1">
-        <%= process_step.title %>
+        <h4><%= link_to process_step.title, process_step_path %></h4>
+        <small><%= truncate_html(textile(process_step.description), length: 150) %></small>
+      </div>
+      <div class="span5">
+        <ul class="inline">
+          <% process_step.instructions.each do |instruction| %>
+            <li class="label label-success"><%= link_to instruction.title, instruction_path(instruction), style: "color:#fff" %></li>
+          <% end %>
+          <% process_step.documents.each do |document| %>
+            <li class="label label-warning"><%= link_to document.name, document_path(document), style: "color:#fff" %></li>
+          <% end %>
+          <% process_step.notes.each do |note| %>
+            <li class="label label-important"><%= link_to note.name, note_path(note), style: "color:#fff" %></li>
+          <% end %>
+        <ul>
       </div>
     </div>
   <% end %>
