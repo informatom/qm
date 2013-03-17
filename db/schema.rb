@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(:version => 20130309182440) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "assignments", ["role_id"], :name => "assignments_role_id_fk"
-
   create_table "business_process_department_assignments", :force => true do |t|
     t.integer  "business_process_id"
     t.integer  "department_id"
