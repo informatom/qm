@@ -57,6 +57,9 @@ module Qm
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    # HAS: 30130317: necessary for JSPlumb diagrams, but only loaded there, therefore not in deafult manifest
+    config.assets.precompile += ['jsplumb.js']
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 

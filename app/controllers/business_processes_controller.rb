@@ -62,6 +62,7 @@ class BusinessProcessesController < ApplicationController
     right_stub = 30
 
     start_flow_object = FlowObject.where(:name => "Start").first
+    start_flow_object ||= FlowObject.first
     @process_steps << @business_process.process_steps.where(:flow_object_id => start_flow_object.id).first
 
     while (successors = @process_steps.last.successors) && (heap.any? || successors.any? )

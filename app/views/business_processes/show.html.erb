@@ -180,9 +180,9 @@
   <% end %>
 
   <%= link_to t('.back', :default => (icon_("arrow-left") + t("helpers.links.process_diagram"))),
-              diagram_business_process_path(@business_process), :class => 'btn' if can? :diagram, @business_process %>
+              diagram_business_process_path(@business_process), :class => 'btn' if @business_process.children.any? && can?( :diagram, @business_process) %>
   <%= link_to t('.back', :default => (icon_("th-list") + t("helpers.links.step_diagram"))),
-              step_diagram_business_process_path(@business_process), :class => 'btn' if can? :step_diagram, @business_process %>
+              step_diagram_business_process_path(@business_process), :class => 'btn' if @business_process.process_steps.any? && can?( :step_diagram, @business_process ) %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_business_process_path(@business_process), :class => 'btn' if can? :edit, @business_process %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
