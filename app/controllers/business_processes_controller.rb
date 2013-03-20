@@ -86,7 +86,7 @@ class BusinessProcessesController < ApplicationController
           if @process_steps.include?(successor)
             label = SequenceFlow.where(source_id: current_step.id, target_id: successor.id).first.name
             @connectors << Connector.new(source: current_step.id, target: successor.id,
-                             source_pos: "LeftMiddle", target_pos: "RightMiddle",
+                             source_pos: "RightMiddle", target_pos: "RightMiddle",
                              stub: left_stub, label: label, gap: 3 )
             right_stub += 10
           else
