@@ -82,13 +82,21 @@ class BusinessProcessesController < ApplicationController
           @process_steps << successors.shift
         end
         successors.each do |successor|
-          label = SequenceFlow.where(source_id: current_step.id, target_id: successor.id).first.name
-          @connectors << Connector.new(source: current_step.id, target: successor.id,
-                                       source_pos: "LeftMiddle", target_pos: "LeftMiddle",
-                                       stub: left_stub, label: label, gap: 3 )
-          left_stub += 10
+          if @process_steps.include?(successor)
+            label = SequenceFlow.where(source_id: current_step.id, target_id: successor.id).first.name
+            @connectors << Connector.new(source: current_step.id, target: successor.id,
+                             source_pos: "LeftMiddle", target_pos: "RightMiddle",
+                             stub: left_stub, label: label, gap: 3 )
+            right_stub += 10
+          else
+            label = SequenceFlow.where(source_id: current_step.id, target_id: successor.id).first.name
+            @connectors << Connector.new(source: current_step.id, target: successor.id,
+                                         source_pos: "LeftMiddle", target_pos: "LeftMiddle",
+                                         stub: left_stub, label: label, gap: 3 )
+            left_stub += 10
+            heap << successor
+          end
         end
-        heap.concat(successors)
       else
         @process_steps << heap.shift
       end
