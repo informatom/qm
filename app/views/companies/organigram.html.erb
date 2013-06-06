@@ -37,10 +37,10 @@
         });
       });
       <% @company.departments.each do |dep| %>
-        $("#dep<%= dep.id %>").offset({left: <%= dep.x || 50 %> + $("#diagram").offset().left, top: <%= dep.y || 50 %> + $("#diagram").offset().top});
+        $("#dep<%= dep.id %>").offset({left: <%= dep.x.abs() || 50 %> + $("#diagram").offset().left, top: <%= dep.y.abs() || 50 %> + $("#diagram").offset().top});
       <% end %>
       <% @company.functions.each do |fun| %>
-        $("#fun<%= fun.id %>").offset({left: <%= fun.x || 50 %> + $("#diagram").offset().left, top: <%= fun.y || 50 %> + $("#diagram").offset().top});
+        $("#fun<%= fun.id %>").offset({left: <%= fun.x.abs() || 50 %> + $("#diagram").offset().left, top: <%= fun.y.abs() || 50 %> + $("#diagram").offset().top});
       <% end %>
     });
   </script>
