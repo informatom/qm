@@ -42,4 +42,6 @@ group :test, :development do
   gem "capybara"                                     # Acceptance test framework for web applications
   gem 'email_spec'                                   # rspec matchers and cucumber steps for testing email
   gem "shoulda"                                      # expands rspec matcher, e.g. should validate_uniqueness_of
+  gem 'better_errors'                                # Nicer error messages
+  gem 'binding_of_caller'                            # Even nicer debugging
 end
