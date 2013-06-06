@@ -28,4 +28,25 @@ class CompaniesController < ApplicationController
       redirect_to companies_url
     end
   end
+
+  def organigram
+    if params["coords"]
+      x = params["coords"]["x"].to_i
+      y = params["coords"]["y"].to_i
+      puts x,y # print coordinates on console
+      case params["object"]
+      when "dep"
+        @department = Department.find_by_id(params["coords"]["id"])
+        @department.update_attributes(x: x ,y: y)
+      when "fun"
+        @function = Function.find_by_id(params["coords"]["id"])
+        @function.update_attributes(x: x ,y: y)
+      end
+    end
+
+    respond_to do |format|
+      format.html # diagram.html.erb
+      format.js
+    end
+  end
 end

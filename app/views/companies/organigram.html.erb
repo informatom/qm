@@ -1,0 +1,47 @@
+<%- model_class = Company -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t("helpers.organigram") + " " + @company.name %></h1>
+</div>
+
+<div class="hero-unit" style="height: 400px; position: relative;" id="diagram">
+  <% @company.departments.each do |dep| %>
+    <div class="btn btn-primary orgelement" , id="dep<%= dep.id %>">
+        <%= link_to icon("search"), department_path(dep) %>
+        <%= dep.name %>
+    </div>
+  <% end %>
+
+  <% @company.functions.each do |fun| %>
+    <div class="btn btn-success orgelement" , id="fun<%= fun.id %>">
+        <%= link_to icon("search"), function_path(fun) %>
+        <%= fun.name %>
+    </div>
+  <% end %>
+
+</div>
+
+<% content_for :javascript do %>
+  <script>
+    $(function() {
+      $( ".orgelement" ).draggable();
+      $( ".orgelement" ).bind( "dragstop", function(event, ui) {
+        $.ajax({
+          url: "/companies/<%= @company.id %>/organigram.js",
+          type: "POST",
+          data: {
+            coords: {
+              id: this.id.substr(3),
+              x: ui.position.left,
+              y: ui.position.top },
+              object: this.id.substr(0,3)},
+        });
+      });
+      <% @company.departments.each do |dep| %>
+        $("#dep<%= dep.id %>").offset({left: <%= dep.x || 50 %> + $("#diagram").offset().left, top: <%= dep.y || 50 %> + $("#diagram").offset().top});
+      <% end %>
+      <% @company.functions.each do |fun| %>
+        $("#fun<%= fun.id %>").offset({left: <%= fun.x || 50 %> + $("#diagram").offset().left, top: <%= fun.y || 50 %> + $("#diagram").offset().top});
+      <% end %>
+    });
+  </script>
+<% end %>

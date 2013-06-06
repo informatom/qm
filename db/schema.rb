@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309182440) do
+ActiveRecord::Schema.define(:version => 20130606143000) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20130309182440) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "assignments", ["role_id"], :name => "assignments_role_id_fk"
 
   create_table "business_process_department_assignments", :force => true do |t|
     t.integer  "business_process_id"
@@ -91,6 +93,8 @@ ActiveRecord::Schema.define(:version => 20130309182440) do
     t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "x"
+    t.integer  "y"
   end
 
   create_table "document_process_step_assignments", :force => true do |t|
@@ -137,6 +141,8 @@ ActiveRecord::Schema.define(:version => 20130309182440) do
     t.text     "goals"
     t.text     "authorities"
     t.text     "comments"
+    t.integer  "x"
+    t.integer  "y"
   end
 
   create_table "instruction_document_assignments", :force => true do |t|

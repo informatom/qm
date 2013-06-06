@@ -2,12 +2,9 @@ Qm::Application.routes.draw do
 
   resources :document_process_step_assignments
 
-
   resources :instruction_document_assignments
 
-
   resources :note_process_step_assignments
-
 
   resources :instruction_process_step_assignments
 
@@ -49,7 +46,13 @@ Qm::Application.routes.draw do
   resources :roles_in_company
   resources :departments
   resources :functions
-  resources :companies
+  resources :companies do
+    member do
+      get 'organigram'
+      post 'organigram'
+    end
+  end
+
   resources :substitutions
   devise_for :users
 

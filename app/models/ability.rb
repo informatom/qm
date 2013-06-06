@@ -7,7 +7,7 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
-      
+
     elsif user.has_role? :qm
       can [:edit, :update], Company, :id => current_company.id
       can :index, Company, :users => { :id => user.id}
@@ -55,7 +55,7 @@ class Ability
       can :read, Role
 
     else
-      can :read, Company, :users => {:id => user.id}
+      can :read, [:diagram], Company, :users => {:id => user.id}
 
       can :read, User, :companies => { :id => current_company.id }
       can :read, Substitution, :company_id => current_company.id
@@ -79,7 +79,7 @@ class Ability
 
       can :read, Document, :company_id => current_company.id
       can :read, BusinessProcessDocumentAssignment, :company_id => current_company.id
-      can :read, DocumentProcessStepAssignment, :company_id => current_company.id      
+      can :read, DocumentProcessStepAssignment, :company_id => current_company.id
 
       can :read, ProcessIndicator, :company_id => current_company.id
       can :read, BusinessProcessProcessIndicatorAssignment, :company_id => current_company.id
@@ -90,7 +90,7 @@ class Ability
 
       can :read, ProcessStep, :company_id => current_company.id
       can :read, SequenceFlow, :company_id => current_company.id
-      
+
       can :read, FlowObject
 
       can :read, Employment, :company_id => current_company.id

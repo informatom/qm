@@ -5,7 +5,7 @@ de:
     area: Bereich
     authorities: Befugnisse
     business_process: Geschäftsprozess
-    business_process_id: Geschäftsprozess    
+    business_process_id: Geschäftsprozess
     color: Farbe
     comments: Bemerkungen
     company: Firma
@@ -49,6 +49,7 @@ de:
     number: Nummer
     on_deviation: Bei Abweichung
     operator: Ausführender
+    organigram: Organigramm
     parent: übergeordnet
     password: Passwort
     password_confirmation: Passwortwiederholung
@@ -88,7 +89,7 @@ de:
     value: Wert
 
 #### MODELS ###
-  activerecord:  
+  activerecord:
     models:
       assignment:
         one: Zuordnung
@@ -122,7 +123,7 @@ de:
         other: Dokumente
       document_process_step_assignment:
         one: Zuordnung eines Dokuments zu einem Prozessschritt
-        other: Zuordnungen Dokumente zu Prozessschritten        
+        other: Zuordnungen Dokumente zu Prozessschritten
       employment:
         one: Anstellungsverhältnis
         other: Anstellungsverhältnisse
@@ -212,8 +213,8 @@ de:
         reset_password_sent_at: Passwortreset zugestellt
         sign_in_count: Anzahl Anmeldungen
         user_roles: Rollen
-  notice:    
-    business_process: 
+  notice:
+    business_process:
       created: Der Geschäftsprozess wurde erfolgreich erstellt.
       destroyed: Der Geschäftsprozess wurde erfolgreich gelöscht.
       updated: Der Geschäftsprozess wurde erfolgreich aktualisiert.
@@ -246,11 +247,11 @@ de:
       updated: Das Dokument wurde erfolgreich aktualisiert.
     document_process_step_assignment:
       created: Das Dokument wurde erfolgreich einem Prozessschritt zuogeordnet.
-      updated: Die Zuordnung des Dokuments zu einem Prozessschritt wurde erfolgreich aktualisiert.      
+      updated: Die Zuordnung des Dokuments zu einem Prozessschritt wurde erfolgreich aktualisiert.
     employment:
       created: Das Anstellungsverhältnis wurde erfolgreich erzeugt.
       updated: Das Anstellungsverhältnis wurde erfolgreich aktualisiert.
-    flow_object: 
+    flow_object:
       created: Das Flow Objekt wurde erfolgreich erzeugt.
       destroyed: Das Flow Objekt wurde erfolgreich gelöscht.
       updated: Das Flow Objekt wurde erfolgreich aktualisiert.
@@ -267,13 +268,13 @@ de:
     instruction_process_step_assignment:
       created: Die Arbeitsanweisung wurde erfolgreich einem Prozessschritt zuogeordnet.
       updated: Die Zuordnung der Arbeitsanweisung zu einem Prozessschritt wurde erfolgreich aktualisiert.
-    news: 
+    news:
       created: Der Newseintrag wurde erfolgreich erstellt.
       updated: Der Newseintrag wurde erfolgreich aktualisiert.
     note:
       created: Die Aufzeichnung wurde erfolgreich erstellt.
       destroyed: Die Aufzeichnung wurde erfolgreich gelöscht.
-      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.    
+      updated: Die Aufzeichnung wurde erfolgreich aktualisiert.
     note_process_step_assignment:
       created: Die Aufzeichnung wurde erfolgreich einem Prozessschritt zuogeordnet.
       updated: Die Zuordnung der Aufzeichnung zu einem Prozessschritt wurde erfolgreich aktualisiert.
@@ -478,7 +479,7 @@ de:
       taken: ist bereits vergeben
       too_long: ist zu lang (nicht mehr als %{count} Zeichen)
       too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
-      wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben)      
+      wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben)
     template:
       body: ! 'Bitte überprüfen Sie die folgenden Felder:'
       header:
@@ -595,7 +596,7 @@ de:
     select:
       prompt: Bitte wählen
     submit:
-      create: ! '%{model} erstellen'      
+      create: ! '%{model} erstellen'
       submit: ! '%{model} speichern'
       update: ! '%{model} aktualisieren'
       #HAS 20130228: ' Just for syntax Highlighting in  Sublime
