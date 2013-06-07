@@ -16,7 +16,7 @@ gem 'htmlentities'                                   # requirement of textile_ed
 gem "truncate_html"         # Für truncate_html
 gem 'jquery-datatables-rails'                        # Tables
 gem 'carrierwave'                                    # Uploads
-gem 'pdfkit'                                         # PDF Creation
+gem 'wicked_pdf'                                     # PDF Creation
 
 # gem 'yaml_db'                                        # for porting database to mysql
 gem 'paper_trail', '~> 2'                            # Versioning

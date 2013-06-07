@@ -22,7 +22,15 @@ class InstructionsController < ApplicationController
 
   def destroy
     @instruction.destroy
-
     redirect_to instructions_url
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render( :pdf => "show.pdf.rb", :page_size  => 'A4')
+      end
+    end
   end
 end
