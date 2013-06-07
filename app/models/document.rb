@@ -1,5 +1,6 @@
 class Document < ActiveRecord::Base
-  attr_accessible :company_id, :description, :internal, :name
+  mount_uploader :attachment, AttachmentUploader
+  attr_accessible :company_id, :description, :internal, :name, :attachment, :remove_attachment
 
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :company_id

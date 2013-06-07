@@ -36,7 +36,12 @@ Qm::Application.routes.draw do
   end
 
   resources :process_indicators
-  resources :documents
+  resources :documents do
+    member do
+      get 'download'
+    end
+  end
+
   resources :notes
   resources :process_classes
   resources :user_function_assignments

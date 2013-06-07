@@ -28,4 +28,10 @@ class DocumentsController < ApplicationController
       redirect_to documents_url
     end
   end
+
+  def download
+    extension = @document.attachment.file.extension.downcase
+    mimetype = MIME::Types.type_for(@document.attachment.file.filename)
+    send_file @document.attachment.path, :type => mimetype, :disposition => 'attachment'
+  end
 end

@@ -7,6 +7,10 @@
 
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <%= f.input :internal %>
+
+  <%= f.input :attachment, :as => :string, disabled: true, input_html: { delete: 'true' } %>
+  <%= f.input :attachment, :as => :file, label: 'Hochladen' %>
+  <%= f.input :remove_attachment, label: 'Löschen', :as => :boolean %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

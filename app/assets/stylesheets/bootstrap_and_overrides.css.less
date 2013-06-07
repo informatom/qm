@@ -20,49 +20,39 @@
 // Glyphicons
 //@import "twitter/bootstrap/sprites.less";
 
-// Your custom LESS stylesheets goes here
-//
-// Since bootstrap was imported above you have access to its mixins which
-// you may use and inherit here
-//
-// If you'd like to override bootstrap's own variables, you can do so here as well
-// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
-
 @linkColor: #0088cc;
 
 // Fix for fixed navbar
 body {
-    padding-top: 60px;
-    padding-bottom: 42px;
-}
+  padding-top: 60px;
+  padding-bottom: 42px;}
+
+@media (max-width: 979px) {
+  .navbar-fixed-top {
+    position: fixed;}}
 
 // width of definitions lists too small
 .dl-horizontal dt {
   width: 220px;
-  margin-right: 10px;
-}
+  margin-right: 10px;}
 
 .dl-horizontal {
-    dd { .clearfix(); }
-}
+  dd { .clearfix(); }}
 
 // add a ==broad== class for wide text-areas
 textarea.broad,
-.uneditable-input.broad {
-  width: 90%;
-}
+  .uneditable-input.broad {
+    width: 90%;}
 
 div.process, div.orgelement {
-position:absolute;
-vertical-align:middle;
-min-width:100px;
-max-width:150px;
-font-size:smaller;
-}
+  position:absolute;
+  vertical-align:middle;
+  min-width:100px;
+  max-width:150px;
+  font-size:smaller;}
 
 div.process a, div.orgelement a {
-color: #fff;
-}
+  color: #fff;}
 
 // Descriptions get a nice box ...
 .description {
@@ -74,8 +64,7 @@ color: #fff;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
-          border-radius: 4px;
-}
+          border-radius: 4px;}
 
 // ... with a nice header
 .description:after {
@@ -91,23 +80,19 @@ color: #fff;
   color: #9da0a4;
   -webkit-border-radius: 4px 0 4px 0;
      -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
-}
+          border-radius: 4px 0 4px 0;}
 
 // In the menu the contrast for hover is too low
 .nav > li > a:hover {
   text-decoration: none;
-  background-color: #888;
-}
+  background-color: #888;}
+
 .nav > li > a {
-  color: #000;
-}
+  color: #000;}
 
 // Navigation Bar active color
-.nav-list > .active > a,
-.nav-list > .active > a:hover {
-  background-color: #b94a48;
-}
+.nav-list > .active > a, .nav-list > .active > a:hover {
+  background-color: #b94a48;}
 
 // Making all fonts smaller
 h1 { font-size: 26px; line-height: 32px; }
@@ -140,18 +125,15 @@ h4 small { font-size: 11px; }
 
 //for Differ
 del.differ {
-  color: #b94a48;
-}
+  color: #b94a48;}
 
 ins.differ{
   color: #468847;
-  text-decoration: none;
-}
+  text-decoration: none;}
 
 // Default Button is almost not readable
 .btn {
-  color: #000 !important;
-}
+  color: #000 !important;}
+
 .btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger, .btn-inverse{
-  color: #fff !important;
-}
+  color: #fff !important;}
