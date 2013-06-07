@@ -157,6 +157,7 @@ GEM
     paper_trail (2.7.1)
       activerecord (~> 3.0)
       railties (~> 3.0)
+    pdfkit (0.5.3)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -272,6 +273,7 @@ DEPENDENCIES
   mysql2
   nokogiri
   paper_trail (~> 2)
+  pdfkit
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)

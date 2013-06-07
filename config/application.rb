@@ -64,6 +64,9 @@ module Qm
     config.assets.version = '1.0'
 
     Differ.format = :html
+
+    require 'pdfkit'
+    config.middleware.use PDFKit::Middleware
   end
 end
 

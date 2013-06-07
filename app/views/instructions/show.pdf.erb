@@ -1,0 +1,53 @@
+<%- model_class = Instruction -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @instruction.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
+  <dd><%= @instruction.company.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
+  <dd><%= @instruction.number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.creator.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.updator.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:in_charge) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.in_charge.name %></span> </dd>
+  <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.controlled_by.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
+  <dd><span class="label"><%= @instruction.released_by.name %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:scope) %>:</strong></dt>
+  <dd><span class="label label-success"><%= @instruction.scope.name if @instruction.scope %></span></dd>
+  <dt><strong><%= model_class.human_attribute_name(:revision_date) %>:</strong></dt>
+  <dd><%= @instruction.revision_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tasks) %>:</strong></dt>
+</dl>
+
+<div>
+  <h2>Aufgaben</h2>
+  <%= textile(@instruction.tasks) %>
+</div>
+<div>
+  <h2>Ressourcen</h2>
+  <%= textile(@instruction.ressources) %>
+</div>
+<div>
+  <h2>Nötige Informationen</h2>
+  <%= textile(@instruction.necessary_information) %>
+</div>
+<div>
+  <h2>Arbeitssicherheit</h2>
+  <%= textile(@instruction.security) %>
+</div>
+<div>
+  <h2>Umweltschutz</h2>
+  <%= textile(@instruction.ecology) %>
+</div>
+<div>
+  <h2>Bei Abweichung</h2>
+ <%= textile(@instruction.on_deviation) %>
+</div>
