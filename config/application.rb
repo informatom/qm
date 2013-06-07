@@ -67,6 +67,16 @@ module Qm
 
     require 'pdfkit'
     config.middleware.use PDFKit::Middleware
+    PDFKit.configure do |config|
+      config.default_options = {
+        :page_size => 'A4',
+        :print_media_type => true,
+        :margin_left => '10',
+        :margin_right => '10',
+        :margin_top => '10',
+        :margin_bottom => '10',
+       }
+    end
   end
 end
 
