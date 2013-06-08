@@ -21,6 +21,7 @@
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
   <li><a href="#business_processes" data-toggle="tab"><%= t("activerecord.models.business_process.other") %></a></li>
+  <li><a href="#process_steps" data-toggle="tab"><%= t("activerecord.models.process_step.other") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -63,6 +64,41 @@
       </tbody>
     </table>
   </div>
+
+  <div class="tab-pane well" id="process_steps">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:title) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:business_process_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_by) %></th>
+          <th><%= model_class.human_attribute_name(:updated_by) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @note.process_steps.each do |process_step| %>
+          <tr>
+            <td><%= link_to process_step.title, process_step_path(process_step) %></td>
+            <td><%= process_step.company.name %></td>
+            <td><%= process_step.business_process.name %></td>
+            <td><%= process_step.creator.shortname %></td>
+            <td><%= process_step.updator.shortname %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_process_step_path(process_step), :class => 'btn btn-mini' if can? :edit, process_step %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          process_step_path(process_step),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, process_step %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>    
 </div>
 
 <div class="form-actions">

@@ -5,6 +5,22 @@
   <%= f.input :name %>
   <%= company_field(@department, f) %>
 
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#business_process_note_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_note_assignment.other") %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active well" id="business_process_department_assignments">
+      <%= f.simple_fields_for :business_process_department_assignments do |bpda| %>
+        <% render 'business_process_department_assignment_fields', :f => bpda %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_department_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

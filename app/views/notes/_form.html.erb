@@ -12,12 +12,14 @@
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
     <li><a href="#business_process_note_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_note_assignment.other") %></a></li>
+    <li><a href="#note_process_step_assignments" data-toggle="tab"><%= t("activerecord.models.note_process_step_assignment.other") %></a></li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane active well" id="description">
       <%= f.input_field :description, :as => :textile_editor, class: :broad %>
     </div>       
+    
     <div class="tab-pane well" id="business_process_note_assignments">
       <%= f.simple_fields_for :business_process_note_assignments do |bpna| %>
         <% render 'business_process_note_assignment_fields', :f => bpna %>
@@ -26,6 +28,16 @@
         <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_note_assignments,
             :class => "controls btn btn-small btn-info" %>
       </div>
+    </div> 
+    
+    <div class="tab-pane well" id="note_process_step_assignments">
+      <%= f.simple_fields_for :note_process_step_assignments do |npsa| %>
+        <% render 'note_process_step_assignment_fields', :f => npsa %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :note_process_step_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>   
     </div> 
   </div>
 

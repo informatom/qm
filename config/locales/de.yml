@@ -73,8 +73,8 @@ de:
     scope: Geltungsbereich
     security: Arbeitssicherheit
     skills: Fähigkeiten - Qualifikation
-    source: Quelle
-    source_id: Quelle
+    source: Vorgänger
+    source_id: Vorgänger
     target: Ziel
     target_id: Ziel
     tasks: Aufgaben
@@ -133,6 +133,7 @@ de:
       function:
         one: Funktion
         other: Funktionen
+      incoming_sequence_flow: Vorgänger
       instruction:
         one: Arbeitsanweisung
         other: Arbeitsanweisungen
@@ -151,6 +152,7 @@ de:
       note_process_step_assignment:
         one: Zuordnung einer Aufzeichnung zu einem Prozessschritt
         other: Zuordnungen Aufzeichnungen zu Prozessschritten
+      outgoing_sequence_flow: Nachfolger
       process_class:
         one: Prozessklasse
         other: Prozessklassen
