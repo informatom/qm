@@ -55,7 +55,7 @@ class Ability
       can :read, Role
 
     else
-      can :read, [:diagram], Company, :users => {:id => user.id}
+      can [:read, :organigram], Company, :users => {:id => user.id}
 
       can :read, User, :companies => { :id => current_company.id }
       can :read, Substitution, :company_id => current_company.id
