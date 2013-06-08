@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   has_many :replaces, :through => :replacements, :dependent => :restrict, :source => :user
   accepts_nested_attributes_for :replacements, :allow_destroy => true
 
-  has_many :employments, :dependent => :destroy, :inverse_of => :companies
+  has_many :employments, :dependent => :destroy, :inverse_of => :user
   has_many :companies, :through => :employments
 
   has_many :department_affiliations, :dependent => :restrict, :inverse_of => :user
