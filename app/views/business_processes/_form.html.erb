@@ -2,16 +2,72 @@
 <%= bootstrap_error(@business_process, model_class ) %>
 
 <%= simple_form_for @business_process, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= company_field(@business_process, f) %>
-  <%= f.input :parent_id, :collection => BusinessProcess.where(:company_id => current_company.id), :label => t("attributes.parent")  %>
-  <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
-  <%= f.input :number %>
-  <%= f.input :area %>
-  <%= f.association :owner, :collection => User.in_company(current_company.id) %>
-  <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
-  <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
-  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
+<div class="row-fluid">
+  <div class="span6">
+     <%= f.input :name %>
+     <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
+    <%= f.input :area %>
+    <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
+    <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
+  </div>
+  <div class="span6">
+    <%= company_field(@business_process, f) %>
+    <%= f.input :number %>
+    <%= f.association :owner, :collection => User.in_company(current_company.id) %>
+    <%= f.input :parent_id, :collection => BusinessProcess.where(:company_id => current_company.id), :label => t("attributes.parent")  %>
+  </div>
+</div>
+
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
+    <li><a href="#business_process_note_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_note_assignment.other") %></a></li>
+    <li><a href="#business_process_document_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_document_assignment.other") %></a></li>
+    <li><a href="#business_process_process_indicator_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_process_indicator_assignment.other") %></a></li>
+    <li><a href="#business_process_department_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_department_assignment.other") %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active well" id="description">
+      <%= f.input_field :description, :as => :textile_editor, class: :broad %>
+    </div>    
+    <div class="tab-pane well" id="business_process_note_assignments">
+      <%= f.simple_fields_for :business_process_note_assignments do |bpna| %>
+        <% render 'business_process_note_assignment_fields', :f => bpna %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_note_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+    <div class="tab-pane well" id="business_process_document_assignments">
+      <%= f.simple_fields_for :business_process_document_assignments do |bpda| %>
+        <% render 'business_process_document_assignment_fields', :f => bpda %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_document_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+    <div class="tab-pane well" id="business_process_process_indicator_assignments">
+      <%= f.simple_fields_for :business_process_process_indicator_assignments do |bpda| %>
+        <% render 'business_process_process_indicator_assignment_fields', :f => bpda %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_process_indicator_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+    <div class="tab-pane well" id="business_process_department_assignments">
+      <%= f.simple_fields_for :business_process_department_assignments do |bpda| %>
+        <% render 'business_process_department_assignment_fields', :f => bpda %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :business_process_department_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

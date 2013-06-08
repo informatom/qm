@@ -102,10 +102,10 @@ de:
         other: Zuordnungen Abteilungen zu Geschäftsprozessen
       business_process_document_assignment:
         one: Zuordnung eines Dokuments zu einem Geschäftsprozess
-        other: Zuordnung Dokumente zu Geschäftsprozessen
+        other: Zuordnungen Dokumente zu Geschäftsprozessen
       business_process_note_assignment:
         one: Zuordnung einer Aufzeichnung zu einem Geschäftsprozess
-        other: Zuodnungen Aufzeichnungen zu Geschäftsprozessen
+        other: Zuordnungen Aufzeichnungen zu Geschäftsprozessen
       business_process_process_indicator_assignment:
         one: Zuordnung einer Prozesskennzahl zu einem Geschäftsprozess
         other: Zuordnungen Prozesskennzahlen zu Geschäftsprozessen

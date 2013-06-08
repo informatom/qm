@@ -38,12 +38,12 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="description">
-    <div class="well"><%= textile(@business_process.description) %></div>
+  <div class="tab-pane active well" id="description">
+    <%= textile(@business_process.description) %>
   </div>
 
-  <div class="tab-pane" id="notes">
-    <table class="table table-striped">
+  <div class="tab-pane well" id="notes">
+   <table class="table table-striped datatable">
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
@@ -59,9 +59,9 @@
             <td><%= note.company.name %></td>
             <td><%=l note.created_at %></td>
             <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              <%= link_to t('.edit', :default => icon("edit")),
                           edit_note_path(note), :class => 'btn btn-mini' if can? :edit, note %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <%= link_to t('.destroy', :default => icon("trash")),
                           note_path(note),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -73,13 +73,14 @@
     </table>
   </div>
 
-  <div class="tab-pane" id="documents">
-    <table class="table table-striped">
+  <div class="tab-pane well" id="documents">
+    <table class="table table-striped datatable">
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:internal) %></th>
+          <th><%= model_class.human_attribute_name(:attachment) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -88,13 +89,14 @@
         <% @business_process.documents.each do |document| %>
           <tr>
             <td><%= link_to document.name, document_path(document) %></td>
-            <td><%= document.company_id %></td>
+            <td><%= document.company.name %></td>
             <td><%= checkbox(document.internal) %></td>
+            <td><%= document.attachment.file.filename if document.attachment.file %></td>
             <td><%=l document.created_at %></td>
             <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              <%= link_to t('.edit', :default => icon("edit")),
                           edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <%= link_to t('.destroy', :default => icon("edit")),
                           document_path(document),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -106,8 +108,8 @@
     </table>
   </div>
 
-  <div class="tab-pane" id="process_indicators">
-    <table class="table table-striped">
+  <div class="tab-pane well" id="process_indicators">
+    <table class="table table-striped datatable">
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
@@ -123,9 +125,9 @@
             <td><%= process_indicator.company.name %></td>
             <td><%=l process_indicator.created_at %></td>
             <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' if can? :edit, process_indicator%>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' if can? :edit, process_indicator %>
+              <%= link_to t('.destroy', :default => icon("trash")),
                           process_indicator_path(process_indicator),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -137,8 +139,8 @@
     </table>
   </div>
 
-  <div class="tab-pane" id="departments">
-    <table class="table table-striped">
+  <div class="tab-pane well" id="departments">
+    <table class="table table-striped datatable">
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
@@ -154,13 +156,13 @@
             <td><%= department.company.name if department.company %></td>
             <td><%=l department.created_at %></td>
             <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              <%= link_to t('.edit', :default => icon("edit")),
                           edit_department_path(department), :class => 'btn btn-mini' if can? :edit, department %>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <%= link_to t('.destroy', :default => icon("trash")),
                           department_path(department),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                          :class => 'btn btn-mini btn-danger' if can? :delete, department %>
+                          :class => 'btn btn-mini btn-danger' if can? :delete , department %>
             </td>
           </tr>
         <% end %>
@@ -191,3 +193,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' if can? :delete, @business_process %>
 </div>
+<%= render "shared/datatables_helper" %>

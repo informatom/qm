@@ -39,71 +39,57 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="tasks">
-    <div class="well">
-      <%= textile(@instruction.tasks) %>
-    </div>
+  <div class="tab-pane active well" id="tasks">
+    <%= textile(@instruction.tasks) %>
   </div>
-  <div class="tab-pane" id="ressources">
-    <div class="well">
-      <%= textile(@instruction.ressources) %>
-    </div>
+  <div class="tab-pane well" id="ressources">
+    <%= textile(@instruction.ressources) %>
   </div>
-  <div class="tab-pane" id="necessary_information">
-    <div class="well">
-      <%= textile(@instruction.necessary_information) %>
-    </div>
+  <div class="tab-pane well" id="necessary_information">
+    <%= textile(@instruction.necessary_information) %>
   </div>
-  <div class="tab-pane" id="security">
-    <div class="well">
-      <%= textile(@instruction.security) %>
-    </div>
+  <div class="tab-pane well" id="security">
+    <%= textile(@instruction.security) %>
   </div>
-  <div class="tab-pane" id="ecology">
-    <div class="well">
-      <%= textile(@instruction.ecology) %>
-    </div>
+  <div class="tab-pane well" id="ecology">
+    <%= textile(@instruction.ecology) %>
   </div>
-  <div class="tab-pane" id="documents">
-    <div class="well">
-      <table class="table table-striped datatable">
-        <thead>
+  <div class="tab-pane well" id="documents">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:internal) %></th>
+          <th><%= model_class.human_attribute_name(:attachment) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @instruction.documents.each do |document| %>
           <tr>
-            <th><%= model_class.human_attribute_name(:name) %></th>
-            <th><%= model_class.human_attribute_name(:company_id) %></th>
-            <th><%= model_class.human_attribute_name(:internal) %></th>
-            <th><%= model_class.human_attribute_name(:attachment) %></th>
-            <th><%= model_class.human_attribute_name(:created_at) %></th>
-            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+            <td><%= link_to document.name, document_path(document) %></td>
+            <td><%= document.company.name %></td>
+            <td><%= checkbox(document.internal) %></td>
+            <td><%= document.attachment.file.filename if document.attachment.file %></td>
+            <td><%=l document.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
+              <%= link_to t('.destroy', :default => icon("edit")),
+                          document_path(document),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, document %>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <% @instruction.documents.each do |document| %>
-            <tr>
-              <td><%= link_to document.name, document_path(document) %></td>
-              <td><%= document.company.name %></td>
-              <td><%= checkbox(document.internal) %></td>
-              <td><%= document.attachment.file.filename if document.attachment.file %></td>
-              <td><%=l document.created_at %></td>
-              <td>
-                <%= link_to t('.edit', :default => icon("edit")),
-                            edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-                <%= link_to t('.destroy', :default => icon("edit")),
-                            document_path(document),
-                            :method => :delete,
-                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                            :class => 'btn btn-mini btn-danger' if can? :delete, document %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-  <div class="tab-pane" id="on_deviation">
-    <div class="well">
-      <%= textile(@instruction.on_deviation) %>
-    </div>
+  <div class="tab-pane well" id="on_deviation">
+    <%= textile(@instruction.on_deviation) %>
   </div>
   <%= versioning_helper(@instruction) %>
 </div>
@@ -120,3 +106,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' if can? :delete,  @instructon%>
 </div>
+<%= render "shared/datatables_helper" %>
