@@ -5,12 +5,36 @@
   <%= f.input :name %>
   <%= company_field(@document, f) %>
 
-  <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
   <%= f.input :internal %>
 
   <%= f.input :attachment, :as => :string, disabled: true, input_html: { delete: 'true' } %>
   <%= f.input :attachment, :as => :file, label: 'Hochladen' %>
   <%= f.input :remove_attachment, label: 'Löschen', :as => :boolean %>
+    
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
+    <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="description">
+      <div class="well">
+        <%= f.input_field :description, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="instruction_document_assignments">
+      <div id="instruction_document_assignments" class="well">
+        <%= f.simple_fields_for :instruction_document_assignments do |ida| %>
+          <% render 'instruction_document_assignment_fields', :f => ida %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association t("helpers.add_assignment"), f, :instruction_document_assignments,
+              :class => "controls btn btn-small btn-info" %>
+        </div>
+      </div>
+    </div>    
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

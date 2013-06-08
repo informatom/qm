@@ -12,9 +12,58 @@
   <dd><%= checkbox(@document.internal) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:attachment) %>:</strong></dt>
   <dd><%= link_to( @document.attachment.file.filename, download_document_path ) if @document.attachment.file %></dd>
-
 </dl>
-<div class="description"><%= textile(@document.description) %></div>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
+  <li><a href="#instuctions" data-toggle="tab"><%= t("activerecord.models.instruction.other") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="description">
+    <%= textile(@document.description) %>
+  </div>
+  <div class="tab-pane" id="instuctions">
+    <div class="well">
+      <table class="table table-striped datatable">
+        <thead>
+          <tr>      
+            <th><%= model_class.human_attribute_name(:title) %></th>
+            <th>PDF</th>
+            <th><%= model_class.human_attribute_name(:company_id) %></th>
+            <th><%= model_class.human_attribute_name(:number) %></th>
+            <th><%= model_class.human_attribute_name(:created_by) %></th>
+            <th><%= model_class.human_attribute_name(:in_charge) %></th>
+            <th><%= model_class.human_attribute_name(:scope) %></th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @document.instructions.each do |instruction| %>
+            <tr>        
+              <td><%= link_to instruction.title, instruction_path(instruction)%></td>
+              <td><%= link_to "PDF", instruction_path(instruction, :format => "pdf")%></td>
+              <td><%= instruction.company.name %></td>
+              <td><%= instruction.number %></td>
+              <td><%= instruction.creator.name %></td>
+              <td><%= instruction.in_charge.name if instruction.in_charge %></td>
+              <td><%= instruction.scope.name if instruction.scope %></td>
+              <td>
+                <%= link_to t('.edit', :default => icon("edit")),
+                            edit_instruction_path(instruction), :class => 'btn btn-mini' if can? :edit, instruction %>
+                <%= link_to t('.destroy', :default => icon("trash")),
+                            instruction_path(instruction),
+                            :method => :delete,
+                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                            :class => 'btn btn-mini btn-danger' if can? :delete, instruction %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

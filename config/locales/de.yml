@@ -565,6 +565,7 @@ de:
 ### TWITTER BOOTSTRAP HELPERS ###
   helpers:
     actions: Aktionen
+    add_assignment: Zuordnung hinzufügen
     add_department_affiliation: Die Person einer Abteilgung zuordnen
     add_deputy: Einen Stellvertreter hinzufügen
     add_user_function_assignment: Eine Funktion der Person zuordnen
@@ -591,6 +592,7 @@ de:
     process_modell: Prozessmodell
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
+    remove_assignment: Zuordnung löschen
     remove_user_function_assignment: Funktion der Person löschen
     remove_user_role_in_company_assignment: Rolle der Person löschen
     select:

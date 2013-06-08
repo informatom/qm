@@ -19,7 +19,8 @@
     <li><a href="#necessary_information" data-toggle="tab"><%= model_class.human_attribute_name(:necessary_information) %></a></li>
     <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
     <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
-    <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>  
+    <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li> 
+    <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li> 
   </ul>
   
   <div class="tab-content">
@@ -51,6 +52,17 @@
     <div class="tab-pane" id="on_deviation">
       <div class="well">
         <%= f.input_field :on_deviation, :as => :textile_editor, class: :broad %>
+      </div>
+    </div>
+    <div class="tab-pane" id="instruction_document_assignments">
+      <div id="instruction_document_assignments" class="well">
+        <%= f.simple_fields_for :instruction_document_assignments do |ida| %>
+          <% render 'instruction_document_assignment_fields', :f => ida %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association t("helpers.add_assignment"), f, :instruction_document_assignments,
+              :class => "controls btn btn-small btn-info" %>
+        </div>
       </div>
     </div>
   </div>
