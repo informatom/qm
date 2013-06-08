@@ -52,12 +52,12 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
                   <%= t("administration")  %></a>
-                  <%= render "sidebars/admin" %>
+                  <%= render "sidebars/admin" if current_user %>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
                   <%= t("processes")  %></a>
-                  <%= render "sidebars/processes" %>
+                  <%= render "sidebars/processes" if current_user %>
               </li>
             </ul>
             <ul class="nav pull-right">
