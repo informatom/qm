@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  has_many :users, :through => :employments, :dependent => :restrict, :inverse_of => :company
+  has_many :users, :through => :employments, :dependent => :restrict, :inverse_of => :companies
   has_many :substitutions, :dependent => :restrict
   has_many :employments, :dependent => :restrict
   accepts_nested_attributes_for :employments, :allow_destroy => true
