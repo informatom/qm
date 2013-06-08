@@ -35,4 +35,8 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_users_url
     end
   end
+
+  def index
+    @users = current_company.users
+  end
 end

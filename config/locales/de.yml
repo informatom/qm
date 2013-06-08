@@ -118,6 +118,9 @@ de:
       department_affiliation:
         one: Abteilungszugehörigkeit
         other: Abteilungszugehörigkeiten
+      deputy:
+        one: Stellvertreter
+        other: Stellvertreter
       document:
         one: Dokument
         other: Dokumente
@@ -162,6 +165,9 @@ de:
       process_step:
         one: Prozessschritt
         other: Prozessschritte
+      replaces:
+        one: Vertretung von
+        other: Vertretung von
       role:
         one: Rolle in Anwendung
         other: Rollen in Anwendung

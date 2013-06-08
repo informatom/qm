@@ -1,0 +1,7 @@
+<div class="nested-fields">
+  <%= f.input :user_id, :required => false do %>
+    <%= f.input_field :user_id, :collection => User.in_company(current_company.id)%>
+    <%= link_to_remove_association t("helpers.remove_replaces"), f, :class => "btn btn-small btn-danger" %>
+  <% end %>
+  <%= f.hidden_field :company_id, value: current_company.id %>
+</div>

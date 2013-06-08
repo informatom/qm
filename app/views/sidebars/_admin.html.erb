@@ -10,10 +10,6 @@
 
   <li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) %></li>
 
-  <li <%= active("substitutions") %>>
-    <%= link_to icons(["user", "resize-horizontal", "user"]) + t("activerecord.models.substitution.other"), substitutions_path %>
-  </li>
-
   <li <%= active("employments") %>>
     <%= link_to(icons(["user", "resize-horizontal", "home"]) + t("activerecord.models.employment.other"), employments_path) %>
   </li>

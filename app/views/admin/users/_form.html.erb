@@ -9,51 +9,74 @@
   <%= f.input :lastname %>
   <%= f.input :parent_id, :collection => User.in_company(current_company.id), :label => t("attributes.parent") %>
 
-  <div id="substitutions">
-    <%= f.simple_fields_for :substitutions do |s| %>
-      <% render 'substitution_fields', :f => s %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association t("helpers.add_deputy"), f, :substitutions, :class => "controls btn btn-small btn-inverse" %>
-    </div>
-  </div>
-  <br/>
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#roles" data-toggle="tab"> <%= t("activerecord.models.role.other") %></a></li>
+    <li><a href="#user_function_assignments" data-toggle="tab"><%= t("activerecord.models.user_function_assignment.other") %></a></li>
+    <li><a href="#department_affiliations" data-toggle="tab"><%= t("activerecord.models.department_affiliation.other") %></a></li>
+    <li><a href="#user_role_in_company_assignments" data-toggle="tab"><%= t("activerecord.models.user_role_in_company_assignment.other") %></a></li>
+    <li><a href="#substitutions" data-toggle="tab"><%= t("activerecord.models.deputy.other") %></a></li>
+    <li><a href="#replacements" data-toggle="tab"><%= t("activerecord.models.replaces.other") %></a></li>
+  </ul>
 
-  <% if admin? %>
-    <%= f.association :roles, :as => :check_boxes  %>    
-  <% elsif qm? %>
-    <%= f.association :roles, :as => :check_boxes, :collection => Role.where(Role.arel_table[:name].not_eq(:admin)) %>
-  <% end %>
-
-  <div id="user_function_assignments">
-    <%= f.simple_fields_for :user_function_assignments do |ufa| %>
-      <% render 'user_function_assignment_fields', :f => ufa %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association t("helpers.add_user_function_assignment"), f, :user_function_assignments,
-          :class => "controls btn btn-small btn-info" %>
-      <br /> <br />
-    </div>
+  <div class="tab-content">
+    <div class="tab-pane active well" id="roles">
+      <% if admin? %>
+        <%= f.association :roles, :as => :check_boxes  %>    
+      <% elsif qm? %>
+        <%= f.association :roles, :as => :check_boxes, :collection => Role.where(Role.arel_table[:name].not_eq(:admin)) %>
+      <% end %>
   </div>
 
-  <div id="department_affiliations">
-    <%= f.simple_fields_for :department_affiliations do |da| %>
-      <% render 'department_affiliation_fields', :f => da %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association t("helpers.add_department_affiliation"), f, :department_affiliations,
-          :class => "controls btn btn-small btn-success" %>
-      <br /> <br />
+    <div class="tab-pane well" id="user_function_assignments">
+      <%= f.simple_fields_for :user_function_assignments do |ufa| %>
+        <% render 'user_function_assignment_fields', :f => ufa %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_user_function_assignment"), f, :user_function_assignments,
+            :class => "controls btn btn-small btn-info" %>
+        <br /> <br />
+      </div>
     </div>
-  </div>
 
-  <div id="user_role_in_company_assignments">
-    <%= f.simple_fields_for :user_role_in_company_assignments do |urica| %>
-      <% render 'user_role_in_company_assignment_fields', :f => urica %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association t("helpers.add_user_role_in_company_assignment"), f, :user_role_in_company_assignments,
-          :class => "controls btn btn-small btn-warning" %>
+    <div class="tab-pane well" id="department_affiliations">
+      <%= f.simple_fields_for :department_affiliations do |da| %>
+        <% render 'department_affiliation_fields', :f => da %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_department_affiliation"), f, :department_affiliations,
+            :class => "controls btn btn-small btn-success" %>
+        <br /> <br />
+      </div>
+    </div>
+
+    <div class="tab-pane well" id="user_role_in_company_assignments">
+      <%= f.simple_fields_for :user_role_in_company_assignments do |urica| %>
+        <% render 'user_role_in_company_assignment_fields', :f => urica %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_user_role_in_company_assignment"), f, :user_role_in_company_assignments,
+            :class => "controls btn btn-small btn-warning" %>
+      </div>
+    </div>
+
+    <div class="tab-pane well" id="substitutions">
+      <%= f.simple_fields_for :substitutions do |s| %>
+        <% render 'substitution_fields', :f => s %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_substitution"), f, :substitutions,
+            :class => "controls btn btn-small btn-warning" %>
+      </div>
+    </div>
+
+    <div class="tab-pane well" id="replacements">
+      <%= f.simple_fields_for :replacements do |r| %>
+        <% render 'replacement_fields', :f => r %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_replacement"), f, :replacements,
+            :class => "controls btn btn-small btn-warning" %>
+      </div>
     </div>
   </div>
 

@@ -16,41 +16,6 @@
     <dd><%= @user.parent.name %></dd>
   <% end %>
 
-  <dt><strong><%= model_class.human_attribute_name(:deputy) %>:</strong></dt>
-  <dd>
-    <% for deputy in @user.deputies.all %>
-      <span class="label"><%= deputy.name %></span>
-    <% end %> &nbsp;
-  </dd>
-  <dt><strong><%= model_class.human_attribute_name(:functions) %>:</strong></dt>
-  <dd>
-    <% for function in @user.functions.all %>
-      <span class="label label-info"><a href="#" rel="tooltip" data-placement="top" data-original-title="<%= function.description %>"><%= function.name%></a></span>
-    <% end %> &nbsp;
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:roles_in_company) %>:</strong></dt>
-  <dd>
-    <% for role_in_company in @user.roles_in_company.all %>
-      <span class="label label-warning"><%= role_in_company.name %></span>
-    <% end %> &nbsp;
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:departments) %>:</strong></dt>
-  <dd>
-    <% for department in @user.departments %>
-      <span class="label label-success"><%= department.name + " (" + department.company.name + " )"%></span>
-    <% end %> &nbsp;
-  </dd>
-
-  <dt><strong><%= model_class.human_attribute_name(:user_roles) %>:</strong></dt>
-  <dd>
-    <% for role in @user.roles.all %>
-      <span class="label label-important"><%= role.name %></span>
-    <% end %> &nbsp;
-  </dd>
-
-
   <dt><strong><%= model_class.human_attribute_name(:sign_in_count) %>:</strong></dt>
   <dd><%= @user.sign_in_count %></dd>
   <dt><strong><%= model_class.human_attribute_name(:current_sign_in_at) %>:</strong></dt>
@@ -61,12 +26,204 @@
   <dd><%= @user.current_sign_in_ip %></dd>
   <dt><strong><%= model_class.human_attribute_name(:last_sign_in_ip) %>:</strong></dt>
   <dd><%= @user.last_sign_in_ip %></dd>
-
-
   <dt><strong><%= model_class.human_attribute_name(:reset_password_sent_at) %>:</strong></dt>
   <dd><%= @user.reset_password_sent_at %></dd>
-
 </dl>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#roles" data-toggle="tab"><%=  model_class.human_attribute_name(:roles) %></a></li>
+  <li><a href="#functions" data-toggle="tab"><%= model_class.human_attribute_name(:functions) %></a></li>
+  <li><a href="#departments" data-toggle="tab"><%= model_class.human_attribute_name(:departments) %></a></li>
+  <li><a href="#roles_in_company" data-toggle="tab"><%= model_class.human_attribute_name(:roles_in_company) %></a></li>
+  <li><a href="#deputies" data-toggle="tab"><%=  t("activerecord.models.deputy.other")  %></a></li>
+  <li><a href="#substitutions" data-toggle="tab"><%= t("activerecord.models.replaces.other") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active well" id="roles">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.roles.each do |role| %>
+          <tr>
+            <td><%= link_to role.name, role_path(role) %></td>
+            <td><%=l role.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_role_path(role), :class => 'btn btn-mini' if can? :edit, role %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          role_path(role),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, role %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane well" id="functions">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.functions.each do |function| %>
+          <tr>
+            <td><%= link_to function.name, function_path(function) %></td>
+            <td><%= function.company.name %></td>
+            <td><%=l function.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_function_path(function), :class => 'btn btn-mini' if can? :edit, function %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          function_path(function),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, function %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane well" id="departments">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.departments.each do |department| %>
+          <tr>
+            <td><%= link_to department.name, department_path(department) %></td>
+            <td><%= department.company.name if department.company %></td>
+            <td><%=l department.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_department_path(department), :class => 'btn btn-mini' if can? :edit, department %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          department_path(department),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete , department %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane well" id="roles_in_company">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:company_id) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.roles_in_company.each do |role_in_company| %>
+          <tr>
+            <td><%= link_to role_in_company.name, role_in_company_path(role_in_company) %></td>
+            <td><%= role_in_company.company.name %></td>
+            <td><%=l role_in_company.created_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_role_in_company_path(role_in_company), :class => 'btn btn-mini' if can? :edit, role_in_company %>
+              <%= link_to t('.destroy', :default => icon("edit")),
+                          role_in_company_path(role_in_company),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, role_in_company %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>  
+  </div>
+
+  <div class="tab-pane well" id="deputies">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%= model_class.human_attribute_name(:updated_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.deputies.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
+            <td><%=l user.created_at %></td>
+            <td><%=l user.updated_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          admin_user_path(user),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="tab-pane well" id="substitutions">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%= model_class.human_attribute_name(:updated_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.replaces.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
+            <td><%=l user.created_at %></td>
+            <td><%=l user.updated_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          admin_user_path(user),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>    
+  </div>    
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -78,3 +235,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' if can? :delete, @user %>
 </div>
+<%= render "shared/datatables_helper" %>

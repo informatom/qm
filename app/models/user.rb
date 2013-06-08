@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids, :role, :firstname, :lastname, :parent_id, :deputy_ids,
                   :function_ids, :role_in_company_ids, :department_ids,
                   :substitutions_attributes, :user_function_assignments_attributes, :user_role_in_company_assignments_attributes,
-                  :department_affiliations_attributes, :assignment_attributes
+                  :department_affiliations_attributes, :assignment_attributes, :replacements_attributes
 
   validates_uniqueness_of :email
   validates :firstname, :email, :lastname, :presence => true
@@ -21,9 +21,13 @@ class User < ActiveRecord::Base
   has_many :assignments, :dependent => :restrict, :inverse_of => :user
   has_many :roles, :through => :assignments, :dependent => :restrict
 
-  has_many :substitutions, :inverse_of => :user, :dependent => :restrict
+  has_many :substitutions, :inverse_of => :user, :dependent => :restrict  
   has_many :deputies, :through => :substitutions, :dependent => :restrict
   accepts_nested_attributes_for :substitutions, :allow_destroy => true
+  
+  has_many :replacements, :inverse_of => :user, :dependent => :restrict, :class_name => "Substitution", :foreign_key => "deputy_id"
+  has_many :replaces, :through => :replacements, :dependent => :restrict, :source => :user
+  accepts_nested_attributes_for :replacements, :allow_destroy => true
 
   has_many :employments, :dependent => :destroy, :inverse_of => :user
   has_many :companies, :through => :employments
