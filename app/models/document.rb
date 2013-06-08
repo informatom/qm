@@ -19,6 +19,6 @@ class Document < ActiveRecord::Base
   accepts_nested_attributes_for :instruction_document_assignments, :allow_destroy => true
 
   has_many :document_process_step_assignments, :dependent => :restrict
-  has_many :documents, :through => :document_process_step_assignments, :dependent => :restrict
+  has_many :process_steps, :through => :document_process_step_assignments, :dependent => :restrict
   accepts_nested_attributes_for :document_process_step_assignments, :allow_destroy => true
 end

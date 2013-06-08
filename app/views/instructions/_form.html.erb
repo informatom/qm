@@ -20,6 +20,7 @@
     <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
     <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
     <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li> 
+    <li><a href="#instruction_process_step_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_process_step_assignment.other") %></a></li> 
     <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li> 
   </ul>
   
@@ -29,31 +30,49 @@
         <%= f.input_field :tasks, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
     <div class="tab-pane" id="ressources">
       <div class="well">
         <%= f.input_field :ressources, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
     <div class="tab-pane" id="necessary_information">
       <div class="well">
         <%= f.input_field :necessary_information, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
     <div class="tab-pane" id="security">
       <div class="well">
         <%= f.input_field :security, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
     <div class="tab-pane" id="ecology">
       <div class="well">
         <%= f.input_field :ecology, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
     <div class="tab-pane" id="on_deviation">
       <div class="well">
         <%= f.input_field :on_deviation, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
+    <div class="tab-pane" id="instruction_process_step_assignments">
+      <div id="instruction_process_step_assignments" class="well">
+        <%= f.simple_fields_for :instruction_process_step_assignments do |ipsa| %>
+          <% render 'instruction_process_step_assignment_fields', :f => ipsa %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association t("helpers.add_assignment"), f, :instruction_process_step_assignments,
+              :class => "controls btn btn-small btn-info" %>
+        </div>
+      </div>
+    </div>
+
     <div class="tab-pane" id="instruction_document_assignments">
       <div id="instruction_document_assignments" class="well">
         <%= f.simple_fields_for :instruction_document_assignments do |ida| %>

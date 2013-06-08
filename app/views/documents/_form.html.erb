@@ -15,12 +15,14 @@
     <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
     <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li>
     <li><a href="#business_process_document_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_document_assignment.other") %></a></li>
+    <li><a href="#document_process_step_assignments" data-toggle="tab"><%= t("activerecord.models.document_process_step_assignment.other") %></a></li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane active well" id="description">
       <%= f.input_field :description, :as => :textile_editor, class: :broad %>
     </div>
+
     <div class="tab-pane well" id="instruction_document_assignments">
       <%= f.simple_fields_for :instruction_document_assignments do |ida| %>
         <% render 'instruction_document_assignment_fields', :f => ida %>
@@ -30,6 +32,7 @@
             :class => "controls btn btn-small btn-info" %>
       </div>
     </div>    
+
     <div class="tab-pane well" id="business_process_document_assignments">
       <%= f.simple_fields_for :business_process_document_assignments do |bpda| %>
         <% render 'business_process_document_assignment_fields', :f => bpda %>
@@ -39,6 +42,16 @@
             :class => "controls btn btn-small btn-info" %>
       </div>
     </div>    
+
+    <div class="tab-pane well" id="document_process_step_assignments">
+      <%= f.simple_fields_for :document_process_step_assignments do |dpsa| %>
+        <% render 'document_process_step_assignment_fields', :f => dpsa %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :document_process_step_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div>        
   </div>
 
   <div class="form-actions">

@@ -1,6 +1,7 @@
 class Instruction < ActiveRecord::Base
   attr_accessible :company_id, :controlled_by_id, :created_by, :ecology, :in_charge_id, :necessary_information, :number, :on_deviation, 
                   :released_by_id, :ressources, :revision_date, :scope_id, :security, :tasks, :title, :updated_by,
+                  :instruction_process_step_assignments_attributes,
                   :instruction_document_assignments_attributes
 
   has_paper_trail
