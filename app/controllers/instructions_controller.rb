@@ -33,4 +33,8 @@ class InstructionsController < ApplicationController
       end
     end
   end
+
+  def index
+    @instructions = Instruction.where(company_id: current_company.id)
+  end
 end

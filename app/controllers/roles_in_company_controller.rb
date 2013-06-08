@@ -28,4 +28,8 @@ class RolesInCompanyController < ApplicationController
       redirect_to roles_in_company_url
     end
   end
+
+  def index
+    @roles_in_company = RoleInCompany.where(company_id: current_company.id)
+  end
 end

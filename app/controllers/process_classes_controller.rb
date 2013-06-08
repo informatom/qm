@@ -28,4 +28,8 @@ class ProcessClassesController < ApplicationController
       redirect_to process_classes_url
     end
   end
+
+  def index
+    @process_classes = ProcessClass.where(company_id: current_company.id)
+  end
 end

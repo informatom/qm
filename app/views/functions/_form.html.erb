@@ -13,6 +13,7 @@
     <li><a href="#goals" data-toggle="tab"><%= model_class.human_attribute_name(:goals) %></a></li>
     <li><a href="#authorities" data-toggle="tab"><%= model_class.human_attribute_name(:authorities) %></a></li>
     <li><a href="#comments" data-toggle="tab"><%= model_class.human_attribute_name(:comments) %></a></li>
+    <li><a href="#users" data-toggle="tab"><%= t("activerecord.models.user.other") %></a></li>
   </ul>
 
   <div class="tab-content">
@@ -57,6 +58,16 @@
         <%= f.input_field :comments, :as => :textile_editor, class: :broad %>
       </div>
     </div>
+
+    <div class="tab-pane well" id="users">
+      <%= f.simple_fields_for :user_function_assignments do |ufa| %>
+        <% render 'user_function_assignment_fields', :f => ufa %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :user_function_assignments,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div>    
   </div>
 
   <div class="form-actions">

@@ -28,4 +28,8 @@ class ProcessIndicatorsController < ApplicationController
       redirect_to process_indicators_url
     end
   end
+
+  def index
+    @process_indicators = ProcessIndicator.where(company_id: current_company.id)
+  end
 end

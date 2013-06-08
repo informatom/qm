@@ -109,4 +109,8 @@ class BusinessProcessesController < ApplicationController
       format.js
     end
   end
+
+  def index
+    @business_processes = BusinessProcess.where(company_id: current_company.id)
+  end
 end

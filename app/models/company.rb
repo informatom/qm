@@ -1,12 +1,13 @@
 class Company < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :employments_attributes
 
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  has_many :users, :through => :employments, :dependent => :restrict
+  has_many :users, :through => :employments, :dependent => :restrict, :inverse_of => :companies
   has_many :substitutions, :dependent => :restrict
   has_many :employments, :dependent => :restrict
+  accepts_nested_attributes_for :employments, :allow_destroy => true
 
   has_many :departments, :dependent => :restrict
   has_many :department_affiliations, :dependent => :restrict

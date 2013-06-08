@@ -31,4 +31,8 @@ class ProcessStepsController < ApplicationController
       redirect_to process_steps_url
     end 
   end
+
+  def index
+    @process_steps = ProcessStep.where(company_id: current_company.id)
+  end
 end

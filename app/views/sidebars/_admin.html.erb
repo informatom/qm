@@ -4,25 +4,8 @@
   <li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
   <li <%= active("functions") %>><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
   <li <%= active("roles_in_company") %>><%= link_to icon_("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
-
   <li <%= active("users") %>><%= link_to icon_("user") + t("activerecord.models.user.other"), admin_users_path %></li>
-
   <li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) %></li>
-
-  <li <%= active("employments") %>>
-    <%= link_to(icons(["user", "resize-horizontal", "home"]) + t("activerecord.models.employment.other"), employments_path) %>
-  </li>
-
-  <li <%= active("user_function_assignments") %>>
-    <%= link_to icons(["user", "resize-horizontal", "bullhorn"]) + t("activerecord.models.user_function_assignment.other"),
-                  user_function_assignments_path %>
-  </li>
-
-  <li <%= active("user_role_in_company_assignments") %>>
-    <%= link_to icons(["user", "resize-horizontal", "tags"]) + t("activerecord.models.user_role_in_company_assignment.other"),
-                  user_role_in_company_assignments_path %>
-  </li>
-
   <li <%= active("news") %>><%= link_to icon_("gift") + t("activerecord.models.news.other"), news_index_path %></li>
   <li <%= active("flow_objects") %>><%= link_to icon_("picture") + t("activerecord.models.flow_object.other"), flow_objects_path if can? :index, FlowObject %></li>
 </ul>

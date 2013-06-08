@@ -28,4 +28,8 @@ class NotesController < ApplicationController
       redirect_to notes_url
     end
   end
+
+  def index
+    @notes = Note.where(company_id: current_company.id)
+  end
 end

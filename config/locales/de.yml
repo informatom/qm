@@ -601,9 +601,9 @@ de:
       your: Ihre Newseinträge
     no_company: keiner Firma
     process_modell: Prozessmodell
+    remove_assignment: Zuordnung löschen
     remove_department_affiliation: Abteilungszugehörigkeit löschen
     remove_deputy: Stellvertreter löschen
-    remove_assignment: Zuordnung löschen
     remove_user_function_assignment: Funktion der Person löschen
     remove_user_role_in_company_assignment: Rolle der Person löschen
     select:

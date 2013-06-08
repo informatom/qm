@@ -18,49 +18,67 @@
   <li><a href="#goals" data-toggle="tab"><%= model_class.human_attribute_name(:goals) %></a></li>
   <li><a href="#authorities" data-toggle="tab"><%= model_class.human_attribute_name(:authorities) %></a></li>
   <li><a href="#comments" data-toggle="tab"><%= model_class.human_attribute_name(:comments) %></a></li>
+  <li><a href="#users" data-toggle="tab"><%= t("activerecord.models.user.other") %></a></li>
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="description">
-    <div class="well">
-      <%= textile(@function.description) %>
-    </div>
+  <div class="tab-pane active well" id="description">
+    <%= textile(@function.description) %>
   </div>
 
-  <div class="tab-pane" id="tasks">
-    <div class="well">
-      <%= textile(@function.tasks) %>
-    </div>
+  <div class="tab-pane well" id="tasks">
+    <%= textile(@function.tasks) %>
   </div>
 
-  <div class="tab-pane" id="responsibilities">
-    <div class="well">
-      <%= textile(@function.responsibilities) %>
-    </div>
+  <div class="tab-pane well" id="responsibilities">
+    <%= textile(@function.responsibilities) %>
   </div>
 
-  <div class="tab-pane" id="skills">
-    <div class="well">
-      <%= textile(@function.skills) %>
-    </div>
+  <div class="tab-pane well" id="skills">
+    <%= textile(@function.skills) %>
   </div>
 
-  <div class="tab-pane" id="goals">
-    <div class="well">
-      <%= textile(@function.goals) %>
-    </div>
+  <div class="tab-pane well" id="goals">
+    <%= textile(@function.goals) %>
   </div>
 
-  <div class="tab-pane" id="authorities">
-    <div class="well">
-      <%= textile(@function.authorities) %>
-    </div>
+  <div class="tab-pane well" id="authorities">
+    <%= textile(@function.authorities) %>
   </div>
 
-  <div class="tab-pane" id="comments">
-    <div class="well">
-      <%= textile(@function.comments) %>
-    </div>
+  <div class="tab-pane well" id="comments">
+    <%= textile(@function.comments) %>
+  </div>
+
+  <div class="tab-pane well" id="users">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%= model_class.human_attribute_name(:updated_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @function.users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
+            <td><%=l user.created_at %></td>
+            <td><%=l user.updated_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          admin_user_path(user),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

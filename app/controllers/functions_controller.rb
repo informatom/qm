@@ -28,4 +28,8 @@ class FunctionsController < ApplicationController
       redirect_to functions_url
     end
   end
+
+  def index
+    @functions = Function.where(company_id: current_company.id)
+  end
 end

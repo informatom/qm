@@ -34,4 +34,8 @@ class DocumentsController < ApplicationController
     mimetype = MIME::Types.type_for(@document.attachment.file.filename)
     send_file @document.attachment.path, :type => mimetype, :disposition => 'attachment'
   end
+
+  def index
+    @documents = Document.where(company_id: current_company.id)
+  end
 end
