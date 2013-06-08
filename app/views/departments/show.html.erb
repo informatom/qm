@@ -11,11 +11,43 @@
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#business_processes" data-toggle="tab"><%= t("activerecord.models.business_process.other") %></a></li>
+  <li class="active"><a href="#users" data-toggle="tab"><%= t("activerecord.models.user.other") %></a></li>
+  <li><a href="#business_processes" data-toggle="tab"><%= t("activerecord.models.business_process.other") %></a></li>
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active well" id="business_processes">
+  <div class="tab-pane active well" id="users">
+    <table class="table table-striped datatable">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:created_at) %></th>
+          <th><%= model_class.human_attribute_name(:updated_at) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @department.users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
+            <td><%=l user.created_at %></td>
+            <td><%=l user.updated_at %></td>
+            <td>
+              <%= link_to t('.edit', :default => icon("edit")),
+                          edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
+              <%= link_to t('.destroy', :default => icon("trash")),
+                          admin_user_path(user),
+                          :method => :delete,
+                          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                          :class => 'btn btn-mini btn-danger' if can? :delete, user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane well" id="business_processes">    
     <table class="table table-striped datatable">
       <thead>
         <tr>
@@ -64,3 +96,4 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' if can? :delete, @department%>
 </div>
+<%= render "shared/datatables_helper" %>

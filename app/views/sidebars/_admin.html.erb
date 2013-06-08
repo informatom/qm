@@ -1,5 +1,4 @@
-<ul class="nav nav-list">
-  <li class="nav-header">Administration</li>
+<ul class="dropdown-menu" role="menu" aria-labelledby="admin">
   <li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :index, Company %></li>
   <li <%= active("companies","organigram") %>><%= link_to icon_("sitemap") + t("organigram"), organigram_company_path(current_company)  if can? :organigram, current_company %></li>
   <li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
@@ -12,11 +11,6 @@
 
   <li <%= active("employments") %>>
     <%= link_to(icons(["user", "resize-horizontal", "home"]) + t("activerecord.models.employment.other"), employments_path) %>
-  </li>
-
-  <li <%= active("department_affiliations") %>>
-    <%= link_to icons(["user", "resize-horizontal", "group"]) + t("activerecord.models.department_affiliation.other"),
-                  department_affiliations_path %>
   </li>
 
   <li <%= active("user_function_assignments") %>>

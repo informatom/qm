@@ -40,7 +40,7 @@
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -49,8 +49,16 @@
           <a class="brand" href="/">QM.mittenin.at</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to t("Administration"), "/?menu=admin" %></li>
-              <li><%= link_to t("Prozesse"), "/?menu=processes" %></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
+                  <%= t("administration")  %></a>
+                  <%= render "sidebars/admin" %>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
+                  <%= t("processes")  %></a>
+                  <%= render "sidebars/processes" %>
+              </li>
             </ul>
             <ul class="nav pull-right">
               <%= render "admin/dropdown" %>
@@ -63,17 +71,9 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <% if current_user %>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <%= render "sidebars/" + session[:menu] %>
-            </div><!--/.well -->
-            <%= domain_helper %>
-          </div><!--/span-->
-        <% end %>
-        <div class="span9">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

@@ -28,4 +28,8 @@ class DepartmentsController < ApplicationController
       redirect_to departments_url
     end
   end
+
+  def index
+    @departments = Department.where(company_id: current_company.id)
+  end
 end

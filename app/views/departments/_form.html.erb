@@ -6,11 +6,22 @@
   <%= company_field(@department, f) %>
 
 <ul class="nav nav-tabs" id="myTab">
-    <li class="active"><a href="#business_process_note_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_note_assignment.other") %></a></li>
+    <li class="active"><a href="#department_affiliations" data-toggle="tab"><%= t("activerecord.models.department_affiliation.other") %></a></li>
+    <li><a href="#business_process_department_assignments" data-toggle="tab"><%= t("activerecord.models.business_process_department_assignment.other") %></a></li>
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active well" id="business_process_department_assignments">
+    <div class="tab-pane active well" id="department_affiliations">
+      <%= f.simple_fields_for :department_affiliations do |da| %>
+        <% render 'department_affiliation_fields', :f => da %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t("helpers.add_assignment"), f, :department_affiliations,
+            :class => "controls btn btn-small btn-info" %>
+      </div>
+    </div> 
+
+    <div class="tab-pane well" id="business_process_department_assignments">
       <%= f.simple_fields_for :business_process_department_assignments do |bpda| %>
         <% render 'business_process_department_assignment_fields', :f => bpda %>
       <% end %>

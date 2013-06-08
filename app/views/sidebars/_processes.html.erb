@@ -1,5 +1,4 @@
-<ul class="nav nav-list">
-  <li class="nav-header">Prozesse</li>
+<ul class="dropdown-menu" role="menu" aria-labelledby="admin">
   <% if process_modell %>
     <li <%= active("business_processes", "diagram") %>><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
   <% end %>

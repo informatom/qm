@@ -1,5 +1,8 @@
 de:
+  administration: Administration
   logout: Abmelden
+  processes: Prozesse
+
   attributes:
     archiving: Archivierung
     area: Bereich
