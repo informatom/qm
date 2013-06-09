@@ -46,7 +46,7 @@ module ApplicationHelper
 
   def logged_in_as
     if current_user
-      current_user.firstname + " " + current_user.lastname
+      current_user.firstname + " " + current_user.lastname + "(" + current_company.name + ")"
     else
       "anonymous"
     end

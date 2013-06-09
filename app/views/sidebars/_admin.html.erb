@@ -1,11 +1,9 @@
-<ul class="dropdown-menu" role="menu" aria-labelledby="admin">
-  <li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :index, Company %></li>
-  <li <%= active("companies","organigram") %>><%= link_to icon_("sitemap") + t("organigram"), organigram_company_path(current_company)  if can? :organigram, current_company %></li>
-  <li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
-  <li <%= active("functions") %>><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
-  <li <%= active("roles_in_company") %>><%= link_to icon_("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
-  <li <%= active("users") %>><%= link_to icon_("user") + t("activerecord.models.user.other"), admin_users_path %></li>
-  <li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) %></li>
-  <li <%= active("news") %>><%= link_to icon_("gift") + t("activerecord.models.news.other"), news_index_path %></li>
-  <li <%= active("flow_objects") %>><%= link_to icon_("picture") + t("activerecord.models.flow_object.other"), flow_objects_path if can? :index, FlowObject %></li>
-</ul>
+<li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :index, Company %></li>
+<li <%= active("companies","organigram") %>><%= link_to icon_("sitemap") + t("organigram"), organigram_company_path(current_company)  if can? :organigram, current_company %></li>
+<li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
+<li <%= active("functions") %>><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
+<li <%= active("roles_in_company") %>><%= link_to icon_("tags") + t("activerecord.models.role_in_company.other"), roles_in_company_path %></li>
+<li <%= active("users") %>><%= link_to icon_("user") + t("activerecord.models.user.other"), admin_users_path %></li>
+<li <%= active("roles") %>><%= link_to(icon_("cogs") + t("activerecord.models.role.other"), roles_path) %></li>
+<li <%= active("news") %>><%= link_to icon_("gift") + t("activerecord.models.news.other"), news_index_path %></li>
+<li <%= active("flow_objects") %>><%= link_to icon_("picture") + t("activerecord.models.flow_object.other"), flow_objects_path if can? :index, FlowObject %></li>

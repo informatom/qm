@@ -15,63 +15,31 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%#= favicon_link_tag '/images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
-
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%#= favicon_link_tag '/images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
-
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%#= favicon_link_tag '/images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
-
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%#= favicon_link_tag '/images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
-
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%#= favicon_link_tag '/images/favicon.ico', :rel => 'shortcut icon' %>
   </head>
+
   <body>
-
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/">QM.mittenin.at</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li class="dropdown">
-                <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
-                  <%= t("administration")  %></a>
-                  <%= render "sidebars/admin" if current_user %>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" if="admin" data-toggle="dropdown" href="#">
-                  <%= t("processes")  %></a>
-                  <%= render "sidebars/processes" if current_user %>
-              </li>
-            </ul>
-            <ul class="nav pull-right">
-              <%= render "admin/dropdown" %>
-              <li><%= link_to "DE", "/?locale=de" %></li>
-              <li><%= link_to "EN", "/?locale=en" %></li>
-              <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
     <div class="container">
+      <%= nav_bar :brand =>  "QM.mittenin.at" do %>
+        <%= menu_group do %>
+           <%= drop_down t("administration") do %>
+             <%= render "sidebars/admin" if current_user %>
+           <% end %>  
+           
+           <%= drop_down t("processes") do %>
+             <%= render "sidebars/processes" if current_user %>
+           <% end %>                 
+        <% end %>
+        
+        <%= menu_group :pull => :right do %>
+          <%= render "admin/dropdown" %>
+          <%= drop_down I18n.locale.to_s.upcase do %>
+            <%= menu_item "DE", "/?locale=de" %>
+            <%= menu_item "EN", "/?locale=en" %>
+          <% end %>  
+          <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+        <% end %>
+      <% end %>
+
       <div class="row">
         <div class="span12">
           <%= bootstrap_flash %>

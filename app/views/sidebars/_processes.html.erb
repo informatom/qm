@@ -1,15 +1,13 @@
-<ul class="dropdown-menu" role="menu" aria-labelledby="admin">
-  <% if process_modell %>
-    <li <%= active("business_processes", "diagram") %>><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
-  <% end %>
+<% if process_modell %>
+  <li <%= active("business_processes", "diagram") %>><%= link_to icon_("sitemap") + t("helpers.links.process_modell"), diagram_business_process_path(process_modell) %></li>
+<% end %>
 
-  <li <%= active("process_classes") %>><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
-  <li <%= active("business_processes", "diagram", true) %>><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
-  <li <%= active("process_steps") %>><%= link_to icon_("check-empty") + t("activerecord.models.process_step.other"), process_steps_path %></li>
-    <li <%= active("process_indicators") %>>
-    <%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %>
-  </li>
-  <li <%= active("notes") %>><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
-  <li <%= active("documents") %>><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>  
-  <li <%= active("instructions") %>><%= link_to icon_("legal") + t("activerecord.models.instruction.other"), instructions_path %></li> 
-</ul>
+<li <%= active("process_classes") %>><%= link_to icon_("globe") + t("activerecord.models.process_class.other"), process_classes_path %></li>
+<li <%= active("business_processes", "diagram", true) %>><%= link_to icon_("road") + t("activerecord.models.business_process.other"), business_processes_path %></li>
+<li <%= active("process_steps") %>><%= link_to icon_("check-empty") + t("activerecord.models.process_step.other"), process_steps_path %></li>
+  <li <%= active("process_indicators") %>>
+  <%= link_to icon_("dashboard") + t("activerecord.models.process_indicator.other"), process_indicators_path %>
+</li>
+<li <%= active("notes") %>><%= link_to icon_("envelope-alt") + t("activerecord.models.note.other"), notes_path %></li>
+<li <%= active("documents") %>><%= link_to icon_("envelope") + t("activerecord.models.document.other"), documents_path %></li>  
+<li <%= active("instructions") %>><%= link_to icon_("legal") + t("activerecord.models.instruction.other"), instructions_path %></li> 
