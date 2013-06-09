@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:business_process_id) %></th>
       <th><%= model_class.human_attribute_name(:created_by) %></th>
       <th><%= model_class.human_attribute_name(:updated_by) %></th>
@@ -17,7 +16,6 @@
     <% @process_steps.each do |process_step| %>
       <tr>
         <td><%= link_to process_step.title, process_step_path(process_step) %></td>
-        <td><%= process_step.company.name %></td>
         <td><%= process_step.business_process.name %></td>
         <td><%= process_step.creator.shortname %></td>
         <td><%= process_step.updator.shortname %></td>

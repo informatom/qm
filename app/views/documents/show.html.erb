@@ -6,8 +6,6 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @document.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @document.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:internal) %>:</strong></dt>
   <dd><%= checkbox(@document.internal) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:attachment) %>:</strong></dt>
@@ -31,7 +29,6 @@
         <tr>      
           <th><%= model_class.human_attribute_name(:title) %></th>
           <th>PDF</th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:number) %></th>
           <th><%= model_class.human_attribute_name(:created_by) %></th>
           <th><%= model_class.human_attribute_name(:in_charge) %></th>
@@ -44,7 +41,6 @@
           <tr>        
             <td><%= link_to instruction.title, instruction_path(instruction)%></td>
             <td><%= link_to "PDF", instruction_path(instruction, :format => "pdf")%></td>
-            <td><%= instruction.company.name %></td>
             <td><%= instruction.number %></td>
             <td><%= instruction.creator.name %></td>
             <td><%= instruction.in_charge.name if instruction.in_charge %></td>
@@ -69,7 +65,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:parent_id) %></th>
           <th><%= model_class.human_attribute_name(:number) %></th>
           <th><%= model_class.human_attribute_name(:owner_id) %></th>
@@ -81,7 +76,6 @@
         <% @document.business_processes.each do |business_process| %>
           <tr>
             <td><%= link_to business_process.name, business_process_path(business_process) %></td>
-            <td><%= truncate(business_process.company.name, length: 20) if business_process.company %></td>
             <td><%= business_process.parent.name if business_process.parent %></td>
             <td><%= business_process.number %></td>
             <td><%= business_process.owner.shortname if business_process.owner %></td>
@@ -106,7 +100,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:title) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:business_process_id) %></th>
           <th><%= model_class.human_attribute_name(:created_by) %></th>
           <th><%= model_class.human_attribute_name(:updated_by) %></th>
@@ -117,7 +110,6 @@
         <% @document.process_steps.each do |process_step| %>
           <tr>
             <td><%= link_to process_step.title, process_step_path(process_step) %></td>
-            <td><%= process_step.company.name %></td>
             <td><%= process_step.business_process.name %></td>
             <td><%= process_step.creator.shortname %></td>
             <td><%= process_step.updator.shortname %></td>

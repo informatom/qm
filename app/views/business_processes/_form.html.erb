@@ -4,11 +4,12 @@
 <%= simple_form_for @business_process, :html => { :class => 'form-horizontal' } do |f| %>
 <div class="row-fluid">
   <div class="span6">
-     <%= f.input :name %>
-     <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
+    <%= f.input :name %>
     <%= f.input :area %>
-    <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
     <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
+    <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
+    <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
+    
   </div>
   <div class="span6">
     <%= company_field(@business_process, f) %>

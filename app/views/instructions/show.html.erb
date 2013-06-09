@@ -6,8 +6,6 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @instruction.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @instruction.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
   <dd><%= @instruction.number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
@@ -69,7 +67,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:title) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:business_process_id) %></th>
           <th><%= model_class.human_attribute_name(:created_by) %></th>
           <th><%= model_class.human_attribute_name(:updated_by) %></th>
@@ -80,7 +77,6 @@
         <% @instruction.process_steps.each do |process_step| %>
           <tr>
             <td><%= link_to process_step.title, process_step_path(process_step) %></td>
-            <td><%= process_step.company.name %></td>
             <td><%= process_step.business_process.name %></td>
             <td><%= process_step.creator.shortname %></td>
             <td><%= process_step.updator.shortname %></td>
@@ -104,7 +100,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:internal) %></th>
           <th><%= model_class.human_attribute_name(:attachment) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -115,7 +110,6 @@
         <% @instruction.documents.each do |document| %>
           <tr>
             <td><%= link_to document.name, document_path(document) %></td>
-            <td><%= document.company.name %></td>
             <td><%= checkbox(document.internal) %></td>
             <td><%= document.attachment.file.filename if document.attachment.file %></td>
             <td><%=l document.created_at %></td>

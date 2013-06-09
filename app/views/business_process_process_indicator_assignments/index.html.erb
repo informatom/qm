@@ -7,7 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:business_process_id) %></th>
       <th><%= model_class.human_attribute_name(:process_indicator_id) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= business_process_process_indicator_assignment.business_process.name %></td>
         <td><%= business_process_process_indicator_assignment.process_indicator.name %></td>
-        <td><%= business_process_process_indicator_assignment.company.name %></td>
         <td><%=l business_process_process_indicator_assignment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

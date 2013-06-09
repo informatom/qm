@@ -7,7 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:color) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= link_to process_class.name, process_class_path(process_class) %></td>
         <td><%= process_class.color %></td>
-        <td><%= process_class.company.name %></td>
         <td><%=l process_class.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

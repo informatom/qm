@@ -7,7 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:note_id) %></th>
       <th><%= model_class.human_attribute_name(:process_step_id) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= note_process_step_assignment.note.name %></td>
         <td><%= note_process_step_assignment.process_step.title %></td>
-        <td><%= note_process_step_assignment.company.name %></td>
         <td><%=l note_process_step_assignment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

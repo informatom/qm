@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:internal) %></th>
       <th><%= model_class.human_attribute_name(:attachment) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -17,7 +16,6 @@
     <% @documents.each do |document| %>
       <tr>
         <td><%= link_to document.name, document_path(document) %></td>
-        <td><%= document.company.name %></td>
         <td><%= checkbox(document.internal) %></td>
         <td><%= document.attachment.file.filename if document.attachment.file %></td>
         <td><%=l document.created_at %></td>

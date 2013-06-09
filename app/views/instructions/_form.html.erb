@@ -2,17 +2,24 @@
 <%= bootstrap_error(@instruction, model_class ) %>
 
 <%= simple_form_for @instruction, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :title %>
-  <%= company_field(@instruction, f) %>
-  <%= f.input :number %>
-  <%= f.input :created_by, disabled: true %>
-  <%= f.input :updated_by, disabled: true %>
-  <%= f.association :in_charge, :collection => User.in_company(current_company.id)%>
-  <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
-  <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
-  <%= f.association :scope, :collection => Department.where(:company_id => current_company.id) %>
-  <%= f.input :revision_date %>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= f.input :title %>
+      <%= company_field(@instruction, f) %>
+      <%= f.association :in_charge, :collection => User.in_company(current_company.id)%>
+      <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
+      <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
+    </div>
 
+    <div class="span6">
+      <%= f.input :number %>
+      <%= f.input :created_by, as: :string,disabled: true, input_html: { value: @instruction.creator.name } %>
+      <%= f.input :updated_by, as: :string, disabled: true, input_html: { value: @instruction.updator.name } %>
+      <%= f.association :scope, :collection => Department.where(:company_id => current_company.id) %>
+    </div>
+  </div>
+  <%= f.input :revision_date, input_html: { class: "input-small"} %>  
+    
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#tasks" data-toggle="tab">*<%= model_class.human_attribute_name(:tasks) %></a></li>
     <li><a href="#ressources" data-toggle="tab"><%= model_class.human_attribute_name(:ressources) %></a></li>

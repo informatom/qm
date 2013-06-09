@@ -6,8 +6,6 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @process_indicator.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @process_indicator.company.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:metering_point) %>:</strong></dt>
   <dd><%= @process_indicator.metering_point %></dd>
   <dt><strong><%= model_class.human_attribute_name(:value) %>:</strong></dt>
@@ -34,7 +32,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:parent_id) %></th>
           <th><%= model_class.human_attribute_name(:number) %></th>
           <th><%= model_class.human_attribute_name(:owner_id) %></th>
@@ -46,7 +43,6 @@
         <% @process_indicator.business_processes.each do |business_process| %>
           <tr>
             <td><%= link_to business_process.name, business_process_path(business_process) %></td>
-            <td><%= truncate(business_process.company.name, length: 20) if business_process.company %></td>
             <td><%= business_process.parent.name if business_process.parent %></td>
             <td><%= business_process.number %></td>
             <td><%= business_process.owner.shortname if business_process.owner %></td>

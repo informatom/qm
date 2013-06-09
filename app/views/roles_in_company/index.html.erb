@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +14,6 @@
     <% @roles_in_company.each do |role_in_company| %>
       <tr>
         <td><%= link_to role_in_company.name, role_in_company_path(role_in_company) %></td>
-        <td><%= role_in_company.company.name %></td>
         <td><%=l role_in_company.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

@@ -74,7 +74,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -83,7 +82,6 @@
         <% @user.functions.each do |function| %>
           <tr>
             <td><%= link_to function.name, function_path(function) %></td>
-            <td><%= function.company.name %></td>
             <td><%=l function.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
@@ -105,7 +103,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -114,7 +111,6 @@
         <% @user.departments.each do |department| %>
           <tr>
             <td><%= link_to department.name, department_path(department) %></td>
-            <td><%= department.company.name if department.company %></td>
             <td><%=l department.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
@@ -136,7 +132,6 @@
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:company_id) %></th>
           <th><%= model_class.human_attribute_name(:created_at) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -145,7 +140,6 @@
         <% @user.roles_in_company.each do |role_in_company| %>
           <tr>
             <td><%= link_to role_in_company.name, role_in_company_path(role_in_company) %></td>
-            <td><%= role_in_company.company.name %></td>
             <td><%=l role_in_company.created_at %></td>
             <td>
               <%= link_to t('.edit', :default => icon("edit")),

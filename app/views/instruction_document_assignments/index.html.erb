@@ -7,7 +7,6 @@
     <tr>
       <th><%= model_class.human_attribute_name(:instruction_id) %></th>
       <th><%= model_class.human_attribute_name(:document_id) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= instruction_document_assignment.instruction.title %></td>
         <td><%= instruction_document_assignment.document.name %></td>
-        <td><%= instruction_document_assignment.company.name %></td>
         <td><%=l instruction_document_assignment.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),

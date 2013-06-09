@@ -7,7 +7,6 @@
     <tr>      
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th>PDF</th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:created_by) %></th>
       <th><%= model_class.human_attribute_name(:in_charge) %></th>
@@ -20,7 +19,6 @@
       <tr>        
         <td><%= link_to instruction.title, instruction_path(instruction)%></td>
         <td><%= link_to "PDF", instruction_path(instruction, :format => "pdf")%></td>
-        <td><%= instruction.company.name %></td>
         <td><%= instruction.number %></td>
         <td><%= instruction.creator.name %></td>
         <td><%= instruction.in_charge.name if instruction.in_charge %></td>
