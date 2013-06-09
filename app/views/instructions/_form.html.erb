@@ -13,8 +13,8 @@
 
     <div class="span6">
       <%= f.input :number %>
-      <%= f.input :created_by, as: :string,disabled: true, input_html: { value: @instruction.creator.name } %>
-      <%= f.input :updated_by, as: :string, disabled: true, input_html: { value: @instruction.updator.name } %>
+      <%= f.input :created_by, as: :string,disabled: true, input_html: { value: @instruction.creator.name if @instruction.creator } %>
+      <%= f.input :updated_by, as: :string, disabled: true, input_html: { value: @instruction.updator.name if @instruction.creator } %>
       <%= f.association :scope, :collection => Department.where(:company_id => current_company.id) %>
     </div>
   </div>
