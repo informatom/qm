@@ -1,17 +1,71 @@
-<h2><%= t('.sign_in', :default => "Sign in") %></h2>
+<div class="well" style="background-image:url(<%= image_path 'background.png'%>)">
+  <h1 class="icon-check"> QM.mittenin.at</h1>
+  <p>Interesse an webunterstütztem Qualitätsmanagement?</p> 
+  <p> Unsere Software befindet sich zwar noch in einer &beta;-Phase,
+    wird aber bereits von einlgen Firmen erfolreich eingesetzt.</p>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="row-fluid">
+  <div class="span4">
+    <br/><h2> <%= icon("pencil")%> <%= t('.sign_in', :default => "Sign in") %></h2>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-  <div><%= f.submit t('.sign_in', :default => "Sign in") %></div>
-<% end %>
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
 
-<%= render "devise/shared/links" %>
+      <div><%= f.submit t('.sign_in', :default => "Sign in") %></div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>  
+
+  <div class="span4">
+    <br/><h2><%= icon("group")%> Administration </h2>
+    <p>QM lässt Sie die wesentlichen Organisationseinheiten Ihrer Firma verwalten:</p>
+    
+    <p>Aus den <%= icon_("group") + t("activerecord.models.department.other") %> und 
+    <%= icon_("bullhorn") + t("activerecord.models.function.other") %> der
+    <%= icon_("home") + t("activerecord.models.company.one") %> erstellen Sie ein 
+    <%= icon_("sitemap") + t("organigram") %>, das Ihnen nebenbei die weitere Navigation erleichtert.</p>
+    
+    <p>Den <%= icon_("user") + t("activerecord.models.user.other") %> weisen Sie in
+    der Firma <%= icon_("tags") + t("activerecord.models.role_in_company.other") %>,
+    <%= icon_("group") + t("activerecord.models.department.other") %> und 
+    <%= icon_("bullhorn") + t("activerecord.models.function.other") %> zu,
+    in der Applikation <%= icon_("cogs") + t("activerecord.models.role.other") %>.</p>
+
+    <p>Über Neuentwickungen in der Applikation werden Sie bei der Anmeldung in Form von
+    <%= icon_("gift") + t("activerecord.models.news.other") %> benachrichtigt.</p>
+  </div>  
+
+  <div class="span4">
+    <br/><h2><%= icon_("road") %> Geschäftsprozesse</h2>
+    
+    <p>Die einzenen <%= icon_("check-empty") + t("activerecord.models.process_step.other") %> 
+    verbinden Sie mittels der <%= icon_("picture") + t("activerecord.models.flow_object.other") %>
+    zu <%= icon_("road") + t("activerecord.models.business_process.other") %>.</p>
+    
+    <p>Entsprechend der zugewieenen <%= icon_("globe") + t("activerecord.models.process_class.other") %>
+    erscheinen Sie dann im <%= icon_("sitemap") + t("helpers.links.process_modell") %> und in den
+    <%= icon_("sitemap") %> Prozessdiagrammen in der richtigen Farbe. </p>
+    
+    <p>Den <%= icon_("road") + t("activerecord.models.business_process.other") %> weisen Sie 
+    <%= icon_("dashboard") + t("activerecord.models.process_indicator.other") %>,
+    <%= icon_("envelope-alt") + t("activerecord.models.note.other") %>, 
+    <%= icon_("envelope") + t("activerecord.models.document.other") %> und 
+    <%= icon_("group") + t("activerecord.models.department.other") %> zu.</p>
+    
+    <p>Den <%= icon_("check-empty") + t("activerecord.models.process_step.other") %>  ordnen Sie
+    <%= icon_("legal") + t("activerecord.models.instruction.other") %>, 
+    <%= icon_("envelope-alt") + t("activerecord.models.note.other") %> und
+    <%= icon_("envelope") + t("activerecord.models.document.other") %> zu.</p>
+
+    <p><strong>Und fertig ist Ihr Qualitätshandbuch!</strong></p>
+  </div>    
+</div>  

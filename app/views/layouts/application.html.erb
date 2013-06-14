@@ -18,41 +18,50 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= nav_bar :brand =>  "QM.mittenin.at" do %>
-        <%= menu_group do %>
-           <%= drop_down t("administration") do %>
-             <%= render "sidebars/admin" if current_user %>
-           <% end %>  
-           
-           <%= drop_down t("processes") do %>
-             <%= render "sidebars/processes" if current_user %>
-           <% end %>                 
+    <a href="https://github.com/informatom/qm">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="<%= image_path('forkme_right_green_007200.png') %>" alt="Fork me on GitHub">
+    </a>
+    <div id="wrap">
+      <div class="container">
+        <%= nav_bar :brand =>  "QM.mittenin.at" do %>
+          <% if current_user %>
+            <%= menu_group do %>
+               <%= drop_down t("administration") do %>
+                 <%= render "sidebars/admin"  %>
+               <% end %>  
+               
+               <%= drop_down t("processes") do %>
+                 <%= render "sidebars/processes" %>
+               <% end %>                 
+            <% end %>
+          <% end %>
+
+          <%= menu_group :pull => :right do %>
+            <%= render "admin/dropdown" %>
+            <%= drop_down I18n.locale.to_s.upcase do %>
+              <%= menu_item "DE", "/?locale=de" %>
+              <%= menu_item "EN", "/?locale=en" %>
+            <% end %>  
+            <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+          <% end %>
         <% end %>
-        
-        <%= menu_group :pull => :right do %>
-          <%= render "admin/dropdown" %>
-          <%= drop_down I18n.locale.to_s.upcase do %>
-            <%= menu_item "DE", "/?locale=de" %>
-            <%= menu_item "EN", "/?locale=en" %>
-          <% end %>  
-          <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
-        <% end %>
-      <% end %>
 
-      <div class="row">
-        <div class="span12">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-      </div><!--/row-->
-      
-      <footer>
-        <p>&copy; mittenin.at 2012</p>
-      </footer>
+        <div class="row">
+          <div class="span12">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+      </div> <!-- /container -->
 
-    </div> <!-- /container -->
-
+      <div id="push"></div>
+      </div> <!-- /wrap -->
+      <div id="footer">
+        <div class="container">
+          <p><br/><a href="http://qm.mittenin.at">QM </a> @ <a href="http://www.mittenin.at">Mittenin.at</a> (2013)</p> 
+        </div>      
+      </div>
+    </div>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
