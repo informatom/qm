@@ -1,4 +1,5 @@
 class Submission < ActiveRecord::Base
+  attr_accessible :name, :email, :message, :answer
 
 begin
   def self.columns() @columns ||= []; end
