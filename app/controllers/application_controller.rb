@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :set_company
+  before_filter :initate_submission
+
+
+  def initate_submission
+    @submission = Submission.new()
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

@@ -65,6 +65,8 @@ Qm::Application.routes.draw do
     resources :users # Have the admin manage them here.
   end
 
+  match "/submissions" => "submiisions#create"
+
   resources :roles
 
   root :to => 'news#latest'

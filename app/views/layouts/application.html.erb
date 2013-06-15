@@ -23,43 +23,39 @@
     </a>
     <div id="wrap">
       <div class="container">
-        <%= nav_bar :brand =>  "QM.mittenin.at" do %>
-          <% if current_user %>
+        <% if current_user %>
+          <%= nav_bar :brand =>  "QM.mittenin.at" do %>
             <%= menu_group do %>
                <%= drop_down t("administration") do %>
                  <%= render "sidebars/admin"  %>
-               <% end %>  
-               
+               <% end %>
+
                <%= drop_down t("processes") do %>
                  <%= render "sidebars/processes" %>
-               <% end %>                 
+               <% end %>
             <% end %>
-          <% end %>
 
-          <%= menu_group :pull => :right do %>
-            <%= render "admin/dropdown" %>
-            <%= drop_down I18n.locale.to_s.upcase do %>
-              <%= menu_item "DE", "/?locale=de" %>
-              <%= menu_item "EN", "/?locale=en" %>
-            <% end %>  
-            <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+            <%= menu_group :pull => :right do %>
+              <%= render "admin/dropdown" %>
+              <%= drop_down I18n.locale.to_s.upcase do %>
+                <%= menu_item "DE", "/?locale=de" %>
+                <%= menu_item "EN", "/?locale=en" %>
+              <% end %>
+              <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
+            <% end %>
           <% end %>
         <% end %>
 
-        <div class="row">
-          <div class="span12">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-        </div><!--/row-->
+        <%= bootstrap_flash %>
+        <%= yield %>
       </div> <!-- /container -->
 
       <div id="push"></div>
       </div> <!-- /wrap -->
       <div id="footer">
         <div class="container">
-          <p><br/><a href="http://qm.mittenin.at">QM </a> @ <a href="http://www.mittenin.at">Mittenin.at</a> (2013)</p> 
-        </div>      
+          <p><br/><a href="http://qm.mittenin.at">QM </a> @ <a href="http://www.mittenin.at">Mittenin.at</a> (2013)</p>
+        </div>
       </div>
     </div>
     <!-- Javascripts
