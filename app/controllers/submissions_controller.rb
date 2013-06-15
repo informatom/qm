@@ -3,9 +3,7 @@ class SubmissionsController < ApplicationController
 
   def create
     @submission = Submission.new(params[:submission])
-    @testimonials = Paragraph.where( :assignment => "Kontakt", :position => 1).first
-    if @submission.save
-      UserMailer.submission(@submission).deliver
+    if UserMailer.submission(@submission).deliver
       redirect_to root_path, :notice => 'E-Mail wurde erfolgreich erzeugt. Wir werden Sie kontaktieren.'
     else
       redirect_to root_path, :notice => 'E-mail konnte nicht gesendet werden. Ist Ihre E-Mailadresse korrekt?'
