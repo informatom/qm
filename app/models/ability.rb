@@ -96,6 +96,7 @@ class Ability
       can :read, Employment, :company_id => current_company.id
       can [:read, :latest, :display], News
       can :read, Role
+      can :create, Submission
     end
   end
 end

@@ -1,4 +1,6 @@
 class SubmissionsController < ApplicationController
+  load_and_authorize_resource
+
   skip_before_filter :authenticate_user!, :only => :create
 
   def create
