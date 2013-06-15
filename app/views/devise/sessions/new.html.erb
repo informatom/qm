@@ -30,13 +30,6 @@
   <div class="span3">
     <br/><h2> <%= icon("pencil")%> Registrieren</h2>
     <%= form_for(@submission) do |f| %>
-      <% if notice %>
-        <div class="info">
-          <div class="msg-box-icon">
-            <%= notice %>
-          </div>
-        </div>
-      <% end %>
       <div>
         <label for="contact_name">Name <em>*</em></label>
         <%= f.text_field :name %>
