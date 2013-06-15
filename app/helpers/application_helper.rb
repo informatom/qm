@@ -3,7 +3,7 @@ module ApplicationHelper
   def bootstrap_error(instance, model_class)
     if instance && instance.errors.any?
       flash_messages = []
-      flash_messages << content_tag(:h4, t("error"))
+      flash_messages << content_tag(:h2, t("error"))
       flash_messages << content_tag(:p, pluralize(instance.errors.count, t("error")) + t("helpers.error_message", :model => model_class.model_name.human) )
       list_items = []
       instance.errors.full_messages.each do |message|

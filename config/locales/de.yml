@@ -4,6 +4,7 @@ de:
   processes: Prozesse
 
   attributes:
+    answer: Antwort
     archiving: Archivierung
     area: Bereich
     authorities: Befugnisse
@@ -180,6 +181,9 @@ de:
       sequence_flow:
         one: BPMN Sequenzfluss
         other: BPMN Sequenzflüsse
+      submission:
+        one: Registrierung
+        other: Registrierungen
       substitution:
         one: Stellvertretung
         other: Stellvertretungen

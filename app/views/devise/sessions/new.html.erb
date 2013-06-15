@@ -5,6 +5,8 @@
     Beginnen Sie noch heute und probieren sie QM ohne Initialkosten aus!</p>
 </div>
 
+<%= bootstrap_error(@submission, Submission ) %>
+
 <div class="row-fluid">
   <div class="span3">
     <br/><h2> <%= icon("pencil")%> <%= t('.sign_in', :default => "Sign in") %></h2>
@@ -32,18 +34,6 @@
         <div class="info">
           <div class="msg-box-icon">
             <%= notice %>
-          </div>
-        </div>
-      <% end %>
-      <% if @submission.errors.any? %>
-        <div class="erroneous">
-          <div class="msg-box-icon">
-            <strong><%= @submission.errors.count %> Fehler verhinderte(n), dass die Kontaktaufnahme akzeptiert wurde:</strong>
-            <ul style="margin-bottom:0px;">
-              <% @submission.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
           </div>
         </div>
       <% end %>
