@@ -5,4 +5,4 @@ class UserMailer < ActionMailer::Base
     @submission = submission
     mail(:to => "stefan.haslinger@mittenin.at", :subject => "::QM@MITTENIN.AT:: Neue Registrierung")
   end
-end$
+end
