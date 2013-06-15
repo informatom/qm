@@ -144,7 +144,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_role_in_company_path(role_in_company), :class => 'btn btn-mini' if can? :edit, role_in_company %>
-              <%= link_to t('.destroy', :default => icon("edit")),
+              <%= link_to t('.destroy', :default => icon("trash")),
                           role_in_company_path(role_in_company),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -153,7 +153,7 @@
           </tr>
         <% end %>
       </tbody>
-    </table>  
+    </table>
   </div>
 
   <div class="tab-pane well" id="deputies">
@@ -186,7 +186,7 @@
       </tbody>
     </table>
   </div>
-  
+
   <div class="tab-pane well" id="substitutions">
     <table class="table table-striped datatable">
       <thead>
@@ -215,8 +215,8 @@
           </tr>
         <% end %>
       </tbody>
-    </table>    
-  </div>    
+    </table>
+  </div>
 </div>
 
 <div class="form-actions">

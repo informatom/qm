@@ -31,9 +31,9 @@
   <li><a href="#necessary_information" data-toggle="tab"><%= model_class.human_attribute_name(:necessary_information) %></a></li>
   <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
   <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
-  <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>  
-  <li><a href="#process_steps" data-toggle="tab"><%= t("activerecord.models.process_step.other") %></a></li>  
-  <li><a href="#documents" data-toggle="tab"><%= t("activerecord.models.document.other") %></a></li>  
+  <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>
+  <li><a href="#process_steps" data-toggle="tab"><%= t("activerecord.models.process_step.other") %></a></li>
+  <li><a href="#documents" data-toggle="tab"><%= t("activerecord.models.document.other") %></a></li>
   <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
@@ -116,7 +116,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-              <%= link_to t('.destroy', :default => icon("edit")),
+              <%= link_to t('.destroy', :default => icon("trash")),
                           document_path(document),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

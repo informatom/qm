@@ -12,5 +12,6 @@
  *= require jquery.ui.all
  *= require scaffolds
  *= require bootstrap_and_overrides
- *= require dataTables/jquery.dataTables.bootstrap 
+ *= require dataTables/jquery.dataTables.bootstrap
+ *= require bootstrap-lightbox
 */

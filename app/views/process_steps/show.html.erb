@@ -93,13 +93,13 @@
           </tr>
         <% end %>
       </tbody>
-    </table>    
+    </table>
   </div>
 
   <div class="tab-pane well" id="instruction">
     <table class="table table-striped datatable">
       <thead>
-        <tr>      
+        <tr>
           <th><%= model_class.human_attribute_name(:title) %></th>
           <th>PDF</th>
           <th><%= model_class.human_attribute_name(:number) %></th>
@@ -111,7 +111,7 @@
       </thead>
       <tbody>
         <% @process_step.instructions.each do |instruction| %>
-          <tr>        
+          <tr>
             <td><%= link_to instruction.title, instruction_path(instruction)%></td>
             <td><%= link_to "PDF", instruction_path(instruction, :format => "pdf")%></td>
             <td><%= instruction.number %></td>
@@ -131,7 +131,7 @@
         <% end %>
       </tbody>
     </table>
-  </div>  
+  </div>
 
   <div class="tab-pane well" id="notes">
     <table class="table table-striped datatable">
@@ -183,7 +183,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-              <%= link_to t('.destroy', :default => icon("edit")),
+              <%= link_to t('.destroy', :default => icon("trash")),
                           document_path(document),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -195,7 +195,7 @@
     </table>
   </div>
 
-</div>    
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
