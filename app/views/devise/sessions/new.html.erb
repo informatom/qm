@@ -31,7 +31,7 @@
   </div>
 
   <div class="span3">
-    <h2><%= icon("group")%> Administration </h2>
+    <h2><%= icon("building")%> Administration </h2>
     <p>QM lässt Sie die wesentlichen Organisationseinheiten Ihrer Firma verwalten:</p>
 
     <p style="line-height: 20px;">Aus den <%= badge icon_("group") + t("activerecord.models.department.other"), :success %> und
@@ -103,7 +103,7 @@
 <div class="row-fluid">
   <ul class="thumbnails">
     <li class="span3">
-      <h2>Übersichtliche Darstellung</h2>
+      <h2><%= icon_("heart") %> Übersichtliche Darstellung</h2>
       <p><%= link_to (image_tag "uebersicht.png"), "#7", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Kurze Einarbeitungszeit durch übersichtliche Darstellungen</p>
@@ -118,7 +118,7 @@
     </li>
 
     <li class="span3">
-      <h2>Versionierung</h2>
+      <h2><%= icon_("tags") %> Versionierung</h2>
       <p><%= link_to (image_tag "versionen.png"), "#1", "data-toggle" => "lightbox",
              class: :thumbnail %></p>
       <p class="text-center">Einfaches Verfolgen der Versionen eines Objektes</p>
@@ -136,7 +136,7 @@
     </li>
 
     <li class="span3">
-      <h2>Organigramm</h2>
+      <h2><%= icon_("group") %> Organigramm</h2>
       <p><%= link_to (image_tag "organigramm.png"), "#2", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Freies Anordnen der Abteilungen und Funktionen zu einem übersichtlichen Organigramm</p>
@@ -151,7 +151,7 @@
     </li>
 
     <li class="span3">
-      <h2>Prozessmodelle</h2>
+      <h2><%= icon_("sitemap") %> Prozessmodelle</h2>
       <p><%= link_to (image_tag "prozessmodell.png"), "#3", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Freies Anordnen der Prozesse zu einem hierarchischen Prozessmodell</p>
@@ -171,7 +171,7 @@
 <div class="row-fluid">
   <ul class="thumbnails">
     <li class="span3">
-      <h2>Prozessdiagramme</h2>
+      <h2><%= icon_("code-fork") %> Prozessdiagramme</h2>
       <p><%= link_to (image_tag "prozessdiagramm.png"), "#4", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">automatisches Generieren von Prozessdiagrammen aus den
@@ -188,7 +188,7 @@
     </li>
 
     <li class="span3">
-      <h2>responsives Layout</h2>
+      <h2><%= icon_("tablet") %>responsives Layout</h2>
       <p><%= link_to (image_tag "responsive.png"), "#5", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Die Anordung der Elemente auf dem Bildschirm efolgt abhängig
@@ -204,7 +204,7 @@
     </li>
 
     <li class="span3">
-      <h2>PDF-Export</h2>
+      <h2><%= icon_("download-alt") %>PDF-Export</h2>
       <p><%= link_to (image_tag "pdf.png"), "#6", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Wichtige Anweisungen lassen sich als PDFs für Druck und Ablage exportieren.</p>
@@ -219,7 +219,7 @@
     </li>
 
     <li class="span3">
-      <h2>Zuordnung</h2>
+      <h2><%= icon_("external-link-sign") %>Zuordnung</h2>
       <p><%= link_to (image_tag "zuordnung.png"), "#8", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Schnelle und einfache Zuordnung und Trennung von
@@ -235,7 +235,7 @@
     </li>
 
     <li class="span3">
-      <h2>Dokumente</h2>
+      <h2><%= icon_("upload-alt") %> Dokumente</h2>
       <p><%= link_to (image_tag "attachment.png"), "#9", "data-toggle" => "lightbox",
             class: :thumbnail %></p>
       <p class="text-center">Hochladen beliebiger Dokumente.</p>
