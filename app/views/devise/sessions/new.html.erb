@@ -34,41 +34,41 @@
     <h2><%= icon("group")%> Administration </h2>
     <p>QM lässt Sie die wesentlichen Organisationseinheiten Ihrer Firma verwalten:</p>
 
-    <p style="line-height: 20px;">Aus den <%= badge icon_("group") + t("activerecord.models.department.other") %> und
-    <%=  badge icon_("bullhorn") + t("activerecord.models.function.other"), :important %> der
-    <%= badge icon_("home") + t("activerecord.models.company.one"), :warning %> erstellen Sie ein
-    <%= badge icon_("sitemap") + t("organigram"), :info %>, das Ihnen nebenbei die weitere Navigation erleichtert.</p>
+    <p style="line-height: 20px;">Aus den <%= badge icon_("group") + t("activerecord.models.department.other"), :success %> und
+    <%=  badge icon_("bullhorn") + t("activerecord.models.function.other"), :success %> der
+    <%= badge icon_("home") + t("activerecord.models.company.one"), :success %> erstellen Sie ein
+    <%= badge icon_("sitemap") + t("organigram"), :success %>, das Ihnen nebenbei die weitere Navigation erleichtert.</p>
 
-    <p style="line-height: 20px;">Den <%= badge icon_("user") + t("activerecord.models.user.other"), :inverse %> weisen Sie in
+    <p style="line-height: 20px;">Den <%= badge icon_("user") + t("activerecord.models.user.other"), :success %> weisen Sie in
     der Firma <%= badge icon_("tags") + t("activerecord.models.role_in_company.other"), :success %>,
-    <%= badge icon_("group") + t("activerecord.models.department.other"), :inverse %> und
-    <%= badge icon_("bullhorn") + t("activerecord.models.function.other"), :important %> zu,
+    <%= badge icon_("group") + t("activerecord.models.department.other"), :success %> und
+    <%= badge icon_("bullhorn") + t("activerecord.models.function.other"), :success %> zu,
     in der Applikation <%= badge icon_("cogs") + t("activerecord.models.role.other"), :success %>.</p>
 
     <p style="line-height: 20px;">Über Neuentwickungen in der Applikation werden Sie bei der Anmeldung in Form von
-    <%= badge icon_("gift") + t("activerecord.models.news.other"), :info %> benachrichtigt.</p>
+    <%= badge icon_("gift") + t("activerecord.models.news.other"), :success %> benachrichtigt.</p>
   </div>
 
   <div class="span3">
     <h2><%= icon_("road") %> Geschäftsprozesse</h2>
 
-    <p style="line-height: 20px;">Die einzenen <%= badge icon_("check-empty") + t("activerecord.models.process_step.other"), :warning %>
-    verbinden Sie mittels der <%= badge icon_("picture") + t("activerecord.models.flow_object.other") %>
-    zu <%= badge icon_("road") + t("activerecord.models.business_process.other"), :success %>.</p>
+    <p style="line-height: 20px;">Die einzenen <%= badge icon_("check-empty") + t("activerecord.models.process_step.other"), :info %>
+    verbinden Sie mittels der <%= badge icon_("picture") + t("activerecord.models.flow_object.other"), :info %>
+    zu <%= badge icon_("road") + t("activerecord.models.business_process.other"), :info %>.</p>
 
-    <p style="line-height: 20px;">Entsprechend der zugewieenen <%= badge icon_("globe") + t("activerecord.models.process_class.other"), :important %>
+    <p style="line-height: 20px;">Entsprechend der zugewieenen <%= badge icon_("globe") + t("activerecord.models.process_class.other"), :info %>
     erscheinen Sie dann im <%= badge icon_("sitemap") + t("helpers.links.process_modell"), :info %> und in den
-    <%= badge icon_("sitemap") + "Prozessdiagrammen" %> in der richtigen Farbe. </p>
+    <%= badge icon_("sitemap") + "Prozessdiagrammen", :info %> in der richtigen Farbe. </p>
 
-    <p style="line-height: 20px;">Den <%= badge icon_("road") + t("activerecord.models.business_process.other"), :inverse %> weisen Sie
-    <%= badge icon_("dashboard") + t("activerecord.models.process_indicator.other"), :warning %>,
-    <%= badge icon_("envelope-alt") + t("activerecord.models.note.other"), :important %>,
+    <p style="line-height: 20px;">Den <%= badge icon_("road") + t("activerecord.models.business_process.other"), :info %> weisen Sie
+    <%= badge icon_("dashboard") + t("activerecord.models.process_indicator.other"), :info %>,
+    <%= badge icon_("envelope-alt") + t("activerecord.models.note.other"), :info %>,
     <%= badge icon_("envelope") + t("activerecord.models.document.other"), :info %> und
-    <%= badge icon_("group") + t("activerecord.models.department.other"), :inverse %> zu.</p>
+    <%= badge icon_("group") + t("activerecord.models.department.other"), :info %> zu.</p>
 
-    <p style="line-height: 20px;">Den <%= badge icon_("check-empty") + t("activerecord.models.process_step.other"), :warning %>  ordnen Sie
-    <%=  badge icon_("legal") + t("activerecord.models.instruction.other") %>,
-    <%= badge icon_("envelope-alt") + t("activerecord.models.note.other"), :important %> und
+    <p style="line-height: 20px;">Den <%= badge icon_("check-empty") + t("activerecord.models.process_step.other"), :info %>  ordnen Sie
+    <%=  badge icon_("legal") + t("activerecord.models.instruction.other"), :info %>,
+    <%= badge icon_("envelope-alt") + t("activerecord.models.note.other"), :info %> und
     <%= badge icon_("envelope") + t("activerecord.models.document.other"), :info %> zu.</p>
 
     <p><strong>Und fertig ist Ihr Qualitätshandbuch!</strong></p>
