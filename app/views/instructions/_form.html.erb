@@ -18,19 +18,19 @@
       <%= f.association :scope, :collection => Department.where(:company_id => current_company.id) %>
     </div>
   </div>
-  <%= f.input :revision_date, input_html: { class: "input-small"} %>  
-    
+  <%= f.input :revision_date, input_html: { class: "input-small"} %>
+
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#tasks" data-toggle="tab">*<%= model_class.human_attribute_name(:tasks) %></a></li>
     <li><a href="#ressources" data-toggle="tab"><%= model_class.human_attribute_name(:ressources) %></a></li>
     <li><a href="#necessary_information" data-toggle="tab"><%= model_class.human_attribute_name(:necessary_information) %></a></li>
     <li><a href="#security" data-toggle="tab"><%= model_class.human_attribute_name(:security) %></a></li>
     <li><a href="#ecology" data-toggle="tab"><%= model_class.human_attribute_name(:ecology) %></a></li>
-    <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li> 
-    <li><a href="#instruction_process_step_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_process_step_assignment.other") %></a></li> 
-    <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li> 
+    <li><a href="#on_deviation" data-toggle="tab"><%= model_class.human_attribute_name(:on_deviation) %></a></li>
+    <li><a href="#instruction_process_step_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_process_step_assignment.other") %></a></li>
+    <li><a href="#instruction_document_assignments" data-toggle="tab"><%= t("activerecord.models.instruction_document_assignment.other") %></a></li>
   </ul>
-  
+
   <div class="tab-content">
     <div class="tab-pane active" id="tasks">
       <div class="well">
