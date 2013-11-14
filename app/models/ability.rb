@@ -10,7 +10,7 @@ class Ability
 
     elsif user.has_role? :qm
       can [:edit, :update, :organigram], Company, :id => current_company.id
-      can :index, Company, :users => { :id => user.id}
+      can :manage, Company, :users => { :id => user.id}
 
       can :manage, User, :companies => { :id => current_company.id }
       can :create, User
