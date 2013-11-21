@@ -54,7 +54,10 @@ de:
     on_deviation: Bei Abweichung
     operator: Ausführender
     organigram: Organigramm
+    owner: Besitzer
+    owner_id: Besitzer
     parent: übergeordnet
+    parent_id: übergeordnet
     password: Passwort
     password_confirmation: Passwortwiederholung
     process_class: Prozessklasse
