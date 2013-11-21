@@ -21,11 +21,11 @@ class User < ActiveRecord::Base
   has_many :assignments, :dependent => :restrict, :inverse_of => :user
   has_many :roles, :through => :assignments, :dependent => :restrict
 
-  has_many :substitutions, :inverse_of => :user, :dependent => :restrict  
+  has_many :substitutions, :inverse_of => :user, :dependent => :restrict
   has_many :deputies, :through => :substitutions, :dependent => :restrict
   accepts_nested_attributes_for :substitutions, :allow_destroy => true
-  
-  has_many :replacements, :inverse_of => :user, :dependent => :restrict, :class_name => "Substitution", :foreign_key => "deputy_id"
+
+  has_many :replacements, :inverse_of => :deputy, :dependent => :restrict, :class_name => "Substitution", :foreign_key => "deputy_id"
   has_many :replaces, :through => :replacements, :dependent => :restrict, :source => :user
   accepts_nested_attributes_for :replacements, :allow_destroy => true
 

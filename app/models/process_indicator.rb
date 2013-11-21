@@ -7,7 +7,7 @@ class ProcessIndicator < ActiveRecord::Base
 
   belongs_to :company
 
-  has_many :business_process_process_indicator_assignments, :dependent => :restrict
+  has_many :business_process_process_indicator_assignments, :dependent => :restrict, :inverse_of => :process_indicator
   has_many :business_processes, :through => :business_process_process_indicator_assignments, :dependent => :restrict
   accepts_nested_attributes_for :business_process_process_indicator_assignments, :allow_destroy => true
 end

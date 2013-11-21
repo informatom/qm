@@ -8,11 +8,11 @@ class Note < ActiveRecord::Base
 
   belongs_to :company
 
-  has_many :business_process_note_assignments, :dependent => :restrict
+  has_many :business_process_note_assignments, :dependent => :restrict, :inverse_of => :note
   has_many :business_processes, :through => :business_process_note_assignments, :dependent => :restrict
   accepts_nested_attributes_for :business_process_note_assignments, :allow_destroy => true
 
-  has_many :note_process_step_assignments, :dependent => :restrict
+  has_many :note_process_step_assignments, :dependent => :restrict, :inverse_of => :note
   has_many :process_steps, :through => :note_process_step_assignments, :dependent => :restrict
   accepts_nested_attributes_for :note_process_step_assignments, :allow_destroy => true
 end

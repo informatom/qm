@@ -9,7 +9,7 @@ class RoleInCompany < ActiveRecord::Base
 
   belongs_to :company
 
-  has_many :user_role_in_company_assignments, :dependent => :restrict
+  has_many :user_role_in_company_assignments, :dependent => :restrict, :inverse_of => :role_in_company
   has_many :users, :through => :user_role_in_company_assignments, :dependent => :restrict
   accepts_nested_attributes_for :user_role_in_company_assignments, :allow_destroy => true
 end

@@ -6,7 +6,8 @@ class Company < ActiveRecord::Base
 
   has_many :users, :through => :employments, :dependent => :restrict, :inverse_of => :companies
   has_many :substitutions, :dependent => :restrict
-  has_many :employments, :dependent => :restrict
+
+  has_many :employments, :dependent => :restrict, :inverse_of => :company
   accepts_nested_attributes_for :employments, :allow_destroy => true
 
   has_many :departments, :dependent => :restrict

@@ -1,8 +1,8 @@
 class SequenceFlow < ActiveRecord::Base
   attr_accessible :flow_object_id, :name, :source_id, :target_id, :company_id
 
-  validates_presence_of :source_id
-  validates_presence_of :target_id
+  validates_presence_of :source
+  validates_presence_of :target
   validates_presence_of :flow_object_id
 
   belongs_to :company
