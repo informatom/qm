@@ -1,8 +1,14 @@
 class CompaniesController < ApplicationController
   load_and_authorize_resource
 
+   def new
+     @company = Company.new()
+     @company.employments.new(user_id: current_user.id)
+   end
+
   def create
     if @company.save
+      @company.employments.find_or_create_by_user_id(current_user.id)
       redirect_to @company, notice: t('notice.company.created')
     else
       render action: "new"

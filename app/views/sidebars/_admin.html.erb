@@ -1,4 +1,4 @@
-<li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :index, Company %></li>
+<li <%= active("companies") %>><%= link_to icon_("home") + t("activerecord.models.company.other"), companies_path  if can? :new, Company %></li>
 <li <%= active("companies","organigram") %>><%= link_to icon_("sitemap") + t("organigram"), organigram_company_path(current_company)  if can? :organigram, current_company %></li>
 <li <%= active("departments") %>><%= link_to icon_("group") + t("activerecord.models.department.other"), departments_path %></li>
 <li <%= active("functions") %>><%= link_to icon_("bullhorn") + t("activerecord.models.function.other"), functions_path %></li>
