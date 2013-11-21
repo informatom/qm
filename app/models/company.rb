@@ -20,7 +20,7 @@ class Company < ActiveRecord::Base
   has_many :roles_in_company, :dependent => :restrict
   has_many :user_role_in_company_assignments, :dependent => :restrict
 
-  has_many :processclasses, :dependent => :restrict
+  has_many :process_classes, :dependent => :restrict
   has_many :business_processes, :dependent => :restrict
 
   has_many :process_steps, :dependent => :restrict
