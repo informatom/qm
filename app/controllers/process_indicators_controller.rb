@@ -1,5 +1,11 @@
 class ProcessIndicatorsController < ApplicationController
   load_and_authorize_resource
+  autocomplete :user, :lastname, :full => true, :extra_data => [:firstname],
+               :display_value => :name
+
+  def get_autocomplete_items(parameters)
+    super(parameters).joins(:companies).where(companies: {id: current_company.id})
+  end
 
   def create
     if @process_indicator.save

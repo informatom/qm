@@ -35,7 +35,12 @@ Qm::Application.routes.draw do
     end
   end
 
-  resources :process_indicators
+  resources :process_indicators do
+    collection do
+      get :autocomplete_user_lastname
+    end
+  end
+
   resources :documents do
     member do
       get 'download'

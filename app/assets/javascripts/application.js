@@ -7,3 +7,4 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require bootstrap-lightbox.min
+//= require autocomplete-rails

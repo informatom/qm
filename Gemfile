@@ -6,6 +6,8 @@ gem 'devise'                                         # authentification
 gem 'devise-i18n-views'                              # translated views for devise
 gem 'nokogiri'                                       # Needed by devise-helper
 
+gem 'jquery-rails'                                   # Javascript framework
+gem 'jquery-ui-rails'                              # JQuery-UI assets
 gem 'cancan'                                         # access control
 gem 'ancestry'                                       # hierarchical comments
 gem 'simple_form'                                    # simple forms
@@ -17,6 +19,7 @@ gem "truncate_html"         # Für truncate_html
 gem 'jquery-datatables-rails'                        # Tables
 gem 'carrierwave'                                    # Uploads
 gem 'wicked_pdf'                                     # PDF Creation
+gem 'rails3-jquery-autocomplete'                     # autocompletion
 
 # gem 'yaml_db'                                        # for porting database to mysql
 gem 'paper_trail', '~> 2'                            # Versioning
@@ -30,10 +33,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'                     # enables Coffeescript in addition to Javascript
   gem 'therubyracer', :platforms => :ruby            # serverside Javascript engine
   gem 'uglifier', '>= 1.0.3'                         # Javascript compressor
-  gem 'jquery-ui-rails'                              # JQuery-UI assets
 end
-
-gem 'jquery-rails'                                   # Javascript framework
 
 group :test, :development do
   gem 'thin'
