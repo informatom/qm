@@ -9,8 +9,9 @@ class Ability
       can :manage, :all
 
     elsif user.has_role? :qm
+      can [:read], Company, :users => {:id => user.id}
       can [:new, :create], Company
-      can [:edit, :update, :organigram, :index], Company, :id => current_company.id
+      can [:edit, :update, :organigram], Company, :id => current_company.id
 
       can :manage, User, :companies => { :id => current_company.id }
       can :create, User
