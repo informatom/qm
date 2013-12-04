@@ -8,7 +8,8 @@
   <%= f.input :value, input_html: {class: "input-xxlarge"} %>
   <%= f.input :unit %>
   <%= f.input :nominal_value, input_html: {class: "input-xxlarge"} %>
-  <%= f.input :operator %>
+  <%= f.input :operator, :url => autocomplete_user_lastname_process_indicators_path, 
+              :as => :autocomplete, input_html: {'data-delimiter' => ',', :multiple => true} %>
 
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>
