@@ -1,4 +1,6 @@
 class Assignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :role_id, :user_id
 
   validates_presence_of :role

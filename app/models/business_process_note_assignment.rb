@@ -1,4 +1,6 @@
 class BusinessProcessNoteAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :business_process_id, :company_id, :note_id
 
   validates_presence_of :note

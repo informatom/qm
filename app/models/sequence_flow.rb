@@ -1,4 +1,6 @@
 class SequenceFlow < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :flow_object_id, :name, :source_id, :target_id, :company_id
 
   validates_presence_of :source

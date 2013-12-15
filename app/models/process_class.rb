@@ -1,4 +1,6 @@
 class ProcessClass < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :description, :name, :color
 
   validates_presence_of :name

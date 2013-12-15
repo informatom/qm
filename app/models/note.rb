@@ -1,4 +1,6 @@
 class Note < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :description, :name, :duration, :location, :medium, :archiving,
                   :business_process_note_assignments_attributes,
                   :note_process_step_assignments_attributes

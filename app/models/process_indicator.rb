@@ -1,4 +1,6 @@
 class ProcessIndicator < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :description, :metering_point, :name, :nominal_value, :operator, :unit, :value,
                   :business_process_process_indicator_assignments_attributes
 

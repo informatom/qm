@@ -1,4 +1,6 @@
 class Employment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :user_id
 
   validates_presence_of :company

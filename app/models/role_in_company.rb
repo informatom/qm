@@ -1,4 +1,6 @@
 class RoleInCompany < ActiveRecord::Base
+  has_paper_trail
+
   set_table_name :roles_in_company
 
   attr_accessible :company_id, :name, :description,

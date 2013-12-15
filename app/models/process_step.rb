@@ -1,4 +1,6 @@
 class ProcessStep < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :created_by, :description, :business_process_id, :title, :flow_object_id, :updated_by,
                   :outgoing_sequence_flows_attributes,
                   :incoming_sequence_flows_attributes,

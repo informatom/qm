@@ -1,4 +1,6 @@
 class DepartmentAffiliation < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :department_id, :user_id, :company_id
 
   validates_presence_of :department

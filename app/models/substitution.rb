@@ -1,4 +1,6 @@
 class Substitution < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :deputy_id, :user_id, :company_id
 
   validates_presence_of :deputy

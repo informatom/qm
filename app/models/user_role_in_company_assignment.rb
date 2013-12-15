@@ -1,4 +1,6 @@
 class UserRoleInCompanyAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :role_in_company_id, :user_id, :company_id
 
   validates_presence_of :role_in_company

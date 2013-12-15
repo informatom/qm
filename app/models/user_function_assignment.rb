@@ -1,4 +1,6 @@
 class UserFunctionAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :function_id, :user_id, :company_id
 
   validates_presence_of :function

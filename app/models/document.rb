@@ -1,4 +1,6 @@
 class Document < ActiveRecord::Base
+  has_paper_trail
+
   mount_uploader :attachment, AttachmentUploader
   attr_accessible :company_id, :description, :internal, :name, :attachment, :remove_attachment,
                   :business_process_document_assignments_attributes,

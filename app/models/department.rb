@@ -1,4 +1,6 @@
 class Department < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :name, :x, :y,
                   :business_process_department_assignments_attributes,
                   :department_affiliations_attributes

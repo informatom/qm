@@ -1,4 +1,6 @@
 class NoteProcessStepAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :note_id, :process_step_id
 
   validates_presence_of :note

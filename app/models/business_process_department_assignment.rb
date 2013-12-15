@@ -1,4 +1,6 @@
 class BusinessProcessDepartmentAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :business_process_id, :company_id, :department_id
 
   validates_presence_of :department

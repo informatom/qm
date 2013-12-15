@@ -1,4 +1,6 @@
 class DocumentProcessStepAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :document_id, :process_step_id
 
   validates_presence_of :document

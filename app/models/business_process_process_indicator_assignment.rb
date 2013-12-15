@@ -1,4 +1,6 @@
 class BusinessProcessProcessIndicatorAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :business_process_id, :company_id, :process_indicator_id
 
   validates_presence_of :process_indicator

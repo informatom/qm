@@ -1,4 +1,6 @@
 class InstructionDocumentAssignment < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :document_id, :instruction_id
 
   validates_presence_of :instruction

@@ -1,4 +1,6 @@
 class Company < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :name, :employments_attributes
 
   validates_presence_of :name

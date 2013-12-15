@@ -1,4 +1,6 @@
 class FlowObject < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :flow_object_class, :image_file_name, :name
 
   validates_presence_of :flow_object_class

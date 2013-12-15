@@ -1,4 +1,6 @@
 class Submission < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :name, :email, :message, :answer
 
 begin

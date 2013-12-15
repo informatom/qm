@@ -1,4 +1,6 @@
 class Function < ActiveRecord::Base
+  has_paper_trail
+
   attr_accessible :company_id, :name, :description, :comments, :tasks, :responsibilities, :skills, :goals, :authorities, :x, :y,
                   :user_function_assignments_attributes
 
