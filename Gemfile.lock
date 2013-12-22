@@ -6,13 +6,13 @@ GIT
 
 GIT
   remote: git://github.com/nathanvda/cocoon.git
-  revision: db75e11f4729505d233d896fd8a1f25d4fe98ff4
+  revision: bd8c4a232568cd79dfbec1f9709d3c8a9098ee4b
   specs:
-    cocoon (1.2.3)
+    cocoon (1.2.5)
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: e73a12afc1ef4f4adaf5ad794928d1faa6041d0e
+  revision: f634e07d9c567e8e46abf95355514956121923d5
   specs:
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
@@ -131,7 +131,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.1.0)
+    jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
     json (1.8.1)
     launchy (2.4.2)
@@ -150,7 +150,7 @@ GEM
     multi_json (1.8.2)
     multi_test (0.0.2)
     mysql2 (0.3.14)
-    nokogiri (1.6.0)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
     paper_trail (2.7.2)
@@ -172,8 +172,8 @@ GEM
       activesupport (= 3.2.16)
       bundler (~> 1.0)
       railties (= 3.2.16)
-    rails3-jquery-autocomplete (1.0.11)
-      rails (~> 3.0)
+    rails3-jquery-autocomplete (1.0.12)
+      rails (>= 3.0)
     railties (3.2.16)
       actionpack (= 3.2.16)
       activesupport (= 3.2.16)
@@ -181,7 +181,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.1.0)
+    rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
@@ -196,7 +196,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sass (3.2.12)
+    sass (3.2.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -236,12 +236,12 @@ GEM
       polyglot (>= 0.3.1)
     truncate_html (0.9.2)
     tzinfo (0.3.38)
-    uglifier (2.3.2)
+    uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    wicked_pdf (0.9.7)
+    wicked_pdf (0.9.10)
       rails
     xpath (2.0.0)
       nokogiri (~> 1.3)

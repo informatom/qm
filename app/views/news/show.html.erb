@@ -10,10 +10,19 @@
   <dd><%= created(@news) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
   <dd><%= updated(@news) %></dd>
-  <div class="description">
+</dl>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active well" id="description">
     <%= textile(@news.description) %>
   </div>
-</dl>
+  <%= versioning_helper(@news) %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

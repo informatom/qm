@@ -37,6 +37,7 @@
   <li><a href="#roles_in_company" data-toggle="tab"><%= model_class.human_attribute_name(:roles_in_company) %></a></li>
   <li><a href="#deputies" data-toggle="tab"><%=  t("activerecord.models.deputy.other")  %></a></li>
   <li><a href="#substitutions" data-toggle="tab"><%= t("activerecord.models.replaces.other") %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -217,6 +218,7 @@
       </tbody>
     </table>
   </div>
+  <%= versioning_helper(@user) %>
 </div>
 
 <div class="form-actions">

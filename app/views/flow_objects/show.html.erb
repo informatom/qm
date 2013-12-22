@@ -8,9 +8,20 @@
   <dd><%= @flow_object.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:flow_object_class) %>:</strong></dt>
   <dd><%= @flow_object.flow_object_class %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag( "/assets/flow-objects/" + @flow_object.image_file_name) %> <%= @flow_object.image_file_name %></dd>
 </dl>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#image" data-toggle="tab"><%= model_class.human_attribute_name(:image) %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active well" id="description">
+    <%= image_tag( "/assets/flow-objects/" + @flow_object.image_file_name) %> <%= @flow_object.image_file_name %>
+  </div>
+  <%= versioning_helper(@flow_object) %>
+</div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
