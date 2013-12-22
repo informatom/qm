@@ -21,6 +21,7 @@
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
   <li><a href="#business_processes" data-toggle="tab"><%= t("activerecord.models.business_process.other") %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -28,7 +29,7 @@
     <%= textile(@process_indicator.description) %>
   </div>
   <div class="tab-pane well" id="business_processes">
-<table class="table table-striped datatable">
+    <table class="table table-striped datatable">
       <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:name) %></th>
@@ -61,6 +62,7 @@
       </tbody>
     </table>
   </div>
+  <%= versioning_helper(@process_indicator) %>
 </div>
 
 <div class="form-actions">

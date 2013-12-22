@@ -11,6 +11,7 @@
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#users" data-toggle="tab"><%= t("activerecord.models.user.other") %></a></li>
   <li><a href="#business_processes" data-toggle="tab"><%= t("activerecord.models.business_process.other") %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -79,6 +80,7 @@
       </tbody>
     </table>
   </div>
+  <%= versioning_helper(@department) %>
 </div>
 
 <div class="form-actions">

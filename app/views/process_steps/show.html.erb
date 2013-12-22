@@ -23,6 +23,7 @@
   <li><a href="#instruction" data-toggle="tab"><%= t("activerecord.models.instruction.other") %></a></li>
   <li><a href="#notes" data-toggle="tab"><%= t("activerecord.models.note.other") %></a></li>
   <li><a href="#documents" data-toggle="tab"><%= t("activerecord.models.document.other") %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -194,6 +195,7 @@
       </tbody>
     </table>
   </div>
+  <%= versioning_helper(@process_step) %>
 
 </div>
 

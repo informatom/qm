@@ -17,6 +17,7 @@
   <li><a href="#authorities" data-toggle="tab"><%= model_class.human_attribute_name(:authorities) %></a></li>
   <li><a href="#comments" data-toggle="tab"><%= model_class.human_attribute_name(:comments) %></a></li>
   <li><a href="#users" data-toggle="tab"><%= t("activerecord.models.user.other") %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= t("helpers.versions") %></a></li>
 </ul>
 
 <div class="tab-content">
@@ -78,6 +79,7 @@
       </tbody>
     </table>
   </div>
+  <%= versioning_helper(@function) %>
 </div>
 
 <div class="form-actions">
