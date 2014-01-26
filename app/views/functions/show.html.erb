@@ -7,9 +7,9 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @function.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
-  <dd><%= @function.controlled_by.name %></dd>
+  <dd><%= @function.controlled_by.name if @function.controlled_by %></dd>
   <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
-  <dd><%= @function.released_by.name %></dd>
+  <dd><%= @function.released_by.name if @function.released_by %></dd>
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">

@@ -15,9 +15,9 @@
   <dt><strong><%= model_class.human_attribute_name(:archiving) %>:</strong></dt>
   <dd><%= @note.archiving %></dd>
   <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
-  <dd><%= @note.controlled_by.name %></dd>
+  <dd><%= @note.controlled_by.name if @note.controlled_by %></dd>
   <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
-  <dd><%= @note.released_by.name %></dd>
+  <dd><%= @note.released_by.name if @note.released_by %></dd>
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">

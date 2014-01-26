@@ -25,9 +25,9 @@
   <dt><strong><%= model_class.human_attribute_name(:updated_by) %>:</strong></dt>
   <dd><%= updated(@business_process) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
-  <dd><%= @business_process.controlled_by.name %></dd>
+  <dd><%= @business_process.controlled_by.name if @business_process.controlled_by %></dd>
   <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
-  <dd><%= @business_process.released_by.name %></dd>
+  <dd><%= @business_process.released_by.name if @business_process.released_by %></dd>
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">
