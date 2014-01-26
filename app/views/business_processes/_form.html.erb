@@ -9,6 +9,8 @@
     <%= f.association :process_class, :collection => ProcessClass.where(:company_id => current_company.id) %>
     <%= f.input :purpose, input_html: {class: "input-xxlarge"} %>
     <%= f.input :aims, input_html: {class: "input-xxlarge"} %>
+    <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
+    <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
     
   </div>
   <div class="span6">

@@ -8,6 +8,10 @@
   <dd><%= @document.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:internal) %>:</strong></dt>
   <dd><%= checkbox(@document.internal) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
+  <dd><%= @document.controlled_by.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
+  <dd><%= @document.released_by.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:attachment) %>:</strong></dt>
   <dd><%= link_to( @document.attachment.file.filename, download_document_path ) if @document.attachment.file %></dd>
 </dl>

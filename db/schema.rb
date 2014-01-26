@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607064142) do
+ActiveRecord::Schema.define(:version => 20140126104500) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20130607064142) do
     t.integer  "created_by"
     t.integer  "updated_by"
     t.string   "area"
+    t.integer  "released_by_id"
+    t.integer  "controlled_by_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -108,9 +110,11 @@ ActiveRecord::Schema.define(:version => 20130607064142) do
     t.integer  "company_id"
     t.text     "description"
     t.boolean  "internal"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "attachment"
+    t.integer  "released_by_id"
+    t.integer  "controlled_by_id"
   end
 
   create_table "employments", :force => true do |t|
@@ -142,6 +146,8 @@ ActiveRecord::Schema.define(:version => 20130607064142) do
     t.text     "comments"
     t.integer  "x"
     t.integer  "y"
+    t.integer  "released_by_id"
+    t.integer  "controlled_by_id"
   end
 
   create_table "instruction_document_assignments", :force => true do |t|
@@ -202,12 +208,14 @@ ActiveRecord::Schema.define(:version => 20130607064142) do
     t.string   "name"
     t.integer  "company_id"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "duration"
     t.string   "location"
     t.string   "medium"
     t.string   "archiving"
+    t.integer  "released_by_id"
+    t.integer  "controlled_by_id"
   end
 
   create_table "process_classes", :force => true do |t|

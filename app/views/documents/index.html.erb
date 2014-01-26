@@ -9,6 +9,8 @@
       <th><%= model_class.human_attribute_name(:internal) %></th>
       <th><%= model_class.human_attribute_name(:attachment) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:controlled_by) %></th>
+      <th><%= model_class.human_attribute_name(:released_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,6 +21,8 @@
         <td><%= checkbox(document.internal) %></td>
         <td><%= document.attachment.file.filename if document.attachment.file %></td>
         <td><%=l document.created_at %></td>
+        <td><%= document.controlled_by.name if document.controlled_by %></td>
+        <td><%= document.released_by.name if document.released_by %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>

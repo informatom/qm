@@ -8,6 +8,8 @@
   <%= f.input :location, input_html: {class: "input-xxlarge"}%>
   <%= f.input :medium %>
   <%= f.input :archiving, input_html: {class: "input-xxlarge"} %>
+  <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
+  <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
 
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#description" data-toggle="tab">*<%= model_class.human_attribute_name(:description) %></a></li>

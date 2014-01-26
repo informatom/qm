@@ -7,6 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:controlled_by) %></th>
+      <th><%= model_class.human_attribute_name(:released_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -15,6 +17,8 @@
       <tr>
         <td><%= link_to note.name, note_path(note) %></td>
         <td><%=l note.created_at %></td>
+        <td><%= note.controlled_by.name if note.controlled_by %></td>
+        <td><%= note.released_by.name if note.released_by %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_note_path(note), :class => 'btn btn-mini' if can? :edit, note %>

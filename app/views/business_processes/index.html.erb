@@ -10,6 +10,8 @@
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:owner_id) %></th>
       <th><%= model_class.human_attribute_name(:process_class_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:controlled_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,6 +23,8 @@
         <td><%= business_process.number %></td>
         <td><%= business_process.owner.shortname if business_process.owner %></td>
         <td><%= business_process.process_class.name if business_process.process_class %></td>
+        <td><%= business_process.controlled_by.name if business_process.controlled_by %></td>
+        <td><%= business_process.released_by.name if business_process.released_by %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_business_process_path(business_process), :class => 'btn btn-mini' if can? :edit, business_process %>

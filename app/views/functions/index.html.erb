@@ -7,6 +7,8 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:controlled_by) %></th>
+      <th><%= model_class.human_attribute_name(:released_by) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -15,6 +17,8 @@
       <tr>
         <td><%= link_to function.name, function_path(function) %></td>
         <td><%=l function.created_at %></td>
+        <td><%= function.controlled_by.name if function.controlled_by %></td>
+        <td><%= function.released_by.name if function.released_by %></td>
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_function_path(function), :class => 'btn btn-mini' if can? :edit, function %>

@@ -14,6 +14,10 @@
   <dd><%= @note.medium %></dd>
   <dt><strong><%= model_class.human_attribute_name(:archiving) %>:</strong></dt>
   <dd><%= @note.archiving %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:controlled_by) %>:</strong></dt>
+  <dd><%= @note.controlled_by.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:released_by) %>:</strong></dt>
+  <dd><%= @note.released_by.name %></dd>
 </dl>
 
 <ul class="nav nav-tabs" id="myTab">

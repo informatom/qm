@@ -50,6 +50,18 @@ class User < ActiveRecord::Base
   has_many :controlled_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "controlled_by_id"
   has_many :released_instructions, :class_name => "Instruction", :dependent => :restrict, :foreign_key => "released_by_id"
 
+  has_many :controlled_documents, :class_name => "Document", :dependent => :restrict, :foreign_key => "controlled_by_id"
+  has_many :released_documends, :class_name => "Document", :dependent => :restrict, :foreign_key => "released_by_id"
+
+  has_many :controlled_notes, :class_name => "Note", :dependent => :restrict, :foreign_key => "controlled_by_id"
+  has_many :released_notes, :class_name => "Note", :dependent => :restrict, :foreign_key => "released_by_id"
+
+  has_many :controlled_functions, :class_name => "Function", :dependent => :restrict, :foreign_key => "controlled_by_id"
+  has_many :released_functions, :class_name => "Function", :dependent => :restrict, :foreign_key => "released_by_id"
+
+  has_many :controlled_business_processes, :class_name => "BusinessProcess", :dependent => :restrict, :foreign_key => "controlled_by_id"
+  has_many :released_business_processes, :class_name => "BusinessProcess", :dependent => :restrict, :foreign_key => "released_by_id"
+
   scope :in_company, lambda { |company_id| (includes(:employments).merge(Employment.in_company(company_id))) }
 
 

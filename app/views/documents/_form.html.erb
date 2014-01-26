@@ -6,6 +6,8 @@
   <%= company_field(@document, f) %>
 
   <%= f.input :internal %>
+  <%= f.association :controlled_by, :collection => User.in_company(current_company.id) %>
+  <%= f.association :released_by, :collection => User.in_company(current_company.id) %>
 
   <%= f.input :attachment, :as => :string, disabled: true, input_html: { delete: 'true' } %>
   <%= f.input :attachment, :as => :file, label: 'Hochladen' %>
