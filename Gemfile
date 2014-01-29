@@ -37,7 +37,7 @@ end
 
 group :test, :development do
   gem 'thin'
-  gem 'debugger'                                     # command line debugger
+  gem 'byebug'                                     # command line debugger
   gem 'simplecov', :require => false                 # code coverage tool
   gem "rspec-rails"                                  # unit test framwork in addition to TestUnit
   gem 'cucumber-rails', :require => false            # BDD framework
