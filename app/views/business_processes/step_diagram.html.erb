@@ -19,13 +19,13 @@
       </div>
     </div>
   <% @process_steps.each do |process_step| %>
-    <div class="row-fluid" style="margin-bottom:50px;">
+    <div class="row-fluid" style="margin-bottom:10px;">
       <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; line-height:7em; text-align:center;">
         <%= image(process_step) %>
       </div>
       <div class="span4 offset1">
         <h4><%= link_to process_step.title, process_step_path(process_step) %></h4>
-        <small><%= truncate_html(textile(process_step.description), length: 150) %></small>
+        <small><%= truncate_html(textile(process_step.description), length: 100) %></small>
       </div>
       <div class="span5">
         <ul class="inline">
