@@ -19,9 +19,9 @@
       </div>
     </div>
   <% @process_steps.each do |process_step| %>
-    <div class="row-fluid" style="margin-bottom:10px;">
+    <div class="row-fluid" style="margin-bottom:30px;">
       <div class="span1" id="step<%= process_step.id %>" style="min-width:100px; line-height:7em; text-align:center;">
-        <%= image(process_step) %>
+        <%= image(process_step), width: "80%" %>
       </div>
       <div class="span4 offset1">
         <h4><%= link_to process_step.title, process_step_path(process_step) %></h4>
