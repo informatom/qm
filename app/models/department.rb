@@ -10,12 +10,12 @@ class Department < ActiveRecord::Base
 
   belongs_to :company
   has_many :department_affiliations, :dependent => :restrict, :inverse_of => :department
-  has_many :users, :through => :department_affiliations, :dependent => :restrict
+  has_many :users, :through => :department_affiliations, :dependent => :restrict, :inverse_of => :departments
   accepts_nested_attributes_for :department_affiliations, :allow_destroy => true
 
   has_many :business_process_department_assignments, :dependent => :restrict, :inverse_of => :department
-  has_many :business_processes, :through => :business_process_department_assignments, :dependent => :restrict
+  has_many :business_processes, :through => :business_process_department_assignments, :dependent => :restrict, :inverse_of => :department
   accepts_nested_attributes_for :business_process_department_assignments, :allow_destroy => true
 
-  has_many :instructions, :dependent => :restrict, :foreign_key => "scope_id"
+  has_many :instructions, :dependent => :restrict, :foreign_key => "scope_id", :inverse_of => :department
 end

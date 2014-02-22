@@ -8,7 +8,7 @@ class BusinessProcessDepartmentAssignment < ActiveRecord::Base
   validates_uniqueness_of :department_id, :scope => :business_process_id
   validates_presence_of :company_id
 
-  belongs_to :business_process
-  belongs_to :department
-  belongs_to :company
+  belongs_to :business_process, :inverse_of => :business_process_department_assignments
+  belongs_to :department, :inverse_of => :business_process_department_assignments
+  belongs_to :company, :inverse_of => :business_process_department_assignments
 end

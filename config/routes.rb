@@ -60,6 +60,7 @@ Qm::Application.routes.draw do
     member do
       get 'organigram'
       post 'organigram'
+      post 'copy'
     end
   end
 

@@ -9,6 +9,6 @@ class FlowObject < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
-  has_many :process_steps, :dependent => :restrict
-  has_many :sequence_flows, :dependent => :restrict
+  has_many :process_steps, :dependent => :restrict, :inverse_of => :flow_object
+  has_many :sequence_flows, :dependent => :restrict, :inverse_of => :flow_object
 end

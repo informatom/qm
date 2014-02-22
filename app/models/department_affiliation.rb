@@ -7,7 +7,7 @@ class DepartmentAffiliation < ActiveRecord::Base
   validates_presence_of :user
   validates_uniqueness_of :department_id, :scope => :user_id
 
-  belongs_to :user
-  belongs_to :department
-  belongs_to :company
+  belongs_to :user, :inverse_of => :department_affiliations
+  belongs_to :department, :inverse_of => :department_affiliations
+  belongs_to :company, :inverse_of => :department_affiliations
 end

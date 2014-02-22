@@ -8,7 +8,7 @@ class UserFunctionAssignment < ActiveRecord::Base
   validates_uniqueness_of :function_id, :scope => :user_id
   validates_presence_of :company_id
 
-  belongs_to :function
-  belongs_to :user
-  belongs_to :company
+  belongs_to :function, :inverse_of => :user_function_assignments
+  belongs_to :user, :inverse_of => :user_function_assignments
+  belongs_to :company, :inverse_of => :user_function_assignments
 end

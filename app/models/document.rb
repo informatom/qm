@@ -17,14 +17,14 @@ class Document < ActiveRecord::Base
   belongs_to :released_by, :class_name => "User"
 
   has_many :business_process_document_assignments, :dependent => :restrict, :inverse_of => :document
-  has_many :business_processes, :through => :business_process_document_assignments, :dependent => :restrict
+  has_many :business_processes, :through => :business_process_document_assignments, :dependent => :restrict, :inverse_of => :documents
   accepts_nested_attributes_for :business_process_document_assignments, :allow_destroy => true
 
   has_many :instruction_document_assignments, :dependent => :restrict, :inverse_of => :document
-  has_many :instructions, :through => :instruction_document_assignments, :dependent => :restrict
+  has_many :instructions, :through => :instruction_document_assignments, :dependent => :restrict, :inverse_of => :documents
   accepts_nested_attributes_for :instruction_document_assignments, :allow_destroy => true
 
   has_many :document_process_step_assignments, :dependent => :restrict, :inverse_of => :document
-  has_many :process_steps, :through => :document_process_step_assignments, :dependent => :restrict
+  has_many :process_steps, :through => :document_process_step_assignments, :dependent => :restrict, :inverse_of => :documents
   accepts_nested_attributes_for :document_process_step_assignments, :allow_destroy => true
 end

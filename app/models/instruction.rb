@@ -16,18 +16,18 @@ class Instruction < ActiveRecord::Base
 
   belongs_to :company
 
-  belongs_to :in_charge, :class_name => "User"
-  belongs_to :controlled_by, :class_name => "User"
-  belongs_to :released_by, :class_name => "User"
-  belongs_to :scope, :class_name => "Department"
-  belongs_to :creator, :class_name => "User", foreign_key: "created_by"
-  belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
+  belongs_to :in_charge, :class_name => "User", :inverse_of => :charged_instructions
+  belongs_to :controlled_by, :class_name => "User", :inverse_of => :controlled_instructions
+  belongs_to :released_by, :class_name => "User", :inverse_of => :released_instructions
+  belongs_to :scope, :class_name => "Department", :inverse_of => :instructions
+  belongs_to :creator, :class_name => "User", foreign_key: "created_by", :inverse_of => :instructions
+  belongs_to :updator, :class_name => "User", foreign_key: "updated_by", :inverse_of => :instructions
 
-  has_many :instruction_process_step_assignments, :dependent => :restrict
-  has_many :process_steps, :through => :instruction_process_step_assignments, :dependent => :restrict
+  has_many :instruction_process_step_assignments, :dependent => :restrict, :inverse_of => :instruction
+  has_many :process_steps, :through => :instruction_process_step_assignments, :dependent => :restrict, :inverse_of => :instructions
   accepts_nested_attributes_for :instruction_process_step_assignments, :allow_destroy => true
 
-  has_many :instruction_document_assignments, :dependent => :restrict
-  has_many :documents, :through => :instruction_document_assignments, :dependent => :restrict
+  has_many :instruction_document_assignments, :dependent => :restrict, :inverse_of => :instruction
+  has_many :documents, :through => :instruction_document_assignments, :dependent => :restrict, :inverse_of => :instructions
   accepts_nested_attributes_for :instruction_document_assignments, :allow_destroy => true
 end

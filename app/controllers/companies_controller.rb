@@ -23,6 +23,16 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def copy
+    company = Company.find(params[:id])
+    new_company = company.amoeba_dup
+    new_company.name = "Kopie von " + company.name + " um " + I18n.l(Time.now()).to_s
+    debugger
+    # new_company.save
+    redirect_to new_company, notice: t('notice.company.copied')
+  end
+
+
   def destroy
     begin
       @company.destroy

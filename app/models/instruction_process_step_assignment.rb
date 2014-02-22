@@ -8,7 +8,7 @@ class InstructionProcessStepAssignment < ActiveRecord::Base
   validates_uniqueness_of :instruction_id, :scope => :process_step_id
   validates_presence_of :company_id
 
-  belongs_to :instruction
-  belongs_to :process_step
-  belongs_to :company
+  belongs_to :instruction, :inverse_of => :instruction_process_step_assignments
+  belongs_to :process_step, :inverse_of => :instruction_process_step_assignments
+  belongs_to :company, :inverse_of => :instruction_process_step_assignments
 end

@@ -6,9 +6,9 @@ class Substitution < ActiveRecord::Base
   validates_presence_of :deputy
   validates_presence_of :user
   validates_uniqueness_of :deputy_id, :scope => [ :user_id, :company_id ]
-  validates_presence_of :company_id
+  validates_presence_of :company
 
-  belongs_to :user
-  belongs_to :deputy
-  belongs_to :company
+  belongs_to :user, :inverse_of => :substitutions
+  belongs_to :deputy, :inverse_of => :substitutions
+  belongs_to :company, :inverse_of => :substitutions
 end

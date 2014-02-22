@@ -8,7 +8,7 @@ class InstructionDocumentAssignment < ActiveRecord::Base
   validates_uniqueness_of :instruction_id, :scope => :document_id
   validates_presence_of :company_id
 
-  belongs_to :instruction
-  belongs_to :document
-  belongs_to :company
+  belongs_to :instruction, :inverse_of => :instruction_document_assignments
+  belongs_to :document, :inverse_of => :instruction_document_assignments
+  belongs_to :company, :inverse_of => :instruction_document_assignments
 end

@@ -23,6 +23,11 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' if can? :delete, company %>
+          <%= link_to t('.copy', :default => icon("copy")),
+                      copy_company_path(company),
+                      :method => :post,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' if can? :copy, company %>
         </td>
       </tr>
     <% end %>

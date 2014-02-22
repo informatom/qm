@@ -10,15 +10,15 @@ class Note < ActiveRecord::Base
   validates_presence_of :controlled_by
   validates_presence_of :released_by
 
-  belongs_to :company
-  belongs_to :controlled_by, :class_name => "User"
-  belongs_to :released_by, :class_name => "User"
+  belongs_to :company, :inverse_of => :notes
+  belongs_to :controlled_by, :class_name => "User", :inverse_of => :controlled_notes
+  belongs_to :released_by, :class_name => "User", :inverse_of => :released_notes
 
   has_many :business_process_note_assignments, :dependent => :restrict, :inverse_of => :note
-  has_many :business_processes, :through => :business_process_note_assignments, :dependent => :restrict
+  has_many :business_processes, :through => :business_process_note_assignments, :dependent => :restrict, :inverse_of => :notes
   accepts_nested_attributes_for :business_process_note_assignments, :allow_destroy => true
 
   has_many :note_process_step_assignments, :dependent => :restrict, :inverse_of => :note
-  has_many :process_steps, :through => :note_process_step_assignments, :dependent => :restrict
+  has_many :process_steps, :through => :note_process_step_assignments, :dependent => :restrict, :inverse_of => :notes
   accepts_nested_attributes_for :note_process_step_assignments, :allow_destroy => true
 end

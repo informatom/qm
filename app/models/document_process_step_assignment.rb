@@ -8,7 +8,7 @@ class DocumentProcessStepAssignment < ActiveRecord::Base
   validates_uniqueness_of :document_id, :scope => :process_step_id
   validates_presence_of :company_id
 
-  belongs_to :document
-  belongs_to :process_step
-  belongs_to :company
+  belongs_to :document, :inverse_of => :document_process_step_assignments
+  belongs_to :process_step, :inverse_of => :document_process_step_assignments
+  belongs_to :company, :inverse_of => :document_process_step_assignments
 end

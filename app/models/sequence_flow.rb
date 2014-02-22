@@ -7,8 +7,9 @@ class SequenceFlow < ActiveRecord::Base
   validates_presence_of :target
   validates_presence_of :flow_object_id
 
-  belongs_to :company
-  belongs_to :source, :class_name => "ProcessStep", foreign_key: "source_id"
-  belongs_to :target, :class_name => "ProcessStep", foreign_key: "target_id"
-  belongs_to :flow_object
+  belongs_to :company, :inverse_of => :sequence_flows
+  belongs_to :source, :class_name => "ProcessStep", foreign_key: "source_id", :inverse_of => :outgoing_sequence_flows
+  belongs_to :target, :class_name => "ProcessStep", foreign_key: "target_id", :inverse_of => :incoming_sequence_flows
+
+  belongs_to :flow_object, :inverse_of => :sequence_flows
 end

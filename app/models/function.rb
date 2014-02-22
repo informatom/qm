@@ -14,6 +14,6 @@ class Function < ActiveRecord::Base
   belongs_to :released_by, :class_name => "User"
 
   has_many :user_function_assignments, :dependent => :restrict, :inverse_of => :function
-  has_many :users, :through => :user_function_assignments, :dependent => :restrict
+  has_many :users, :through => :user_function_assignments, :dependent => :restrict, :inverse_of => :functions
   accepts_nested_attributes_for :user_function_assignments, :allow_destroy => true
 end

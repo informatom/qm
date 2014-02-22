@@ -26,7 +26,8 @@ gem 'paper_trail', '~> 2'                            # Versioning
 gem 'differ'                                         # View diffs
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
                                                      # Twitter Bootstrap for Rails 3.1 Asset Pipeline
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"                                     # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'amoeba'                                         # Deep copy of associations
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

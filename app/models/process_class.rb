@@ -7,6 +7,6 @@ class ProcessClass < ActiveRecord::Base
   validates_presence_of :color
   validates_uniqueness_of :name, :scope => :company_id
 
-  belongs_to :company
-  has_many :business_processes, :dependent => :restrict
+  belongs_to :company, :inverse_of => :process_classes
+  has_many :business_processes, :dependent => :restrict, :inverse_of => :process_class
 end

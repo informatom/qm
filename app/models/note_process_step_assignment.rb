@@ -8,7 +8,7 @@ class NoteProcessStepAssignment < ActiveRecord::Base
   validates_uniqueness_of :note_id, :scope => :process_step_id
   validates_presence_of :company_id
 
-  belongs_to :note
-  belongs_to :process_step
-  belongs_to :company
+  belongs_to :note, :inverse_of => :note_process_step_assignments
+  belongs_to :process_step, :inverse_of => :note_process_step_assignments
+  belongs_to :company, :inverse_of => :note_process_step_assignments
 end
