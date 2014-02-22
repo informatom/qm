@@ -16,7 +16,9 @@ class ProcessIndicatorsController < ApplicationController
   end
 
   def update
-    if @process_indicator.update_attributes(params[:process_indicator])
+
+    if @process_indicator.update_attributes(params[:process_indicator]) && 
+       @process_indicator.update_attributes(operator: params[:process_indicator][:operator][0])
       redirect_to @process_indicator, notice: t('notice.process_indicator.updated')
     else
       render action: "edit"
