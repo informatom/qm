@@ -1,6 +1,6 @@
 <%- model_class = BusinessProcess -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t("helpers.process_modell") + " " + @business_process.name %></h1>
+  <h1><%#=t '.title', :default => t("helpers.process_modell") + " " + -%> <%= @business_process.name %></h1>
 </div>
 
 <div class="hero-unit" style="height: 400px; position: relative;" id="diagram">
