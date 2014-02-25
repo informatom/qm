@@ -25,18 +25,12 @@ class CompaniesController < ApplicationController
 
   def copy
     company = Company.find(params[:id])
-    new_company = company.dup :include => [:substitutions, 
-                                           :employments, 
-                                           {:departments => {:department_affiliations => :company}}],
-                              :use_dictionary => true
-#                                            {:user_function_assignments => :function},
-#                                           {:user_role_in_company_assignments => :role_in_company},
-#                                          {:process_classes => {:business_processes => {:process_steps => {:outgoing_sequence_flows => :target}}}}],
-# :business_process_department_assignments
-
-    new_company.name = "Kopie von " + company.name + " um " + I18n.l(Time.now()).to_s
+    new_company = company.dup 
+    new_company.update(name: "Kopie von " + company.name + " um " + I18n.l(Time.now()).to_s,
+                       legacy_id: company.id)
     new_company.save
-    debugger
+    
+
     redirect_to new_company, notice: t('notice.company.copied')
   end
 

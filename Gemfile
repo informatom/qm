@@ -48,4 +48,5 @@ group :test, :development do
   gem "shoulda"                                      # expands rspec matcher, e.g. should validate_uniqueness_of
   gem 'better_errors'                                # Nicer error messages
   gem 'binding_of_caller'                            # Even nicer debugging
+  gem "rails-erd"                                    # ER-Diagrams
 end

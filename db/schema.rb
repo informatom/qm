@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140126104500) do
+ActiveRecord::Schema.define(:version => 20140225121700) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "business_process_department_assignments", :force => true do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "business_process_document_assignments", :force => true do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "business_process_note_assignments", :force => true do |t|
@@ -42,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "business_process_process_indicator_assignments", :force => true do |t|
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "business_processes", :force => true do |t|
@@ -72,12 +77,14 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.string   "area"
     t.integer  "released_by_id"
     t.integer  "controlled_by_id"
+    t.integer  "legacy_id"
   end
 
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "department_affiliations", :force => true do |t|
@@ -86,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "company_id"
+    t.integer  "legacy_id"
   end
 
   create_table "departments", :force => true do |t|
@@ -95,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "updated_at", :null => false
     t.integer  "x"
     t.integer  "y"
+    t.integer  "legacy_id"
   end
 
   create_table "document_process_step_assignments", :force => true do |t|
@@ -103,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "documents", :force => true do |t|
@@ -115,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.string   "attachment"
     t.integer  "released_by_id"
     t.integer  "controlled_by_id"
+    t.integer  "legacy_id"
   end
 
   create_table "employments", :force => true do |t|
@@ -122,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "flow_objects", :force => true do |t|
@@ -148,6 +160,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "y"
     t.integer  "released_by_id"
     t.integer  "controlled_by_id"
+    t.integer  "legacy_id"
   end
 
   create_table "instruction_document_assignments", :force => true do |t|
@@ -156,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "instruction_process_step_assignments", :force => true do |t|
@@ -164,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "instructions", :force => true do |t|
@@ -185,6 +200,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.text     "on_deviation"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "news", :force => true do |t|
@@ -202,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "company_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "notes", :force => true do |t|
@@ -216,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.string   "archiving"
     t.integer  "released_by_id"
     t.integer  "controlled_by_id"
+    t.integer  "legacy_id"
   end
 
   create_table "process_classes", :force => true do |t|
@@ -225,6 +243,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "color"
+    t.integer  "legacy_id"
   end
 
   create_table "process_indicators", :force => true do |t|
@@ -238,6 +257,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.text     "description"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "process_steps", :force => true do |t|
@@ -250,6 +270,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.integer  "updated_by"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "legacy_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -264,6 +285,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.text     "description"
+    t.integer  "legacy_id"
   end
 
   create_table "sequence_flows", :force => true do |t|
@@ -274,6 +296,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "company_id"
+    t.integer  "legacy_id"
   end
 
   create_table "substitutions", :force => true do |t|
@@ -282,6 +305,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "company_id"
+    t.integer  "legacy_id"
   end
 
   create_table "user_function_assignments", :force => true do |t|
@@ -290,6 +314,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "company_id"
+    t.integer  "legacy_id"
   end
 
   create_table "user_role_in_company_assignments", :force => true do |t|
@@ -298,6 +323,7 @@ ActiveRecord::Schema.define(:version => 20140126104500) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "company_id"
+    t.integer  "legacy_id"
   end
 
   create_table "users", :force => true do |t|

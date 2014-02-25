@@ -18,8 +18,8 @@ class ProcessStep < ActiveRecord::Base
 
   belongs_to :company, :inverse_of => :process_steps
   belongs_to :business_process, :inverse_of => :process_steps
-  belongs_to :creator, :class_name => "User", foreign_key: "created_by", :inverse_of => :created_process_steps
-  belongs_to :updator, :class_name => "User", foreign_key: "updated_by", :inverse_of => :updated_process_steps
+  belongs_to :creator, :class_name => "User", foreign_key: "created_by"
+  belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
   belongs_to :flow_object
 
   has_many :successors, :through => :outgoing_sequence_flows, :dependent => :restrict,

@@ -20,8 +20,8 @@ class Instruction < ActiveRecord::Base
   belongs_to :controlled_by, :class_name => "User", :inverse_of => :controlled_instructions
   belongs_to :released_by, :class_name => "User", :inverse_of => :released_instructions
   belongs_to :scope, :class_name => "Department", :inverse_of => :instructions
-  belongs_to :creator, :class_name => "User", foreign_key: "created_by", :inverse_of => :instructions
-  belongs_to :updator, :class_name => "User", foreign_key: "updated_by", :inverse_of => :instructions
+  belongs_to :creator, :class_name => "User", foreign_key: "created_by"
+  belongs_to :updator, :class_name => "User", foreign_key: "updated_by"
 
   has_many :instruction_process_step_assignments, :dependent => :restrict, :inverse_of => :instruction
   has_many :process_steps, :through => :instruction_process_step_assignments, :dependent => :restrict, :inverse_of => :instructions

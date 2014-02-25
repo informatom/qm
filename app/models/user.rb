@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :assignments, :dependent => :restrict, :inverse_of => :users
 
   has_many :substitutions, :inverse_of => :user, :dependent => :restrict
-  has_many :deputies, :through => :substitutions, :dependent => :restrict, :inverse_of => :users
+  has_many :deputies, :through => :substitutions, :dependent => :restrict, :inverse_of => :replaces
   accepts_nested_attributes_for :substitutions, :allow_destroy => true
 
   has_many :replacements, :inverse_of => :deputy, :dependent => :restrict, :class_name => "Substitution", 
