@@ -24,12 +24,50 @@ class CompaniesController < ApplicationController
   end
 
   def copy
-    company = Company.find(params[:id])
-    new_company = company.dup 
-    new_company.update(name: "Kopie von " + company.name + " um " + I18n.l(Time.now()).to_s,
-                       legacy_id: company.id)
-    new_company.save
+    id = params[:id]
+    c = Company.find(id)
+    new_company = c.dup 
+    new_company.name = "Kopie von " + c.name + " um " + I18n.l(Time.now()).to_s
+    new_company.legacy_id = c.id
+    debugger unless new_company.save
     
+    es = Employment.where(company_id: id)
+    es.each do |o|
+      n = o.dup
+      n.company_id = new_company.id
+      n.legacy_id = o.id
+      debugger unless n.save
+    end
+
+    pcs = ProcessClass.where(company_id: id)
+    pcs.each do |o|
+      n = o.dup
+      n.company_id = new_company.id
+      n.legacy_id = o.id
+      debugger unless n.save
+    end
+
+    root = BusinessProcess.where(company_id: id).first.root
+    root.duplicate(company_id: new_company.id, parent_id: nil)
+
+    rocs = RoleInCompany.where(company_id: id)
+    rocs.each do |o|
+      n = o.dup
+      n.company_id = new_company.id
+      n.legacy_id = o.id
+      debugger unless n.save
+    end
+
+    urica = UserRoleInCompanyAssignment.where(company_id: id)
+    urica.each do |o|
+      n = o.dup
+      n.company_id = new_company.id
+      rics = RoleInCompany.where(legacy_id: o.role_in_company_id, company_id: new_company.id)
+      next unless rics.any?
+      n.role_in_company_id = rics.first.id
+      n.legacy_id = o.id
+      debugger unless n.save
+    end
 
     redirect_to new_company, notice: t('notice.company.copied')
   end

@@ -20,7 +20,7 @@
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_substitution_path(substitution), :class => 'btn btn-mini' if can? :edit, substitution %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       substitution_path(substitution),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

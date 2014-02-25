@@ -18,7 +18,7 @@
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_role_path(role), :class => 'btn btn-mini' if can? :edit, role %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       role_path(role),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

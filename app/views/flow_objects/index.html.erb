@@ -22,7 +22,7 @@
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_flow_object_path(flow_object), :class => 'btn btn-mini' if can? :edit, flow_object %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       flow_object_path(flow_object),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

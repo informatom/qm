@@ -21,7 +21,7 @@
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_business_process_department_assignment_path(business_process_department_assignment), 
                       :class => 'btn btn-mini' if can? :edit, business_process_department_assignment %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       business_process_department_assignment_path(business_process_department_assignment),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

@@ -58,7 +58,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_role_path(role), :class => 'btn btn-mini' if can? :edit, role %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           role_path(role),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -87,7 +87,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_function_path(function), :class => 'btn btn-mini' if can? :edit, function %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           function_path(function),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -116,7 +116,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_department_path(department), :class => 'btn btn-mini' if can? :edit, department %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           department_path(department),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -145,7 +145,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_role_in_company_path(role_in_company), :class => 'btn btn-mini' if can? :edit, role_in_company %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           role_in_company_path(role_in_company),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -176,7 +176,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           admin_user_path(user),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -207,7 +207,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_admin_user_path(user), :class => 'btn btn-mini' if can? :edit, user %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           admin_user_path(user),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

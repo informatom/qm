@@ -21,7 +21,7 @@
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_instruction_document_assignment_path(instruction_document_assignment), 
                       :class => 'btn btn-mini' if can? :edit, instruction_document_assignment %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       instruction_document_assignment_path(instruction_document_assignment),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

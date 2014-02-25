@@ -21,7 +21,7 @@
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_note_process_step_assignment_path(note_process_step_assignment), 
                       :class => 'btn btn-mini' if can? :edit, note_process_step_assignment %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       note_process_step_assignment_path(note_process_step_assignment),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

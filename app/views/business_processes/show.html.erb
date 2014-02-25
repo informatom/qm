@@ -61,7 +61,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_note_path(note), :class => 'btn btn-mini' if can? :edit, note %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           note_path(note),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -94,7 +94,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           document_path(document),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -123,7 +123,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_process_indicator_path(process_indicator), :class => 'btn btn-mini' if can? :edit, process_indicator %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           process_indicator_path(process_indicator),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -152,7 +152,7 @@
             <td>
               <%= link_to t('.edit', :default => icon("edit")),
                           edit_department_path(department), :class => 'btn btn-mini' if can? :edit, department %>
-              <%= link_to t('.destroy', :default => icon("trash")),
+              <%= link_to t('.destroy', :default => icon("trash-o")),
                           department_path(department),
                           :method => :delete,
                           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

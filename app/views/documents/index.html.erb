@@ -26,7 +26,7 @@
         <td>
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_document_path(document), :class => 'btn btn-mini' if can? :edit, document %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       document_path(document),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

@@ -38,4 +38,25 @@ class BusinessProcess < ActiveRecord::Base
   accepts_nested_attributes_for :business_process_department_assignments, :allow_destroy => true
 
   has_many :process_steps
+
+  def duplicate(company_id: nil, parent_id: nil)
+    new_business_process = self.dup
+    new_business_process.company_id = company_id
+    new_business_process.legacy_id = self.id
+
+    pcs = ProcessClass.where(legacy_id: self.process_class_id, company_id: company_id)
+    return unless pcs.any?
+
+    new_business_process.process_class_id = pcs.first.id
+
+    new_business_process.parent_id = parent_id
+    new_business_process.owner_id ||= BusinessProcess.find(parent_id).owner_id
+    new_business_process.released_by_id ||= new_business_process.owner_id  
+    new_business_process.controlled_by_id ||= new_business_process.owner_id  
+    debugger unless new_business_process.save
+
+    self.children.each do |child|
+      child.duplicate(company_id: company_id, parent_id: id)
+    end
+  end 
 end

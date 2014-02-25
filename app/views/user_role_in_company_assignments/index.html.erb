@@ -21,7 +21,7 @@
           <%= link_to t('.edit', :default => icon("edit")),
                       edit_user_role_in_company_assignment_path(user_role_in_company_assignment), 
                       :class => 'btn btn-mini' if can? :edit, user_role_in_company_assignment %>
-          <%= link_to t('.destroy', :default => icon("trash")),
+          <%= link_to t('.destroy', :default => icon("trash-o")),
                       user_role_in_company_assignment_path(user_role_in_company_assignment),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
