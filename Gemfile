@@ -15,7 +15,7 @@ gem "cocoon", :git => 'git://github.com/nathanvda/cocoon.git'                   
 gem 'textile_editor_helper', :git => 'git://github.com/bridgeutopia/textile_editor_helper.git'     # Helper for buttons on textarea
 gem 'RedCloth'                                       # textile library
 gem 'htmlentities'                                   # requirement of textile_editor_helper, e.g. &auml;
-gem "truncate_html"         # Für truncate_html
+gem "truncate_html"                                  # Für truncate_html
 gem 'jquery-datatables-rails'                        # Tables
 gem 'carrierwave'                                    # Uploads
 gem 'wicked_pdf'                                     # PDF Creation
@@ -27,7 +27,7 @@ gem 'differ'                                         # View diffs
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
                                                      # Twitter Bootstrap for Rails 3.1 Asset Pipeline
 gem "less-rails"                                     # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'deep_cloneable'                                         # Deep copy of associations
+gem "font-awesome-rails"                             # Font-awesome integration
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'                     # anables SASS in addition to CSS

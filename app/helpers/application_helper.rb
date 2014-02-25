@@ -28,17 +28,17 @@ module ApplicationHelper
   end
 
   def icon_(value)
-    raw("<i class='icon-#{value}'></i> &nbsp;")
+    raw("<i class='fa fa-#{value}'></i> &nbsp;")
   end
 
   def icon(value)
-    raw("<i class='icon-#{value}'></i>")
+    raw("<i class='fa fa-#{value}'></i>")
   end
 
   def icons(values)
     output = []
     values.each do |value|
-      output << "<i class='icon-#{value}'></i>"
+      output << "<i class='fa fa-#{value}'></i>"
     end
     output << " &nbsp; "
     raw(output.join)
