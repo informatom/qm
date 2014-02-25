@@ -42,9 +42,4 @@ class Company < ActiveRecord::Base
   has_many :instructions, :dependent => :restrict, :inverse_of => :company
   has_many :instruction_process_step_assignments, :dependent => :restrict, :inverse_of => :company
   has_many :instruction_document_assignments, :dependent => :restrict, :inverse_of => :company
-
-  amoeba do
-    enable
-    exclude_field [:users]
-  end
 end
