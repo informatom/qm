@@ -18,6 +18,7 @@ gem 'htmlentities'                                   # requirement of textile_ed
 gem "truncate_html"                                  # Für truncate_html
 gem 'jquery-datatables-rails'                        # Tables
 gem 'carrierwave'                                    # Uploads
+gem 'copy_carrierwave_file', github: 'equivalent/copy_carrierwave_file' # for asset-copying between instances
 gem 'wicked_pdf'                                     # PDF Creation
 gem 'rails3-jquery-autocomplete'                     # autocompletion
 

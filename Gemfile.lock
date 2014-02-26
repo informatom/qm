@@ -5,6 +5,12 @@ GIT
     textile_editor_helper (0.0.31)
 
 GIT
+  remote: git://github.com/equivalent/copy_carrierwave_file.git
+  revision: 5404b356af97f2897d2ece976ccd6226c618861d
+  specs:
+    copy_carrierwave_file (1.0.0)
+
+GIT
   remote: git://github.com/nathanvda/cocoon.git
   revision: bd8c4a232568cd79dfbec1f9709d3c8a9098ee4b
   specs:
@@ -267,6 +273,7 @@ DEPENDENCIES
   carrierwave
   cocoon!
   coffee-rails (~> 3.2.1)
+  copy_carrierwave_file!
   cucumber-rails
   database_cleaner
   devise

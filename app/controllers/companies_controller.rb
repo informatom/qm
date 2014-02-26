@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   load_and_authorize_resource
+  include CopyCarrierwaveFile
 
    def new
      @company = Company.new()
@@ -52,13 +53,10 @@ class CompaniesController < ApplicationController
       n = o.dup
       n.legacy_id = o.id
       n.company_id = new_company.id
-
       pcs = ProcessClass.where(legacy_id: o.process_class_id, company_id: new_company.id)
       n.process_class_id = pcs.first.id if pcs.any?
-
       n.save(validate: false)
     end
-
     bps.each do |o|
       n = BusinessProcess.where(legacy_id: o.id, company_id: new_company.id).first
       n.parent = BusinessProcess.where(legacy_id: o.parent.id, company_id: new_company.id).first if o.parent
@@ -79,8 +77,7 @@ class CompaniesController < ApplicationController
       n.legacy_id = o.id
       n.company_id = new_company.id
       rics = RoleInCompany.where(legacy_id: o.role_in_company_id, company_id: new_company.id)
-      next unless rics.any?
-      n.role_in_company_id = rics.first.id
+      n.role_in_company_id = rics.first.id if rics.any?
       n.save
     end
 
@@ -103,6 +100,173 @@ class CompaniesController < ApplicationController
       n.source_id = ss.first.id if ss.any?
       ts = ProcessStep.where(legacy_id: o.target_id, company_id: new_company.id)
       n.target_id = ts.first.id if ss.any?
+      n.save
+    end
+
+    ds = Department.where(company_id: id)
+    ds.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      n.save
+    end
+
+    das = DepartmentAffiliation.where(company_id: id)
+    das.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      ds = Department.where(legacy_id: o.department_id, company_id: new_company.id)
+      n.department_id = ds.first.id if ds.any?
+      n.save
+    end
+
+    pis = ProcessIndicator.where(company_id: id)
+    pis.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      n.save
+    end
+
+    ns = Note.where(company_id: id)
+    ns.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      n.save
+    end
+
+    npsas = NoteProcessStepAssignment.where(company_id: id)
+    npsas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      ns = Note.where(legacy_id: o.note_id, company_id: new_company.id)
+      n.note_id =  ns.first.id if ns.any?
+      pss = ProcessStep.where(legacy_id: o.process_step_id, company_id: new_company.id)
+      n.process_step_id =  pss.first.id if pss.any?
+      n.save
+    end
+
+    bpnas = BusinessProcessNoteAssignment.where(company_id: id)
+    bpnas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      bps = BusinessProcess.where(legacy_id: o.business_process_id, company_id: new_company.id)
+      n.business_process_id = bps.first.id if bps.any?
+      ns = Note.where(legacy_id: o.note_id, company_id: new_company.id)
+      n.note_id =  ns.first.id if ns.any?
+      n.save
+    end
+
+    bppias = BusinessProcessProcessIndicatorAssignment.where(company_id: id)
+    bppias.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      bps = BusinessProcess.where(legacy_id: o.business_process_id, company_id: new_company.id)
+      n.business_process_id = bps.first.id if bps.any?
+      pis = ProcessIndicator.where(legacy_id: o.process_indicator_id, company_id: new_company.id)
+      n.process_indicator_id =  pis.first.id if pis.any?
+      n.save
+    end
+
+    is = Instruction.where(company_id: id)
+    is.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      ds = Department.where(legacy_id: o.scope_id, company_id: new_company.id)
+      n.scope_id = ds.first.id if ds.any?
+      n.save
+    end
+
+    ipsas = InstructionProcessStepAssignment.where(company_id: id)
+    ipsas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      is = Instruction.where(legacy_id: o.instruction_id, company_id: new_company.id)
+      n.instruction_id =  is.first.id if is.any?
+      pss = ProcessStep.where(legacy_id: o.process_step_id, company_id: new_company.id)
+      n.process_step_id =  pss.first.id if pss.any?
+      n.save
+    end
+
+    bpdas = BusinessProcessDepartmentAssignment.where(company_id: id)
+    bpdas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      bps = BusinessProcess.where(legacy_id: o.business_process_id, company_id: new_company.id)
+      n.business_process_id = bps.first.id if bps.any?
+      ds = Department.where(legacy_id: o.department_id, company_id: new_company.id)
+      n.department_id = ds.first.id if ds.any?
+      n.save
+    end
+
+    fs = Function.where(company_id: id)
+    fs.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      n.save
+    end
+
+    ufas = UserFunctionAssignment.where(company_id: id)
+    ufas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      fs = Function.where(legacy_id: o.function_id, company_id: new_company.id)
+      n.function_id = fs.first.id if fs.any?
+      n.save
+    end
+
+    ds = Document.where(company_id: id)
+    ds.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      copy_carrierwave_file(o, n, :attachment) if o.attachment.url
+      n.save
+    end
+
+    idas = InstructionDocumentAssignment.where(company_id: id)
+    idas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      is = Instruction.where(legacy_id: o.instruction_id, company_id: new_company.id)
+      n.instruction_id =  is.first.id if is.any?
+      ds = Document.where(legacy_id: o.document_id, company_id: new_company.id)
+      n.document_id =  ds.first.id if ds.any?
+      n.save
+    end
+
+    bpdas = BusinessProcessDocumentAssignment.where(company_id: id)
+    bpdas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      bps = BusinessProcess.where(legacy_id: o.business_process_id, company_id: new_company.id)
+      n.business_process_id = bps.first.id if bps.any?
+      ds = Document.where(legacy_id: o.document_id, company_id: new_company.id)
+      n.document_id =  ds.first.id if ds.any?
+      n.save
+    end
+
+    dpsas = DocumentProcessStepAssignment.where(company_id: id)
+    dpsas.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      ds = Document.where(legacy_id: o.document_id, company_id: new_company.id)
+      n.document_id =  ds.first.id if ds.any?
+      pss = ProcessStep.where(legacy_id: o.process_step_id, company_id: new_company.id)
+      n.process_step_id =  pss.first.id if pss.any?
       n.save
     end
 
