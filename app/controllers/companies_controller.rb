@@ -26,52 +26,88 @@ class CompaniesController < ApplicationController
   def copy
     id = params[:id]
     c = Company.find(id)
-    new_company = c.dup 
-    new_company.name = "Kopie von " + c.name + " um " + I18n.l(Time.now()).to_s
+    new_company = c.dup
     new_company.legacy_id = c.id
-    debugger unless new_company.save
-    
+    new_company.name = "Kopie von " + c.name + " um " + I18n.l(Time.now()).to_s
+    new_company.save
+
     es = Employment.where(company_id: id)
     es.each do |o|
       n = o.dup
-      n.company_id = new_company.id
       n.legacy_id = o.id
-      debugger unless n.save
+      n.company_id = new_company.id
+      n.save
     end
 
     pcs = ProcessClass.where(company_id: id)
     pcs.each do |o|
       n = o.dup
-      n.company_id = new_company.id
       n.legacy_id = o.id
-      debugger unless n.save
+      n.company_id = new_company.id
+      n.save
     end
 
-    root = BusinessProcess.where(company_id: id).first.root
-    root.duplicate(company_id: new_company.id, parent_id: nil)
+    bps = BusinessProcess.where(company_id: id)
+    bps.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+
+      pcs = ProcessClass.where(legacy_id: o.process_class_id, company_id: new_company.id)
+      n.process_class_id = pcs.first.id if pcs.any?
+
+      n.save(validate: false)
+    end
+
+    bps.each do |o|
+      n = BusinessProcess.where(legacy_id: o.id, company_id: new_company.id).first
+      n.parent = BusinessProcess.where(legacy_id: o.parent.id, company_id: new_company.id).first if o.parent
+      n.save
+    end
 
     rocs = RoleInCompany.where(company_id: id)
     rocs.each do |o|
       n = o.dup
-      n.company_id = new_company.id
       n.legacy_id = o.id
-      debugger unless n.save
+      n.company_id = new_company.id
+      n.save
     end
 
     urica = UserRoleInCompanyAssignment.where(company_id: id)
     urica.each do |o|
       n = o.dup
+      n.legacy_id = o.id
       n.company_id = new_company.id
       rics = RoleInCompany.where(legacy_id: o.role_in_company_id, company_id: new_company.id)
       next unless rics.any?
       n.role_in_company_id = rics.first.id
+      n.save
+    end
+
+    pss = ProcessStep.where(company_id: id)
+    pss.each do |o|
+      n = o.dup
       n.legacy_id = o.id
-      debugger unless n.save
+      n.company_id = new_company.id
+      bps = BusinessProcess.where(legacy_id: o.business_process_id, company_id: new_company.id)
+      n.business_process_id = bps.first.id if bps.any?
+      n.save
+    end
+
+    sfs = SequenceFlow.where(company_id: id)
+    sfs.each do |o|
+      n = o.dup
+      n.legacy_id = o.id
+      n.company_id = new_company.id
+      ss = ProcessStep.where(legacy_id: o.source_id, company_id: new_company.id)
+      n.source_id = ss.first.id if ss.any?
+      ts = ProcessStep.where(legacy_id: o.target_id, company_id: new_company.id)
+      n.target_id = ts.first.id if ss.any?
+      n.save
     end
 
     redirect_to new_company, notice: t('notice.company.copied')
   end
-
 
   def destroy
     begin
